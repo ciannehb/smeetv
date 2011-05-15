@@ -64,12 +64,21 @@
 <script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
 <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4dbc63166fcdf6f9"></script>
 <!-- AddThis Button END -->
-
-
-
     </aside>
     </article>
 
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-1221828368307550";
+/* smeetv_injected_slide */
+google_ad_slot = "2446448564";
+google_ad_width = 336;
+google_ad_height = 280;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
 
 
 <?require_once($_SERVER['DOCUMENT_ROOT'].'/smeetv/footer.php');?>
