@@ -1,4 +1,4 @@
-<?function drawHeader($title,$u=0,$m=0){?>
+<?function drawHeader($title,$user_loggedin=0,$show_menu=0){?>
 <!DOCTYPE html> 
 <html lang="en"> 
 <html> 
@@ -26,7 +26,8 @@
 <header id="topnav">
 <h1 title="smeetv -- tv window into twitter universe">smee<span>tv</span></h1><sup title="alpha version -- unpredictable behavior expected">&alpha;</sup>
 &mdash;
-<?if($u && $m==1){?>
+<nav>
+<?if($user_loggedin && $show_menu==1){?>
 <a href="/" class="gotoremotecontrol gototrigger" rel="gotoremotecontrol">tv</a> |
 <a href="/smeetv/profile.php" class="gotosettings gototrigger" rel="gotosettings">settings</a> |
 <a href="" class="gotohelp gototrigger" rel="gotohelp">help</a> |
@@ -38,7 +39,7 @@
 
 
 <?
-}elseif($u==0 && $m==1){
+}elseif($user_loggedin==0 && $show_menu==1){
 ?>
 
 <a href="/smeetv/signup.php">register</a> |
@@ -47,7 +48,7 @@
 <a href="/smeetv/login.php">login</a>
 
 <?}?>
-
+</nav>
 
 </header>
 <?}?>

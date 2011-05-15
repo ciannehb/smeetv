@@ -17,7 +17,7 @@ All Rights Reserved.</copyright>
 </image>
 
 <?
-    include('../../func.php');
+    include($_SERVER['DOCUMENT_ROOT'].'/smeetv/func.php');
     //session_start();
 
     if(isUserLoggedIn()==1){

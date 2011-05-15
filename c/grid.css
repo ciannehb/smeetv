@@ -577,6 +577,10 @@ background-position: -64px -224px;
     font-size: 140%;
 }
 
+#topnav nav {
+display:inline;
+}
+
 
 #topnav a,
 #topnav h1 {
