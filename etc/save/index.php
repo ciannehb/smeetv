@@ -2,6 +2,12 @@
 session_start();
 require_once($_SERVER["DOCUMENT_ROOT"].'/smeetv/func.php');
 
+if(!isUserLoggedIn()==1){
+    //header("Location:/");
+    return;
+}
+
+
 
 $_POST['section']=advancedClean(3,$_POST['section']);
 $_POST['password']=advancedClean(3,$_POST['password']);
@@ -9,20 +15,11 @@ $_POST['ad']=advancedClean(3,$_POST['ad']);
 $_POST['op']=advancedClean(3,$_POST['op']);
 
 $_POST['smeetv_hashtags']=advancedClean(3,$_POST['smeetv_hashtags']);
+$_POST['smeetv_hashtags_prev']=advancedClean(3,$_POST['smeetv_hashtags_prev']);
 $_POST['smeetv_speed']=advancedClean(3,$_POST['smeetv_speed']);
 $_POST['smeetv_size']=advancedClean(3,$_POST['smeetv_size']);
 $_POST['smeetv_text']=advancedClean(3,$_POST['smeetv_text']);
 $_POST['smeetv_img_num']=advancedClean(3,$_POST['smeetv_img_num']);
-
-
-
-
-if(!isUserLoggedIn()==1){
-    //header("Location:/");
-    return;
-}
-
-
 
 
 $username=$_SESSION['username'];
@@ -31,10 +28,32 @@ $id=$_SESSION['id'];
 $_POST['var']=advancedClean(3,$_POST['var']);
 
 
+/* ? remove? */
 $force='1';
 
 
 connect2db();
+
+
+
+/* check if we need to wipe out old keywords */
+if($_POST['smeetv_hashtags']!=$_POST['smeetv_hashtags_prev']){
+    $fixl="gvd0a3f3401320gssdfs212d1f82f07u2hf";
+    $post_smeetv_hashtags_altered = $_POST['smeetv_hashtags'];
+    $_POST['smeetv_hashtags_prev']=$fixl.",".$_POST['smeetv_hashtags_prev'];
+    $post_smeetv_hashtags_altered=$fixl.",".$post_smeetv_hashtags_altered;
+    $ht_prev=explode(",",$_POST['smeetv_hashtags_prev']);
+    foreach($ht_prev as $h){
+        $g=stripos($post_smeetv_hashtags_altered,$h);
+        if($g==NULL && $h!=$fixl ){
+            $query="delete from twits where content like '%".$h."%'";
+            mysql_query($query);
+        }
+
+
+    }
+
+}
 
 
 if($_POST['section']=="settings"){

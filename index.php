@@ -324,6 +324,7 @@ e.preventDefault();
                         url: $form.attr('action'),
 
                         data: {'smeetv_hashtags': $('textarea[name=smeetv_hashtags]',$form).val(),
+                               'smeetv_hashtags_prev': $('input[name=smeetv_hashtags_prev]',$form).val(),
                                'smeetv_speed': $('input[name=smeetv_speed]:checked',$form).val(),
                                'smeetv_text': $('input[name=smeetv_text]:checked',$form).val(),
                                'smeetv_img_num': $('input[name=smeetv_img_num]:checked',$form).val(),
@@ -901,7 +902,7 @@ $('#'+id+' img').attr('src','x');
 
     <div class="fleft smeetv_hashtags">
     <abbr title="Enter hashtags or just plan words separated by comma to start fetching pictures from twitter">Tags</abbr>
-    <div style="float:left;"><textarea id="smeetv_hashtags_2343675" name="smeetv_hashtags"><?=$get['smeetv_hashtags']?></textarea></div>
+    <div style="float:left;"><textarea id="smeetv_hashtags_2343675" name="smeetv_hashtags"><?=$get['smeetv_hashtags']?></textarea><input type="hidden" id="smeetv_hashtags_prev_2343675" name="smeetv_hashtags_prev" value="<?=$get['smeetv_hashtags']?>"></div>
     </div>
     <div class="fleft">
     <abbr title="How fast do you want these pictures and videos to flip?">Speed</abbr>
