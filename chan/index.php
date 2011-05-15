@@ -1,12 +1,12 @@
 <?
-    include('../../func.php');
+    include($_SERVER['DOCUMENT_ROOT'].'/smeetv/func.php');
     session_start();
 
     if(isUserLoggedIn()==1){
         $u=true;
     }
 
-    require_once('../../header.php');
+    require_once($_SERVER['DOCUMENT_ROOT'].'/smeetv/header.php');
     connect2db();
 
 
@@ -54,4 +54,4 @@ for($i=0;$i<mysql_num_rows($go);$i++){
 
     <p><small>This public channel is anonymous for privacy reasons.</small></p>
 
-<?require_once('../../footer.php');?>
+<?require_once($_SERVER['DOCUMENT_ROOT'].'/smeetv/footer.php');?>
