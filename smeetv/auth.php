@@ -20,6 +20,8 @@ if($_POST['process']==1 && $_POST['username'] && $_POST['password']){
         $get=mysql_fetch_array($go);
         $_SESSION['id']=$get['id'];
         $_SESSION['idhash']=$get['idhash'];
+        $query="update accounts set last_ip='{$_SERVER['REMOTE_ADDR']}',last_time='".time()."' where id='{$get['id']}' ";
+        $go=mysql_query($query);
     }
 }
 
