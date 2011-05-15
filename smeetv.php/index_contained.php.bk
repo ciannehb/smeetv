@@ -1,0 +1,49 @@
+<?php
+$doc = new DOMDocument();
+$feed[]='http://search.twitter.com/search.rss?lang=en&q=yfrog.com&show_user=true';
+$feed[]='http://search.twitter.com/search.rss?lang=en&q=tweetphoto.com&show_user=true';
+$feed[]='http://search.twitter.com/search.rss?lang=en&q=twitgoo.com&show_user=true';
+$feed[]='http://search.twitter.com/search.rss?lang=en&q=picktor.com&show_user=true';
+$feed[]='http://search.twitter.com/search.rss?lang=en&q=flic.kr&show_user=true';
+
+$searchtype[]="yfrog.com";
+$searchtype[]="tweetphoto.com";
+$searchtype[]="twitgoo.com";
+$searchtype[]="picktor.com";
+$searchtype[]="flic.kr";
+
+$cnt=count($feed);
+
+
+echo $feed[rand(0,$cnt-1)];
+echo $searchtype[rand(0,$cnt-1)];
+
+return;
+$doc->load($feed[rand(0,$cnt-1)]);
+$arrFeeds = array();
+function connect2db() {mysql_pconnect("localhost","root","");mysql_select_db("smeetv10");}
+function advancedClean($level,$string){
+if($level==3){  /* POWER CLEAN */ $string=trim($string);$string=strip_tags($string);$string=htmlspecialchars($string);$string=addslashes($string);
+}elseif($level==2){   /* MEDIUM CLEAN */
+}elseif($level==1){   /* BASIC CLEAN*/$string==trim($string);$string=addslashes($string);}
+return $string;}
+connect2db();
+
+/* DM SCHEME *//*
+CREATE TABLE `twits_dump` (
+    `tweetid` int(20) NOT NULL,
+    `timestamp` int(20) NOT NULL,
+    `tweet` varchar(160) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+*/
+
+
+foreach ($doc->getElementsByTagName('item') as $node) {
+        $a=substr(strstr($node->getElementsByTagName('link')->item(0)->nodeValue,'statuses/'),9,100);
+        $b=advancedClean(3,$node->getElementsByTagName('title')->item(0)->nodeValue);
+        $query="insert into twits_dump(tweetid,timestamp,tweet) values ('".$a."','".time()."','".$b."')";
+        $go=mysql_query($query);
+        $result.= $query."<br>";
+}
+
+?><!DOCTYPE html><html lang="en"><head></head><body><?echo "<pre>$result</pre>";?></body></html>
