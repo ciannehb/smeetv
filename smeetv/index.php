@@ -40,7 +40,7 @@ if($_POST['process']==1 && $_POST['username'] && $_POST['password']){
 ?>
 
 
-<form method="post" action="/smeetv/smeetv/auth.php">
+<form method="post" action="/smeetv/auth.php">
     <input type="hidden" name="process" value="1">
     username: <input type="text" name="username" value=""><br>
     password: <input type="password" name="password" value="">

@@ -559,11 +559,11 @@ background-position:-34px -50px
 
 
 .ui-widget-content .ui-icon {
-background-image: url(tv/ui-icons_222222_256x240.png)/*{iconsContent}*/;
+background-image: url(/i/ui-icons_222222_256x240.png)/*{iconsContent}*/;
 }
 
 .ui-icon {
-background-image: url(tv/ui-icons_222222_256x240.png)/*{iconsContent}*/;
+background-image: url(/i/ui-icons_222222_256x240.png)/*{iconsContent}*/;
 }
 .ui-icon-gripsmall-diagonal-se {
 background-position: -64px -224px;

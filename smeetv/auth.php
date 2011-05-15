@@ -27,10 +27,10 @@ if($_POST['process']==1 && $_POST['username'] && $_POST['password']){
 
 
 if(isUserLoggedIn()==1){
-    header("Location:/smeetv/smeetv/tv/index.php");
+    header("Location:/");
     return;
 } else {
-    header("Location:/smeetv/smeetv/index.php");
+    header("Location:/smeetv/login.php");
 }
 
 

@@ -3,7 +3,7 @@ require_once('func.php');
 session_start();
 
 if(isUserLoggedIn()==1){
-    header("Location:/smeetv/smeetv/tv/index.php");
+    header("Location:index.php");
     return;
 }
 
@@ -36,7 +36,7 @@ require_once('header.php');
 
 <p>&nbsp;</p>
 
-<form id="login" method="post" action="/smeetv/smeetv/auth.php">
+<form id="login" method="post" action="/smeetv/auth.php">
     <input type="hidden" name="process" value="1">
     <p><label class="fleft w100" for="username">username:</label> <input type="text" name="username" value="" id="username"></p>
     <p><label class="fleft w100" for="password">password:</label> <input type="password" name="password" value="" id="password"></p>
