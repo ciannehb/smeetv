@@ -17,6 +17,7 @@
 <a id="inj" href="">inj</a>
 <a id="rss1231" href="/rss/<?=$_SESSION['idhash']?>">your rss feed</a>
 <a id="rss1231" href="/chan/<?=$_SESSION['idhash']?>">your public channel page</a>
+<a id="rss1231" href="/u/<?=$_SESSION['username']?>">your userpage</a>
 <?
     $query="select id,content,timestamp,link from twits where uid={$_SESSION['id']} order by id desc limit 0,20";
 
