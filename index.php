@@ -666,6 +666,10 @@ function crawlurl(e){
                else if(a.search('picplz.com') > 0){
                        var token = 'http://picplz.com';
                }
+               else if(a.search('instagr.am') > 0){
+                       var token = 'http://instagr.am';
+               }
+
 
 
 
@@ -759,6 +763,11 @@ bug, below (a.indexOf(' ',tmpPosStart);) if there's no space following URL, sear
                if(shorturl.search('picplz.com') > 0){
                        var noxpath = '#mainImage';
                }
+
+               if(shorturl.search('instagr.am') > 0){
+                       var noxpath = '#wrap img.photo';
+               }
+
 
 
 
