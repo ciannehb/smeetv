@@ -80,5 +80,7 @@ google_ad_height = 280;
 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 
-
+       <iframe src="https://www.facebook.com/plugins/like.php?&href=http://smeetv.com<?=$_SERVER['REQUEST_URI']?>"
+        scrolling="no" frameborder="0"
+        style="border:none; width:450px; height:80px"><iframe>
 <?require_once($_SERVER['DOCUMENT_ROOT'].'/smeetv/footer.php');?>
