@@ -202,6 +202,9 @@ timeout: <?=$get['smeetv_speed']?>,
 
 
         function check_new_twits(h,i){
+                if(!h){
+                    h='null';
+                }
                 $.ajax({
                         type: 'POST',
                         url: './etc/u/',
