@@ -43,6 +43,11 @@ font-family: Helvetica, Verdana;
             line-height:1.6em;
         }
 
+cite,abbr{
+border-bottom:1px dotted #ccc;
+cursor: help;
+}
+
                          #tv {
                                     height:352px;
             width:526px;
@@ -231,6 +236,7 @@ min-height:30px;
             position:absolute;
         }
         #log {
+display:none;
             position:absolute;
             top:.25em;
             right:.25em;
@@ -591,6 +597,14 @@ background-image: url(/i/ui-icons_222222_256x240.png)/*{iconsContent}*/;
 background-position: -64px -224px;
 }
 
+nav[role=usermenu] {
+position:absolute;
+top:3em;
+left:14.25em;
+font-size:.75em;
+}
+
+
 #topnav {
     color: #ccc;
     font-size: 0.75em;
@@ -914,13 +928,13 @@ color:#663333;
 
 #featuredhashtags {
 float:right;
-padding-right:120px;
+padding-right:.25em;;
 padding-top:4px;
 }
 
 #featuredhashtags_content {
 position:absolute;
-right:125px;
+right:.5em;
 top:40px;
 width:190px;
 font-size:150%;
@@ -997,10 +1011,6 @@ article.twit {
 font-size:1.25em;
 clear:both;
 margin-bottom:2em;
-}
-
-article.twit time {
-color:#ccc;
 }
 
 article.twit footer {

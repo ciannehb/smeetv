@@ -13,11 +13,9 @@
     drawHeader('remote control',$u,'1');
     connect2db();
 ?>
-<a href="">toggle image to fit by height/width</a>
-<a id="inj" href="">inj</a>
-<a id="rss1231" href="/rss/<?=$_SESSION['idhash']?>">your rss feed</a>
-<a id="rss1231" href="/chan/<?=$_SESSION['idhash']?>">your public channel page</a>
-<a id="rss1231" href="/u/<?=$_SESSION['username']?>">your userpage</a>
+<nav role="usermenu">
+<a id="rss1231" href="/u/<?=$_SESSION['username']?>"><?=$_SESSION['username']?></a> (<abbr title="anonpub: anonymous public channel and rss feed is your images stream, you can share publicly, it does not display your userid or username.">anonpub</abbr>: <a href="/chan/<?=$_SESSION['idhash']?>">channel</a>, <a href="/rss/<?=$_SESSION['idhash']?>">rss</a>)
+</nav>
 <?
     $query="select id,content,timestamp,link from twits where uid={$_SESSION['id']} order by id desc limit 0,20";
 
