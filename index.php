@@ -394,7 +394,7 @@ e.preventDefault();
         });
 
         $('#featuredhashtags').live('click',function(e){
-                $('#featuredhashtags_content').show();
+                $('#featuredhashtags_content').toggle();
                 e.preventDefault();
         });
 
@@ -858,7 +858,6 @@ $('#'+id+' img').attr('src','x');
 
     <div class="busy"><img src="/i/loading.gif"></div>
     <div id="helparrow"><img src="/i/arrow.png"></div>
-
     <div id="featuredhashtags_content" style="display:none">
 <?/*
 $qh="select * from keywords order by counter desc";
@@ -871,7 +870,6 @@ for($i=0;$i<mysql_num_rows($qh);$i++){
 }
 */?>
     </div>
-
 
 
 <section class="wraptv" id="wraptv">
