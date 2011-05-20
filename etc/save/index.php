@@ -7,8 +7,6 @@ if(!isUserLoggedIn()==1){
     return;
 }
 
-
-
 $_POST['section']=advancedClean(3,$_POST['section']);
 $_POST['password']=advancedClean(3,$_POST['password']);
 $_POST['ad']=advancedClean(3,$_POST['ad']);
@@ -49,10 +47,8 @@ if($_POST['smeetv_hashtags']!=$_POST['smeetv_hashtags_prev']){
             $query="delete from twits where content like '%".$h."%'";
             mysql_query($query);
         }
-
-
     }
-
+    $hash_tags_changed=1;
 }
 
 
@@ -76,6 +72,27 @@ if($_POST['section']=="settings"){
 
 
 
+
+    if($hash_tags_changed==1){
+        $split_keywords=explode(',',$_POST['smeetv_hashtags']);
+        for($i=0;$i<count($split_keywords);$i++){
+
+            $subquery="select uids from keywords where keyword='".$split_keywords[$i]."' limit 0,1";
+            $subgo=mysql_query($subquery);
+            $subget=mysql_fetch_array($subgo);
+
+            $splitsubget=split(',',$subget[0]);
+            if(!array_search($_SESSION['id'],$splitsubget)){
+                if(mysql_num_rows(mysql_query("select id from keywords where keyword='{$split_keywords[$i]}'"))==0){  // no suck keyword found, add it
+                    mysql_query("insert into keywords (keyword,uids,counter) values ('".$split_keywords[$i]."','".$subget[0].", ".$_SESSION['id']."',1)");
+                } else {
+                    mysql_query("update keywords set counter=counter+1,uids='".$subget[0].",".$_SESSION['id']."' where keyword='".$split_keywords[$i]."'"); // such keyword exists, add up
+                }
+            } else {
+                echo "skipping";
+            }
+        }
+    }
 
 }elseif($_POST['section']=="save_resize_r"){
     $query="update accounts set ";
