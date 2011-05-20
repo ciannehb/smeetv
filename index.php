@@ -261,6 +261,12 @@ repeater(function(left){
 
 
 
+
+
+
+
+$('#featuredhashtags_content').load('/etc/featuredhashtags/');
+
 $('#inj').live('click',function(e){
 
 //$('#00').appendTo('#content');
@@ -854,7 +860,7 @@ $('#'+id+' img').attr('src','x');
     <div id="helparrow"><img src="/i/arrow.png"></div>
 
     <div id="featuredhashtags_content" style="display:none">
-<?
+<?/*
 $qh="select * from keywords order by counter desc";
 $qh=mysql_query($qh);
 for($i=0;$i<mysql_num_rows($qh);$i++){
@@ -863,7 +869,7 @@ for($i=0;$i<mysql_num_rows($qh);$i++){
          <span><a href=\"\" style=\"font-size:".($gh['counter']+10)."px\" title=\"{$gh['keyword']}\" id=\"{$gh['keyword']}\">{$gh['keyword']}</a></span>
     ";
 }
-?>
+*/?>
     </div>
 
 
