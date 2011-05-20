@@ -854,22 +854,16 @@ $('#'+id+' img').attr('src','x');
     <div id="helparrow"><img src="/i/arrow.png"></div>
 
     <div id="featuredhashtags_content" style="display:none">
-
-<span><a href="" class="fs_100" title="f1" id="f1">f1</a></span>
-<span><a href="" class="fs_075" title="nascar" id="nascar">nascar</a></span>
-<span><a href="" class="fs_150" title="redsox" id="redsox">redsox</a></span>
-<span><a href="" class="fs_025" title="sexy" id="sexy">sexy</a></span>
-<span><a href="" class="fs_050" title="car" id="car">car</a></span>
-<span><a href="" class="fs_025" title="tonight" id="tonight">tonight</a></span>
-<span><a href="" class="fs_100" title="breaking" id="breaking">breaking</a></span>
-<span><a href="" class="fs_050" title="ufo" id="ufo">ufo</a></span>
-<span><a href="" class="fs_025" title="now" id="ufo">now</a></span>
-<span><a href="" class="fs_075" title="soccer" id="soccer">soccer</a></span>
-<span><a href="" class="fs_050" title="football" id="football">football</a></span>
-<span><a href="" class="fs_075" title="basketball" id="basketball">basketball</a></span>
-
-    <a href="" id="thishide"><span class="ui-icon close_small fright">&nbsp;</span></a>
-
+<?
+$qh="select * from keywords order by counter desc";
+$qh=mysql_query($qh);
+for($i=0;$i<mysql_num_rows($qh);$i++){
+    $gh=mysql_fetch_array($qh);
+    echo "
+         <span><a href=\"\" style=\"font-size:".($gh['counter']+10)."px\" title=\"{$gh['keyword']}\" id=\"{$gh['keyword']}\">{$gh['keyword']}</a></span>
+    ";
+}
+?>
     </div>
 
 
