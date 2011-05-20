@@ -49,6 +49,7 @@ font-family: Helvetica, Verdana;
             position:relative;
         }
 
+        a { color:#111111; }
 
 
         .hide {
@@ -99,6 +100,27 @@ float:right;
 
 .fleft {
 float:left;
+}
+
+#ft {
+    bottom: 2.75em;
+    color: #111111;
+    font-size: 0.75em;
+    opacity: 0.25;
+    position: absolute;
+    right: 0.25em;
+}
+
+#ft small {
+display:none;
+}
+
+#ft:hover {
+opacity:1;
+}
+
+#ft:hover small {
+display:inline;
 }
 
 .description a {
