@@ -911,7 +911,7 @@ $('#'+id+' img').attr('src','x');
     <input type="hidden" name="section" id="removecontrolcb" value="remotecontrol">
 
     <div class="fleft smeetv_hashtags">
-    <abbr title="Enter hashtags or just plan words separated by comma to start fetching pictures from twitter">Tags</abbr>
+    <abbr title="Enter hashtags, plan words or twitter usernames separated by comma to start fetching pictures from twitter.">Tags</abbr>
     <div style="float:left;"><textarea id="smeetv_hashtags_2343675" name="smeetv_hashtags"><?=$get['smeetv_hashtags']?></textarea><input type="hidden" id="smeetv_hashtags_prev_2343675" name="smeetv_hashtags_prev" value="<?=$get['smeetv_hashtags']?>"></div>
     </div>
     <div class="fleft">

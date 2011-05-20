@@ -24,7 +24,7 @@
 </head>
 <body>
 <header id="topnav">
-<h1 title="smeetv -- tv window into twitter universe">smee<span>tv</span></h1><sup title="alpha version -- unpredictable behavior expected">&alpha;</sup>
+<h1 title="smeetv -- tv window into twitter universe"><a href="/">smee<span>tv</span></a></h1><sup title="alpha version -- unpredictable behavior expected">&alpha;</sup>
 &mdash;
 <nav>
 <?if($user_loggedin && $show_menu==1){?>

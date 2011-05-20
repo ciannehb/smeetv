@@ -593,6 +593,10 @@ display:inline;
     white-space: nowrap;
 }
 
+#topnav h1 a {
+color:#ffffff;
+}
+
 #topnav a:hover {
     color:#FF0099;
     text-decoration:underline;
