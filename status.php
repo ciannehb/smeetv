@@ -1,23 +1,6 @@
 <?
     require_once('smeetv/func.php');
     connect2db();
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
    
     $query="select count(*) from twits_dump";
     $go=mysql_query($query);
@@ -44,127 +27,6 @@
         }
     }
     echo "</pre>";
-
-
-
-
-$query="select count(*) from twits_dump where content like '%twitpic%'";
-$go=mysql_query($query);
-$get=mysql_fetch_array($go);
-$twitpic=$get[0];
-
-$query="select count(*) from twits_dump where content like '%yfrog%'";
-$go=mysql_query($query);
-$get=mysql_fetch_array($go);
-$yfrog=$get[0];
-
-$query="select count(*) from twits_dump where content like '%tweetphoto%'";
-$go=mysql_query($query);
-$get=mysql_fetch_array($go);
-$tweetphoto=$get[0];
-
-$query="select count(*) from twits_dump where content like '%twitgoo%'";
-$go=mysql_query($query);
-$get=mysql_fetch_array($go);
-$twitgoo=$get[0];
-
-$query="select count(*) from twits_dump where content like '%picktor%'";
-$go=mysql_query($query);
-$get=mysql_fetch_array($go);
-$picktor=$get[0];
-
-$query="select count(*) from twits_dump where content like '%flickr.com%'";
-$go=mysql_query($query);
-$get=mysql_fetch_array($go);
-$flickr0=$get[0];
-
-
-
-$query="select count(*) from twits_dump where content like '%flic.kr%'";
-$go=mysql_query($query);
-$get=mysql_fetch_array($go);
-$flickr=$get[0]+$flickr0;
-
-$query="select count(*) from twits_dump where content like '%twitvid%'";
-$go=mysql_query($query);
-$get=mysql_fetch_array($go);
-$twitvid=$get[0];
-
-$query="select count(*) from twits_dump where content like '%youtube.com%'";
-$go=mysql_query($query);
-$get=mysql_fetch_array($go);
-$youtube1=$get[0];
-
-$query="select count(*) from twits_dump where content like '%youtu.be%'";
-$go=mysql_query($query);
-$get=mysql_fetch_array($go);
-$youtube2=$get[0];
-
-$query="select count(*) from twits_dump where content like '%plixi.com%'";
-$go=mysql_query($query);
-$get=mysql_fetch_array($go);
-$plixi=$get[0];
-
-$query="select count(*) from twits_dump where content like '%movapic.com%'";
-$go=mysql_query($query);
-$get=mysql_fetch_array($go);
-$movapic=$get[0];
-
-$query="select count(*) from twits_dump where content like '%img.ly%'";
-$go=mysql_query($query);
-$get=mysql_fetch_array($go);
-$imgly=$get[0];
-
-$query="select count(*) from twits_dump where content like '%upic.me%'";
-$go=mysql_query($query);
-$get=mysql_fetch_array($go);
-$upickme=$get[0];
-
-$query="select count(*) from twits_dump where content like '%fotki.yandex.ru%'";
-$go=mysql_query($query);
-$get=mysql_fetch_array($go);
-$fotkiyandexru=$get[0];
-
-$query="select count(*) from twits_dump where content like '%vimeo.%'";
-$go=mysql_query($query);
-$get=mysql_fetch_array($go);
-$vimeo=$get[0];
-
-$query="select count(*) from twits_dump where content like '%imgur.%'";
-$go=mysql_query($query);
-$get=mysql_fetch_array($go);
-$imgur=$get[0];
-
-
-$query="select count(*) from twits_dump where content like '%lockerz.com%'";
-$go=mysql_query($query);
-$get=mysql_fetch_array($go);
-$lockerz=$get[0];
-
-$query="select count(*) from twits_dump where content like '%picplz.com%'";
-$go=mysql_query($query);
-$get=mysql_fetch_array($go);
-$picplz=$get[0];
-
-
-
-$query="select count(*) from twits_dump where content like '%instagr.am%'";
-$go=mysql_query($query);
-$get=mysql_fetch_array($go);
-$instagram=$get[0];
-
-
-
-$total_img = $twitpic + $yfrog + $tweetphoto + $twitgoo + $picktor + $flickr + $plixi + $movapic + $imgly + $upickme + $fotkiyandexru + $imgur + $lockerz + $picplz + $instagram;  
-$total_vid = $twitvid + $youtube1 + $youtube2 + $vimeo;
-
-
-
-?>
-<h4>Distribution of image hostings</h4>
-<img src='http://chart.apis.google.com/chart?chco=FF0000|00FF00|0000FF&cht=p3&chs=350x150&chd=t:<?=$twitpic?>,<?=$yfrog?>,<?=$tweetphoto?>,<?=$twitgoo?>,<?=$picktor?>,<?=$flickr?>,<?=$twitvid?>,<?=$youtube1+$youtube2?>,<?=$plixi?>,<?=$movapic?>,<?=$imgly?>,<?=$upickme?>,<?=$fotkiyandexru?>,<?=$vimeo?>,<?=$imgur ?>,<?=$lockerz?>,<?=$picplz?>,<?=$instagram?>&chl=twitpic|yfrog|tweetphoto|twitgoo|picktor|flic.kr|twitvid|youtube|plixi|movapic|imgly|upic.me|fotki.yandex.ru|vimeo|imgur|lockerz|picplz|instagram'">
-<?
-
 
 
 
@@ -294,8 +156,10 @@ $instagram=$get[0];
 
 ?>
 <h4>Distribution of image hostings last 12 hours</h4>
-<img src='http://chart.apis.google.com/chart?cht=p3&chs=350x150&chd=t:<?=$twitpic?>,<?=$yfrog?>,<?=$tweetphoto?>,<?=$twitgoo?>,<?=$picktor?>,<?=$flickr?>,<?=$youtube1+$youtube2?>,<?=$twitvid?>,<?=$plixi?>,<?=$movapic?>,<?=$imgly?>,<?=$upicme?>,<?=$fotkiyandexru?>,<?=$vimeo?>,<?=$imgur?>,<?=$lockerz?>,<?=$picplz?>,<?=$instagram?>&chl=twitpic|yfrog|tweetphoto|twitgoo|picktor|flic.kr|youtube|twitvid|plixi|movapic|imgly|upic.me|fotki.yandex.ru|vimeo|imgur|lockerz|picplz|instagram'">
+
+<img src='http://chart.apis.google.com/chart?chco=FF0000|00FF00|0000FF&cht=p3&chs=350x150&chd=t:<?=$twitpic?>,<?=$yfrog?>,<?=$tweetphoto?>,<?=$twitgoo?>,<?=$picktor?>,<?=$flickr?>,<?=$twitvid?>,<?=$youtube1+$youtube2?>,<?=$plixi?>,<?=$movapic?>,<?=$imgly?>,<?=$upickme?>,<?=$fotkiyandexru?>,<?=$vimeo?>,<?=$imgur ?>,<?=$lockerz?>,<?=$picplz?>,<?=$instagram?>&chl=twitpic|yfrog|tweetphoto|twitgoo|picktor|flic.kr|twitvid|youtube|plixi|movapic|imgly|upic.me|fotki.yandex.ru|vimeo|imgur|lockerz|picplz|instagram'">
 <?
+
 
 
 
@@ -436,7 +300,7 @@ $instagram=$get[0];
 
 
 
-
+/*
 
 $t_24hrs_ago=time()-86400;
 $t_48hrs_ago=time()-172800;
@@ -475,11 +339,10 @@ $t00=ceil($t24+$t48+$t72/1.75);
 <img src="
 http://chart.apis.google.com/chart?cht=bvg&chs=350x300&chd=t:<?=$t24?>,<?=$t48?>,<?=$t72?>&chxr=1,0,<?=$t00?>&chds=0,<?=$t00?>&chco=ff0000|ffa000|00ff00&chbh=65,0,35&chxt=x,y,x&chxl=0:|24hrs|-48\+24hrs|-72\+24hrs|2:||||&chxs=2,000000,12&&chts=000000,20&chg=0,25,5,5
 ">
+*/
 
 
 
-
-<?
 /*
 echo "
 <br>
