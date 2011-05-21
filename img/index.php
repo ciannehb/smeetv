@@ -53,11 +53,10 @@
     <a href="./report/<?=$id?>">report this image</a>
     </footer>
     <aside>
-        <section style="width:400px;float:left;">
-            IMAGE PLACEHOLDER
+        <section class="squares">
+            <p><img src="" width:300px;height:300px></p>
         </section>
-        <section style="width:400px;float:left;">
-
+        <section class="squares">
 <script type="text/javascript"><!--
 google_ad_client = "ca-pub-1221828368307550";
 /* smeetv_injected_slide */
@@ -69,22 +68,13 @@ google_ad_height = 280;
 <script type="text/javascript"
 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
-
-
-
         </section>
-    </aside>
-    </article>
-
-<?require_once($_SERVER['DOCUMENT_ROOT'].'/smeetv/footer.php');?>
-
-
-<section>
-<h3>You may also like:</h3>
-<p>PLACEHOLDER FOR RELATED</p>
-</section>
-
-
+        <br>
+        <section class="squares">
+            <h3>You may also like:</h3>
+            <p><img src="" width:300px;height:300px></p>
+        </section>
+        <section class="squares">
 <div style="clear:both">
 <!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_default_style ">
@@ -102,6 +92,12 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
         scrolling="no" frameborder="0"
         style="border:none; width:450px; height:80px"></iframe>
 </div>
+       
+        </section>
+    </aside>
+    </article>
+
+<?require_once($_SERVER['DOCUMENT_ROOT'].'/smeetv/footer.php');?>
 
 
 

@@ -1021,6 +1021,10 @@ article.twit a:hover {
 color:#ff0099;
 }
 
+.twit aside .squares {
+width:400px;
+display:inline-block;
+}
 
 
 
