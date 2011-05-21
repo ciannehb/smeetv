@@ -78,6 +78,13 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 
 <?require_once($_SERVER['DOCUMENT_ROOT'].'/smeetv/footer.php');?>
 
+
+<section>
+<h3>You may also like:</h3>
+<p>PLACEHOLDER FOR RELATED</p>
+</section>
+
+
 <div style="clear:both">
 <!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_default_style ">
@@ -93,5 +100,13 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <!-- AddThis Button END -->
 <iframe src="https://www.facebook.com/plugins/like.php?&href=http://smeetv.com<?=$_SERVER['REQUEST_URI']?>"
         scrolling="no" frameborder="0"
-        style="border:none; width:450px; height:80px"><iframe>
+        style="border:none; width:450px; height:80px"></iframe>
 </div>
+
+
+
+
+
+
+
+
