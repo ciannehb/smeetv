@@ -833,13 +833,7 @@ $('#'+id+' img').attr('src','x');
 
                var content=$(this).html();
 
-               if(content.search('youtube.com') > 0 ||
-                  content.search('youtu.be') > 0
-               ){
-                   videofy(content,$(this).attr('id'));
-               }else{
-                   imagify(content,$(this).attr('id'));
-               }
+               imagify(content,$(this).attr('id'));
 
            });
 
