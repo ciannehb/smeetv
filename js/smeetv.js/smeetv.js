@@ -1,5 +1,32 @@
 
-function crawlurl(e){
+
+function imagify(a,id){
+               var token = imagify_detect_pic(a),
+                   shorturl = imagify_get_shorturl(a,token),
+                   noxpath = imagify_get_noxpath(shorturl);
+
+                   $('#'+id).load('/etc/util/xdom.php?geturl=' + shorturl + ' ' + noxpath,function(response,status,xhr){
+                       $(this).append('<span class="description"><a href="'+shorturl+'">'+a+'</a></span>');
+
+                       if(noxpath===false) { // added this for handling t.co links
+                           crawled_img_path=$(response).find(imagify_crawlurl(response)).attr('src');
+                           $(this).append('<img alt="'+a+'" src="'+crawled_img_path+'">');
+                       } else {
+                           var timg=$(this).find('img');
+                           $(timg).attr('alt',a);
+                           if(!$(this).find('img').attr('src')){
+                               $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to load image ' + id + '. <a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
+                           } else {
+                               if($(this).find('img').attr('src').search('http://') < 0) { // added this for handling relative urls done this for img.ly initially
+                                   var old_src = $(this).find('img').attr('src');
+                                   $(timg).attr('src',token+''+old_src);
+                               }
+                           }
+                       }
+                   });
+}
+
+function imagify_crawlurl(e){
     if(e.search('id="photo-display') > 0 && e.search('twitpic') > 0){
         var noxpath = '#content #view-photo-main #photo img#photo-display';
     } else if(e.search('main_image') > 0 && e.search('yfrog') > 0) {
