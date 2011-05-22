@@ -72,7 +72,6 @@ if($_POST['section']=="settings"){
 
 
 
-
     if($hash_tags_changed==1){
         $split_keywords=explode(',',$_POST['smeetv_hashtags']);
         for($i=0;$i<count($split_keywords);$i++){
@@ -89,7 +88,7 @@ if($_POST['section']=="settings"){
                     mysql_query("update keywords set counter=counter+1,uids='".$subget[0].",".$_SESSION['id']."' where keyword='".$split_keywords[$i]."'"); // such keyword exists, add up
                 }
             } else {
-                echo "skipping";
+                //echo "skipping";
             }
         }
     }
