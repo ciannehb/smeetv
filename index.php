@@ -583,166 +583,36 @@ e.preventDefault();
 });
 
 
-function crawlurl(e){
-    if(e.search('id="photo-display') > 0 && e.search('twitpic') > 0){
-        var noxpath = '#content #view-photo-main #photo img#photo-display';
-    } else if(e.search('main_image') > 0 && e.search('yfrog') > 0) {
-        var noxpath = '#main_image';
-    } else if(e.search('medium_photo') > 0) {  // tweet photo
-        var noxpath = '#medium_photo';
-    } else if(e.search('fullsize') > 0 && e.search('twitgoo') > 0) {
-        var noxpath = '#fullsize';
-    } else if(e.search('picktwitPhotoContainer') > 0) {  // picktor
-        var noxpath = '#picktwitPhotoContainer > a > img';
-    } else if(e.search('photo-div') > 0 && e.search('flickr') > 0) {
-        var noxpath = '#photo .photo-div > img';
-    } else if(e.search('photo') > 0 && e.search('plixi') > 0) { // plixi
-        var noxpath = '#photo';
-    } else if(e.search('picdetail') > 0 && e.search('movapic') > 0) {
-        var noxpath = '.picdetail img.image';
-    } else if(e.search('the-image') > 0 && e.search('img.ly') > 0) {
-        var noxpath = '#the-image';
-    } else if(e.search('image') > 0 && e.search('upic.me') > 0) {
-        var noxpath = '#image';
-    } else if(e.search('foto') > 0 && e.search('fotki.yandex.ru') > 0) {
-        var noxpath = '#foto img';
-    } else if(e.search('') > 0 && e.search('lockerz.com') > 0) {
-        var noxpath = '#mainImage';
-    } else if(e.search('#mainImage') > 0 && e.search('picplz.com') > 0) {
-        var noxpath = '#main > section > article > figure > a > img';
-    }
-   return noxpath;
-}
-
-
 
            function gotosrc(en){
                window.open(en);
                return false;
            }
 
-
-
-
            function imagify(a,id){
                var token = imagify_detect_pic(a),
-                   shorturl = imagify_get_shorturl(a,token);
+                   shorturl = imagify_get_shorturl(a,token),
+                   noxpath = imagify_get_noxpath(shorturl);
 
+                   $('#'+id).load('/etc/util/xdom.php?geturl=' + shorturl + ' ' + noxpath,function(response,status,xhr){
+                       $(this).append('<span class="description"><a href="'+shorturl+'">'+a+'</a></span>');
 
-               if(shorturl.search('twitpic') > 0){
-                       var noxpath = '#content #view-photo-main #photo img#photo-display';
-               }
-
-               if(shorturl.search('yfrog') > 0){
-                       var noxpath = '#main_image';
-               }
-
-               if(shorturl.search('tweetphoto') > 0){
-                       var noxpath = '#medium_photo';
-               }
-
-               if(shorturl.search('twitgoo') > 0){
-                       var noxpath = '#fullsize';
-               }
-
-               if(shorturl.search('picktor') > 0){
-                       var noxpath = '#picktwitPhotoContainer > a > img';
-               }
-
-               if(shorturl.search('flic.kr') > 0){
-                       var noxpath = '#photo .photo-div > img';
-               }
-
-               if(shorturl.search('plixi.com') > 0){
-                       var noxpath = '#photo';
-               }
-
-               if(shorturl.search('lockerz.com') > 0){
-                       var noxpath = '#main section article figure a img';
-               }
-
-
-               if(shorturl.search('movapic.com') > 0){
-                       var noxpath = '.picdetail img.image';
-               }
-
-               if(shorturl.search('img.ly') > 0){
-                       var noxpath = '#the-image';
-               }
-
-               if(shorturl.search('upic.me') > 0){
-                       var noxpath = '#image';
-               }
-
-               if(shorturl.search('fotki.yandex.ru') > 0){
-                       var noxpath = '#foto img';
-               }
-
-               if(shorturl.search('t.co') > 0){
-                       var mark_to_crawl=true;
-               }
-
-               if(shorturl.search('bit.ly') > 0){
-                       var mark_to_crawl=true;
-               }
-
-               if(shorturl.search('picplz.com') > 0){
-                       var noxpath = '#mainImage';
-               }
-
-               if(shorturl.search('instagr.am') > 0){
-                       var noxpath = '#wrap img.photo';
-               }
-
-
-
-
-$('#'+id).load('/etc/util/xdom.php?geturl=' + shorturl + ' ' + noxpath,function(response,status,xhr){
-
-
-
-    $(this).append('<span class="description"><a href="'+shorturl+'">'+a+'</a></span>');
-
-    if(mark_to_crawl===true) { // added this for handling t.co links
-       crawled_img_path=$(response).find(crawlurl(response)).attr('src');
-       $(this).append('<img alt="'+a+'" src="'+crawled_img_path+'">');
-       mark_to_crawl=false;
-    } else {
-
-       var timg=$(this).find('img');
-
-       $(timg).attr('alt',a);
-
-       if(!$(this).find('img').attr('src')){
-          //alert('image not found' + id + 'TODO: handle this error better' );
-          $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to load image ' + id + '. <a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
-       } else {
-           if($(this).find('img').attr('src').search('http://') < 0) { // added this for handling relative urls done this for img.ly initially
-               var old_src = $(this).find('img').attr('src');
-               $(timg).attr('src',token+''+old_src);
-           }
-       }
-
-    }
-});
-
-
-
-if(shorturl.search('twitpic') > 0){
-    noxpath = '#content #view-photo-main #photo img#photo-display';
-}
-
-if(shorturl.search('yfrog') > 0){
-    noxpath = '#main_image';
-}
-
-
-
-/*
-$('#'+id).html('<img src="">');
-$('#'+id+' img').attr('src','x');
-*/
-
+                       if(noxpath===false) { // added this for handling t.co links
+                           crawled_img_path=$(response).find(crawlurl(response)).attr('src');
+                           $(this).append('<img alt="'+a+'" src="'+crawled_img_path+'">');
+                       } else {
+                           var timg=$(this).find('img');
+                           $(timg).attr('alt',a);
+                           if(!$(this).find('img').attr('src')){
+                               $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to load image ' + id + '. <a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
+                           } else {
+                               if($(this).find('img').attr('src').search('http://') < 0) { // added this for handling relative urls done this for img.ly initially
+                                   var old_src = $(this).find('img').attr('src');
+                                   $(timg).attr('src',token+''+old_src);
+                               }
+                           }
+                       }
+                   });
            }
 
 
