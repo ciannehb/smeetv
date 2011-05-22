@@ -7,6 +7,8 @@
     $get=mysql_fetch_array($go);
     echo "<small>total twits fetched: ".$get[0]."</small><br>";
 
+
+
     $query="select timestamp from twits_dump order by id desc limit 0,1";
     $go=mysql_query($query);
     $get=mysql_fetch_array($go);
@@ -14,28 +16,11 @@
     echo "<small>last fetched twit: ".$l." seconds ago</small>";
 
 
-    echo "<pre>";
-    if($_GET['hashtag']){
-        echo "<br><hr>";
-        echo "<h3>Showing twits with hashtag '{$_GET['hashtag']}'</h3>";
-        $query="select count(*) from twits_dump where content like '%#{$_GET['hashtag']}%' and content like '%twitpi%'";
-        $go=mysql_query($query);
-        for($i=0;$i<mysql_num_rows($go);$i++){
-            $get=mysql_fetch_array($go);
-            echo $get[0]."<br>";;
-            
-        }
-    }
-    echo "</pre>";
 
 
 
 
-
-
-
-
-
+/*
 $l12=time()-34200;
 
 $query="select count(*) from twits_dump where content like '%twitpic%' and timestamp > $l12";
@@ -158,8 +143,9 @@ $instagram=$get[0];
 <h4>Distribution of image hostings last 12 hours</h4>
 
 <img src='http://chart.apis.google.com/chart?chco=FF0000|00FF00|0000FF&cht=p3&chs=350x150&chd=t:<?=$twitpic?>,<?=$yfrog?>,<?=$tweetphoto?>,<?=$twitgoo?>,<?=$picktor?>,<?=$flickr?>,<?=$twitvid?>,<?=$youtube1+$youtube2?>,<?=$plixi?>,<?=$movapic?>,<?=$imgly?>,<?=$upickme?>,<?=$fotkiyandexru?>,<?=$vimeo?>,<?=$imgur ?>,<?=$lockerz?>,<?=$picplz?>,<?=$instagram?>&chl=twitpic|yfrog|tweetphoto|twitgoo|picktor|flic.kr|twitvid|youtube|plixi|movapic|imgly|upic.me|fotki.yandex.ru|vimeo|imgur|lockerz|picplz|instagram'">
-<?
 
+<?
+*/
 
 
 
@@ -179,7 +165,7 @@ $query="select count(*) from twits_dump where content like '%yfrog%' and timesta
 $go=mysql_query($query);
 $get=mysql_fetch_array($go);
 $yfrog=$get[0];
-
+/*
 $query="select count(*) from twits_dump where content like '%tweetphoto%' and timestamp > $l1";
 $go=mysql_query($query);
 $get=mysql_fetch_array($go);
@@ -268,7 +254,7 @@ $query="select count(*) from twits_dump where content like '%picplz.com%'  and t
 $go=mysql_query($query);
 $get=mysql_fetch_array($go);
 $picplz=$get[0];
-
+*/
 
 
 $query="select count(*) from twits_dump where content like '%instagr.am%'  and timestamp > $l1";
@@ -286,7 +272,9 @@ $instagram=$get[0];
 
 ?>
 <h4>Distribution of image hostings last 1 hour</h4>
-<img src='http://chart.apis.google.com/chart?cht=p3&chs=350x150&chd=t:<?=$twitpic?>,<?=$yfrog?>,<?=$tweetphoto?>,<?=$twitgoo?>,<?=$picktor?>,<?=$flickr?>,<?=$twitvid?>,<?=$youtube1+$youtube2?>,<?=$plixi?>,<?=$movapic?>,<?=$imgly?>,<?=$upicme?>,<?=$fotkiyandexru?>,<?=$vimeo?>,<?=$imgur?>,<?=$lockerz?>,<?=$picplz?>,<?=$instagram?>&chl=twitpic|yfrog|tweetphoto|twitgoo|picktor|flic.kr|twitvid|youtube|plixi|movapic|imgly|upicme|fotki.yandex.ru|vimeo|imgur|lockerz|picplz|instagram'">
+
+<img src='http://chart.apis.google.com/chart?chco=FF0000|00FF00|0000FF&cht=p3&chs=350x150&chd=t:<?=$twitpic?>,<?=$yfrog?>,<?=$instagram?>&chl=twitpic|yfrog|instagram'">
+
 
 <?
 
