@@ -1017,14 +1017,88 @@ article.twit footer {
 font-size:.75em;
 }
 
+article.twit footer,
+article.twit footer a {
+color:#888;
+}
+
 article.twit a:hover {
 color:#ff0099;
 }
 
 .twit aside .squares {
-width:400px;
+width:auto;
 display:inline-block;
 }
+
+.twit aside .squares .description {
+display:none;
+}
+
+.squares {
+position:relative;
+}
+
+.squares .avatar {
+position:absolute;
+top:1.25em;
+left:1.25em;
+}
+
+.twit .t {
+position:relative;
+margin-bottom:0;
+display:inline-block;
+	z-index: 1; 
+	cursor: pointer;
+	position: relative;
+	text-decoration:none;
+	padding: .5em 1em;
+	color:#111111;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-o-border-radius: 10px;
+	background-color: rgb(229,229,229);
+
+
+    box-shadow: rgb(185,185,185) 0 0px 5px;
+    -moz-box-shadow: rgb(185,185,185) 0 0px 5px;
+    -webkit-box-shadow: rgb(185,185,185) 0 0px 5px;
+width:75%;
+
+}
+.twit .t .slant {
+left:14px;
+bottom:-26px;
+-moz-transform:rotate(-115deg);
+-webkit-transform: rotate(-115deg);
+-o-transform: rotate(-115deg);
+transform: rotate(-115deg);
+border-color:transparent transparent rgb(229,229,229);
+border-style:solid;
+border-width:1px 1px 20px 46px;
+background:none;
+float:left;
+height:0;
+margin:0 10px;
+width:0;
+position:absolute;
+z-index:0;
+}
+
+.yml {
+display:inline-block;
+border:2px dotted blue;
+width:150px;
+height:120px;
+overflow:hidden;
+}
+
+.yml img {
+width:140px;
+}
+
 
 
 
