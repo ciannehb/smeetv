@@ -1,11 +1,21 @@
 <?
 require_once('header.php');
 require_once('func.php');
+
+
+    drawHeader('remote control',$u,'1');
+
+
 $_POST['username']=advancedClean(3,$_POST['username']);
 $_POST['password']=advancedClean(3,$_POST['password']);
 $_POST['channels']=advancedClean(3,$_POST['channels']);
 $_POST['email']=advancedClean(3,$_POST['email']);
 $_POST['process']=advancedClean(3,$_POST['process']);
+
+?>
+<p style="color:red">Registration is closed at this moment.</p>
+<p>One way to request invite is to reply to <a href="http://twitter.com/smeetv">@smeetv</a> on twitter and ask for the invite code. We'll direct message or reply back with your invite code.</p>
+<?
 
 if($_POST['process']==1) {
 
@@ -19,7 +29,6 @@ if(!validate_username($_POST['username'])==TRUE ||
    } else {
 
 ?>
-<p style="color:red">Registration is not allowed at this moment.</p>
 <?return;
         connect2db();
         $query="select id from accounts where username='".$_POST['username']."'";

@@ -7,6 +7,10 @@ if(isUserLoggedIn()==1){
     return;
 }
 
+require_once($_SERVER['DOCUMENT_ROOT'].'/smeetv/header.php');
+drawHeader('remote control',$u,'1');
+
+
 
 $_POST['username']=advancedClean(3,$_POST['username']);
 $_POST['password']=advancedClean(3,$_POST['password']);
