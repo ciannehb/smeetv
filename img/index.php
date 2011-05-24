@@ -44,16 +44,14 @@
 
 <script>
     $(document).ready(function(){
-           $('.squares.mainimg > article').each(function(){
-               var content=$(this).html();
-               imagify(content,'.squares.mainimg > article');
-           });
+        $('#mainimg.squares.mainimg > article').each(function(){
+           var content=$(this).html();
+           imagify(content,'#mainimg.squares.mainimg > article');
+        });
 
-$('#yml1').load('/etc/suggest/');
-$('#yml2').load('/etc/suggest/');
-$('#yml3').load('/etc/suggest/');
-
-
+        $('.squares.ymlw .yml').each(function(e){
+            $(this).html('<iframe src=\'/etc/suggest\' style=""></iframe>');
+        });
     }); 
 </script>
 
@@ -71,7 +69,7 @@ $('#yml3').load('/etc/suggest/');
     <a href="./report/<?=$id?>">report this image</a>
     </footer></div>
     <aside>
-        <section class="squares mainimg" >
+        <section id="mainimg" class="squares mainimg" >
 
             <article id="<?=$get['id']?>" rel="<?=$get['link']?>"><?=$get['content']?></article>
 
@@ -114,7 +112,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
         </section>
         <br>
-        <section class="squares">
+        <section class="squares ymlw">
             <h3>You may also like:</h3>
 <p id="yml1" class="yml">1</p>
 <p id="yml2" class="yml">2</p>

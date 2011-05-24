@@ -1089,14 +1089,30 @@ z-index:0;
 
 .yml {
 display:inline-block;
-border:2px dotted blue;
 width:150px;
 height:120px;
 overflow:hidden;
+
+
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -o-border-radius: 10px;
+        background-color: rgb(229,229,229);
+
+
+    box-shadow: rgb(185,185,185) 0 0px 5px;
+    -moz-box-shadow: rgb(185,185,185) 0 0px 5px;
+    -webkit-box-shadow: rgb(185,185,185) 0 0px 5px;
+
 }
 
-.yml img {
+.yml iframe {
 width:140px;
+height:112px;
+padding:0;
+margin:0;
+border:none;
+overflow:hidden;
 }
 
 
