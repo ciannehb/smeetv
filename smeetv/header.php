@@ -24,7 +24,7 @@
 </head>
 <body>
 <header id="topnav">
-<h1 title="smeetv -- tv window into twitter universe"><a href="/">smee<span>tv</span></a></h1><a href="http://smeetv.com/img/24700" title="Feature image -- Obama family tastes beer in Ireland"><sup title="alpha version -- unpredictable behavior expected">&alpha;</sup></a>
+<h1 title="smeetv -- tv window into twitter universe"><a href="/">smee<span>tv</span></a></h1><a href="http://smeetv.com/img/24817" title="Feature image -- Obama family tastes beer in Ireland"><sup title="alpha version -- unpredictable behavior expected">&alpha;</sup></a>
 &mdash;
 <nav>
 <?if($user_loggedin && $show_menu==1){?>
