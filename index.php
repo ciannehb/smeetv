@@ -229,7 +229,7 @@ repeater(function(left){
     if(left>0 && $('body').hasClass('newstuffsfound')==false) {
        check_new_twits('<?=$most_recent_hash?>','<?=$_SESSION['id']?>');
     }
-}, 100000, 6000, success);
+}, 100000, 60000, success);
 
 
 
