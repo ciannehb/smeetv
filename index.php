@@ -118,6 +118,9 @@ src=\"http://pagead2.googlesyndication.com/pagead/show_ads.js\">
 
     <script>
 
+
+var success=0;
+
         function flag_image(id) {
                 $.ajax({
                         type: 'POST',
@@ -170,6 +173,7 @@ src=\"http://pagead2.googlesyndication.com/pagead/show_ads.js\">
         function logger(str) {
            var ts = Math.round(new Date().getTime() / 1000);
            $('#log').prepend('<p>'+ts+': '+str+'<p>');
+           var f1v=true;
         }
 
         function kickStopEvent(){
@@ -188,17 +192,8 @@ timeout: <?=$get['smeetv_speed']?>,
                 next:   '#next2, #altnext', 
                 prev:   '#prev2' 
             });
-
-
 //$('#content').append('<article id="00">ad</article>');
-
-
         }
-
-
-
-
-
 
         function check_new_twits(h,i){
                 if(!h){
@@ -211,10 +206,7 @@ timeout: <?=$get['smeetv_speed']?>,
                         dataType: 'html',
                         success: function(response, textStatus) {
                             if(response=="1" && $('.notification.success.new-pics-found').length<1){
-                                $('body').append('<div class="notification success new-pics-found"><span class="ui-icon check">&nbsp;</span>New pictures found. <a id="thisrefresh" href="">Refresh the page</a> to see changes.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
-
-
-
+                                $('body').addClass('newstuffsfound').append('<div class="notification success new-pics-found"><span class="ui-icon check">&nbsp;</span>New pictures found. <a id="thisrefresh" href="">Refresh the page</a> to see changes.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
                             }
                         },
                         error: function(xhr, textStatus, errorThrown) {
@@ -223,16 +215,7 @@ timeout: <?=$get['smeetv_speed']?>,
                 });
         }
 
-
-
-
-
-
-
-
-
-
-var repeater = function(func, times, interval) {
+var repeater = function(func, times, interval,success) {
     window.setTimeout( function(times) {
     return function() {
       if (--times > 0) window.setTimeout(arguments.callee, interval);
@@ -243,13 +226,10 @@ var repeater = function(func, times, interval) {
 
 
 repeater(function(left){
-    check_new_twits('<?=$most_recent_hash?>','<?=$_SESSION['id']?>');
-/*
-    if(left == 0) {
-        alert("I'm done");
+    if(left>0 && $('body').hasClass('newstuffsfound')==false) {
+       check_new_twits('<?=$most_recent_hash?>','<?=$_SESSION['id']?>');
     }
-*/
-}, 100000, 60000);
+}, 100000, 6000, success);
 
 
 

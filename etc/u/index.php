@@ -20,6 +20,8 @@ $get=mysql_fetch_array($go);
 $new=md5($get['id']."".$get['timestamp']);
 $compareto=$_POST['h'];
 
+// echo $_POST['h'] . " " . $compareto;
+
 
 if($new == $compareto)
     echo "0";
