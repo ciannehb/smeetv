@@ -50,7 +50,7 @@
         });
 
         $('.squares.ymlw .yml').each(function(e){
-            $(this).html('<iframe src=\'/etc/suggest\'></iframe>');
+            $(this).html('<iframe src=\'/etc/suggest/img\'></iframe>');
         });
     }); 
 </script>
