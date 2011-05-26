@@ -76,16 +76,16 @@ if($_POST['section']=="settings"){
         $split_keywords=explode(',',$_POST['smeetv_hashtags']);
         for($i=0;$i<count($split_keywords);$i++){
 
-            $subquery="select uids from keywords where keyword='".$split_keywords[$i]."' limit 0,1";
+            $subquery="select uids from keywords where keyword='".trim($split_keywords[$i])."' limit 0,1";
             $subgo=mysql_query($subquery);
             $subget=mysql_fetch_array($subgo);
 
             $splitsubget=split(',',$subget[0]);
             if(!array_search($_SESSION['id'],$splitsubget)){
-                if(mysql_num_rows(mysql_query("select id from keywords where keyword='{$split_keywords[$i]}'"))==0){  // no suck keyword found, add it
+                if(mysql_num_rows(mysql_query("select id from keywords where keyword='".trim($split_keywords[$i])."'"))==0){  // no suck keyword found, add it
                     mysql_query("insert into keywords (keyword,uids,counter) values ('".$split_keywords[$i]."','".$subget[0].", ".$_SESSION['id']."',1)");
                 } else {
-                    mysql_query("update keywords set counter=counter+1,uids='".$subget[0].",".$_SESSION['id']."' where keyword='".$split_keywords[$i]."'"); // such keyword exists, add up
+                    mysql_query("update keywords set counter=counter+1,uids='".$subget[0].",".$_SESSION['id']."' where keyword='".trim($split_keywords[$i])."'"); // such keyword exists, add up
                 }
             } else {
                 //echo "skipping";
