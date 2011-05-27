@@ -74,7 +74,7 @@
             <article id="<?=$get['id']?>" rel="<?=$get['link']?>"><?=$get['content']?></article>
 
         </section>
-        <section class="squares">
+        <section class="squares share">
 
 
 
@@ -111,7 +111,7 @@ google_ad_height = 280;
 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
         </section>
-        <br>
+        <br class="clear">
         <section class="squares ymlw">
             <h3>You may also like:</h3>
 <p id="yml1" class="yml">1</p>

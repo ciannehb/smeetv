@@ -33,6 +33,10 @@
 }
 
 
+h1,h2,h3,h4,h5 {
+margin:.5em 0 .25em;
+}
+
 
         body {
             background:#eee;
@@ -41,6 +45,7 @@ font-family: Helvetica, Verdana;
 
         p {
             line-height:1.6em;
+            margin:.5em 0 .25em;
         }
 
 cite,abbr{
@@ -56,6 +61,8 @@ cursor: help;
 
         a { color:#111111; }
 
+
+        .clear {clear:both;}
 
         .hide {
             display:none;
@@ -112,11 +119,11 @@ float:left;
     color: #111111;
     font-size: 0.75em;
     opacity: 0.25;
-    position: absolute;
-    right: 0.25em;
+    float:right;
+    line-height:1.6em;
 }
 
-#ft small {
+#ft aside {
 display:none;
 }
 
@@ -124,7 +131,7 @@ display:none;
 opacity:1;
 }
 
-#ft:hover small {
+#ft:hover aside {
 display:inline;
 }
 
@@ -1029,6 +1036,12 @@ color:#ff0099;
 .twit aside .squares {
 width:auto;
 display:inline-block;
+float:left;
+margin:0 1em 1em 0;
+}
+
+.twit aside .squares.share {
+margin-top:.5em;
 }
 
 .twit aside .squares .description {
@@ -1088,14 +1101,23 @@ z-index:0;
 }
 
 .yml:hover {
--moz-transform:rotate(3deg);
--webkit-transform: rotate(3deg);
--o-transform: rotate(3deg);
-transform: rotate(3deg);
+-moz-transform:rotate(1deg);
+-webkit-transform: rotate(1deg);
+-o-transform: rotate(1deg);
+transform: rotate(1deg);
+
+
+    box-shadow: rgb(185,185,185) 0 0px 8px;
+    -moz-box-shadow: rgb(185,185,185) 0 0px 8px;
+    -webkit-box-shadow: rgb(105,105,105) 0 0px 8px;
+
+z-index:2;
 
 }
 
 .yml {
+z-index:1;
+margin-right:-4px;
 display:inline-block;
 width:150px;
 height:114px;
@@ -1108,9 +1130,9 @@ overflow:hidden;
         background-color: rgb(229,229,229);
 
 
-    box-shadow: rgb(185,185,185) 0 0px 5px;
-    -moz-box-shadow: rgb(185,185,185) 0 0px 5px;
-    -webkit-box-shadow: rgb(185,185,185) 0 0px 5px;
+    box-shadow: rgb(185,185,185) 0 0px 3px;
+    -moz-box-shadow: rgb(185,185,185) 0 0px 3px;
+    -webkit-box-shadow: rgb(185,185,185) 0 0px 3px;
 
 }
 
