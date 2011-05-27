@@ -326,7 +326,7 @@ opacity:.95
 
 
         #controller a {
-        color:#fff !important;
+        color:#fff;
         }
 
 #controller label.s.selected {
@@ -1149,5 +1149,12 @@ overflow: hidden;
 }
 
 
-
+#dim_bg,
+#undim_bg {
+    color: #111111;
+    font-size: 0.85em;
+    line-height: 1.75em;
+    margin-top: 0.3em;
+    padding: 0.15em 0.15em 0;
+}
 

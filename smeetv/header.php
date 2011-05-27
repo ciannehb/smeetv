@@ -5,6 +5,7 @@
 <head>
 <title><?=$title?> | @smeetv</title>
 <link type="text/css" rel="stylesheet" media="all" href="/c/grid.css" >
+<link type="text/css" rel="stylesheet" id="light" media="all" href="/c/light.css" >
 <link rel="stylesheet" type="text/css" href="/rss/<?=$_SESSION['idhash']?>"> 
 <?if($_SESSION['idhash']){?><link rel="alternate" type="application/rss+xml" title="your feed" href="/rss/<?=$_SESSION['idhash']?>"><?}?>
 

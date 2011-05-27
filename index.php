@@ -15,6 +15,7 @@
 ?>
 <nav role="usermenu">
 <a id="rss1231" href="/u/<?=$_SESSION['username']?>"><?=$_SESSION['username']?></a> (<abbr title="anonpub: anonymous public channel and rss feed is your images stream, you can share publicly, it does not display your userid or username.">anonpub</abbr>: <a href="/chan/<?=$_SESSION['idhash']?>">channel</a>, <a href="/rss/<?=$_SESSION['idhash']?>">rss</a>)
+
 </nav>
 <?
     $query="select id,content,timestamp,link from twits where uid={$_SESSION['id']} order by id desc limit 0,20";
@@ -144,6 +145,40 @@ var success=0;
         }
 
 
+
+
+
+
+
+
+
+
+
+
+        function createCookie(name,value,days) {
+	    if (days) {
+			var date = new Date();
+			date.setTime(date.getTime()+(days*24*60*60*1000));
+			var expires = "; expires="+date.toGMTString();
+	    }
+	    else var expires = "";
+	    document.cookie = name+"="+value+expires+"; path=/";
+            }
+
+        function readCookie(name) {
+	    var nameEQ = name + "=";
+	    var ca = document.cookie.split(';');
+	    for(var i=0;i < ca.length;i++) {
+			var c = ca[i];
+			while (c.charAt(0)==' ') c = c.substring(1,c.length);
+			if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+            }    
+	    return null;
+        }
+
+
+
+
         function save_resized_window(h,w) {
             var smeetv_size = h + ',' + w;
                 $.ajax({
@@ -237,6 +272,9 @@ repeater(function(left){
 
 
 	$(document).ready(function(){
+
+
+
 
 
 
@@ -348,18 +386,25 @@ e.preventDefault();
 
 
 
+/*
+<a id="dim_bg" href="" class="btn">dim bg</a>
+
+*/
 
 
+        $('#dim_bg').live('click',function(e){
+            var coo = createCookie('dim','1',365);
+            $('head #light').attr({'href':'/c/dim.css','id':'dim'});
+            $('#dim_bg').attr({'id':'undim_bg','class':'btn active'});
+            e.preventDefault();
+        });
 
-
-
-
-
-
-
-
-
-
+        $('#undim_bg').live('click',function(e){
+            var coo = createCookie('dim','0',10);
+            $('head #dim').attr({'href':'/c/light.css','id':'light'});
+            $('#undim_bg').attr({'id':'dim_bg','class':'btn'});
+            e.preventDefault();
+        });
 
 
         $('#thisrefresh').live('click',function(){
@@ -625,6 +670,9 @@ for($i=0;$i<mysql_num_rows($qh);$i++){
 
 
 
+
+
+
 <div id="controller" class="default draggable-handle ">
         <ul class="littlenav">
                 <li><a href="#tabs-1" class="gotoremotecontrol" title="Remote control">tv</a></li>
@@ -635,7 +683,7 @@ for($i=0;$i<mysql_num_rows($qh);$i++){
  <div class="dragginggniggard"><div class="draggable-handle ui-icon">&nbsp;</div></div>
 
     <div id="tabs-1">
-    <div class="fleft"><strong>Remote Control</strong></div>
+    <div class="fleft"><strong>Remote Control</strong><a id="dim_bg" href="" class="btn">dim lights</a></div>
     <form method="post" id="remotecontrol432" action="/etc/save/">
     <input type="hidden" name="section" id="removecontrolcb" value="remotecontrol">
 
