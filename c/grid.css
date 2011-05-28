@@ -1158,3 +1158,13 @@ overflow: hidden;
     padding: 0.15em 0.15em 0;
 }
 
+#fni {
+color:#ccc;
+}
+
+#fni .fni .details {
+display:none;
+}
+
+
+

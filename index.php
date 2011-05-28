@@ -14,7 +14,7 @@
     connect2db();
 ?>
 <nav role="usermenu">
-<a id="rss1231" href="/u/<?=$_SESSION['username']?>"><?=$_SESSION['username']?></a> (<abbr title="anonpub: anonymous public channel and rss feed is your images stream, you can share publicly, it does not display your userid or username.">anonpub</abbr>: <a href="/chan/<?=$_SESSION['idhash']?>">channel</a>, <a href="/rss/<?=$_SESSION['idhash']?>">rss</a>)
+<a id="rss1231" href="/u/<?=$_SESSION['username']?>"><?=$_SESSION['username']?></a> (<abbr title="anonpub: anonymous public channel and rss feed is your images stream, you can share publicly, it does not display your userid or username.">anonpub</abbr>: <a href="/chan/<?=$_SESSION['idhash']?>">channel</a>, <a href="/rss/<?=$_SESSION['idhash']?>">rss</a>) <span id="fni"></span>
 
 </nav>
 <?
@@ -230,6 +230,18 @@ timeout: <?=$get['smeetv_speed']?>,
 //$('#content').append('<article id="00">ad</article>');
         }
 
+        function check_num_twits_fetched(){
+                $.ajax({
+                        type: 'GET',
+                        url: '/status/',
+                        dataType: 'html',
+                        success: function(response, textStatus) {
+                            $('#fni').html(response);
+                        },
+                });
+        }
+
+
         function check_new_twits(h,i){
                 if(!h){
                     h='null';
@@ -264,6 +276,7 @@ repeater(function(left){
     if(left>0 && $('body').hasClass('newstuffsfound')==false) {
        check_new_twits('<?=$most_recent_hash?>','<?=$_SESSION['id']?>');
     }
+    setTimeout(function(){check_num_twits_fetched()},10000);
 }, 100000, 60000, success);
 
 
@@ -280,6 +293,8 @@ repeater(function(left){
 
 
 
+
+$('#fni').load('/status/');
 
 
 $('#featuredhashtags_content').load('/etc/featuredhashtags/');
