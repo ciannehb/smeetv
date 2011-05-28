@@ -378,14 +378,13 @@ e.preventDefault();
                         success: function(response, textStatus) {
                             var result = $(response + ' meta[name=ajr]' ).attr('content');
                             if(result=="1"){
-
-                                $('body').append('<div class="notification confirm"><span class="ui-icon check">&nbsp;</span>Settings saved. <a id="thisrefresh" href="">Refresh the page</a> to see changes.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>')
+                                $('body').append('<div class="notification confirm"><span class="ui-icon check">&nbsp;</span>Settings saved. <a id="thisrefresh" href="">Refresh the page</a> to see changes. You will be notified here of new picture as they\'re found by our robot.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
                             } else {
-                                $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to save settings, please retry.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>')
+                                $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to save settings, please retry.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
                             }
                         },
                         error: function(xhr, textStatus, errorThrown) {
-                                $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to save settings, please retry.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>')
+                                $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to save settings, please retry.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
                                 //$('#messages').notify({status: 'error', message: 'A system error occurred'});
                         }
 

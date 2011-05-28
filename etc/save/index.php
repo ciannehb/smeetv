@@ -91,6 +91,15 @@ if($_POST['section']=="settings"){
                 //echo "skipping";
             }
         }
+
+        /* run very light query to add at least a few keywords for user to give him impression of immediate results */
+        $rush_query = "select content,link,date from twits_dump where content like '% ".$split_keywords[0]." %' OR content like '% ".$split_keywords[count($split_keywords)-1]." %' and flagged=0 limit 0,2 ";
+        $rush_go=mysql_query($rush_query);
+        for($rush_i=0;$rush_i<mysql_num_rows($rush_go);$rush_i++){
+            $rush_get=mysql_fetch_array($rush_go);
+            mysql_query("insert into twits (uid,content,link,date,timestamp) values (\"{$_SESSION['id']}\",\"{$rush_get['content']}\",\"{$rush_get['link']}\",\"{$rush_get['date']}\",\"".time()."\")");
+        }
+
     }
 
 }elseif($_POST['section']=="save_resize_r"){
