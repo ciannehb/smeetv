@@ -44,7 +44,8 @@ if($_POST['smeetv_hashtags']!=$_POST['smeetv_hashtags_prev']){
     foreach($ht_prev as $h){
         $g=stripos($post_smeetv_hashtags_altered,$h);
         if($g==NULL && $h!=$fixl ){
-            $query="delete from twits where content like '%".$h."%'";
+            $query="delete from twits where content like '%".$h."%' and uid='{$_SESSION['id']}'";
+echo $query;
             mysql_query($query);
         }
     }
