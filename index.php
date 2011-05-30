@@ -808,5 +808,5 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
     <div id="transport"><!--transport--></div>
      <div id="log"></div>
 
-
+<style>#ft {position:fixed;right:1em;}</style>
 <?require_once('smeetv/footer.php');?>
