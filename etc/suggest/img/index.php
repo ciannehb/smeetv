@@ -4,10 +4,15 @@ require_once($_SERVER["DOCUMENT_ROOT"].'/smeetv/func.php');
 
 connect2db();
 
+$arr=explode("/",advancedClean(3,$_SERVER['REQUEST_URI']));
+$transport=explode("?",$arr[count($arr)-1]);
+$transport=advancedClean(3,$transport[0]);
+
+$transport='o';
 
 
-
-$qh="select * from twits where content like '%the%' and uid!='{$_SESSION['id']}' limit ".rand(1,14).",1";
+$qh="select * from twits where content like '%$transport%' and uid!='{$_SESSION['id']}' limit ".rand(0,20).",1";
+//$qh="select * from twits where (MATCH(content) AGAINST('LOWER($transport)') and uid!='{$_SESSION['id']}' limit 0,1";
 $qh=mysql_query($qh);
 $gh=mysql_fetch_array($qh);
 
@@ -32,7 +37,6 @@ echo "
                imagify(content,'<?=$gh['id']?>');
            });
     });
-
 </script>
 
 

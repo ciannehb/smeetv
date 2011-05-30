@@ -26,12 +26,6 @@
     $twusr=explode("/",$get['link']);
 
     require_once($_SERVER['DOCUMENT_ROOT'].'/smeetv/header.php');
-/*
-    if(strlen($get['content'])>75){
-        $title=substr($get['content'],stripos($get['content']," "),75);
-        //$title=trim($title)."...";
-    }
-*/
 
     $title=$get['content'];
 
@@ -49,9 +43,6 @@
            imagify(content,'#mainimg.squares.mainimg > article');
         });
 
-        $('.squares.ymlw .yml').each(function(e){
-            $(this).html('<iframe src=\'/etc/suggest/img\'></iframe>');
-        });
     }); 
 </script>
 
@@ -114,15 +105,47 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
         <br class="clear">
         <section class="squares ymlw">
             <h3>You may also like:</h3>
-<p id="yml1" class="yml">1</p>
-<p id="yml2" class="yml">2</p>
-<p id="yml3" class="yml">3</p>
+
+
+
+<?
+
+function getWordSuggestion($var){
+// get contents of a file into a string
+$filename = "http://google.com/complete/search?output=toolbar&q=$var";
+
+$handle = fopen($filename, "rb");$contents = '';
+while (!feof($handle)) {
+  $contents .= fread($handle, 8192);
+}
+fclose($handle);
+
+
+$x=xml2array($contents);
+$offset=count($x[toplevel][CompleteSuggestion]);
+$kwd=$x[toplevel][CompleteSuggestion][rand(0,$offset-1)][suggestion_attr][data];
+
+return $kwd;
+}
+
+
+?>
+
+<p id="yml1" class="yml"><iframe src="/etc/suggest/img/<?=getWordSuggestion("bar")?>"></iframe></p>
+<p id="yml2" class="yml"><iframe src="/etc/suggest/img/<?=getWordSuggestion("bar")?>"></iframe></p>
+<p id="yml3" class="yml"><iframe src="/etc/suggest/img/<?=getWordSuggestion("bar")?>"></iframe></p>
+
+
+
         </section>
         <section class="squares">
        
         </section>
     </aside>
     </article>
+
+
+
 
 <?require_once($_SERVER['DOCUMENT_ROOT'].'/smeetv/footer.php');?>
 
