@@ -18,7 +18,8 @@
 
     //$id=advancedClean(3,$arr[count($arr)-1]);
     $id=$transport;
-    $query="select id,content,timestamp,link,date from twits where id=".$id;
+    //$query="select id,content,timestamp,link,date from twits where id=".alphaID($id,true);
+    $query="select id,content,timestamp,link,date from twits_dump where id=".alphaID($id,true);
 
     $go=mysql_query($query);
 

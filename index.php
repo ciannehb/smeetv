@@ -18,7 +18,7 @@
 
 </nav>
 <?
-    $query="select id,content,timestamp,link from twits where uid={$_SESSION['id']} order by id desc limit 0,20";
+    $query="select aid,id,content,timestamp,link from twits where uid={$_SESSION['id']} order by id desc limit 0,20";
 
 
 
@@ -40,7 +40,7 @@ src=\"http://pagead2.googlesyndication.com/pagead/show_ads.js\">
     $barr="";
     for($i=0;$i<mysql_num_rows($go);$i++){
         $get=mysql_fetch_array($go);
-        $barr.="<article id=\"{$get['id']}\" rel=\"".$get['link']."\">".$get['content']."</article>";
+        $barr.="<article id=\"{$get['aid']}\" rel=\"".$get['link']."\">".$get['content']."</article>";
         if($i==0) {
             $most_recent_hash=md5($get['id']."".$get['timestamp']);
         }
@@ -609,7 +609,9 @@ function togglePlayPause(){
 
 $('#original_source_link').live('click',function(e){
 var findid = $('#content article:visible').attr('id');
-gotosrc('/img/'+findid);
+var str = AlphabeticID.encode(parseInt(findid));
+gotosrc('/img/'+str);
+
 e.preventDefault();
 });
 
