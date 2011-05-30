@@ -8,11 +8,15 @@ $arr=explode("/",advancedClean(3,$_SERVER['REQUEST_URI']));
 $transport=explode("?",$arr[count($arr)-1]);
 $transport=advancedClean(3,$transport[0]);
 
-$transport='o';
+//$transport='o';
 
 
-$qh="select * from twits where content like '%$transport%' and uid!='{$_SESSION['id']}' limit ".rand(0,20).",1";
-//$qh="select * from twits where (MATCH(content) AGAINST('LOWER($transport)') and uid!='{$_SESSION['id']}' limit 0,1";
+//$qh="select * from twits where content like '%$transport%' and uid!='{$_SESSION['id']}' limit ".rand(0,20).",1";
+if(isUserLoggedIn()){
+    $narrowdown=" and uid!='{$_SESSION['id']}' ";
+}
+$qh="select * from twits where (MATCH(content) AGAINST('LOWER($transport)')) $narrowdown limit ".rand(0,10).",1";
+
 $qh=mysql_query($qh);
 $gh=mysql_fetch_array($qh);
 

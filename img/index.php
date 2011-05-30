@@ -110,30 +110,34 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 
 <?
 
-function getWordSuggestion($var){
-// get contents of a file into a string
-$filename = "http://google.com/complete/search?output=toolbar&q=$var";
+//$get['content']="RT @F1grid: PHOTO: Monaco 2011 and Monza 2010. Very similar incidents with Hamilton and Massa. F1 http://t.co/vyIAcon";
 
-$handle = fopen($filename, "rb");$contents = '';
-while (!feof($handle)) {
-  $contents .= fread($handle, 8192);
-}
-fclose($handle);
+preg_match_all('/(\w+)/',$get['content'],$matches);
+preg_match_all('/#(\w+)/',$get['content'],$matches_hash);
 
 
-$x=xml2array($contents);
-$offset=count($x[toplevel][CompleteSuggestion]);
-$kwd=$x[toplevel][CompleteSuggestion][rand(0,$offset-1)][suggestion_attr][data];
 
-return $kwd;
+
+if(count($matches_hash[0])>0){ /*hashes found*/
+    $words_found=count($matches[0]);
+    $force_size = count($matches[0]);
+}else{ /*hashtags not found*/
+    $words_found=count($matches[0]);
+    usort($matches[0],'sortByLength');
+/*
+    foreach($matches[0] as $ab){
+        echo $ab . "<br>";
+    }
+*/
+    $force_size = ceil(count($matches[0]) / 3);
 }
 
 
 ?>
 
-<p id="yml1" class="yml"><iframe src="/etc/suggest/img/<?=getWordSuggestion("bar")?>"></iframe></p>
-<p id="yml2" class="yml"><iframe src="/etc/suggest/img/<?=getWordSuggestion("bar")?>"></iframe></p>
-<p id="yml3" class="yml"><iframe src="/etc/suggest/img/<?=getWordSuggestion("bar")?>"></iframe></p>
+<p id="yml1" class="yml"><iframe src="/etc/suggest/img/<?=getWordSuggestion($matches[0][rand(0,$force_size)])?>"></iframe></p>
+<p id="yml2" class="yml"><iframe src="/etc/suggest/img/<?=getWordSuggestion($matches[0][rand(0,$force_size)])?>"></iframe></p>
+<p id="yml3" class="yml"><iframe src="/etc/suggest/img/<?=getWordSuggestion($matches[0][rand(0,$force_size)])?>"></iframe></p>
 
 
 

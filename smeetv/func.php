@@ -208,5 +208,31 @@ function xml2array($contents, $get_attributes=1, $priority = 'tag') {
 
 
 
+function getWordSuggestion($var){
+// get contents of a file into a string
+$filename = "http://google.com/complete/search?output=toolbar&q=$var";
+
+$handle = fopen($filename, "rb");$contents = '';
+while (!feof($handle)) {
+  $contents .= fread($handle, 8192);
+}
+fclose($handle);
+
+
+$x=xml2array($contents);
+$offset=count($x[toplevel][CompleteSuggestion]);
+$kwd=$x[toplevel][CompleteSuggestion][rand(0,$offset-1)][suggestion_attr][data];
+return $kwd;
+}
+
+
+function sortByLength($a,$b){
+  /* usage: usort($matches[0],'sortByLength')*/
+  if($a == $b) return 0;
+  return (strlen($a) > strlen($b) ? -1 : 1);
+}
+
+
+
 
 ?>
