@@ -33,7 +33,6 @@
 <a href="/smeetv/profile.php" class="gotosettings gototrigger" rel="gotosettings">settings</a> |
 <a href="" class="gotohelp gototrigger" rel="gotohelp">help</a> |
 <a href="/smeetv/logout.php">logout</a>
-<a href="/smeetv/fetch_twits.php" title='Force flush user twits table'>&#9851;</a> <a href="status.php" title="Status data">&permil;</a>
 
 
 <a id="featuredhashtags" href="">Featured hashtags</a>

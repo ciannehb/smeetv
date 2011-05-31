@@ -233,7 +233,7 @@ timeout: <?=$get['smeetv_speed']?>,
         function check_num_twits_fetched(){
                 $.ajax({
                         type: 'GET',
-                        url: '/status/',
+                        url: '/status/ajax',
                         dataType: 'html',
                         success: function(response, textStatus) {
                             $('#fni').html(response);
@@ -294,7 +294,7 @@ repeater(function(left){
 
 
 
-$('#fni').load('/status/');
+$('#fni').load('/status/ajax');
 
 
 $('#featuredhashtags_content').load('/etc/featuredhashtags/');

@@ -125,6 +125,10 @@ float:left;
 padding:1em;
 }
 
+#ft aside .status {
+    color:#FF0099;
+}
+
 #ft aside {
 display:none;
 }
