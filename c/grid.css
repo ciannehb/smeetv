@@ -63,6 +63,7 @@ cursor: help;
 
 
         .clear {clear:both;}
+        .clearfix {clear:both;border:none;}
 
         .hide {
             display:none;
@@ -1160,7 +1161,7 @@ overflow: hidden;
 }
 
 #fni {
-color:#ccc;
+color:#bbb;
 }
 
 #fni .fni .details {
