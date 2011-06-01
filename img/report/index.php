@@ -26,12 +26,12 @@ if(!$_POST['op']=='ajax'){
     $id=$_POST['id'];
 }
 
-    $query="select link from twits where id=".$id;
+    $query="select link from twits where id=".alphaID($id,true);
     $go=mysql_query($query);
     $get=mysql_fetch_array($go);
 
     if($u==true){
-        $uquery="delete from twits where id='$id'";
+        $uquery="delete from twits where aid='".alphaID($id)."'";
         $go=mysql_query($uquery);
         if(!$go) {
             $error=1;
