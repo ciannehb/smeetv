@@ -26,19 +26,21 @@ if(!$_POST['op']=='ajax'){
     $id=$_POST['id'];
 }
 
-    $query="select link from twits where id=".alphaID($id,true);
+    $query="select link from twits where aid=".alphaID($id,true);
     $go=mysql_query($query);
     $get=mysql_fetch_array($go);
 
+
     if($u==true){
-        $uquery="delete from twits where aid='".alphaID($id)."'";
+        $uquery="delete from twits where aid='".alphaID($id,true)."'";
         $go=mysql_query($uquery);
         if(!$go) {
             $error=1;
         }
     }
 
-    $gquery="update twits_dump set flagged='1' where link='".$get[0]."'";
+    //$gquery="update twits_dump set flagged='1' where link='".$get[0]."'";
+    $gquery="update twits_dump set flagged='1' where id='".alphaID($id,true)."'";
     $go=mysql_query($gquery);
     if(!$go) {
         $error=1;
