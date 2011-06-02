@@ -15,7 +15,7 @@
     $go=mysql_query($query);
     $get=mysql_fetch_array($go);
     $l=time()-$get[0];
-    $output .= $l." seconds ago</span><span>";
+    $output .=  date("H:i:s", $get[0])   ."</span><span>";
 
 $f = fopen("_incl.txt", "w"); 
 fwrite($f, $output); 
