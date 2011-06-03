@@ -20,6 +20,16 @@
     $n7=$arr[6]-$arr[7];
     $n8=$arr[7]-$arr[8];
 
+    $f1=0;
+    $f2=0;
+    $f3=0;
+    $f4=0;
+    $f5=0;
+    $f6=0;
+    $f7=0;
+    $f8=0;
+
+
 
 $output="
 
@@ -38,16 +48,17 @@ $output="
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'x');
         data.addColumn('number', 'Pics');
+        data.addColumn('number', 'Flagged');
       
 
-        data.addRow([\"4 hr\", $n8]);
-        data.addRow([\"3.5 hr\", $n7]);
-        data.addRow([\"3 hr\", $n6]);
-        data.addRow([\"2.5 hr\", $n5]);
-        data.addRow([\"2 hr\", $n4]);
-        data.addRow([\"1.5 hr\", $n3]);
-        data.addRow([\"1 hr\", $n2]);
-        data.addRow([\"30 min\", $n1]);
+        data.addRow([\"4 hr\", $n8, $f1]);
+        data.addRow([\"3.5 hr\", $n7, $f2]);
+        data.addRow([\"3 hr\", $n6, $f3]);
+        data.addRow([\"2.5 hr\", $n5, $f4]);
+        data.addRow([\"2 hr\", $n4, $f5]);
+        data.addRow([\"1.5 hr\", $n3, $f6]);
+        data.addRow([\"1 hr\", $n2, $f7]);
+        data.addRow([\"30 min\", $n1, $f8]);
       
         // Create and draw the visualization.
         new google.visualization.LineChart(document.getElementById('visualization')).
