@@ -1,7 +1,10 @@
 <?
 include('./generate/_incl.txt');
 
-if(!$op=="ajax"){
+
+    $arr=explode("/",$_SERVER['REQUEST_URI']);
+
+if(!$arr[count($arr)-1]=="ajax"){
 ?><html>
 <head>
 <script type="text/javascript">
