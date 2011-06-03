@@ -68,7 +68,7 @@ for($i=0;$i<mysql_num_rows($go);$i++){
 <th>actions</th>
 </thead>
 <?
-$query="select id,aid,content,link from twits_dump where flagged='1' order by id desc limit 0,3";
+$query="select id,aid,content,link from twits_dump where flagged='1' order by id desc limit 0,15";
 $go=mysql_query($query);
 for($i=0;$i<mysql_num_rows($go);$i++){
 $get=mysql_fetch_array($go);
