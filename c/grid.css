@@ -943,6 +943,11 @@ border-color:#bf6363;
 color:#663333;
 }
 
+.error {
+
+color:red;
+}
+
 #featuredhashtags {
 float:right;
 padding-right:.25em;;

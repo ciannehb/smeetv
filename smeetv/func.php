@@ -5,8 +5,26 @@ function connect2db() {
     mysql_select_db("smeetv");
 }
 
-function validate_username($v_username) { 
-   return eregi('[^a-z0-9_]', $v_username) ? FALSE : TRUE; 
+function validate_username($v_username) {
+   connect2db();
+   $query="select id from accounts where username = '$v_username'";
+   $go=mysql_query($query);
+   $num=mysql_num_rows($go);
+   if(mysql_num_rows($go)) {
+       return FALSE;
+echo "x";
+}
+
+
+   return eregi('[^a-z0-9_]', $v_username) ? FALSE : TRUE;
+}
+
+function validate_email($v_email) {
+   if(filter_var($v_email, FILTER_VALIDATE_EMAIL)){
+       return TRUE;
+   }else{
+       return FALSE;
+   }
 }
 
 function isUserLoggedIn() {
