@@ -16,6 +16,11 @@
     connect2db();
 
 
+if($_GET['op']=="ban" && $_GET['id']){
+$query="update accounts set idhash='NULL' where id='{$_GET['id']}'";
+mysql_query($query);
+}
+
     require_once($_SERVER['DOCUMENT_ROOT'].'/smeetv/header.php');
 
     drawHeader('Admin',$u);
@@ -35,17 +40,17 @@
             <th>actions</th>
         </tr>
 <?
-$query="select id,username,email,last_ip,last_time from accounts order by last_time desc limit 0,20";
+$query="select id,username,email,last_ip,last_time,idhash from accounts order by last_time desc limit 0,20";
 $go=mysql_query($query);
 for($i=0;$i<mysql_num_rows($go);$i++){
     $get=mysql_fetch_array($go);
-    echo "<tr>";
+    echo "<tr class='{$get['idhash']}'>";
     echo "
 <td>{$get['id']}</td>
 <td><a href=\"mailto:{$get['email']}\">{$get['username']}</a></td>
 <td>".f1init_ago($get['last_time'])." seconds ago</td>
 <td><a href=\"http://whois.sc/{$get['last_ip']}\" target=\"_new\">{$get['last_ip']}</a></td>
-<td><a href=\"/admin/user/deactivate/{$get['id']}\" class=\"btn\">deactivate</a></td>
+<td><a href=\"{$_SERVER['PHP_SELF']}?op=ban&id={$get['id']}\" class=\"btn\">ban</a></td>
     ";
     echo "</tr>";
 }

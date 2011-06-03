@@ -18,6 +18,10 @@ if($_POST['process']==1 && $_POST['username'] && $_POST['password']){
         $_SESSION['authenticated']=1;
         $_SESSION['username']=$_POST['username'];
         $get=mysql_fetch_array($go);
+        if($get['idhash']=='NULL'){
+            header("Location:/accountnotactive/");
+            return;
+        }
         $_SESSION['id']=$get['id'];
         $_SESSION['idhash']=$get['idhash'];
         $query="update accounts set last_ip='{$_SERVER['REMOTE_ADDR']}',last_time='".time()."' where id='{$get['id']}' ";

@@ -17,14 +17,14 @@
         data.addColumn('number', 'Pics');
       
 
-        data.addRow(["4 hr", 404]);
-        data.addRow(["3.5 hr", 550]);
-        data.addRow(["3 hr", 228]);
+        data.addRow(["4 hr", 228]);
+        data.addRow(["3.5 hr", 0]);
+        data.addRow(["3 hr", 0]);
         data.addRow(["2.5 hr", 0]);
-        data.addRow(["2 hr", 0]);
-        data.addRow(["1.5 hr", 0]);
-        data.addRow(["1 hr", 40]);
-        data.addRow(["30 min", 6]);
+        data.addRow(["2 hr", 40]);
+        data.addRow(["1.5 hr", 6]);
+        data.addRow(["1 hr", 0]);
+        data.addRow(["30 min", 11]);
       
         // Create and draw the visualization.
         new google.visualization.LineChart(document.getElementById('visualization')).

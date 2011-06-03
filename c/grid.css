@@ -759,6 +759,7 @@ box-shadow: inset rgba(0, 0, 0, .1) 0 -2px 5px, inset rgba(0, 0, 0, .2) 0 1px 3p
 .o75 {opacity:.75; }
 
 
+#forgotpassword input,
 #signup input,
 #login input {
 font-size:1.75em;
@@ -1181,5 +1182,9 @@ color:#bbb;
 display:none;
 }
 
-
-
+.NULL * {
+opacity:.5;
+}
+.NULL td {
+text-decoration: line-through;
+}

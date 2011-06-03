@@ -45,7 +45,9 @@
 <a href="/smeetv/signup.php">register</a> |
 
 
-<a href="/smeetv/login.php">login</a>
+<a href="/smeetv/login.php">login</a> <span class="o50">|
+
+<a href="/smeetv/forgotpassword.php">FORGOT PASSWORD</a></span>
 
 <?}?>
 </nav>
