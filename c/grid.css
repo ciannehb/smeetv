@@ -115,6 +115,10 @@ float:right;
 float:left;
 }
 
+.fno {
+float:none;
+}
+
 #ft {
     bottom: 2.75em;
     color: #111111;
