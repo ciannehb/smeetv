@@ -228,6 +228,8 @@ timeout: <?=$get['smeetv_speed']?>,
                 prev:   '#prev2' 
             });
 //$('#content').append('<article id="00">ad</article>');
+
+
         }
 
         function check_num_twits_fetched(){
@@ -623,6 +625,12 @@ flag_image(findid);
 e.preventDefault();
 });
 
+
+function exif_lookup(id){
+    alert('trying to get exif info for' + id);
+}
+
+
            function gotosrc(en){
                window.open(en);
                return false;
@@ -630,9 +638,18 @@ e.preventDefault();
 
            // imagify
            $('#content > article').each(function(){
-               var content=$(this).html();
-               imagify(content,$(this).attr('id'));
+               var content=$(this).html(),
+                   thisid=$(this).attr('id');
+               imagify(content,thisid);
+
+
+    setTimeout(function(){
+        exif_lookup(thisid);
+    },10000);
+
            });
+
+
 
 
 

@@ -78,15 +78,37 @@ var_dump($exif['GPSLongitudeRef']);
 
 
 
-if ($c = getCoordinates($_GET['$filename'])) {
+if ($c = getCoordinates($_GET['filename'])) {
     $latitude = $c[0];
     $longitude = $c[1];
 
     // use the data in fun ways...
 }
 
+if($latitude && $longitude){
 echo 'http://www.google.com/maps?z=16&ll='.$latitude.','.$longitude.'&t=k';
+echo "<hr>";
+}
 
 
+        $exif_data = exif_read_data ( $_GET['filename']);
+
+        $emake =$exif_data['Make'];
+        $emodel = $exif_data['Model'];
+        $eexposuretime = $exif_data['ExposureTime'];
+        $efnumber = $exif_data['FNumber'];
+        $eiso = $exif_data['ISOSpeedRatings'];
+        $edate = $exif_data['DateTime'];
+
+echo "Date: ".$edate."<br>";
+echo "Camera: ".$emodel."<br>";
+echo "Exposure: ".$eexposure."<br>";
+echo $efnumber."<br>";
+echo $eiso."<br>";
+
+echo "<hr>";
+echo "<pre>";
+print_r($exif_data);
+echo "</pre>";
 
 ?>

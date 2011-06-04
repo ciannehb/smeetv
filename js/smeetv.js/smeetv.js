@@ -1,5 +1,4 @@
 
-
 function imagify(a,id){
                var token = imagify_detect_pic(a),
                    shorturl = imagify_get_shorturl(a,token),
