@@ -12,7 +12,6 @@ function validate_username($v_username) {
    $num=mysql_num_rows($go);
    if(mysql_num_rows($go)) {
        return FALSE;
-echo "x";
 }
 
 
@@ -20,6 +19,13 @@ echo "x";
 }
 
 function validate_email($v_email) {
+   connect2db();
+   $query="select id from accounts where email='$v_email'";
+   $go=mysql_query($query);
+   $num=mysql_num_rows($go);
+   if(mysql_num_rows($go)) {
+       return FALSE;
+   }
    if(filter_var($v_email, FILTER_VALIDATE_EMAIL)){
        return TRUE;
    }else{
