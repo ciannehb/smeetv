@@ -56,6 +56,8 @@ function imagify_crawlurl(e){
         var noxpath = '#mainImage';
     } else if(e.search('#mainImage') > 0 && e.search('picplz.com') > 0) {
         var noxpath = '#main > section > article > figure > a > img';
+    } else if(e.search('.inline-media-image') > 0 && e.search('dailybooth.com') > 0) {
+        var noxpath = '#main > section > article > figure > a > img';
     }
    return noxpath;
 }
@@ -75,6 +77,11 @@ function imagify_get_noxpath(shorturl){
 
                if(shorturl.search('tweetphoto') > 0){
                        var noxpath = '#medium_photo';
+               }
+
+
+               if(shorturl.search('dailybooth') > 0){
+                       var noxpath = '.inline-media-image > img';
                }
 
                if(shorturl.search('twitgoo') > 0){
@@ -161,6 +168,12 @@ function imagify_detect_pic(a) {
                else if(a.search('twitgoo') > 0){
                        var token = 'http://twitgoo.c';
                }
+
+
+               else if(a.search('dailybooth') > 0){
+                       var token = 'http://dailybooth.c';
+               }
+
                else if(a.search('picktor') > 0){
                        var token = 'http://picktor.c';
                }
