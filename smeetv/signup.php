@@ -102,6 +102,11 @@ if(!$_SESSION['invite']){?>
 <script src="/js/jquery.js"></script>
 <script>
         $(document).ready(function(e){
+            $('.destroy_notification').live('click',function(ev){
+                $(this).closest('.notification').filter(':first').remove();
+                ev.preventDefault();
+            });
+
             $('#invite').live('click',function(){
                 check_invite_code($("#invite_value").val());
                 return false;
@@ -119,7 +124,7 @@ if(!$_SESSION['invite']){?>
                             if(response=="1"){
                                 location.reload();
                             } else {
-                                // errorr
+                                $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>The code you supplied is invalid or has already been used up.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
                             }
                         },
                         errr: function(xhr, textStatus, errorThrown) {
