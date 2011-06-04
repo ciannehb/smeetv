@@ -48,9 +48,19 @@ if(!validate_username($_POST['username'])==TRUE) {
         $go=mysql_query($query);
         $num=mysql_num_rows($go);
         if($num==0) {
-            $query="insert into accounts (username,password,email,idhash,smeetv_hashtags) values ('{$_POST['username']}',password('{$_POST['password']}'),'{$_POST['email']}','". hash('ripemd160', $_POST['username']) ."','example, Japan, #iphone, @aplusk') ";
+            $query="insert into accounts (username,password,email,idhash,smeetv_hashtags,smeetv_speed,smeetv_text) values ('{$_POST['username']}',password('{$_POST['password']}'),'{$_POST['email']}','". hash('ripemd160', $_POST['username']) ."','example, Japan, #iphone, @aplusk','10000','1') ";
             $go=mysql_query($query);
             unset($_SESSION['invite']);
+
+            $last_insert_id=mysql_insert_id();
+
+            $query="select id,content,link,date from twits_dump where content like '%@aplusk%' or content like '%#iphone%' or content like '%Japan%' limit 0,6";
+            $go=mysql_query($query);
+            for($i=0;$i<mysql_num_rows($go);$i++){
+                $get=mysql_fetch_array($go);
+                $subquery="insert into twits (uid,content,timestamp,link,date,aid) values ('".$last_insert_id."','{$get['content']}','".time()."','{$get['link']}','{$get['date']}','{$get['id']}')";
+                mysql_query($subquery);
+            }
         }
         header("Location:/thankyou/");
         echo "<p class=\"success\">Successfully registered.</p>";
