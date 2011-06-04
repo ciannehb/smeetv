@@ -2,11 +2,12 @@
 require_once('func.php');
 session_start();
 connect2db();
+/*
 if(isUserLoggedIn()==1){
     header("Location:index.php");
     return;
 }
-
+*/
 require_once($_SERVER['DOCUMENT_ROOT'].'/smeetv/header.php');
 drawHeader('remote control',$u,'1');
 

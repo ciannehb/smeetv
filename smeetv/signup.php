@@ -48,7 +48,7 @@ if(!validate_username($_POST['username'])==TRUE) {
         $go=mysql_query($query);
         $num=mysql_num_rows($go);
         if($num==0) {
-            $query="insert into accounts (username,password,email,idhash,smeetv_hashtags,smeetv_speed,smeetv_text) values ('{$_POST['username']}',password('{$_POST['password']}'),'{$_POST['email']}','". hash('ripemd160', $_POST['username']) ."','example, Japan, #iphone, @aplusk','10000','1') ";
+            $query="insert into accounts (username,password,email,idhash,smeetv_hashtags,smeetv_speed,smeetv_text) values ('{$_POST['username']}',password('{$_POST['password']}'),'{$_POST['email']}','unverified-". hash('ripemd160', $_POST['username']) ."','example, Japan, #iphone, @aplusk','10000','1') ";
             $go=mysql_query($query);
             unset($_SESSION['invite']);
 
@@ -61,6 +61,19 @@ if(!validate_username($_POST['username'])==TRUE) {
                 $subquery="insert into twits (uid,content,timestamp,link,date,aid) values ('".$last_insert_id."','{$get['content']}','".time()."','{$get['link']}','{$get['date']}','{$get['id']}')";
                 mysql_query($subquery);
             }
+
+
+
+            $message="Dear {$_POST['username']},\n\nPlease verify your email by clicking or pasting into your browser the following link:\n\nhttp://smeetv.com/smeetv/verifyemail.php?q=".hash('ripemd160', $_POST['username']);
+            $headers .= 'From: smeetvcom@gmail.com <smeetvcom@gmail.com>' . "\r\n";
+            $gomail=mail($_POST['email'],'Please verify your email',$message,$headers);
+
+
+
+
+
+
+
         }
         header("Location:/thankyou/");
         echo "<p class=\"success\">Successfully registered.</p>";
