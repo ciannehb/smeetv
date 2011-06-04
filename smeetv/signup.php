@@ -48,11 +48,11 @@ if(!validate_username($_POST['username'])==TRUE) {
         $go=mysql_query($query);
         $num=mysql_num_rows($go);
         if($num==0) {
-            $query="insert into accounts (username,password,email,idhash) values ('{$_POST['username']}',password('{$_POST['password']}'),'{$_POST['email']}','". hash('ripemd160', $_POST['username']) ."') ";
+            $query="insert into accounts (username,password,email,idhash,smeetv_hashtags) values ('{$_POST['username']}',password('{$_POST['password']}'),'{$_POST['email']}','". hash('ripemd160', $_POST['username']) ."','example, Japan, #iphone, @aplusk') ";
             $go=mysql_query($query);
             unset($_SESSION['invite']);
         }
-        header("Location:./thankyou/");
+        header("Location:/thankyou/");
         echo "<p class=\"success\">Successfully registered.</p>";
 
    }
