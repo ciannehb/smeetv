@@ -96,18 +96,50 @@ top:110px;
 width:100% !important;
         }
 
+        #tv:hover .description {
+background:rgba(255,255,255,1);
+}
+
         #content .description {
-left:1px;
-width:90% !important;
+left:0px;
+top:-.25em;
+width:98% !important;
 position:absolute;
-top:1px;
 z-index:12;
 color:#000;
-text-shadow:0 1px rgba(255,255,255,.75) !important;
-margin:1em 0 0 1em;
 font-weight:bold;
-font-size:1.1em;
+font-size:1em;
+
+padding:.5em;
+background:rgba(255,255,255,.35);
+
+
+
         }
+
+.description .slant {
+left:14px;
+bottom:-26px;
+-moz-transform:rotate(-115deg);
+-webkit-transform: rotate(-115deg);
+-o-transform: rotate(-115deg);
+transform: rotate(-115deg);
+border-color:transparent transparent rgba(255,255,255,1);
+border-style:solid;
+border-width:1px 1px 20px 46px;
+background:none;
+float:left;
+height:0;
+margin:0 10px;
+width:0;
+position:absolute;
+z-index:0;
+}
+
+
+
+
+
         #content .description a{
             color:#000;
             text-decoration:none;

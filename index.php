@@ -36,19 +36,6 @@ if(strpos($_SESSION['idhash'],'nverified-')==1){
 
 
 
-    $barr.="
-<script type=\"text/javascript\"><!--
-google_ad_client = \"ca-pub-1221828368307550\";
-/* smeetv_injected_slide */
-google_ad_slot = \"2446448564\";
-google_ad_width = 336;
-google_ad_height = 280;
-//-->
-</script>
-<script type=\"text/javascript\"
-src=\"http://pagead2.googlesyndication.com/pagead/show_ads.js\">
-</script>
-    ";
 
     $go=mysql_query($query);
     $barr="";
@@ -711,7 +698,7 @@ for($i=0;$i<mysql_num_rows($qh);$i++){
          </span>
          <span class="fright">
              <a title="Report image" id="report_image" class="ui-icon report-image"  href="">!</a>
-             <a title="Original source" id="original_source_link" class="ui-icon original-source"  href="">&#8734;</a>
+             <a title="Open in new window" id="original_source_link" class="ui-icon original-source"  href="">&#8734;</a>
          </span>
     </aside>
   </div>
