@@ -627,7 +627,7 @@ e.preventDefault();
 
 
 function exif_lookup(id){
-    alert('trying to get exif info for' + id);
+    /*alert('trying to get exif info for' + id);*/
 }
 
 
