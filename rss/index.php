@@ -52,9 +52,9 @@ for($i=0;$i<mysql_num_rows($go);$i++){
 </title>
 <link><?=f1init_makeClickableLinks($get['link'])?></link>
 <description>
-<?=f1init_makeClickableLinks($get['content'])?>...<a href="http://smeetv.com/tv/img/3097">details</a>
+<?=f1init_makeClickableLinks($get['content'])?>...<a href="http://smeetv.com/img/<?=alphaID($get['aid'])?>">details</a>
 </description>
-<pubDate><?=$get['timestamp']?></pubDate>
+<pubDate><?=ceil(f1init_ago($get['timestamp'])/60)?> minutes ago</pubDate>
 </item>
 <?
 }

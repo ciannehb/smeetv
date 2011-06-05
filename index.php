@@ -78,7 +78,7 @@ src=\"http://pagead2.googlesyndication.com/pagead/show_ads.js\">
     ";
 
     $query="
-        select smeetv_img_num,smeetv_channels,smeetv_hashtags,smeetv_speed,smeetv_text,ad,smeetv_size
+        select smeetv_img_num,smeetv_channels,smeetv_hashtags,smeetv_speed,smeetv_text,ad,smeetv_size,email,username
         from accounts where id='".$_SESSION['id']." limit 0,1'
     ";
     $go=mysql_query($query);
@@ -769,7 +769,7 @@ for($i=0;$i<mysql_num_rows($qh);$i++){
 
 
     <form id="settings34s5" method="post" action="../settings.php"><input type="hidden" name="section" id="sectioncb" value="settings">
-    <div class="fleft"><label><input type="text" value="username" disabled="disabled"></label><label><input type="text" value="email@email.com" disabled="disabled"></label></div>
+    <div class="fleft"><label><input type="text" value="<?=$get['username']?>" disabled="disabled"></label><label><input type="text" value="<?=$get['email']?>" disabled="disabled"></label></div>
 
     <div class="fleft"><label class="static text" for="passwordcb">Password:</label> <input id="passwordcb" type="password" name="password" value="" ></div>
 

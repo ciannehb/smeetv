@@ -54,10 +54,9 @@
     <article class="twit">
     <div class="t"><?=f1init_makeClickableLinks($get['content'])?><span class="slant"></span>
     <footer>
-    posted 
 
-    <a href="<?=$get['link']?>">by <?=$twusr[3]?></a>,
-    found this image <time id="<?=$id?>" datetime="<?=$get['date']?>"><?=f1init_ago($get['timestamp'])?> seconds ago</time>,
+    <a href="<?=$get['link']?>">posted by <?=$twusr[3]?></a>,
+    discovered <time id="<?=$id?>" datetime="<?=$get['date']?>"><?=ceil(f1init_ago($get['timestamp'])/60)?> minutes ago</time>,
     <a href="./report/<?=$id?>">report this image</a>
     </footer></div>
     <aside>

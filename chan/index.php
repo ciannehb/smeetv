@@ -40,11 +40,11 @@ for($i=0;$i<mysql_num_rows($go);$i++){
 ?>
 
     <article class="twit"><?=f1init_makeClickableLinks($get['content'])?>
-    <a href="<?=$get['link']?>">
     <footer>
-    posted by <?=$twusr[3]?>
-    <time id="<?=$id?>" datetime="<?=$get['date']?>"><?=f1init_ago($get['timestamp'])?> seconds ago</time>
-    </a>
+    <a href="<?=$get['link']?>">
+    posted by <?=$twusr[3]?></a>,
+    <a href="http://smeetv.com/img/<?=alphaID($get['aid'])?>">discovered <time id="<?=$id?>" datetime="<?=$get['date']?>"><?=ceil(f1init_ago($get['timestamp'])/60)?> minutes ago</time></a>
+    
     </footer>
     </article>
 

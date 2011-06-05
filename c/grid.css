@@ -60,6 +60,12 @@ cursor: help;
         }
 
         a { color:#111111; }
+        a[type=hashtag] {padding:0 .15em 0 0 !important;background:#FF0099;color:#FFF;margin: 0 0 0 .25em ; border-radius:.25em; -moz-border-radius:.25em; -webkit-border-radius:.25em;text-decoration:none;}
+        a[type=hashtag]:hover {background:#222;color:#FFF!important;}
+
+        a[type=twitteruser] {padding:0 .15em 0 0 !important;background:#ddd;color:#111;margin: 0 0 0 .25em ; border-radius:.25em; -moz-border-radius:.25em; -webkit-border-radius:.25em;text-decoration:none;}
+        a[type=twitteruser]:hover {background:#ccc;color:#111!important;}
+
 
 
         .clear {clear:both;}
