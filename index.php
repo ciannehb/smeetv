@@ -505,12 +505,15 @@ $('#topnav .gototrigger').click(function(e){
 });
 
 
-
+var disable_keyevents = false;
+$('textarea,input')
+    .focus(function() { disable_keyevents = true })
+    .blur(function() { disable_keyevents = true; });
 
 
 
 $(document).keypress(function(e) {
-    if (e.which == 32) {
+    if (e.which == 32 && disable_keyevents!=true) {
     // toggle play/pause here
     togglePlayPause();
     e.preventDefault(e);
