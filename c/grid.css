@@ -119,6 +119,10 @@ float:left;
 float:none;
 }
 
+.strike {
+text-decoration:line-through;
+}
+
 #ft {
     bottom: 2.75em;
     color: #111111;

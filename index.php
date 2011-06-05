@@ -12,9 +12,23 @@
     require_once('smeetv/header.php');
     drawHeader('remote control',$u,'1');
     connect2db();
+
+
+
+
+if(strpos($_SESSION['idhash'],'nverified-')==1){
+    $unverified=TRUE;
+}
+
 ?>
 <nav role="usermenu">
-<a id="rss1231" href="/u/<?=$_SESSION['username']?>"><?=$_SESSION['username']?></a> (<abbr title="anonpub: anonymous public channel and rss feed is your images stream, you can share publicly, it does not display your userid or username.">anonpub</abbr>: <a href="/chan/<?=$_SESSION['idhash']?>">channel</a>, <a href="/rss/<?=$_SESSION['idhash']?>">rss</a>) <span id="fni"></span>
+<a id="rss1231" href="/u/<?=$_SESSION['username']?>"><?=$_SESSION['username']?></a>
+<?if($unverified) {?>
+    <span title="Please verify your email to unlock these features." class="strike">(<abbr>anonpub</abbr>: <a href="#">channel</a>, <a href="#">rss</a>)</span>
+<?}else{?>
+    (<abbr title="anonpub: anonymous public channel and rss feed is your images stream, you can share publicly, it does not display your userid or username.">anonpub</abbr>: <a href="/chan/<?=$_SESSION['idhash']?>">channel</a>, <a href="/rss/<?=$_SESSION['idhash']?>">rss</a>)
+<?}?>
+<span id="fni"></span>
 
 </nav>
 <?
