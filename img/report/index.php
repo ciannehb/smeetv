@@ -26,13 +26,12 @@ if(!$_POST['op']=='ajax'){
     $id=$_POST['id'];
 }
 
-    $query="select link from twits where aid=$id";
+    $query="select link from twits where aid=".alphaID($id,true);
     $go=mysql_query($query);
     $get=mysql_fetch_array($go);
 
-
     if($u==true){
-        $uquery="delete from twits where aid=$id";
+        $uquery="delete from twits where aid=".alphaID($id,true);
         $go=mysql_query($uquery);
         if(!$go) {
             $error=1;
@@ -40,17 +39,18 @@ if(!$_POST['op']=='ajax'){
     }
 
     //$gquery="update twits_dump set flagged='1' where link='".$get[0]."'";
-    $gquery="update twits_dump set flagged='1' where id=$id";
+    $gquery="update twits_dump set flagged='1' where id=".alphaID($id,true);
     $go=mysql_query($gquery);
     if(!$go) {
         $error=1;
     }
 
+//echo $go;return;
 
 if($error) {
     echo "Internal erorr";return;
 } else {
-    if(!$_POST['op']=='ajax') {header('Location:/');}
+    if(!$_POST['op']=='ajax') {header('Location:/img/'.$id);}
     else {echo "<html><head><meta name=\"ajr\" content=\"1\" /></head><body></body></html>";}
 }
 
