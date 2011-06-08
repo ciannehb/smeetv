@@ -45,10 +45,13 @@ $go=mysql_query($query);
 for($i=0;$i<mysql_num_rows($go);$i++){
     $get=mysql_fetch_array($go);
     echo "<tr class='{$get['idhash']}'>";
+
+$hlo=((f1init_ago($get['last_time']))/60);
+
     echo "
 <td>{$get['id']}</td>
 <td><a href=\"mailto:{$get['email']}\">{$get['username']}</a></td>
-<td>".f1init_ago($get['last_time'])." seconds ago</td>
+<td>".ceil($hlo)." minutes ago</td>
 <td><a href=\"http://whois.sc/{$get['last_ip']}\" target=\"_new\">{$get['last_ip']}</a></td>
 <td><a href=\"{$_SERVER['PHP_SELF']}?op=ban&id={$get['id']}\" class=\"btn\">ban</a></td>
     ";
