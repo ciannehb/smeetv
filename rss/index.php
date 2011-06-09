@@ -48,7 +48,7 @@ for($i=0;$i<mysql_num_rows($go);$i++){
 
 <item>
 <title>
-@smeetv picture &sect;<?=$get['id']?>
+@smeetv picture &sect;<?=alphaID($get['id'])?>
 </title>
 <link>http://smeetv.com/img/<?=alphaID($get['aid'])?></link>
 <description>
