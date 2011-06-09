@@ -35,7 +35,6 @@ if($_POST['process']==1 && $_POST['username'] && $_POST['password']){
     }
 }
 
-require_once('header.php');
 ?>
 
 <p>&nbsp;</p>

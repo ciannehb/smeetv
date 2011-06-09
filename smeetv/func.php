@@ -33,6 +33,80 @@ function validate_email($v_email) {
    }
 }
 
+
+
+
+
+
+function displayTwit($content,$link,$date,$timestamp,$squares) {
+
+
+    $output='
+		<article class="twit">
+			<div class="t"> RT <a type="twitteruser" href="http://twitter.com/number10gov"><em>@</em>number10gov</a>: David Cameron welcomes Hillary Clinton to Number 10 ahead of the Libya Conference<a type="hashtag" href="http://twitter.com/#search?q=LibyaConf"> <em>#</em>LibyaConf</a> <a type="convertedurl" href="http://flic.kr/p/9ujqWW">http://flic.kr/p/9ujqWW</a><span class="slant"></span>
+				<footer>
+					<a href="http://twitter.com/ryanlock/statuses/53349637389688833">posted by ryanlock</a>,
+					discovered <time id="Ivid" datetime="Thu, 31 Mar 2011 06:55:19 +0000">101651 minutes ago</time>,
+					<a href="./report/Ivid">report this image</a>
+				</footer>
+			</div>
+			<aside>
+				<section id="mainimg" class="squares mainimg" >
+					<article id="747082" rel="http://twitter.com/ryanlock/statuses/53349637389688833">RT @number10gov: David Cameron welcomes Hillary Clinton to Number 10 ahead of the Libya Conference #LibyaConf http://flic.kr/p/9ujqWW
+					</article>
+				</section>
+				<section class="squares share">
+					<div style="clear:both">
+						<!-- AddThis Button BEGIN -->
+						<div class="addthis_toolbox addthis_default_style ">
+							<a class="addthis_button_twitter"></a>
+							<!--<a class="addthis_button_facebook"></a>-->
+							<a class="addthis_button_email"></a>
+							<a class="addthis_button_compact"></a>
+							<a class="addthis_counter addthis_bubble_style"></a>
+						</div>
+						<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+						<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4dbc63166fcdf6f9"></script>
+						<!-- AddThis Button END -->
+						<iframe src="https://www.facebook.com/plugins/like.php?&href=http://smeetv.com/img/Ivid"
+						scrolling="no" frameborder="0"
+						style="border:none; width:450px; height:80px"></iframe>
+					</div>
+					<script type="text/javascript"><!--
+					google_ad_client = "ca-pub-1221828368307550";
+					/* smeetv_injected_slide */
+					google_ad_slot = "2446448564";
+					google_ad_width = 336;
+					google_ad_height = 280;
+					//-->
+					</script>
+					<script type="text/javascript"
+					src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+					</script>		
+				</section>
+				<br class="clear">
+				<section class="squares ymlw">
+					<h3>You may also like:</h3>
+					<p id="yml1" class="yml"><iframe src="/etc/suggest/img/hillary herrin"></iframe></p>
+					<p id="yml2" class="yml"><iframe src="/etc/suggest/img/welcome sign"></iframe></p>
+					<p id="yml3" class="yml"><iframe src="/etc/suggest/img/"></iframe></p>
+				</section>
+				<section class="squares">		
+				</section>
+			</aside>
+		</article>
+    ';
+
+
+    return $output;
+}
+
+
+
+
+
+
+
 function isUserLoggedIn() {
     if($_SESSION['authenticated']==1 && isset($_SESSION['username'])){
         return 1;
