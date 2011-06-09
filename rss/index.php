@@ -50,9 +50,9 @@ for($i=0;$i<mysql_num_rows($go);$i++){
 <title>
 @smeetv picture &sect;<?=$get['id']?>
 </title>
-<link><?=f1init_makeClickableLinks($get['link'])?></link>
+<link>http://smeetv.com/img/<?=alphaID($get['aid'])?></link>
 <description>
-<?=f1init_makeClickableLinks($get['content'])?>...<a href="http://smeetv.com/img/<?=alphaID($get['aid'])?>">details</a>
+<?=f1init_makeClickableLinks($get['content'])?>...<a href="http://smeetv.com/img/<?=alphaID($get['aid'])?>">&rarr;</a>
 </description>
 <pubDate><?=ceil(f1init_ago($get['timestamp'])/60)?> minutes ago</pubDate>
 </item>
