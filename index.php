@@ -289,8 +289,14 @@ repeater(function(left){
 
 	$(document).ready(function(){
 
+<?if($unverified) {?>
 
+            $('body').append('<div class="ontop notification confirm"><span class="ui-icon check">&nbsp;</span>To make sure these introductory messages do not bother you anymore, please confirm your email by clicking a link we sent you when you registered this account.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
 
+            $('body').append('<div class="ontop notification confirm"><span class="ui-icon check">&nbsp;</span>Be patient, our robot is tirelessly looking for pictures, he\'ll notify you here as he discovers the new ones. Click on the icon on the bottom right of each photo for additional information.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
+
+            $('body').append('<div class="ontop notification confirm"><span class="ui-icon check">&nbsp;</span>Hi there newbie newb, :),  glad you registered with us! Please specify keywords (hashtags, phrases, or twitter usernames) on the bottom panel and wait.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
+<? } ?>
 
 
 
@@ -725,7 +731,7 @@ for($i=0;$i<mysql_num_rows($qh);$i++){
     <input type="hidden" name="section" id="removecontrolcb" value="remotecontrol">
 
     <div class="fleft smeetv_hashtags">
-    <abbr title="Enter hashtags, plan words or twitter usernames separated by comma to start fetching pictures from twitter.">Tags</abbr>
+    <abbr title="Enter hashtags, phrases or twitter usernames separated by comma to start fetching pictures from twitter.">Keywords</abbr>
     <div style="float:left;"><textarea id="smeetv_hashtags_2343675" name="smeetv_hashtags"><?=$get['smeetv_hashtags']?></textarea><input type="hidden" id="smeetv_hashtags_prev_2343675" name="smeetv_hashtags_prev" value="<?=$get['smeetv_hashtags']?>"></div>
     </div>
     <div class="fleft">

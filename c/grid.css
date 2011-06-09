@@ -955,6 +955,11 @@ margin-top:10px;
     z-index: 11111;
 }
 
+
+.notification.ontop {
+z-index:10000;
+}
+
 .notification {
     color:#111;
     margin: 0 0 0 25%;
