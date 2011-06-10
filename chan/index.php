@@ -37,18 +37,7 @@ echo "<h2>&sect;$id</h2>";
 for($i=0;$i<mysql_num_rows($go);$i++){
     $get=mysql_fetch_array($go);
     $twusr=explode("/",$get['link']);
-?>
-
-    <article class="twit"><?=f1init_makeClickableLinks($get['content'])?>
-    <footer>
-    <a href="<?=$get['link']?>">
-    posted by <?=$twusr[3]?></a>,
-    <a href="http://smeetv.com/img/<?=alphaID($get['aid'])?>">discovered <time id="<?=$id?>" datetime="<?=$get['date']?>"><?=ceil(f1init_ago($get['timestamp'])/60)?> minutes ago</time></a>
-    
-    </footer>
-    </article>
-
-<?
+    echo displayTwit($get['id'],$get['content'],$get['link'],$get['date'],$get['timestamp'],0);
 }
 ?>
 
