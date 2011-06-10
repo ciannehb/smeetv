@@ -38,39 +38,47 @@ function validate_email($v_email) {
 
 
 
-function displayTwit($content,$link,$date,$timestamp,$squares) {
+function displayTwit($id,$content,$link,$date,$timestamp,$squares=0) {
+
+    $twusr=explode("/",$link);
 
 
     $output='
 		<article class="twit">
-			<div class="t"> RT <a type="twitteruser" href="http://twitter.com/number10gov"><em>@</em>number10gov</a>: David Cameron welcomes Hillary Clinton to Number 10 ahead of the Libya Conference<a type="hashtag" href="http://twitter.com/#search?q=LibyaConf"> <em>#</em>LibyaConf</a> <a type="convertedurl" href="http://flic.kr/p/9ujqWW">http://flic.kr/p/9ujqWW</a><span class="slant"></span>
+			<div class="t">
+                                '.f1init_makeClickableLinks($content).'
 				<footer>
-					<a href="http://twitter.com/ryanlock/statuses/53349637389688833">posted by ryanlock</a>,
-					discovered <time id="Ivid" datetime="Thu, 31 Mar 2011 06:55:19 +0000">101651 minutes ago</time>,
-					<a href="./report/Ivid">report this image</a>
+					<a href="'.$get['link'].'">posted by '.$twusr[3].'</a>,
+					discovered <time id="'.$id.'" datetime="'. date('Y-m-d, H:i', $timestamp).'">'.ceil(f1init_ago($get['timestamp'])/60).' minutes ago</time>,
+					<a href="./report/'.$id.'">report this image</a>
 				</footer>
+                                <span class="slant"></span>
 			</div>
+                        ';
+    if($squares==1){
+    $output.='
 			<aside>
 				<section id="mainimg" class="squares mainimg" >
-					<article id="747082" rel="http://twitter.com/ryanlock/statuses/53349637389688833">RT @number10gov: David Cameron welcomes Hillary Clinton to Number 10 ahead of the Libya Conference #LibyaConf http://flic.kr/p/9ujqWW
-					</article>
+                                    '.f1init_makeClickableLinks($content).'
 				</section>
 				<section class="squares share">
 					<div style="clear:both">
-						<!-- AddThis Button BEGIN -->
-						<div class="addthis_toolbox addthis_default_style ">
-							<a class="addthis_button_twitter"></a>
-							<!--<a class="addthis_button_facebook"></a>-->
-							<a class="addthis_button_email"></a>
-							<a class="addthis_button_compact"></a>
-							<a class="addthis_counter addthis_bubble_style"></a>
-						</div>
-						<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
-						<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4dbc63166fcdf6f9"></script>
-						<!-- AddThis Button END -->
-						<iframe src="https://www.facebook.com/plugins/like.php?&href=http://smeetv.com/img/Ivid"
-						scrolling="no" frameborder="0"
-						style="border:none; width:450px; height:80px"></iframe>
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<a class="addthis_button_twitter"></a>
+<!--<a class="addthis_button_facebook"></a>-->
+<a class="addthis_button_email"></a>
+
+<a class="addthis_button_compact"></a>
+<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4dbc63166fcdf6f9"></script>
+<!-- AddThis Button END -->
+<iframe src="https://www.facebook.com/plugins/like.php?&href=http://smeetv.com'.$_SERVER['REQUEST_URI'].'"
+        scrolling="no" frameborder="0"
+        style="border:none; width:450px; height:80px"></iframe>
+
 					</div>
 					<script type="text/javascript"><!--
 					google_ad_client = "ca-pub-1221828368307550";
@@ -86,14 +94,34 @@ function displayTwit($content,$link,$date,$timestamp,$squares) {
 				</section>
 				<br class="clear">
 				<section class="squares ymlw">
-					<h3>You may also like:</h3>
-					<p id="yml1" class="yml"><iframe src="/etc/suggest/img/hillary herrin"></iframe></p>
-					<p id="yml2" class="yml"><iframe src="/etc/suggest/img/welcome sign"></iframe></p>
-					<p id="yml3" class="yml"><iframe src="/etc/suggest/img/"></iframe></p>
+					<h3>You may also like:</h3>';
+
+preg_match_all('/(\w+)/',$content,$matches);
+preg_match_all('/#(\w+)/',$content,$matches_hash);
+
+if(count($matches_hash[0])>0){ /*hashes found*/
+    $words_found=count($matches[0]);
+    $force_size = count($matches[0]);
+}else{ /*hashtags not found*/
+    $words_found=count($matches[0]);
+    usort($matches[0],'sortByLength');
+    $force_size = ceil(count($matches[0]) / 3);
+}
+
+
+
+
+    $output.='
+					<p id="yml1" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
+					<p id="yml2" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
+					<p id="yml3" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
 				</section>
 				<section class="squares">		
 				</section>
 			</aside>
+                        ';
+    }
+    $output.='
 		</article>
     ';
 
