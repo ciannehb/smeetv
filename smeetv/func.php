@@ -48,9 +48,9 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0) {
 			<div class="t">
                                 '.f1init_makeClickableLinks($content).'
 				<footer>
-					<a href="'.$get['link'].'">posted by '.$twusr[3].'</a>,
+					<a href="'.$link.'">posted by '.$twusr[3].'</a>,
 					discovered <time id="'.$id.'" datetime="'. date('Y-m-d, H:i', $timestamp).'">'.ceil(f1init_ago($get['timestamp'])/60).' minutes ago</time>,
-					<a href="./report/'.$id.'">report this image</a>
+					<a href="/img/report/'.alphaID($id).'">report this image</a>
 				</footer>
                                 <span class="slant"></span>
 			</div>
@@ -59,7 +59,7 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0) {
     $output.='
 			<aside>
 				<section id="mainimg" class="squares mainimg" >
-                                    '.f1init_makeClickableLinks($content).'
+                                   <article id="'.alphaID($id).'" rel="'.$link.'">'.$content.'</article>
 				</section>
 				<section class="squares share">
 					<div style="clear:both">
