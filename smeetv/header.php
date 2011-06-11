@@ -25,7 +25,7 @@
 </head>
 <body>
 <header id="topnav">
-<h1 title="smeetv -- tv window into twitter universe"><a href="/">smee<span>tv</span></a></h1><a href="http://smeetv.com/img/Ivid" title="Feature image -- David Cameron welcomes Hillary Clinton to Number 10 ahead of the Libya Conference"><sup title="alpha version -- unpredictable behavior expected">&alpha;</sup></a>
+<h1 title="smeetv -- tv window into twitter universe"><a href="/">smee<span>tv</span></a></h1><a href="http://smeetv.com/img/5Gui" title="Now you see Hillary Clinton"><sup title="alpha version -- unpredictable behavior expected">&alpha;</sup></a>
 &mdash;
 <nav>
 <?if($user_loggedin && $show_menu==1){?>
