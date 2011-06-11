@@ -45,7 +45,7 @@ if($_POST['smeetv_hashtags']!=$_POST['smeetv_hashtags_prev']){
         $g=stripos($post_smeetv_hashtags_altered,$h);
         if($g==NULL && $h!=$fixl ){
             $query="delete from twits where content like '%".$h."%' and uid='{$_SESSION['id']}'";
-echo $query;
+//echo $query;
             mysql_query($query);
         }
     }
@@ -94,7 +94,7 @@ if($_POST['section']=="settings"){
         }
 
         /* run very light query to add at least a few keywords for user to give him impression of immediate results */
-        $rush_query = "select id,content,link,date from twits_dump where content like '% ".$split_keywords[0]." %' OR content like '% ".$split_keywords[count($split_keywords)-1]." %' and flagged=0 limit 0,2 ";
+        $rush_query = "select id,content,link,date from twits_dump where content like '% ".$split_keywords[0]." %' OR content like '% ".$split_keywords[count($split_keywords)-1]." %' and flagged=0 limit 0,6 ";
         $rush_go=mysql_query($rush_query);
         for($rush_i=0;$rush_i<mysql_num_rows($rush_go);$rush_i++){
             $rush_get=mysql_fetch_array($rush_go);
