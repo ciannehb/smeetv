@@ -17,7 +17,7 @@ if(isUserLoggedIn()){
     $narrowdown=" and uid!='{$_SESSION['id']}' ";
 }
 */
-$qh="select * from twits_dump where (MATCH(content) AGAINST('LOWER($transport)')) $narrowdown limit ".rand(0,10).",1";
+$qh="select * from twits_dump where (MATCH(content) AGAINST('LOWER($transport)')) and flagged=0 $narrowdown limit ".rand(0,100).",1";
 
 $qh=mysql_query($qh);
 $gh=mysql_fetch_array($qh);
