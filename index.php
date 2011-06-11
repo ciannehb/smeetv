@@ -487,9 +487,8 @@ $('#controller .attn').live('mouseout',function(e){
 });
 
 $('.destroy_notification').live('click',function(e){
-        //$(this).closest('.notification').filter(':first').animate({'top':'-100px','width':'5%'},750);
-$(this).closest('.notification').filter(':first').remove();
-        e.preventDefault();
+    $(this).closest('.notification').filter(':first').remove();
+    e.preventDefault();
 });
 
 $('#topnav .gototrigger').click(function(e){

@@ -1,3 +1,58 @@
 body {
 background:#333333;
+color:#fff;
 }
+
+
+#featuredhashtags_content a,
+a {
+color:#eee;
+}
+
+::selection {
+background:#eee;color:#111;
+}
+
+
+
+       .tv_frame {
+    box-shadow: rgb(0,0,0) 0 1px 15px;
+    -moz-box-shadow: rgb(0,0,0) 0 1px 15px;
+    -webkit-box-shadow: rgb(0,0,0) 0 1px 15px;
+
+        }
+
+        #controller {
+    box-shadow: rgb(0,0,0) 0 1px 15px;
+    -moz-box-shadow: rgb(0,0,0) 0 1px 15px;
+    -webkit-box-shadow: rgb(0,0,0) 0 1px 15px;
+
+        }
+
+        #controller:hover,
+#controller:hover .littlenav li.ui-state-active {
+
+    box-shadow: rgb(0,0,0) 0 1px 15px;
+    -moz-box-shadow: rgb(0,0,0) 0 1px 15px;
+    -webkit-box-shadow: rgb(0,0,0) 0 1px 15px;
+
+
+        }
+
+
+#topnav a{
+color:#eee;
+}
+#topnav a:hover {
+    color:#FF0099;
+    text-decoration:underline;
+text-shadow: 2px 2px 2px #000;
+}
+
+.notification {
+    box-shadow: rgb(0,0,0) 0 1px 10px;
+    -moz-box-shadow: rgb(0,0,0) 0 1px 10px;
+    -webkit-box-shadow: rgb(0,0,0) 0 1px 10px;
+
+}
+

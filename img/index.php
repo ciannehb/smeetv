@@ -32,7 +32,7 @@
     //drawHeader(trim(substr($get['content'],stripos($get['content']," "),75)),$u);
     drawHeader(trim($title),$u,0);
     if($get['flagged']==1) 
-        echo '<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Beware, this photograph was flagged by our users. For your safety, we have delayed displaying it by 30 seconds.</div>';
+        echo '<div class="notification error ontop"><span class="ui-icon exclamation">&nbsp;</span>Beware, this photograph was flagged by our users. For your safety, we have delayed displaying it by 30 seconds.<a href="" class="destroy_notification"><span class="ui-icon close_small">&nbsp;</span></a></div>';
 
 
 ?>
@@ -40,6 +40,11 @@
 <script src="/js/smeetv.js/smeetv.js"></script>
 <script>
     $(document).ready(function(){
+        $('.destroy_notification').live('click',function(e){
+            $(this).closest('.notification').filter(':first').remove();
+            e.preventDefault();
+        });
+
         $('#mainimg.squares.mainimg > article').each(function(){
            var content=$(this).html();
            <?if($get['flagged']==1){?>setTimeout(function(){<?}?>
