@@ -628,10 +628,12 @@ e.preventDefault();
 });
 
 $('#report_image').live('click',function(e){
-var findid = $('#content article:visible').attr('id');
-//gotosrc('/smeetv/smeetv/tv/img/'+findid+'/report');
-$('#content').find('article#'+findid+' img').attr('src','reported');
-flag_image(findid);
+if(confirm('Are you sure you want to flag this photo? It will remove it from your TV and mark it as unsafe for others.')==true){
+    var findid = $('#content article:visible').attr('id');
+    //gotosrc('/smeetv/smeetv/tv/img/'+findid+'/report');
+    $('#content').find('article#'+findid+' img').attr('src','reported');
+    flag_image(findid);
+}
 e.preventDefault();
 });
 

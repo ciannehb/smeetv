@@ -50,7 +50,7 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0) {
 				<footer>
 					<a href="'.$link.'">posted by '.$twusr[3].'</a>,
 					discovered <time id="'.$id.'" datetime="'. date('Y-m-d, H:i', $timestamp).'">'.ceil(f1init_ago($timestamp)/60).' minutes ago</time>,
-					<a href="/img/report/'.alphaID($id).'">report this image</a>
+					<a onclick="return confirm(\'Are you sure you want to flag this photo? It will remove it from your TV and mark it as unsafe for others.\')" href="/img/report/'.alphaID($id).'">report this image</a>
 				</footer>
                                 <span class="slant"></span>
 			</div>
