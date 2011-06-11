@@ -72,7 +72,7 @@ cursor: help;
         .clearfix {clear:both;border:none;}
 
         .hide {
-            display:none;
+            display:none !important;
         }
         #ad {
             background:none repeat scroll 0 0 #CCCCCC;
@@ -1113,6 +1113,10 @@ display:none;
 
 .squares.mainimg #fullsize {
 max-width:640px;
+}
+
+#mainimg {
+min-width:640px;
 }
 
 .squares {

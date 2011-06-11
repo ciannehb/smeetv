@@ -19,7 +19,7 @@
     //$id=advancedClean(3,$arr[count($arr)-1]);
     $id=$transport;
     //$query="select id,content,timestamp,link,date from twits where id=".alphaID($id,true);
-    $query="select id,content,timestamp,link,date from twits_dump where id=".alphaID($id,true);
+    $query="select id,content,timestamp,link,date,flagged from twits_dump where id=".alphaID($id,true);
 
     $go=mysql_query($query);
 
@@ -31,16 +31,20 @@
 
     //drawHeader(trim(substr($get['content'],stripos($get['content']," "),75)),$u);
     drawHeader(trim($title),$u,0);
+    if($get['flagged']==1) 
+        echo '<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Beware, this photograph was flagged by our users. For your safety, we have delayed displaying it by 30 seconds.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>';
+
 
 ?>
 <script src="/js/jquery.js"></script>
 <script src="/js/smeetv.js/smeetv.js"></script>
-
 <script>
     $(document).ready(function(){
         $('#mainimg.squares.mainimg > article').each(function(){
            var content=$(this).html();
-           imagify(content,'#mainimg.squares.mainimg > article');
+           <?if($get['flagged']==1){?>setTimeout(function(){<?}?>
+           e=imagify(content,'#mainimg.squares.mainimg > article');
+           <?if($get['flagged']==1){?>},30000);<?}?>
         });
 
     }); 

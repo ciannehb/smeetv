@@ -26,6 +26,7 @@ function imagify(a,id){
                            }
                        }
                    });
+    $('#mainimg > article').removeClass('hide');
 }
 
 function imagify_crawlurl(e){

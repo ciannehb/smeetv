@@ -59,7 +59,7 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0) {
     $output.='
 			<aside>
 				<section id="mainimg" class="squares mainimg" >
-                                   <article id="'.alphaID($id).'" rel="'.$link.'">'.$content.'</article>
+                                   <article id="'.alphaID($id).'" rel="'.$link.'" class="hide">'.$content.'</article>
 				</section>
 				<section class="squares share">
 					<div style="clear:both">
