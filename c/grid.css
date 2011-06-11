@@ -31,6 +31,9 @@
 	width: auto;
 	display: inline-block;
 }
+::selection {
+background:#111;color:#FFF;
+}
 
 
 h1,h2,h3,h4,h5 {
@@ -72,7 +75,7 @@ cursor: help;
         .clearfix {clear:both;border:none;}
 
         .hide {
-            display:none !important;
+            display:none;
         }
         #ad {
             background:none repeat scroll 0 0 #CCCCCC;
@@ -956,6 +959,13 @@ margin-top:10px;
 }
 
 
+.destroy_notification {
+position:absolute;
+top:.25em;
+right:.25em;
+text-decoration:none;
+}
+
 .notification.ontop {
 z-index:10000;
 }
@@ -963,7 +973,7 @@ z-index:10000;
 .notification {
     color:#111;
     margin: 0 0 0 25%;
-    padding: 0;
+    padding: 0.25em 1.5em 0.25em 0.25em;
     position: absolute;
     width: 50%;
 background:#fef49c;

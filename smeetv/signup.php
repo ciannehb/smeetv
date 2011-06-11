@@ -137,7 +137,7 @@ if(!$_SESSION['invite']){?>
                             if(response=="1"){
                                 location.reload();
                             } else {
-                                $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>The code you supplied is invalid or has already been used up.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
+                                $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>The code you supplied is invalid or has already been used up.<a href="" class="destroy_notification"><span class="ui-icon close_small">&nbsp;</span></a></div>');
                             }
                         },
                         errr: function(xhr, textStatus, errorThrown) {

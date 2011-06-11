@@ -17,7 +17,7 @@ function imagify(a,id){
                            var timg=$(this).find('img');
                            $(timg).attr('alt',a);
                            if(!$(this).find('img').attr('src')){
-                               $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to load image ' + id + '. <a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
+                               $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to load image ' + id + '. <a href="" class="destroy_notification"><span class="ui-icon close_small ">&nbsp;</span></a></div>');
                            } else {
                                if($(this).find('img').attr('src').search('http://') < 0) { // added this for handling relative urls done this for img.ly initially
                                    var old_src = $(this).find('img').attr('src');

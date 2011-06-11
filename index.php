@@ -133,14 +133,14 @@ var success=0;
                             var result = $(response + ' meta[name=ajr]' ).attr('content');
                             if(result=="1"){
                                 if($('.flagged.notification').length==0) {
-                                    $('body').append('<div class="flagged notification confirm"><span class="ui-icon check">&nbsp;</span>Image flagged, it will be immediately removed from your stream and flagged in shared stream, our editors will review it.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
+                                    $('body').append('<div class="flagged notification confirm"><span class="ui-icon check">&nbsp;</span>Image flagged, it will be immediately removed from your stream and flagged in shared stream, our editors will review it.<a href="" class="destroy_notification"><span class="ui-icon close_small">&nbsp;</span></a></div>');
                                 }
                             } else {
-                                $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to flag image, please retry.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
+                                $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to flag image, please retry.<a href="" class="destroy_notification"><span class="ui-icon close_small">&nbsp;</span></a></div>');
                             }
                         },
                         error: function(xhr, textStatus, errorThrown) {
-                                $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to flag image, please retry.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
+                                $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to flag image, please retry.<a href="" class="destroy_notification"><span class="ui-icon close_small">&nbsp;</span></a></div>');
                         }
                 });
         }
@@ -194,13 +194,13 @@ var success=0;
                             var result = $(response + ' meta[name=ajr]' ).attr('content');
                             if(result=="1"){
 
-                                $('body').append('<div class="notification confirm"><span class="ui-icon check">&nbsp;</span>TV size saved.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
+                                $('body').append('<div class="notification confirm"><span class="ui-icon check">&nbsp;</span>TV size saved.<a href="" class="destroy_notification"><span class="ui-icon close_small">&nbsp;</span></a></div>');
                             } else {
-                                $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to save TV size, please retry.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
+                                $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to save TV size, please retry.<a href="" class="destroy_notification"><span class="ui-icon close_small">&nbsp;</span></a></div>');
                             }
                         },
                         error: function(xhr, textStatus, errorThrown) {
-                                $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to save TV size, please retry.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
+                                $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to save TV size, please retry.<a href="" class="destroy_notification"><span class="ui-icon close_small">&nbsp;</span></a></div>');
                                 //$('#messages').notify({status: 'error', message: 'A system error occurred'});
                         }
                 });
@@ -256,7 +256,7 @@ timeout: <?=$get['smeetv_speed']?>,
                         dataType: 'html',
                         success: function(response, textStatus) {
                             if(response=="1" && $('.notification.success.new-pics-found').length<1){
-                                $('body').addClass('newstuffsfound').append('<div class="notification success new-pics-found"><span class="ui-icon check">&nbsp;</span>New pictures found. <a id="thisrefresh" href="">Refresh the page</a> to see changes.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
+                                $('body').addClass('newstuffsfound').append('<div class="notification success new-pics-found"><span class="ui-icon check">&nbsp;</span>New pictures found. <a id="thisrefresh" href="">Refresh the page</a> to see changes.<a href="" class="destroy_notification"><span class="ui-icon close_small">&nbsp;</span></a></div>');
                             }
                         },
                         error: function(xhr, textStatus, errorThrown) {
@@ -291,11 +291,11 @@ repeater(function(left){
 
 <?if($unverified) {?>
 
-            $('body').append('<div class="ontop notification confirm"><span class="ui-icon check">&nbsp;</span>To make sure these introductory messages do not bother you anymore, please confirm your email by clicking a link we sent you when you registered this account.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
+            $('body').append('<div class="ontop notification confirm"><span class="ui-icon check">&nbsp;</span>To make sure these introductory messages do not bother you anymore, please confirm your email by clicking a link we sent you when you registered this account.<a href="" class="destroy_notification"><span class="ui-icon close_small">&nbsp;</span></a></div>');
 
-            $('body').append('<div class="ontop notification confirm"><span class="ui-icon check">&nbsp;</span>Be patient, our robot is tirelessly looking for pictures, he\'ll notify you here as he discovers the new ones. Click on the icon on the bottom right of each photo for additional information.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
+            $('body').append('<div class="ontop notification confirm"><span class="ui-icon check">&nbsp;</span>Be patient, our robot is tirelessly looking for pictures, he\'ll notify you here as he discovers the new ones. Click on the icon on the bottom right of each photo for additional information.<a href="" class="destroy_notification"><span class="ui-icon close_small">&nbsp;</span></a></div>');
 
-            $('body').append('<div class="ontop notification confirm"><span class="ui-icon check">&nbsp;</span>Hi there newbie newb, :),  glad you registered with us! Please specify keywords (hashtags, phrases, or twitter usernames) on the bottom panel and wait.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
+            $('body').append('<div class="ontop notification confirm"><span class="ui-icon check">&nbsp;</span>Hi there newbie newb, :),  glad you registered with us! Please specify keywords (hashtags, phrases, or twitter usernames) on the bottom panel and wait.<a href="" class="destroy_notification"><span class="ui-icon close_small">&nbsp;</span></a></div>');
 <? } ?>
 
 
@@ -343,13 +343,13 @@ e.preventDefault();
                             var result = $(response + ' meta[name=ajr]' ).attr('content');
                             if(result=="1"){
 
-                                $('body').append('<div class="notification confirm"><span class="ui-icon check">&nbsp;</span>Settings saved. <a id="thisrefresh" href="">Refresh the page</a> to see changes.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>')
+                                $('body').append('<div class="notification confirm"><span class="ui-icon check">&nbsp;</span>Settings saved. <a id="thisrefresh" href="">Refresh the page</a> to see changes.<a href="" class="destroy_notification"><span class="ui-icon close_small">&nbsp;</span></a></div>')
                             } else {
-                                $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to save settings, please retry.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>')
+                                $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to save settings, please retry.<a href="" class="destroy_notification"><span class="ui-icon close_small">&nbsp;</span></a></div>')
                             }
                         },
                         error: function(xhr, textStatus, errorThrown) {
-                                $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to save settings, please retry.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>')
+                                $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to save settings, please retry.<a href="" class="destroy_notification"><span class="ui-icon close_small">&nbsp;</span></a></div>')
                                 //$('#messages').notify({status: 'error', message: 'A system error occurred'});
                         }
                 });
@@ -387,13 +387,13 @@ e.preventDefault();
                         success: function(response, textStatus) {
                             var result = $(response + ' meta[name=ajr]' ).attr('content');
                             if(result=="1"){
-                                $('body').append('<div class="notification confirm"><span class="ui-icon check">&nbsp;</span>Settings saved. <a id="thisrefresh" href="">Refresh the page</a> to see changes. You will be notified here of new picture as they\'re found by our robot.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
+                                $('body').append('<div class="notification confirm"><span class="ui-icon check">&nbsp;</span>Settings saved. <a id="thisrefresh" href="">Refresh the page</a> to see changes. You will be notified here of new picture as they\'re found by our robot.<a href="" class="destroy_notification"><span class="ui-icon close_small">&nbsp;</span></a></div>');
                             } else {
-                                $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to save settings, please retry.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
+                                $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to save settings, please retry.<a href="" class="destroy_notification"><span class="ui-icon close_small">&nbsp;</span></a></div>');
                             }
                         },
                         error: function(xhr, textStatus, errorThrown) {
-                                $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to save settings, please retry.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
+                                $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to save settings, please retry.<a href="" class="destroy_notification"><span class="ui-icon close_small">&nbsp;</span></a></div>');
                                 //$('#messages').notify({status: 'error', message: 'A system error occurred'});
                         }
 
@@ -454,10 +454,10 @@ $('#featuredhashtags_content > span > a').live('click',function(e){
         new_val = kwd_inputarea.val() + ', ' + kwd;
 
     if(kwd_inputarea.val().search(kwd)!=-1){
-        $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>You already have "'+kwd+'" in your list.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
+        $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>You already have "'+kwd+'" in your list.<a href="" class="destroy_notification"><span class="ui-icon close_small">&nbsp;</span></a></div>');
 
     } else {
-        $('body').append('<div class="notification confirm suggestrefresh"><span class="ui-icon check">&nbsp;</span>"'+kwd+'" keyword was added to your preference. <a id="trigger_remote_control_save" href="">Click here to save your settings</a>.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>');
+        $('body').append('<div class="notification confirm suggestrefresh"><span class="ui-icon check">&nbsp;</span>"'+kwd+'" keyword was added to your preference. <a id="trigger_remote_control_save" href="">Click here to save your settings</a>.<a href="" class="destroy_notification"><span class="ui-icon close_small">&nbsp;</span></a></div>');
         kwd_inputarea.val(new_val);
         $(".gotoremotecontrol").trigger("click");
     }
@@ -527,14 +527,14 @@ function togglePlayPause(){
         if (c.hasClass('pause')) {
             c.cycle('pause').removeClass('pause').addClass('play');
             $('#minicontroller #pp').removeClass('pause').addClass('play').attr('href','#play').attr('title','Play').html('play');
-            $('body').append('<div class="notification pause"><span class="ui-icon pause">&nbsp;</span>Presentation paused.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>')
+            $('body').append('<div class="notification pause"><span class="ui-icon pause">&nbsp;</span>Presentation paused.<a href="" class="destroy_notification"><span class="ui-icon close_small">&nbsp;</span></a></div>')
             if($('.notification.play').length) {
                 $('.notification.play').remove();
             }
         } else {
             c.cycle('resume',true).removeClass('play').addClass('pause');
             $('#minicontroller #pp').removeClass('play').addClass('pause').attr('href','#pause').attr('title','Pause').html('pause');
-            $('body').append('<div class="notification play"><span class="ui-icon play">&nbsp;</span>Presentation resumed.<a href="" class="destroy_notification"><span class="ui-icon close_small fright">&nbsp;</span></a></div>')
+            $('body').append('<div class="notification play"><span class="ui-icon play">&nbsp;</span>Presentation resumed.<a href="" class="destroy_notification"><span class="ui-icon close_small">&nbsp;</span></a></div>')
             if($('.notification.pause').length) {
                 $('.notification.pause').remove();
             }
