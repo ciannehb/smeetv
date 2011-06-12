@@ -38,6 +38,9 @@ if($_POST['process']==1 && $_POST['username'] && $_POST['password']){
 ?>
 
 <script src="/js/jquery.js"></script>
+<?/*
+<script src="/js/smeetv.js/smeetv.js"></script>
+*/?>
 <script type="text/javascript" src="/js/jquery.cycle.all.2.72.js"></script>
 <script type="text/javascript"> 
 $(document).ready(function() {
@@ -45,6 +48,19 @@ $(document).ready(function() {
 		fx: 'fadeZoom',
                 timeout: 7500,
 	});
+<?
+/*
+    $('#recent > article').each(function(){
+               var content=$(this).html(),
+                   thisid=$(this).attr('id');
+               //imagify(content,thisid);
+    });
+*/
+?>
+
+
+
+
 });
 </script> 
 

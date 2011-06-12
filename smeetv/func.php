@@ -45,7 +45,7 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
 
 
     $output.='
-		<article class="twit lo'.$link_override.'">
+		<article id="'.alphaID($id).'" class="twit lo'.$link_override.'">
 			<div class="t">';
     if($link_override==1) $output.='<a href="http://smeetv.com/img/'.alphaID($id).'">';
     if($link_override==0) $output.=f1init_makeClickableLinks($content);
