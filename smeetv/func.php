@@ -126,6 +126,8 @@ if(count($matches_hash[0])>0){ /*hashes found*/
 					<p id="yml1" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
 					<p id="yml2" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
 					<p id="yml3" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
+					<p id="yml4" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
+					<p id="yml5" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
 				</section>
 				<section class="squares">		
 				</section>
