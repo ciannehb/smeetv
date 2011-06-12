@@ -38,20 +38,31 @@ function validate_email($v_email) {
 
 
 
-function displayTwit($id,$content,$link,$date,$timestamp,$squares=0) {
+function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_override=0) {
 
     $twusr=explode("/",$link);
+    $output='';
 
 
-    $output='
-		<article class="twit">
-			<div class="t">
-                                '.f1init_makeClickableLinks($content).'
-				<footer>
-					<a href="'.$link.'">posted by '.$twusr[3].'</a>,
-					discovered <time id="'.$id.'" datetime="'. date('Y-m-d, H:i', $timestamp).'">'.ceil(f1init_ago($timestamp)/60).' minutes ago</time>,
-					<a onclick="return confirm(\'Are you sure you want to flag this photo? It will remove it from your TV and mark it as unsafe for others.\')" href="/img/report/'.alphaID($id).'">report this image</a>
-				</footer>
+    $output.='
+		<article class="twit lo'.$link_override.'">
+			<div class="t">';
+    if($link_override==1) $output.='<a href="http://smeetv.com/img/'.alphaID($id).'">';
+    if($link_override==0) $output.=f1init_makeClickableLinks($content);
+    else $output.=$content;
+    if($link_override==1) $output.='</a>';
+    $output.='
+				<footer>';
+    if($link_override==1) $output.='<a href="http://smeetv.com/img/'.alphaID($id).'">';
+    if($link_override==0) $output.='<a href="'.$link.'">posted by '.$twusr[3].'</a>';
+    else $output.='posted by '.$twusr[3];
+    $output.=',
+					discovered <time id="'.$id.'" datetime="'. date('Y-m-d, H:i', $timestamp).'">'.ceil(f1init_ago($timestamp)/60).' minutes ago</time>';
+    if($link_override==0) $output.=', <a onclick="return confirm(\'Are you sure you want to flag this photo? It will remove it from your TV and mark it as unsafe for others.\')" href="/img/report/'.alphaID($id).'">report this image</a>';
+    if($link_override==1) $output.='</a>';
+    $output.='
+				</footer>';
+    $output.='
                                 <span class="slant"></span>
 			</div>
                         ';

@@ -1092,6 +1092,10 @@ clear:both;
 margin-bottom:2em;
 }
 
+article.twit.lo1 .t > a {
+text-decoration:none !important;
+}
+
 article.twit footer {
 font-size:.75em;
 }

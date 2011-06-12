@@ -10,7 +10,6 @@ if(isUserLoggedIn()==1){
 require_once($_SERVER['DOCUMENT_ROOT'].'/smeetv/header.php');
 drawHeader('Welcome ',$u,'1');
 
-
 require_once($_SERVER['DOCUMENT_ROOT'].'/etc/util/_landing_content.txt');
 
 ?>

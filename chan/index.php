@@ -37,7 +37,7 @@ echo "<h2>&sect;$id</h2>";
 for($i=0;$i<mysql_num_rows($go);$i++){
     $get=mysql_fetch_array($go);
     $twusr=explode("/",$get['link']);
-    echo displayTwit($get['id'],$get['content'],$get['link'],$get['date'],$get['timestamp'],0);
+    echo displayTwit($get['id'],$get['content'],$get['link'],$get['date'],$get['timestamp'],0,0);
 }
 ?>
 

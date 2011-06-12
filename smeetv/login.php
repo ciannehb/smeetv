@@ -37,7 +37,16 @@ if($_POST['process']==1 && $_POST['username'] && $_POST['password']){
 
 ?>
 
-<p>&nbsp;</p>
+<script src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.cycle.all.2.72.js"></script>
+<script type="text/javascript"> 
+$(document).ready(function() {
+    $('#recent').cycle({
+		fx: 'fade',  
+                timeout: 7500,
+	});
+});
+</script> 
 
 <form id="login" method="post" action="/smeetv/auth.php">
     <input type="hidden" name="process" value="1">
@@ -45,4 +54,17 @@ if($_POST['process']==1 && $_POST['username'] && $_POST['password']){
     <p><label class="fleft w100" for="password">password:</label> <input type="password" name="password" value="" id="password"></p>
     <p><label class="fleft w100">&nbsp;</label><input type="submit" value="Login">
 </form>
+
+<hr class="clearfix">
+<h2 style="margin-left:100px;margin-top:2em;">Recent photographs:</h2>
+<section id="recent" style="width:730px; margin-left:100px; clear:both display:inline-block;">
+<?require_once($_SERVER['DOCUMENT_ROOT'].'/etc/util/_landing_content.txt');?>
+</section>
+
+
+
+
+
+
+ 
 <?require_once('footer.php');?>
