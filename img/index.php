@@ -6,7 +6,6 @@
         $u=true;
     }
 
-    connect2db();
     $arr=explode("/",advancedClean(3,$_SERVER['REQUEST_URI']));
 
     if(strpos($arr[count($arr)-1],"?")) { /* addme widget leaves some garbage at the end of query string eg. http://fs.f1vlad.com/smeetv/smeetv/tv/img/2628?sms_ss=twitter&at_xt=4dc6c8054cd5144b,0 */
@@ -18,7 +17,14 @@
 
     //$id=advancedClean(3,$arr[count($arr)-1]);
     $id=$transport;
-    //$query="select id,content,timestamp,link,date from twits where id=".alphaID($id,true);
+
+
+    if(strlen($id)==0) {
+        header("HTTP/1.0 404 Not Found");
+        return;
+    }
+
+    connect2db();
     $query="select id,content,timestamp,link,date,flagged from twits_dump where id=".alphaID($id,true);
 
     $go=mysql_query($query);
