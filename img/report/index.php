@@ -21,17 +21,23 @@ if(!$_POST['op']=='ajax'){
         $transport=$arr[count($arr)-1];
     }
     //$id=advancedClean(3,$arr[count($arr)-1]);
-    $id=$transport;
+    $id=alphaID($transport,true);
 }else{
     $id=$_POST['id'];
 }
 
-    $query="select link from twits where aid=".alphaID($id,true);
+
+
+
+
+    $query="select link from twits where aid=".$id;
+
+
     $go=mysql_query($query);
     $get=mysql_fetch_array($go);
 
     if($u==true){
-        $uquery="delete from twits where aid=".alphaID($id,true);
+        $uquery="delete from twits where aid=".$id;
         $go=mysql_query($uquery);
         if(!$go) {
             $error=1;
@@ -39,7 +45,7 @@ if(!$_POST['op']=='ajax'){
     }
 
     //$gquery="update twits_dump set flagged='1' where link='".$get[0]."'";
-    $gquery="update twits_dump set flagged='1' where id=".alphaID($id,true);
+    $gquery="update twits_dump set flagged='1' where id=".$id;
     $go=mysql_query($gquery);
     if(!$go) {
         $error=1;
@@ -50,7 +56,7 @@ if(!$_POST['op']=='ajax'){
 if($error) {
     echo "Internal erorr";return;
 } else {
-    if(!$_POST['op']=='ajax') {header('Location:/img/'.$id);}
+    if(!$_POST['op']=='ajax') {header('Location:/img/'.alphaID($id));}
     else {echo "<html><head><meta name=\"ajr\" content=\"1\" /></head><body></body></html>";}
 }
 
