@@ -221,14 +221,12 @@ var success=0;
             logger('initialising slider');
             $('#content').cycle({
                 fx: 'fade',
-//timeout: 10000,
 timeout: <?=$get['smeetv_speed']?>,
                 speed: 300,
                 pause: 1,
                 next:   '#next2, #altnext', 
                 prev:   '#prev2' 
             });
-//$('#content').append('<article id="00">ad</article>');
 
 
         }
@@ -737,9 +735,9 @@ for($i=0;$i<mysql_num_rows($qh);$i++){
     </div>
     <div class="fleft">
     <abbr title="How fast do you want these pictures and videos to flip?">Speed</abbr>
-    <label class="s <?if($get['smeetv_speed']=='50000'){?>selected<?}?>">slow<input type="radio" name="smeetv_speed" value="10000" <?if($get['smeetv_speed']=='10000'){?>checked<?}?>></label>
-    <label class="s <?if($get['smeetv_speed']=='10000'){?>selected<?}?>"> medium<input type="radio" name="smeetv_speed" value="5000" <?if($get['smeetv_speed']=='5000'){?>checked<?}?>></label>
-    <label class="s <?if($get['smeetv_speed']=='5000'){?>selected<?}?>">fast<input type="radio" name="smeetv_speed" value="1000" <?if($get['smeetv_speed']=='1000'){?>checked<?}?>></label>
+    <label class="s <?if($get['smeetv_speed']=='60000'){?>selected<?}?>">slow<input type="radio" name="smeetv_speed" value="60000" <?if($get['smeetv_speed']=='60000'){?>checked<?}?>></label>
+    <label class="s <?if($get['smeetv_speed']=='20000'){?>selected<?}?>"> medium<input type="radio" name="smeetv_speed" value="20000" <?if($get['smeetv_speed']=='20000'){?>checked<?}?>></label>
+    <label class="s <?if($get['smeetv_speed']=='5000'){?>selected<?}?>">fast<input type="radio" name="smeetv_speed" value="5000" <?if($get['smeetv_speed']=='5000'){?>checked<?}?>></label>
     </div>
     <div class="fleft">
     <abbr title="Show descriptions for these pictures and videos?">Descriptions</abbr>
