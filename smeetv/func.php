@@ -57,7 +57,10 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
     if($link_override==0) $output.='<a href="'.$link.'">posted by '.$twusr[3].'</a>';
     else $output.='posted by '.$twusr[3];
     $output.=',
-					discovered <time id="'.$id.'" datetime="'. date('Y-m-d, H:i', $timestamp).'">'.ceil(f1init_ago($timestamp)/60).' minutes ago</time>';
+					discovered <time id="'.$id.'" datetime="'. date('Y-m-d, H:i', $timestamp).'">'.
+                                        //ceil(f1init_ago($timestamp)/60)
+                                        nicetime($timestamp)
+                                        .' minutes ago</time>';
     if($link_override==0) $output.=', <a onclick="return confirm(\'Are you sure you want to flag this photo? It will remove it from your TV and mark it as unsafe for others.\')" href="/img/report/'.alphaID($id).'">report this image</a>';
     if($link_override==1) $output.='</a>';
     $output.='
@@ -498,6 +501,51 @@ function alphaID($in, $to_num = false, $pad_up = false, $passKey = null)
  
   return $out;
 }
+
+
+
+
+function nicetime($date)
+{
+    if(empty($date)) {
+        return "No date provided";
+    }
+    
+    $periods         = array("second", "minute", "hour", "day", "week", "month", "year", "decade");
+    $lengths         = array("60","60","24","7","4.35","12","10");
+    
+    $now             = time();
+    $unix_date         = strtotime($date);
+    $unix_date         = $date;
+    
+       // check validity of date
+    if(empty($unix_date)) {    
+        return "Bad date";
+    }
+
+    // is it future date or past date
+    if($now > $unix_date) {    
+        $difference     = $now - $unix_date;
+        $tense         = "ago";
+        
+    } else {
+        $difference     = $unix_date - $now;
+        $tense         = "from now";
+    }
+    
+    for($j = 0; $difference >= $lengths[$j] && $j < count($lengths)-1; $j++) {
+        $difference /= $lengths[$j];
+    }
+    
+    $difference = round($difference);
+    
+    if($difference != 1) {
+        $periods[$j].= "s";
+    }
+    
+    return "$difference $periods[$j] {$tense}";
+}
+
 
 
 
