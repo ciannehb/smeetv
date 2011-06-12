@@ -41,7 +41,7 @@ if(strpos($_SESSION['idhash'],'nverified-')==1){
     $barr="";
     for($i=0;$i<mysql_num_rows($go);$i++){
         $get=mysql_fetch_array($go);
-        $barr.="<article id=\"{$get['aid']}\" rel=\"".$get['link']."\">".$get['content']."</article>";
+        $barr.="<article id=\"{$get['aid']}\" rel=\"".$get['link']."\">".$get['content']."    <time id=\"".$get['id']."\" datetime=\"". date('Y-m-d, H:i', $get['timestamp'])."\">".nicetime($get['timestamp'])."</time>       </article>";
         if($i==0) {
             $most_recent_hash=md5($get['id']."".$get['timestamp']);
         }
