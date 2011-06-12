@@ -42,7 +42,7 @@ if($_POST['process']==1 && $_POST['username'] && $_POST['password']){
 <script type="text/javascript"> 
 $(document).ready(function() {
     $('#recent').cycle({
-		fx: 'fade',  
+		fx: 'fadeZoom',
                 timeout: 7500,
 	});
 });

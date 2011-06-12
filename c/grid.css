@@ -1271,3 +1271,14 @@ opacity:.5;
 .NULL td {
 text-decoration: line-through;
 }
+
+#recent {
+width: 730px;
+margin-left: 100px;
+position: relative;
+height: 160px;
+margin-bottom: 1em;
+overflow: hidden;
+
+
+}
