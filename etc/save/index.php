@@ -41,15 +41,26 @@ if($_POST['smeetv_hashtags']!=$_POST['smeetv_hashtags_prev']){
     $_POST['smeetv_hashtags_prev']=$fixl.",".$_POST['smeetv_hashtags_prev'];
     $post_smeetv_hashtags_altered=$fixl.",".$post_smeetv_hashtags_altered;
     $ht_prev=explode(",",$_POST['smeetv_hashtags_prev']);
+    $ht_prev_count=count($ht_prev);
+    $clean_query="delete from twits where ";
+    $hti=0;
     foreach($ht_prev as $h){
         $g=stripos($post_smeetv_hashtags_altered,$h);
         if($g==NULL && $h!=$fixl ){
-            $query="delete from twits where content like '%".$h."%' and uid='{$_SESSION['id']}'";
+            //$query="delete from twits where content like '%".strtolower($h)."%' and uid='{$_SESSION['id']}'";
+            $clean_query.=" content like '%".trim(strtolower($h))."%' ";
+            if($hti<($ht_prev_count-1)) $clean_query.=" OR ";
             //echo $query;
-            $go=mysql_query($query);
-            if(!$go) $error=1;
+            //$go=mysql_query($query);
+            //if(!$go) $error=1;
         }
+        $hti++;
     }
+    $clean_query.=" and uid='{$_SESSION['id']}'";
+//echo $clean_query;return;
+    $go=mysql_query($clean_query);
+    if(!$go) $error=1;
+    //echo $clean_query;
     $hash_tags_changed=1;
 }
 
