@@ -48,7 +48,7 @@ if(!validate_username($_POST['username'])==TRUE) {
         $go=mysql_query($query);
         $num=mysql_num_rows($go);
         if($num==0) {
-            $query="insert into accounts (username,password,email,idhash,smeetv_hashtags,smeetv_speed,smeetv_text) values ('{$_POST['username']}',password('{$_POST['password']}'),'{$_POST['email']}','unverified-". hash('ripemd160', $_POST['username']) ."','example, Japan, #iphone, @aplusk','10000','1') ";
+            $query="insert into accounts (username,password,email,idhash,smeetv_hashtags,smeetv_speed,smeetv_text) values ('{$_POST['username']}',password('{$_POST['password']}'),'{$_POST['email']}','unverified-". hash('ripemd160', $_POST['username']) ."','example, Japan, #iphone, @aplusk','20000','1') ";
             $go=mysql_query($query);
             unset($_SESSION['invite']);
 
@@ -69,9 +69,12 @@ if(!validate_username($_POST['username'])==TRUE) {
             $gomail=mail($_POST['email'],'Please verify your email',$message,$headers);
 
 
-
-
-
+            $_SESSION['authenticated']=1;
+            $_SESSION['username']=$_POST['username'];
+            $_SESSION['id']=$last_insert_id;
+            $_SESSION['idhash']="unverified-". hash('ripemd160', $_POST['username']);
+            $query="update accounts set last_ip='{$_SERVER['REMOTE_ADDR']}',last_time='".time()."' where id='".$last_insert_id."' ";
+            $go=mysql_query($query);
 
 
         }
