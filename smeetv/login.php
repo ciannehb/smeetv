@@ -37,7 +37,8 @@ if($_POST['process']==1 && $_POST['username'] && $_POST['password']){
 
 ?>
 
-<script src="/js/jquery.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
 <?/*
 <script src="/js/smeetv.js/smeetv.js"></script>
 */?>
