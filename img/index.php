@@ -47,7 +47,9 @@
 
 
 ?>
+
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script src="/js/smeetv.js/jquery.rotate.js"></script>
 <script src="/js/smeetv.js/smeetv.js"></script>
 <script>
     $(document).ready(function(){
@@ -63,6 +65,14 @@
            <?if($get['flagged']==1){?>},30000);<?}?>
         });
 
+        $('.rotate_left').click(function(){
+            $('#mainimg > article > img.photo').rotateLeft();
+            return false;
+        });
+        $('.rotate_right').click(function(){
+            $('#mainimg > article > img.photo').rotateRight();
+            return false;
+        });
     }); 
 </script>
 
@@ -70,6 +80,11 @@
 
 
     <h2>Picture &sect;<?=$id?></h2>
+<nav class="picctrl">
+<a href="#" title="Rotate image to the left" class="ui-icon rotate_left">left</a>
+<a href="#" title="Rotate image to the right" class="ui-icon rotate_right">right</a>
+</nav>
+
 <?
 echo displayTwit($get['id'],$get['content'],$get['link'],$get['date'],$get['timestamp'],1,0);
 ?>
