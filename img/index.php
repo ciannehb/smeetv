@@ -26,8 +26,13 @@
 
     connect2db();
     $query="select id,content,timestamp,link,date,flagged from twits_dump where id=".alphaID($id,true);
-
     $go=mysql_query($query);
+
+    if(mysql_num_rows($go)==0){
+        $query="select id,content,timestamp,link,date,flagged from twits_dump_1 where id=".alphaID($id,true);
+        $go=mysql_query($query);
+    }
+    
 
     $get=mysql_fetch_array($go);
 
