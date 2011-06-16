@@ -66,11 +66,11 @@
         });
 
         $('.rotate_left').click(function(){
-            $('#mainimg > article > img.photo').rotateLeft();
+            $('#mainimg img').rotate(-90);
             return false;
         });
         $('.rotate_right').click(function(){
-            $('#mainimg > article > img.photo').rotateRight();
+            $('#mainimg img').rotate(90);
             return false;
         });
     }); 
@@ -81,8 +81,8 @@
 
     <h2>Picture &sect;<?=$id?></h2>
 <nav class="picctrl">
-<a href="#" title="Rotate image to the left" class="ui-icon rotate_left">left</a>
-<a href="#" title="Rotate image to the right" class="ui-icon rotate_right">right</a>
+<a title="Rotate image to the left" class="ui-icon rotate_left" href="#">left</a>
+<a title="Rotate image to the right" class="ui-icon rotate_right" href="#">right</a>
 </nav>
 
 <?
