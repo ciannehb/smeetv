@@ -56,3 +56,11 @@ text-shadow: 2px 2px 2px #000;
 
 }
 
+.notification a {
+color:#111;
+}
+
+#ft, #ft a, #ft aside, #ft aside a {
+color:#eee;
+}
+

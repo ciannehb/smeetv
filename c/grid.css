@@ -622,11 +622,16 @@ overflow:hidden;
 
 
 .ui-icon.rotate_left {
-background-position:-196px -65px;
+height:31px;
+width:31px;
+background-image:url(http://smeetv.com/i/object_rotate_left.png);
 }
 
+
 .ui-icon.rotate_right {
-background-position:-178px -65px;
+height:31px;
+width:31px;
+background-image:url(http://smeetv.com/i/object_rotate_right.png);
 }
 
 
