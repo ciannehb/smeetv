@@ -4,6 +4,7 @@ function imagify(a,id){
                    shorturl = imagify_get_shorturl(a,token),
                    noxpath = imagify_get_noxpath(shorturl);
 
+
                    $('#'+id).load('/etc/util/xdom?' + shorturl + ' ' + noxpath,function(response,status,xhr){
                        $(this).append('<span class="description"><a href="'+shorturl+'">'+a+'</a></span>');
 
@@ -66,6 +67,7 @@ function imagify_crawlurl(e){
 
 
 function imagify_get_noxpath(shorturl){
+
 
                if(shorturl.search('twitpic') > 0){
                        var noxpath = '#content #view-photo-main #photo img#photo-display';
@@ -150,16 +152,20 @@ function imagify_get_noxpath(shorturl){
 }
 
 function imagify_get_shorturl(a,token) {
-               var tmpPosStart = a.search(token),
-                   tmpPosEnd = a.indexOf(' ',tmpPosStart);
+    var prepend='';
+    if(a.search('http://')===-1){
+        token=token.replace('http://','');
+        prepend='http://';
+    }
 
-
-               if(tmpPosEnd===-1) {
-                   var shorturl = a.slice(tmpPosStart);
-               } else {
-                   var shorturl = a.slice(tmpPosStart,tmpPosEnd);
-               }
-    return shorturl;
+    var tmpPosStart = a.search(token),
+        tmpPosEnd = a.indexOf(' ',tmpPosStart);
+    if(tmpPosEnd===-1) {
+        var shorturl = a.slice(tmpPosStart);
+    } else {
+        var shorturl = a.slice(tmpPosStart,tmpPosEnd);
+    }
+    return prepend+shorturl;
 }
 
 function imagify_detect_pic(a) {
