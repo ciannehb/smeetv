@@ -32,7 +32,7 @@ if(strpos($_SESSION['idhash'],'nverified-')==1){
 
 </nav>
 <?
-    $query="select aid,id,content,timestamp,link from twits where uid={$_SESSION['id']} order by id desc limit 0,20";
+    $query="select aid,id,content,timestamp,link,date from twits where uid={$_SESSION['id']} order by id desc limit 0,20";
 
 
 
@@ -41,7 +41,13 @@ if(strpos($_SESSION['idhash'],'nverified-')==1){
     $barr="";
     for($i=0;$i<mysql_num_rows($go);$i++){
         $get=mysql_fetch_array($go);
-        $barr.="<article id=\"{$get['aid']}\" rel=\"".$get['link']."\">".$get['content']."    <time id=\"".$get['id']."\" datetime=\"". date('Y-m-d, H:i', $get['timestamp'])."\">".nicetime($get['timestamp'])."</time>       </article>";
+        $orig_date=strtotime($get['date']);
+        $barr.="<article id=\"{$get['aid']}\" rel=\"".$get['link']."\">".$get['content']."
+                <aside>
+                    discovered <time id=\"discovered-".$get['id']."\" datetime=\"". date('Y-m-d, H:i', $get['timestamp'])."\">".nicetime($get['timestamp'])."</time>,
+                    posted <time id=\"posted-".$get['id']."\" datetime=\"". date('Y-m-d, H:i', $orig_date)."\">".nicetime($orig_date)."</time>
+                </aside>
+            </article>";
         if($i==0) {
             $most_recent_hash=md5($get['id']."".$get['timestamp']);
         }

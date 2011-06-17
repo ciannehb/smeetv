@@ -41,6 +41,7 @@ function validate_email($v_email) {
 function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_override=0) {
 
     $twusr=explode("/",$link);
+    $orig_date=strtotime($date);
     $output='';
 
 
@@ -57,9 +58,13 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
     if($link_override==0) $output.='<a href="'.$link.'">posted by '.$twusr[3].'</a>';
     else $output.='posted by '.$twusr[3];
     $output.=',
-					discovered <time id="'.$id.'" datetime="'. date('Y-m-d, H:i', $timestamp).'">'.
+					discovered <time class="discovered" id="discovered-'.$id.'" datetime="'. date('Y-m-d, H:i', $timestamp).'">'.
                                         //ceil(f1init_ago($timestamp)/60)
                                         nicetime($timestamp)
+                                        .'</time>, ';
+    $output.='posted <time class="posted" id="posted-'.$id.'" datetime="'. date('Y-m-d, H:i', $orig_date).'">'.
+                                        //ceil(f1init_ago($timestamp)/60)
+                                        nicetime($orig_date)
                                         .'</time>';
     if($link_override==0) $output.=', <a onclick="return confirm(\'Are you sure you want to flag this photo? It will remove it from your TV and mark it as unsafe for others.\')" href="/img/report/'.alphaID($id).'">report this image</a>';
     if($link_override==1) $output.='</a>';

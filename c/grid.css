@@ -111,7 +111,7 @@ width:100% !important;
 background:rgba(255,255,255,1);
 }
 
-#tv .description time {
+#tv .description aside {
 
 position:absolute;
 top:.5em;
@@ -1315,6 +1315,10 @@ position: relative;
 height: 160px;
 margin-bottom: 1em;
 overflow: hidden;
+}
+
+#recent time.posted {
+display:none;
 }
 
 .picctrl {
