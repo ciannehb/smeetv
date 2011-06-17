@@ -4,7 +4,7 @@ function imagify(a,id){
                    shorturl = imagify_get_shorturl(a,token),
                    noxpath = imagify_get_noxpath(shorturl);
 
-                   $('#'+id).load('/etc/util/xdom.php?geturl=' + shorturl + ' ' + noxpath,function(response,status,xhr){
+                   $('#'+id).load('/etc/util/xdom?' + shorturl + ' ' + noxpath,function(response,status,xhr){
                        $(this).append('<span class="description"><a href="'+shorturl+'">'+a+'</a></span>');
 
                        if(noxpath===false) { // added this for handling t.co links
