@@ -4,9 +4,6 @@ function imagify(a,id){
                    shorturl = imagify_get_shorturl(a,token),
                    noxpath = imagify_get_noxpath(shorturl);
 
-
-
-
                    $('#'+id).load('/etc/util/xdom.php?geturl=' + shorturl + ' ' + noxpath,function(response,status,xhr){
                        $(this).append('<span class="description"><a href="'+shorturl+'">'+a+'</a></span>');
 
@@ -56,6 +53,10 @@ function imagify_crawlurl(e){
         var noxpath = '#mainImage';
     } else if(e.search('#mainImage') > 0 && e.search('picplz.com') > 0) {
         var noxpath = '#main > section > article > figure > a > img';
+    } else if(e.search('pbckt.com') > 0) {
+        var noxpath = '#fullSizedImage';
+    } else if(e.search('photobucket.com') > 0) {
+        var noxpath = '#fullSizedImage';
     } else if(e.search('.inline-media-image') > 0 && e.search('dailybooth.com') > 0) {
         var noxpath = '#main > section > article > figure > a > img';
     }
@@ -65,7 +66,6 @@ function imagify_crawlurl(e){
 
 
 function imagify_get_noxpath(shorturl){
-
 
                if(shorturl.search('twitpic') > 0){
                        var noxpath = '#content #view-photo-main #photo img#photo-display';
@@ -99,6 +99,16 @@ function imagify_get_noxpath(shorturl){
                if(shorturl.search('plixi.com') > 0){
                        var noxpath = '#photo';
                }
+
+               if(shorturl.search('pbckt.com') > 0){
+                       var noxpath = '#fullSizedImage';
+               }
+
+               if(shorturl.search('photobucket.com') > 0){
+                       var noxpath = '#fullSizedImage';
+               }
+
+
 
                if(shorturl.search('lockerz.com') > 0){
                        var noxpath = '#main section article figure a img';
@@ -140,9 +150,6 @@ function imagify_get_noxpath(shorturl){
 }
 
 function imagify_get_shorturl(a,token) {
-
-
-
                var tmpPosStart = a.search(token),
                    tmpPosEnd = a.indexOf(' ',tmpPosStart);
 
@@ -202,7 +209,7 @@ function imagify_detect_pic(a) {
                else if(a.search('fotki.yandex.ru') > 0){
                        var token = 'http://fotki.yandex.ru';
                }
-               else if(a.search('t.co') > 0){
+               else if(a.search('/t.co') > 0){
                        var token = 'http://t.co';
                }
                else if(a.search('bit.ly') > 0){
@@ -214,6 +221,14 @@ function imagify_detect_pic(a) {
                else if(a.search('instagr.am') > 0){
                        var token = 'http://instagr.am';
                }
+               else if(a.search('pbckt.com') > 0){
+                       var token = 'http://pbckt.com';
+               }
+               else if(a.search('photobucket.com') > 0){
+                       var token = 'http://photobucket.com';
+               }
+
+
 
     return token;
 
