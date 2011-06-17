@@ -42,7 +42,7 @@ margin:.5em 0 .25em;
 
 
         body {
-            background:#eee;
+            background:#fff;
 font-family: Helvetica, Verdana;
         }
 
@@ -723,7 +723,16 @@ display:inline;
 }
 
 #topnav h1 a {
-color:#ffffff;
+line-height:1.5em;
+display:inline-block;
+width:94px;
+height:32px;
+text-indent:-99999px;
+
+
+
+background:url('/i/logo_b_w.png') no-repeat;
+
 }
 
 #topnav a:hover {

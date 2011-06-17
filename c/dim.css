@@ -1,5 +1,5 @@
 body {
-background:#333333;
+background:#000;
 color:#fff;
 }
 
@@ -63,4 +63,11 @@ color:#111;
 #ft, #ft a, #ft aside, #ft aside a {
 color:#eee;
 }
+
+#topnav h1 a {
+
+background:url('/i/logo_w_b.png') no-repeat !important;
+
+}
+
 
