@@ -128,7 +128,6 @@ if(count($matches_hash[0])>0){ /*hashes found*/
 }
 
 
-/*
     $output.='
 					<p id="yml1" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
 					<p id="yml2" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
@@ -140,7 +139,6 @@ if(count($matches_hash[0])>0){ /*hashes found*/
 				</section>
 			</aside>
                         ';
-*/
     }
     $output.='
 		</article>
