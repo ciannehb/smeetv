@@ -68,6 +68,17 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
                                         .'</time>';
     if($link_override==0) $output.=', <a onclick="return confirm(\'Are you sure you want to flag this photo? It will remove it from your TV and mark it as unsafe for others.\')" href="/img/report/'.alphaID($id).'">report this image</a>';
     if($link_override==1) $output.='</a>';
+
+
+
+
+    $output.='
+<nav class="picctrl hide">
+<a title="Rotate image to the left" class="ui-icon rotate_left" href="#">left</a>
+<a title="Rotate image to the right" class="ui-icon rotate_right" href="#">right</a>
+</nav>';
+
+
     $output.='
 				</footer>';
     $output.='

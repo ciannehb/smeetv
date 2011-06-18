@@ -630,15 +630,13 @@ overflow:hidden;
 
 
 .ui-icon.rotate_left {
-height:31px;
-width:31px;
+margin:0;
 background-image:url(http://smeetv.com/i/object_rotate_left.png);
 }
 
 
 .ui-icon.rotate_right {
-height:31px;
-width:31px;
+margin:0;
 background-image:url(http://smeetv.com/i/object_rotate_right.png);
 }
 
@@ -1323,7 +1321,7 @@ display:none;
 
 .picctrl {
     position: absolute;
-    right: 10px;
-    top: 50px;
+    right: .25em;
+    top: 0;
     z-index: 1000;
 }

@@ -11,12 +11,14 @@ function imagify(a,id){
                        if(noxpath===false) { // added this for handling t.co links
                            crawled_img_path=$(response).find(imagify_crawlurl(response)).attr('src');
                            $(this).append('<img alt="'+a+'" src="'+crawled_img_path+'">');
+                           $('.picctrl').show();
                        } else {
                            var timg=$(this).find('img');
                            $(timg).attr('alt',a);
                            if(!$(this).find('img').attr('src')){
                                $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to load image ' + id + '. <a href="" class="destroy_notification"><span class="ui-icon close_small ">&nbsp;</span></a></div>');
                            } else {
+                               $('.picctrl').show();
                                if($(this).find('img').attr('src').search('http://') < 0) { // added this for handling relative urls done this for img.ly initially
                                    var old_src = $(this).find('img').attr('src');
                                    $(timg).attr('src',token+''+old_src);

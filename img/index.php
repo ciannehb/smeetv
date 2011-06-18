@@ -80,10 +80,6 @@
 
 
     <h2>Picture &sect;<?=$id?></h2>
-<nav class="picctrl">
-<a title="Rotate image to the left" class="ui-icon rotate_left" href="#">left</a>
-<a title="Rotate image to the right" class="ui-icon rotate_right" href="#">right</a>
-</nav>
 
 <?
 echo displayTwit($get['id'],$get['content'],$get['link'],$get['date'],$get['timestamp'],1,0);
