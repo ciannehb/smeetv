@@ -158,11 +158,10 @@ function imagify_get_noxpath(shorturl){
 
 function imagify_get_shorturl(a,token) {
     var prepend='';
-    if(a.search('http://')===-1){
+    if(a.search('http://')===-1 && !token == 'undefined'){
         token=token.replace('http://','');
         prepend='http://';
     }
-
     var tmpPosStart = a.search(token),
         tmpPosEnd = a.indexOf(' ',tmpPosStart);
     if(tmpPosEnd===-1) {
