@@ -48,19 +48,23 @@ if($_POST['smeetv_hashtags']!=$_POST['smeetv_hashtags_prev']){
         $g=stripos($post_smeetv_hashtags_altered,$h);
         if($g==NULL && $h!=$fixl ){
             //$query="delete from twits where content like '%".strtolower($h)."%' and uid='{$_SESSION['id']}'";
-            $clean_query.=" content like '%".trim(strtolower($h))."%' ";
+            $clean_query.=" content like '%".trim(strtolower($h))."%'";
             if($hti<($ht_prev_count-1)) $clean_query.=" OR ";
             //echo $query;
             //$go=mysql_query($query);
             //if(!$go) $error=1;
+            $need_to_clean=TRUE;
         }
         $hti++;
     }
-    $clean_query.=" and uid='{$_SESSION['id']}'";
-//echo $clean_query;return;
-    $go=mysql_query($clean_query);
-    if(!$go) $error=1;
-    //echo $clean_query;
+
+    if($need_to_clean){
+    $clean_query.=" AND uid='{$_SESSION['id']}'";
+        $clean_query=str_replace("OR  AND"," AND",$clean_query);
+        $go=mysql_query($clean_query);
+        if(!$go) $error=1;
+        //echo $clean_query;
+    }
     $hash_tags_changed=1;
 }
 

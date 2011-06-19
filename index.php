@@ -48,7 +48,7 @@ if(strpos($_SESSION['idhash'],'nverified-')==1){
                     posted ".nicetime($orig_date)."
                 </aside>
 
-                ".advancedClean(3,$get['content'])."
+                ".$get['content']."
             </article>";
         if($i==0) {
             $most_recent_hash=md5($get['id']."".$get['timestamp']);
