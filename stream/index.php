@@ -24,7 +24,7 @@
     $query="select id from accounts where idhash='$id'";
     $go=mysql_query($query);
     $get=mysql_fetch_array($go);
-    $query="select * from twits_dump where content REGEXP '#".$id."$|#".$id." ' limit 0,30";
+    $query="select * from twits_dump where content REGEXP '#".$id."$|#".$id." ' order by id desc limit 0,30";
     $go=mysql_query($query);
 
 
