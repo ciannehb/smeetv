@@ -45,6 +45,11 @@ if($_POST['process']==1 && $_POST['username'] && $_POST['password']){
 <script type="text/javascript" src="/js/jquery.cycle.all.2.72.js"></script>
 <script type="text/javascript"> 
 $(document).ready(function() {
+    $('#featuredhashtags_content').load('/etc/featuredhashtags/');
+    $('#featuredhashtags').live('click',function(e){
+            $('#featuredhashtags_content').toggle();
+            e.preventDefault();
+    });
     $('#recent').cycle({
 		fx: 'fadeZoom',
                 timeout: 7500,
@@ -77,6 +82,8 @@ $(document).ready(function() {
 <section id="recent" style="width:730px; margin-left:100px; clear:both display:inline-block;">
 <?require_once($_SERVER['DOCUMENT_ROOT'].'/etc/util/_landing_content.txt');?>
 </section>
+<div id="featuredhashtags_content" style="display:none">
+
 
 
 

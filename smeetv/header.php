@@ -49,7 +49,12 @@
 
 <a href="/smeetv/login.php">login</a> <span class="o50">|
 
-<a href="/smeetv/forgotpassword.php">FORGOT PASSWORD</a></span>
+<a href="/smeetv/forgotpassword.php">FORGOT PASSWORD</a> |
+
+<a id="featuredhashtags" href="">Featured hashtags</a>
+
+
+</span>
 
 <?}?>
 </nav>

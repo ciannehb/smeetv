@@ -17,7 +17,7 @@ for($i=0;$i<mysql_num_rows($qh);$i++){
 
 
     $output.= "
-         <span><a href=\"\" style=\"opacity: ".(($gh['counter']/10)+0.25).";font-size:".(($gh['counter']*2)+10)."px\" title=\"{$gh['keyword']}\" id=\"{$gh['keyword']}\">$wd[0]</a></span>
+         <span><a href=\"/stream/{$gh['keyword']}\" style=\"opacity: ".(($gh['counter']/10)+0.25).";font-size:".(($gh['counter']*2)+10)."px\" title=\"{$gh['keyword']}\" id=\"{$gh['keyword']}\">$wd[0]</a></span>
     ";
 }
 echo $output;
