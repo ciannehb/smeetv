@@ -42,11 +42,13 @@ if(strpos($_SESSION['idhash'],'nverified-')==1){
     for($i=0;$i<mysql_num_rows($go);$i++){
         $get=mysql_fetch_array($go);
         $orig_date=strtotime($get['date']);
-        $barr.="<article id=\"{$get['aid']}\" rel=\"".$get['link']."\">".$get['content']."
+        $barr.="<article id=\"{$get['aid']}\" rel=\"".$get['link']."\">
                 <aside>
-                    discovered <time id=\"discovered-".$get['id']."\" datetime=\"". date('Y-m-d, H:i', $get['timestamp'])."\">".nicetime($get['timestamp'])."</time>,
-                    posted <time id=\"posted-".$get['id']."\" datetime=\"". date('Y-m-d, H:i', $orig_date)."\">".nicetime($orig_date)."</time>
+                    discovered ".nicetime($get['timestamp']).",
+                    posted ".nicetime($orig_date)."
                 </aside>
+
+                ".advancedClean(3,$get['content'])."
             </article>";
         if($i==0) {
             $most_recent_hash=md5($get['id']."".$get['timestamp']);
@@ -648,6 +650,7 @@ function exif_lookup(id){
            $('#content > article').each(function(){
                var content=$(this).html(),
                    thisid=$(this).attr('id');
+
                imagify(content,thisid);
 
 
