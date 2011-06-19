@@ -1,7 +1,7 @@
 <?
 
 function connect2db() {
-    mysql_pconnect("localhost","root","");
+    mysql_connect("localhost","root","");
     mysql_select_db("smeetv");
 }
 
