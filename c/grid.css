@@ -144,6 +144,7 @@ bottom:-26px;
 -webkit-transform: rotate(-115deg);
 -o-transform: rotate(-115deg);
 transform: rotate(-115deg);
+-ms-transform:(-115deg);
 border-color:transparent transparent rgba(255,255,255,1);
 border-style:solid;
 border-width:1px 1px 20px 46px;
@@ -770,6 +771,7 @@ color:#FF0099;
 -moz-transform: rotate(-35deg);
 -webkit-transform: rotate(-35deg);
 -o-transform: rotate(-35deg);
+-ms-transform: rotate(-35deg);
 }
 
 .dragginggniggard .draggable-handle {
@@ -996,7 +998,7 @@ margin-top:10px;
 -moz-transform: rotate(-35deg);
 -webkit-transform: rotate(-35deg);
 -o-transform: rotate(-35deg);
-
+-ms-transform: rotate(-35deg);
 
 }
 
@@ -1221,6 +1223,7 @@ bottom:-26px;
 -webkit-transform: rotate(-115deg);
 -o-transform: rotate(-115deg);
 transform: rotate(-115deg);
+-ms-transform: rotate(-115deg);
 border-color:transparent transparent rgb(229,229,229);
 border-style:solid;
 border-width:1px 1px 20px 46px;
@@ -1238,6 +1241,7 @@ z-index:0;
 -webkit-transform: rotate(1deg);
 -o-transform: rotate(1deg);
 transform: rotate(1deg);
+-ms-transform: rotate(1deg);
 
 
     box-shadow: rgb(185,185,185) 0 0px 8px;
