@@ -281,7 +281,7 @@ var repeater = function(func, times, interval,success) {
 
 repeater(function(left){
     if(left>0 && $('body').hasClass('newstuffsfound')==false) {
-       check_new_twits('<?=$most_recent_hash?>','<?=$_SESSION['id']?>');
+       //check_new_twits('<?=$most_recent_hash?>','<?=$_SESSION['id']?>');
     }
     setTimeout(function(){check_num_twits_fetched()},10000);
 }, 100000, 60000, success);
@@ -599,14 +599,7 @@ function togglePlayPause(){
            $('.busy')
                .hide()
                .ajaxStart(function() {
-                   if(!window.location.toString().match('upload')){
-                        $(this).show(); 
-/*
-                        $('#content').hide(function(){
-                            logger('hide tv content while images load, avoid ui mess');
-                        });
-*/
-                   }
+                       $(this).show(); 
            })
                .ajaxStop(function() {
                    if (!this.dont_stop_after_ajax){
@@ -699,7 +692,7 @@ for($i=0;$i<mysql_num_rows($qh);$i++){
   <div class="dragginggniggard"><div class="draggable-handle ui-icon">&nbsp;</div></div>
     <div id="tv" class="">
         <div id="altnext" title="Click to go to next image" class="gradientt"> </div>
-	<div id="content" class="hide pause <?if(!$get['smeetv_text']==1){echo "notext";}?>"><?=$barr?></div>
+	<div id="content" class="pause <?if(!$get['smeetv_text']==1){echo "notext";}?>"><?=$barr?></div>
     </div>
     <aside id="minicontroller" class="">
          <span class="fleft">
