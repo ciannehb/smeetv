@@ -62,11 +62,7 @@ echo "</section>";
            $('.channel > article').each(function(){
                var content=$(this).find('.thumbnail').html(),
                    thisid=$(this).attr('id');
-
-
-
                imagify(content,thisid);
-
            });
 
 

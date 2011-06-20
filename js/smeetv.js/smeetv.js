@@ -4,9 +4,15 @@ function imagify(a,id){
                    shorturl = imagify_get_shorturl(a,token),
                    noxpath = imagify_get_noxpath(shorturl);
 
-
-
-
+/*
+alert(
+token
++ ' ' +
+shorturl
++ ' ' +
+noxpath
+);
+*/
 
                    $('#'+id+ ' .thumbnail').load('/etc/util/xdom?' + shorturl + ' ' + noxpath,function(response,status,xhr){
 
@@ -15,6 +21,7 @@ function imagify(a,id){
 
                        if(noxpath===false) { // added this for handling t.co links
                            crawled_img_path=$(response).find(imagify_crawlurl(response)).attr('src');
+
                            $(this + ' div.t').append('<img alt="'+a+'" src="'+crawled_img_path+'">');
 
 

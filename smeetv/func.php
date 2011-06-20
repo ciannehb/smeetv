@@ -71,17 +71,17 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
 
 
 
-
-    $output.='
-<nav class="picctrl hide">
-<a title="Rotate image to the left" class="ui-icon rotate_left" href="#">left</a>
-<a title="Rotate image to the right" class="ui-icon rotate_right" href="#">right</a>
-</nav>';
-
+    if($squares==1){
+        $output.='
+        <nav class="picctrl hide">
+            <a title="Rotate image to the left" class="ui-icon rotate_left" href="#">left</a>
+            <a title="Rotate image to the right" class="ui-icon rotate_right" href="#">right</a>
+        </nav>';
+    }
 
     if($thumbnail==1){
         $output.='
-            <span class="thumbnail">'.$content.'</span>
+            <span class="thumbnail"> '.$content.' </span>
         ';
     }
 
@@ -103,7 +103,7 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
     $output.='
 			<aside>
 				<section id="mainimg" class="squares mainimg" >
-                                   <article id="'.alphaID($id).'" rel="'.$link.'" class="hide">'.$content.'</article>
+                                   <article id="sub-'.alphaID($id).'" rel="'.$link.'" class="hide"><span class="thumbnail"> '.$content.' </span></article>
 				</section>
 				<section class="squares share">
 					<div style="clear:both">
