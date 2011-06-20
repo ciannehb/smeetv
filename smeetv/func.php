@@ -54,7 +54,7 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
     if($link_override==1) $output.='</a>';
     $output.='
 				<footer>';
-    if($link_override==1) $output.='<a href="http://smeetv.com/img/'.alphaID($id).'">';
+    if($link_override==1) $output.='<a rel="smeetv" href="http://smeetv.com/img/'.alphaID($id).'">';
     if($link_override==0) $output.='<a href="'.$link.'">posted by '.$twusr[3].'</a>';
     else $output.='posted by '.$twusr[3];
     $output.=',
