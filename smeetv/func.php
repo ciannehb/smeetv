@@ -48,7 +48,7 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
     $output.='
 		<article id="'.alphaID($id).'" class="twit lo'.$link_override.'">
 			<div class="t">';
-    if($link_override==1) $output.='<a href="http://smeetv.com/img/'.alphaID($id).'">';
+    if($link_override==1) $output.='<a rel="smeetv" href="http://smeetv.com/img/'.alphaID($id).'">';
     if($link_override==0) $output.=f1init_makeClickableLinks($content);
     else $output.=$content;
     if($link_override==1) $output.='</a>';
@@ -79,12 +79,26 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
 </nav>';
 
 
+    if($thumbnail==1){
+        $output.='
+            <span class="thumbnail">'.$content.'</span>
+        ';
+    }
+
+
     $output.='
 				</footer>';
+
+
+
     $output.='
                                 <span class="slant"></span>
 			</div>
                         ';
+
+
+
+
     if($squares==1){
     $output.='
 			<aside>
@@ -152,11 +166,7 @@ if(count($matches_hash[0])>0){ /*hashes found*/
                         ';
     }
 
-    if($thumbnail==1){
-        $output.='
-            <span class="thumbnail">'.$content.'</span>
-        ';
-    }
+
 
     $output.='
 		</article>

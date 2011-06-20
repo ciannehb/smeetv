@@ -8,13 +8,14 @@ function imagify(a,id){
 
 
 
-                   $('#'+id).load('/etc/util/xdom?' + shorturl + ' ' + noxpath,function(response,status,xhr){
-                       $(this).append('<span class="description"><a href="'+shorturl+'">'+a+'</a></span>');
+                   $('#'+id+ ' .thumbnail').load('/etc/util/xdom?' + shorturl + ' ' + noxpath,function(response,status,xhr){
+
+                       //$(this).append('<span class="description"><a href="'+shorturl+'">'+a+'</a></span>');
 
 
                        if(noxpath===false) { // added this for handling t.co links
                            crawled_img_path=$(response).find(imagify_crawlurl(response)).attr('src');
-                           $(this).prepend('<img alt="'+a+'" src="'+crawled_img_path+'">');
+                           $(this + ' div.t').append('<img alt="'+a+'" src="'+crawled_img_path+'">');
 
 
                            $('.picctrl').show();

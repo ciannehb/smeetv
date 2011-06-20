@@ -48,6 +48,12 @@ echo "</section>";
 <script>
     $(document).ready(function(){
 
+        $('article.twit').live('click',function(){
+            var goto=$(this).find('a[rel=smeetv]').attr('href');
+            window.location.replace(goto);
+        });
+
+
         $('.destroy_notification').live('click',function(e){
             $(this).closest('.notification').filter(':first').remove();
             e.preventDefault();
@@ -55,7 +61,7 @@ echo "</section>";
 
            // imagify
            $('.stream > article').each(function(){
-               var content=$(this).children('.thumbnail').html(),
+               var content=$(this).find('.thumbnail').html(),
                    thisid=$(this).attr('id');
 
 
