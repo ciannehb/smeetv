@@ -1167,6 +1167,12 @@ float:left;
 margin:0 1em 1em 0;
 }
 
+.stream article img,
+.channel article img {
+float:right;
+height:90px;
+}
+
 .twit aside .squares.share {
 margin-top:.5em;
 }

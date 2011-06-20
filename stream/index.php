@@ -33,13 +33,39 @@
 
 
   
-
+echo "<section class='stream'>";
 for($i=0;$i<mysql_num_rows($go);$i++){
     $get=mysql_fetch_array($go);
     $twusr=explode("/",$get['link']);
-    echo displayTwit($get['id'],$get['content'],$get['link'],$get['date'],$get['timestamp'],0,1);
+    echo displayTwit($get['id'],$get['content'],$get['link'],$get['date'],$get['timestamp'],0,1,0,1);
 }
+echo "</section>";
 ?>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script src="/js/smeetv.js/smeetv.js"></script>
+<script>
+    $(document).ready(function(){
+
+        $('.destroy_notification').live('click',function(e){
+            $(this).closest('.notification').filter(':first').remove();
+            e.preventDefault();
+        });
+
+           // imagify
+           $('.stream > article').each(function(){
+               var content=$(this).children('.thumbnail').html(),
+                   thisid=$(this).attr('id');
+
+
+               imagify(content,thisid);
+
+           });
+
+
+    });
+</script>
 
 
 <?require_once($_SERVER['DOCUMENT_ROOT'].'/smeetv/footer.php');?>

@@ -38,7 +38,7 @@ function validate_email($v_email) {
 
 
 
-function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_override=0,$hash_override=0) {
+function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_override=0,$hash_override=0,$thumbnail=0) {
 
     $twusr=explode("/",$link);
     $orig_date=strtotime($date);
@@ -151,8 +151,16 @@ if(count($matches_hash[0])>0){ /*hashes found*/
 			</aside>
                         ';
     }
+
+    if($thumbnail==1){
+        $output.='
+            <span class="thumbnail">'.$content.'</span>
+        ';
+    }
+
     $output.='
 		</article>
+
     ';
 
 

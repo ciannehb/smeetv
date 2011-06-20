@@ -5,6 +5,9 @@ function imagify(a,id){
                    noxpath = imagify_get_noxpath(shorturl);
 
 
+
+
+
                    $('#'+id).load('/etc/util/xdom?' + shorturl + ' ' + noxpath,function(response,status,xhr){
                        $(this).append('<span class="description"><a href="'+shorturl+'">'+a+'</a></span>');
 
@@ -157,11 +160,16 @@ function imagify_get_noxpath(shorturl){
 }
 
 function imagify_get_shorturl(a,token) {
+
+
     var prepend='';
     if(a.search('http://')===-1 && !token == 'undefined'){
         token=token.replace('http://','');
         prepend='http://';
     }
+
+
+
     var tmpPosStart = a.search(token),
         tmpPosEnd = a.indexOf(' ',tmpPosStart);
     if(tmpPosEnd===-1) {
@@ -169,6 +177,7 @@ function imagify_get_shorturl(a,token) {
     } else {
         var shorturl = a.slice(tmpPosStart,tmpPosEnd);
     }
+
     return prepend+shorturl;
 }
 

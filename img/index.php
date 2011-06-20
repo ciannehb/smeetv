@@ -61,7 +61,7 @@
         $('#mainimg.squares.mainimg > article').each(function(){
            var content=$(this).html();
            <?if($get['flagged']==1){?>setTimeout(function(){<?}?>
-           e=imagify(content,'#mainimg.squares.mainimg > article');
+           //e=imagify(content,'#mainimg.squares.mainimg > article');
            <?if($get['flagged']==1){?>},30000);<?}?>
         });
 
