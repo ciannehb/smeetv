@@ -21,10 +21,8 @@ noxpath
 
                        if(noxpath===false) { // added this for handling t.co links
                            crawled_img_path=$(response).find(imagify_crawlurl(response)).attr('src');
-
-                           $(this + ' div.t').append('<img alt="'+a+'" src="'+crawled_img_path+'">');
-
-
+                           $(this).append('<img />');
+                           $(this).find('img').attr({'src':crawled_img_path,'alt':a});
                            $('.picctrl').show();
                        } else {
                            var timg=$(this).find('img');
