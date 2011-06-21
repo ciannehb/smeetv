@@ -28,7 +28,7 @@
     $go=mysql_query($query);
 
 
-    echo "<h2>#$id</h2>";
+    echo "<h2>streaming #$id</h2>";
 
 
 
