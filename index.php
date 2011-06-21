@@ -32,7 +32,7 @@ if(strpos($_SESSION['idhash'],'nverified-')==1){
 
 </nav>
 <?
-    $query="select aid,id,content,timestamp,link,date from twits where uid={$_SESSION['id']} order by id desc limit 0,20";
+    $query="select aid,id,content,timestamp,link,date from twits where uid={$_SESSION['id']} order by id desc limit 0,30";
 
 
 
@@ -46,7 +46,9 @@ if(strpos($_SESSION['idhash'],'nverified-')==1){
                 <aside>
                     discovered ".nicetime($get['timestamp']).",
                     posted ".nicetime($orig_date)."
+                    ".$get['content']."
                 </aside>
+                <span class=\"thumbnail\"></span>
 
                 ".$get['content']."
             </article>";
