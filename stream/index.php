@@ -14,6 +14,9 @@
 
     drawHeader('Streaming search combination "'.$id.'"',$u);
 
+
+    $id=eregi_replace('_hh_','#',$id);
+
     $query="select id from keywords where keyword=LOWER('".$id."')";
     $go=mysql_query($query);
     if(mysql_num_rows($go)==0 && !$u==true) {
@@ -21,10 +24,34 @@
         return;
     }
 
+/*
     $query="select id from accounts where idhash='$id'";
     $go=mysql_query($query);
     $get=mysql_fetch_array($go);
-    $query="select * from twits_dump where content REGEXP '$".$id."$|".$id." ' order by id desc limit 0,30";
+*/
+
+
+$atkey=strpos('~'.$id,"@")+1;
+$hashkey=strpos('-'.$id,"#")+1;
+if($atkey==2){
+    $strict=1;
+} elseif($hashkey==2) {
+    $strict=1;
+}
+
+
+
+
+    $query="select * from twits_dump where content REGEXP '";
+        $query.=$id."$";
+        $query.="|";
+        $query.="$".$id;
+        $query.="|";
+        $query.=$id;
+        $query.=" ";
+    $query.="' order by id desc limit 0,30";
+
+
     $go=mysql_query($query);
 
 
