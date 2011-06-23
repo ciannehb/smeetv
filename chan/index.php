@@ -49,7 +49,7 @@ echo "</section>";
 
         $('article.twit').live('click',function(){
             var goto=$(this).find('a[rel=smeetv]').attr('href');
-            window.location.replace(goto);
+            window.location = goto;
         });
 
         $('.destroy_notification').live('click',function(e){
