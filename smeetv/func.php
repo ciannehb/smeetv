@@ -40,6 +40,7 @@ function validate_email($v_email) {
 
 function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_override=0,$hash_override=0,$thumbnail=0) {
 
+
     $twusr=explode("/",$link);
     $orig_date=strtotime($date);
     $output='';
