@@ -5,7 +5,7 @@ require_once($_SERVER['DOCUMENT_ROOT']."/smeetv/aquarium/aquarium/filter.php");
 connect2db();
 
 
-$qh="select keyword,counter from keywords order by counter desc limit 0,30";
+$qh="select keyword,counter from keywords order by counter desc limit 0,50";
 $qh=mysql_query($qh);
 $output="";
 for($i=0;$i<mysql_num_rows($qh);$i++){
