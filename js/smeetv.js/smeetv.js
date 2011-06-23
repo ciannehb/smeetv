@@ -1,4 +1,7 @@
 
+
+
+
 function imagify(a,id){
                var token = imagify_detect_pic(a),
                    shorturl = imagify_get_shorturl(a,token),
@@ -13,6 +16,8 @@ shorturl
 noxpath
 );
 */
+
+
 
                    $('#'+id+ ' .thumbnail').load('/etc/util/xdom?' + shorturl + ' ' + noxpath,function(response,status,xhr){
 
@@ -151,6 +156,11 @@ function imagify_get_noxpath(shorturl){
                        var noxpath=false;
                }
 
+               if(shorturl.search('\ t.co') > 0){
+                       var noxpath=false;
+               }
+
+
                if(shorturl.search('bit.ly') > 0){
                        var noxpath=false;
                }
@@ -166,13 +176,29 @@ function imagify_get_noxpath(shorturl){
 }
 
 function imagify_get_shorturl(a,token) {
+/*
+alert(
+a
++
+' '
++
+token
+);
+*/
+
 
 
     var prepend='';
+
     if(a.search('http://')===-1 && !token == 'undefined'){
         token=token.replace('http://','');
         prepend='http://';
     }
+
+    if(token.search('http://')===-1) {
+        prepend='http://';
+    }
+
 
 
 
@@ -184,6 +210,8 @@ function imagify_get_shorturl(a,token) {
         var shorturl = a.slice(tmpPosStart,tmpPosEnd);
     }
 
+
+    //alert(prepend+shorturl);
     return prepend+shorturl;
 }
 
@@ -237,6 +265,12 @@ function imagify_detect_pic(a) {
                else if(a.search('/t.co') > 0){
                        var token = 'http://t.co';
                }
+               else if(a.search('\ t.co') > 0){
+                       var token = 't.co';
+               }
+
+
+
                else if(a.search('bit.ly') > 0){
                        var token = 'http://bit.ly';
                }
