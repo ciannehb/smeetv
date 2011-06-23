@@ -2,7 +2,7 @@
 session_start();
 require_once($_SERVER["DOCUMENT_ROOT"].'/smeetv/func.php');
 
-connect2db();
+$smeetvdb=connect2db();
 
 $arr=explode("/",advancedClean(3,$_SERVER['REQUEST_URI']));
 $transport=explode("?",$arr[count($arr)-1]);
@@ -50,6 +50,7 @@ echo "
 
 </body></html>
 <?
+disconnectFromDb($smeetvdb);
 return;
 ?>
 

@@ -1,6 +1,6 @@
 <?
     require_once($_SERVER["DOCUMENT_ROOT"].'/smeetv/func.php');
-    connect2db();
+    $smeetvdb=connect2db();
 
 
     $arr=explode("/",advancedClean(3,$_SERVER['REQUEST_URI']));
@@ -17,7 +17,7 @@
     $get=mysql_fetch_array($go);
     $l=time()-$get[0];
     $output .=  date("H:i:s", $get[0])   ."</span><span>";
-
+$smeetvdb=connect2db();
 $f = fopen("_incl.txt", "w"); 
 fwrite($f, $output); 
 fclose($f); 

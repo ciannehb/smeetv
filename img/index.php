@@ -24,7 +24,7 @@
         return;
     }
 
-    connect2db();
+    $smeetvdb=connect2db();
     $query="select id,content,timestamp,link,date,flagged from twits_dump where id=".alphaID($id,true);
     $go=mysql_query($query);
 
@@ -102,6 +102,7 @@
 echo displayTwit($get['id'],$get['content'],$get['link'],$get['date'],$get['timestamp'],1,0);
 ?>
 
+<?disconnectFromDb($smeetvdb);?>
 <?require_once($_SERVER['DOCUMENT_ROOT'].'/smeetv/footer.php');?>
 
 

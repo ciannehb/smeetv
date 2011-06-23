@@ -11,7 +11,7 @@
 
     require_once('smeetv/header.php');
     drawHeader('remote control',$u,'1');
-    connect2db();
+    $smeetvdb=connect2db();
 
 
 
@@ -839,4 +839,5 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
      <div id="log"></div>
 
 <style>#ft {position:fixed;right:1em;}</style>
+<?disconnectFromDb($smeetvdb);?>
 <?require_once('smeetv/footer.php');?>

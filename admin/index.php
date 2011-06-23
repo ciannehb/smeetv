@@ -13,7 +13,7 @@
     }
 
 
-    connect2db();
+$smeetvdb=connect2db();
 
 
 if($_GET['op']=="ban" && $_GET['id']){
@@ -109,7 +109,8 @@ echo "
 
 
 
-
-
+<?
+$smeetvdb=connect2db();
+?>
 
 <?require_once($_SERVER['DOCUMENT_ROOT'].'/smeetv/footer.php');?>

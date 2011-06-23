@@ -7,8 +7,7 @@
     }
 
     require_once($_SERVER['DOCUMENT_ROOT'].'/smeetv/header.php');
-    connect2db();
-
+    $smeetvdb=connect2db();
 
     $arr=explode("/",$_SERVER['REQUEST_URI']);
     $id=advancedClean(3,$arr[count($arr)-1]);
@@ -68,5 +67,9 @@ echo "</section>";
 
     });
 </script>
+
+<?
+disconnectFromDb($smeetvdb);
+?>
 
 <?require_once($_SERVER['DOCUMENT_ROOT'].'/smeetv/footer.php');?>

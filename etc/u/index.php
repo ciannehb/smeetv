@@ -8,7 +8,7 @@ if(!isUserLoggedIn()==1){
     return;
 }
 
-connect2db();
+$smeetvdb=connect2db();
 
 if($_POST['h']!='null'){
     $query="select id,timestamp from twits where uid='{$_POST['i']}' order by id desc limit 0,1;";
@@ -27,7 +27,7 @@ if($_POST['h']!='null'){
     echo mysql_num_rows($go);
 }
 */
-
+disconnectFromDb($smeetvdb);
 
 return;
 

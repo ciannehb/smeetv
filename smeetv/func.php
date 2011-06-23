@@ -1,8 +1,13 @@
 <?
 
 function connect2db() {
-    mysql_connect("localhost","root","");
+    $connection_smeetv=mysql_connect("localhost","root","");
     mysql_select_db("smeetv");
+    return $connection_smeetv;
+}
+
+function disconnectFromDb($link) {
+    mysql_close($link);
 }
 
 function validate_username($v_username) {

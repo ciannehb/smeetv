@@ -1,7 +1,7 @@
 <?
 require_once($_SERVER["DOCUMENT_ROOT"].'/smeetv/func.php');
 
-connect2db();
+$smeetvdb=connect2db();
 $query="select id,content,link,date,timestamp from twits_dump order by id desc limit 0,30";
 $go=mysql_query($query);
 $output="";
@@ -19,6 +19,6 @@ for($i=0;$i<mysql_num_rows($go);$i++){
 $f = fopen("_landing_content.txt", "w");
 fwrite($f, $output);
 fclose($f);
-
+disconnectFromDb($smeetvdb);
 
 ?>

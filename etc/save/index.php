@@ -30,7 +30,7 @@ $_POST['var']=advancedClean(3,$_POST['var']);
 $force='1';
 
 
-connect2db();
+$smeetvdb=connect2db();
 
 
 
@@ -158,7 +158,7 @@ if($error) {
     if(!$_POST['op']=='ajax') {header('Location:/');}
     else {echo "<html><head><meta name=\"ajr\" content=\"1\" /></head><body></body></html>";}
 }
-
+disconnectFromDb($smeetvdb);
 
 
 ?>

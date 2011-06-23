@@ -8,7 +8,7 @@
     if(isUserLoggedIn()==1){
         $u=true;
     }
-    connect2db();
+    $smeetvdb=connect2db();
 
 
 
@@ -59,7 +59,7 @@ if($error) {
     if(!$_POST['op']=='ajax') {header('Location:/img/'.alphaID($id));}
     else {echo "<html><head><meta name=\"ajr\" content=\"1\" /></head><body></body></html>";}
 }
-
+disconnectFromDb($smeetvdb);
 return;
 
 

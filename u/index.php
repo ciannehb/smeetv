@@ -6,7 +6,7 @@
         $u=true;
     }
 
-    connect2db();
+    $smeetvdb=connect2db();
 
 
     $arr=explode("/",advancedClean(3,$_SERVER['REQUEST_URI']));
@@ -16,5 +16,6 @@
     <h2><?=$arr[2]?>'s page</h2>
     <p>Nothing to see here <em>yet</em>.</p>
 <?
+    disconnectFromDb($smeetvdb);
     require_once($_SERVER['DOCUMENT_ROOT'].'/smeetv/footer.php');
 ?>

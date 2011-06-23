@@ -24,7 +24,7 @@ All Rights Reserved.</copyright>
         $u=true;
     }
 
-    connect2db();
+$smeetvdb=connect2db();
 
 
     $arr=explode("/",$_SERVER['REQUEST_URI']);
@@ -58,6 +58,7 @@ for($i=0;$i<mysql_num_rows($go);$i++){
 </item>
 <?
 }
+disconnectFromDb($smeetvdb);
 ?>
 
 

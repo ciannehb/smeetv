@@ -2,7 +2,7 @@
 session_start();
 require_once($_SERVER["DOCUMENT_ROOT"].'/smeetv/func.php');
 require_once($_SERVER['DOCUMENT_ROOT']."/smeetv/aquarium/aquarium/filter.php");
-connect2db();
+$smeetvdb=connect2db();
 
 
 $qh="select keyword,counter from keywords order by counter desc limit 0,50";
@@ -27,7 +27,7 @@ $f = fopen("_incl.txt", "w");
 fwrite($f, $output);
 fclose($f);
 
-
+disconnectFromDb($smeetvdb);
 
 return;
 ?>

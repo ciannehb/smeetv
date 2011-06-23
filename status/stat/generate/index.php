@@ -1,6 +1,6 @@
 <?
     require_once($_SERVER["DOCUMENT_ROOT"].'/smeetv/func.php');
-    connect2db();
+    $smeetvdb=connect2db();
    
     $query="select num from stat order by id desc limit 0,9";
     $go=mysql_query($query);
@@ -98,7 +98,7 @@ $output="
 $f = fopen("_incl.txt", "w");
 fwrite($f, $output);
 fclose($f);
-
+disconnectFromDb($smeetvdb);
 
 
 ?>
