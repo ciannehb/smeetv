@@ -12,7 +12,7 @@
     $arr=explode("/",$_SERVER['REQUEST_URI']);
     $id=advancedClean(3,$arr[count($arr)-1]);
 
-    drawHeader('streaming #'.$id,$u);
+    drawHeader('Streaming search combination "'.$id.'"',$u);
 
     $query="select id from keywords where keyword=LOWER('".$id."')";
     $go=mysql_query($query);
@@ -24,11 +24,11 @@
     $query="select id from accounts where idhash='$id'";
     $go=mysql_query($query);
     $get=mysql_fetch_array($go);
-    $query="select * from twits_dump where content REGEXP '#".$id."$|#".$id." ' order by id desc limit 0,30";
+    $query="select * from twits_dump where content REGEXP '$".$id."$|".$id." ' order by id desc limit 0,30";
     $go=mysql_query($query);
 
 
-    echo "<h2>streaming #$id</h2>";
+    echo "<h2>Streaming search combination \"".$id."\"</h2>";
 
 
 
