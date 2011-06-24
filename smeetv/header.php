@@ -4,8 +4,8 @@
 <html> 
 <head>
 <title><?=$title?> | @smeetv</title>
-<link type="text/css" rel="stylesheet" media="all" href="/c/grid.css" >
-<link type="text/css" rel="stylesheet" id="light" media="all" href="/c/light.css" >
+<link type="text/css" rel="stylesheet" media="all" href="http://fsdn<?=rand(1,3)?>.somewhe.com/smeetv/c/grid.css" >
+<link type="text/css" rel="stylesheet" id="light" media="all" href="http://fsdn<?=rand(1,3)?>.somewhe.com/smeetv/c/light.css" >
 <?if($_SESSION['idhash']){?>
 <link rel="stylesheet" type="text/css" href="/rss/<?=$_SESSION['idhash']?>"> 
 <?}?>

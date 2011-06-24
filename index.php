@@ -117,16 +117,15 @@ src=\"http://pagead2.googlesyndication.com/pagead/show_ads.js\">
 ?>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 
-<script src="/js/jquery.ui.core.js"></script>
-<script src="/js/jquery.ui.widget.js"></script>
-<script src="/js/jquery.ui.mouse.js"></script>
-<script src="/js/jquery.ui.draggable.js"></script>
-<script src="/js/jquery.ui.resizable.js"></script>
-<script src="/js/jquery.ui.tabs.js"></script>
+<script src="http://fsdn<?=rand(1,3)?>.somewhe.com/smeetv/js/jquery.ui.core.js"></script>
+<script src="http://fsdn<?=rand(1,3)?>.somewhe.com/smeetv/js/jquery.ui.widget.js"></script>
+<script src="http://fsdn<?=rand(1,3)?>.somewhe.com/smeetv/js/jquery.ui.mouse.js"></script>
+<script src="http://fsdn<?=rand(1,3)?>.somewhe.com/smeetv/js/jquery.ui.draggable.js"></script>
+<script src="http://fsdn<?=rand(1,3)?>.somewhe.com/smeetv/js/jquery.ui.resizable.js"></script>
+<script src="http://fsdn<?=rand(1,3)?>.somewhe.com/smeetv/js/jquery.ui.tabs.js"></script>
 <script src="/js/smeetv.js/smeetv.js"></script>
 
-    <script src="/js/jquery.jtwitter.js"></script>
-    <script type="text/javascript" src="/js/jquery.cycle.all.2.72.js"></script>
+    <script type="text/javascript" src="http://fsdn<?=rand(1,3)?>.somewhe.com/smeetv/js/jquery.cycle.all.2.72.js"></script>
 
     <script>
 
