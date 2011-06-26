@@ -9,7 +9,7 @@
     $query="select count(*) from twits_dump";
     $go=mysql_query($query);
     $get=mysql_fetch_array($go);
-    $tot=$get[0]+2203503;
+    $tot=$get[0]+2203503+1352216;
     $output = "<span class='fni'>".number_format($tot)." photographs fetched <span class='details'>as of ";
 
     $query="select timestamp from twits_dump order by id desc limit 0,1";
