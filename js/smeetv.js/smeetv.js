@@ -7,6 +7,7 @@ function imagify(a,id){
                    shorturl = imagify_get_shorturl(a,token),
                    noxpath = imagify_get_noxpath(shorturl);
 
+
 /*
 alert(
 token
@@ -18,14 +19,18 @@ noxpath
 */
 
 
-
                    $('#'+id+ ' .thumbnail').load('/etc/util/xdom?' + shorturl + ' ' + noxpath,function(response,status,xhr){
 
                        //$(this).append('<span class="description"><a href="'+shorturl+'">'+a+'</a></span>');
 
 
                        if(noxpath===false) { // added this for handling t.co links
+
                            crawled_img_path=$(response).find(imagify_crawlurl(response)).attr('src');
+
+//alert(crawled_img_path);
+
+
                            $(this).append('<img />');
                            $(this).find('img').attr({'src':crawled_img_path,'alt':a});
                            $('.picctrl').show();
@@ -79,7 +84,12 @@ function imagify_crawlurl(e){
         var noxpath = '#fullSizedImage';
     } else if(e.search('.inline-media-image') > 0 && e.search('dailybooth.com') > 0) {
         var noxpath = '#main > section > article > figure > a > img';
+    } else if(e.search('photozou.jp') > 0) {
+        var noxpath = '#indivi_media > a > img';
     }
+
+
+
    return noxpath;
 }
 
@@ -172,6 +182,12 @@ function imagify_get_noxpath(shorturl){
                if(shorturl.search('instagr.am') > 0){
                        var noxpath = '#wrap img.photo';
                }
+
+               if(shorturl.search('photozou.jp') > 0){
+                       var noxpath = '#indivi_media > a > img';
+               }
+
+
     return noxpath;
 }
 
@@ -287,6 +303,9 @@ function imagify_detect_pic(a) {
                        var token = 'http://photobucket.com';
                }
 
+               else if(a.search('photozou.jp') > 0){
+                       var token = 'http://photozou.jp';
+               }
 
 
     return token;
