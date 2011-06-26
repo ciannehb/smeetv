@@ -21,6 +21,7 @@ if(isUserLoggedIn()){
 
 $table[]='twits_dump';
 $table[]='twits_dump_1';
+$table[]='twits_dump_2';
 
 $qh="select * from ".$table[rand(0,1)]." where (MATCH(content) AGAINST('LOWER($transport)')) and flagged=0 $narrowdown limit ".rand(0,100).",1";
 
