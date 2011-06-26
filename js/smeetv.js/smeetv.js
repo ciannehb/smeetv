@@ -28,6 +28,9 @@ noxpath
 
                            crawled_img_path=$(response).find(imagify_crawlurl(response)).attr('src');
 
+
+//alert(imagify_crawlurl(response));
+
 //alert(crawled_img_path);
 
 
@@ -52,6 +55,7 @@ noxpath
 }
 
 function imagify_crawlurl(e){
+
     if(e.search('id="photo-display') > 0 && e.search('twitpic') > 0){
         var noxpath = '#content #view-photo-main #photo img#photo-display';
     } else if(e.search('main_image') > 0 && e.search('yfrog') > 0) {
@@ -86,8 +90,9 @@ function imagify_crawlurl(e){
         var noxpath = '#main > section > article > figure > a > img';
     } else if(e.search('photozou.jp') > 0) {
         var noxpath = '#indivi_media > a > img';
+    } else if(e.search('deviantart.com') > 0) {
+        var noxpath = '#zoomed-in > img';
     }
-
 
 
    return noxpath;
@@ -187,6 +192,11 @@ function imagify_get_noxpath(shorturl){
                        var noxpath = '#indivi_media > a > img';
                }
 
+               if(shorturl.search('deviantart.com') > 0){
+                       var noxpath = '#zoomed-in';
+               }
+
+//alert(noxpath);
 
     return noxpath;
 }
@@ -305,6 +315,10 @@ function imagify_detect_pic(a) {
 
                else if(a.search('photozou.jp') > 0){
                        var token = 'http://photozou.jp';
+               }
+
+               else if(a.search('deviantart.com') > 0){
+                       var token = 'http://deviantart.com';
                }
 
 
