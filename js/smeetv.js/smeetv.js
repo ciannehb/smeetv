@@ -92,7 +92,10 @@ function imagify_crawlurl(e){
         var noxpath = '#indivi_media > a > img';
     } else if(e.search('deviantart.com') > 0) {
         var noxpath = '#zoomed-in > img';
+    } else if(e.search('iimmgg.com') > 0) {
+        var noxpath = '#laimagen';
     }
+
 
 
    return noxpath;
@@ -195,6 +198,14 @@ function imagify_get_noxpath(shorturl){
                if(shorturl.search('deviantart.com') > 0){
                        var noxpath = '#zoomed-in';
                }
+
+               if(shorturl.search('iimmgg.com') > 0){
+                       var noxpath = '#laimagen';
+               }
+
+
+
+
 
 //alert(noxpath);
 
@@ -320,6 +331,11 @@ function imagify_detect_pic(a) {
                else if(a.search('deviantart.com') > 0){
                        var token = 'http://deviantart.com';
                }
+
+               else if(a.search('iimmgg.com') > 0){
+                       var token = 'http://iimmgg.com';
+               }
+
 
 
     return token;
