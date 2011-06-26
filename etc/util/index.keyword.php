@@ -2,7 +2,7 @@
 $doc = new DOMDocument();
 //$doc->load('http://twitter.com/statuses/public_timeline.rss');
 //$feed[]='http://search.twitter.com/search.rss?lang=en&q=twitpic';
-require_once('../smeetv/func.php');
+require_once('../../smeetv/func.php');
     $smeetvdb=connect2db();
 
 

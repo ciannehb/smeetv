@@ -10,7 +10,7 @@ $feed[]='http://search.twitter.com/search.rss?lang=en&q=deviantart.com%20OR%20et
 $doc->load($feed[$_GET['priority']]);
 
 
-require_once('../smeetv/func.php');
+require_once('../../smeetv/func.php');
 $smeetvdb=connect2db();
 $qi="select id from twits_dump order by id desc limit 0,1";
 $gi=mysql_query($qi);

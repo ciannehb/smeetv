@@ -1,3 +1,3 @@
 #!/bin/bash
 
-curl http://smeetv.com/etc/util/index.stat.php > dev/null
+curl http://smeetv.com/etc/util/landing_page_generatate_twits.php > /dev/null
