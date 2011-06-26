@@ -33,6 +33,11 @@
         $go=mysql_query($query);
     }
     
+    if(mysql_num_rows($go)==0){
+        $query="select id,content,timestamp,link,date,flagged from twits_dump_2 where id=".alphaID($id,true);
+        $go=mysql_query($query);
+    }
+    
 
     $get=mysql_fetch_array($go);
 
