@@ -1,12 +1,12 @@
 
 
 
-
 function imagify(a,id){
+
+
                var token = imagify_detect_pic(a),
                    shorturl = imagify_get_shorturl(a,token),
                    noxpath = imagify_get_noxpath(shorturl);
-
 
 /*
 alert(
@@ -18,6 +18,18 @@ noxpath
 );
 */
 
+//alert(noxpath);
+
+
+// we know URL no need to do ajax
+if(noxpath===null) {
+
+    var getcontent=$('#'+id+' .thumbnail').html();
+    $('#'+id+' .thumbnail').html('<img src="'+shorturl+'" alt="'+getcontent+'">');
+    $('#mainimg > article').removeClass('hide');
+    return;
+
+}
 
                    $('#'+id+ ' .thumbnail').load('/etc/util/xdom?' + shorturl + ' ' + noxpath,function(response,status,xhr){
 
@@ -94,7 +106,10 @@ function imagify_crawlurl(e){
         var noxpath = '#zoomed-in > img';
     } else if(e.search('iimmgg.com') > 0) {
         var noxpath = '#laimagen';
+    } else if(e.search('min.us') > 0) {
+        var noxpath = 'img';
     }
+
 
 
 
@@ -203,6 +218,10 @@ function imagify_get_noxpath(shorturl){
                        var noxpath = '#laimagen';
                }
 
+               if(shorturl.search('i.min.us') > 0){
+                       var noxpath = null;
+               }
+
 
 
 
@@ -224,7 +243,6 @@ token
 */
 
 
-
     var prepend='';
 
     if(a.search('http://')===-1 && !token == 'undefined'){
@@ -236,8 +254,16 @@ token
         prepend='http://';
     }
 
+/*
+    if(a.search('.jpg')>0) {
+        var tmpPosStart = a.search(token),
+            tmpPosEnd = a.indexOf(' ',tmpPosStart);
 
+var newshorturl=a.slice(tmpPosStart,tmpPosEnd);
+alert(newshorturl);
+    }
 
+*/
 
     var tmpPosStart = a.search(token),
         tmpPosEnd = a.indexOf(' ',tmpPosStart);
@@ -335,6 +361,12 @@ function imagify_detect_pic(a) {
                else if(a.search('iimmgg.com') > 0){
                        var token = 'http://iimmgg.com';
                }
+
+               else if(a.search('min.us') > 0){
+                       var token = 'http://i.min.us';
+               }
+
+
 
 
 

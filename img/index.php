@@ -78,6 +78,8 @@
            $('#mainimg.squares.mainimg > article').each(function(){
                var content=$(this).html(),
                    thisid=$(this).attr('id');
+
+
                imagify(content,thisid);
            });
 
