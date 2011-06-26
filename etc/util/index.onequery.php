@@ -4,7 +4,9 @@ $doc = new DOMDocument();
 $feed[]='http://search.twitter.com/search.rss?lang=en&q=twitpic.%20OR%20plixi.%20OR%20flic.kr%20OR%20yfrog.%20OR%20tweetphoto.%20OR%20twitgoo.%20OR%20picktor.%20OR%20twitvid.%20OR%20movapic.%20OR%20img.ly%20OR%20dailybooth.com';
 $feed[]='http://search.twitter.com/search.rss?lang=en&q=upic.me%20OR%20fotki.yandex.ru%20OR%20imgur.com%20OR%20lockerz.com%20OR%20picplz.com%20OR%20instagr.am%20OR%20tinypic.com%20OR%20lulzimg.com%20OR%20min.us%20OR%20pbckt.com';
 $feed[]='http://search.twitter.com/search.rss?lang=en&q=photobucket.com%20OR%20imageshack.us%20OR%20fbcdn.net/hphotos%20OR%20imagehost.org';
-$feed[]='http://search.twitter.com/search.rss?lang=en&q=deviantart.com%20OR%20etsy.me%20OR%20photozou.jp%20OR%20min.us%20OR%20iimmgg.com/image';
+
+$feed[]='http://search.twitter.com/search.rss?lang=en&q=deviantart.com%20OR%20photozou.jp%20OR%20min.us%20OR%20iimmgg.com/image';
+$feed[]='http://search.twitter.com/search.rss?lang=en&q=min.us%20OR%20iimmgg.com/image';
 
 
 $doc->load($feed[$_GET['priority']]);
