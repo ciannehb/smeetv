@@ -24,12 +24,6 @@
         return;
     }
 
-/*
-    $query="select id from accounts where idhash='$id'";
-    $go=mysql_query($query);
-    $get=mysql_fetch_array($go);
-*/
-
 
 $atkey=strpos('~'.$id,"@")+1;
 $hashkey=strpos('-'.$id,"#")+1;
@@ -43,14 +37,20 @@ if($atkey==2){
 
 
     $query="select * from twits_dump where content REGEXP '";
-        $query.=$id."$";
+        $query.="$".$id."$";
+/*
         $query.="|";
         $query.="$".$id;
         $query.="|";
         $query.=$id;
         $query.=" ";
+*/
     $query.="' order by id desc limit 0,30";
 
+/*
+echo $query;
+return;
+*/
 
     $go=mysql_query($query);
 
