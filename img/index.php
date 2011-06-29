@@ -54,7 +54,7 @@
 ?>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-<script src="http://fsdn<?=rand(1,3)?>.somewhe.com/smeetv/js/smeetv.js/jquery.rotate.js"></script>
+<script src="http://fsdn1.somewhe.com/smeetv/js/smeetv.js/jquery.rotate.js"></script>
 <script src="/js/smeetv.js/smeetv.js"></script>
 <script>
     $(document).ready(function(){

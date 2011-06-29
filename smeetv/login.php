@@ -42,7 +42,7 @@ if($_POST['process']==1 && $_POST['username'] && $_POST['password']){
 <?/*
 <script src="/js/smeetv.js/smeetv.js"></script>
 */?>
-<script type="text/javascript" src="http://fsdn<?=rand(1,3)?>.somewhe.com/smeetv/js/jquery.cycle.all.2.72.js"></script>
+<script type="text/javascript" src="http://fsdn2.somewhe.com/smeetv/js/jquery.cycle.all.2.72.js"></script>
 <script type="text/javascript"> 
 $(document).ready(function() {
     $('#featuredhashtags_content').load('/etc/featuredhashtags/');
