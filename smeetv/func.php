@@ -55,10 +55,13 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
     $output.='
 		<article id="'.alphaID($id).'" class="twit lo'.$link_override.'">
 			<div class="t">';
+    $output.='<p>';
     if($link_override==1) $output.='<a rel="smeetv" href="http://smeetv.com/img/'.alphaID($id).'">';
     if($link_override==0) $output.=f1init_makeClickableLinks($content);
     else $output.=$content;
     if($link_override==1) $output.='</a>';
+
+    $output.='</p>';
     $output.='
 				<footer>';
     if($link_override==1) $output.='<a rel="smeetv" href="http://smeetv.com/img/'.alphaID($id).'">';

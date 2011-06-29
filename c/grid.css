@@ -738,7 +738,7 @@ text-indent:-99999px;
 
 
 
-background:url('/i/logo_b_w.png') no-repeat;
+background:url('http://smeetv.com/i/logo_b_w.png') no-repeat;
 
 }
 
@@ -1207,7 +1207,7 @@ display:inline-block;
 	cursor: pointer;
 	position: relative;
 	text-decoration:none;
-	padding: .5em 1em;
+	padding: .5em 0;
 	color:#111111;
 	border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -1219,8 +1219,14 @@ display:inline-block;
     box-shadow: rgb(185,185,185) 0 0px 5px;
     -moz-box-shadow: rgb(185,185,185) 0 0px 5px;
     -webkit-box-shadow: rgb(185,185,185) 0 0px 5px;
-width:75%;
+width:100%;
 
+}
+.twit .t > p,
+.twit .t > footer
+{
+padding:0;
+margin:0 10px;
 }
 .twit .t .slant {
 left:14px;
