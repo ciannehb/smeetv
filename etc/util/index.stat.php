@@ -1,5 +1,6 @@
 <?php
-require_once('../smeetv/func.php');
+require_once($_SERVER["DOCUMENT_ROOT"].'/smeetv/func.php');
+
 connect2db();
 
 
