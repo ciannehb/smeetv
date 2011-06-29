@@ -1,5 +1,6 @@
 <?
-require_once('func.php');
+    include($_SERVER['DOCUMENT_ROOT'].'/smeetv/func.php');
+
     $smeetvdb=connect2db();
 
 echo "<h2>Fetching twits for all users</h2>";
@@ -128,6 +129,7 @@ SELECT * FROM twits_dump          WHERE MATCH(content) AGAINST ('new hampshire')
 
     }
 
+//echo $_SERVER['PHP_SELF']." pushed\n";
 
 
 ?>

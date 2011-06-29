@@ -1,5 +1,5 @@
 <?
-require_once('func.php');
+    include($_SERVER['DOCUMENT_ROOT'].'/smeetv/func.php');
 
 
 echo "<h2>Cleaning twits table leaving 100 most recent twits for each user</h2>";
@@ -34,6 +34,7 @@ for($i=0;mysql_num_rows($go)>$i;$i++){
     
 }
 
+//echo $_SERVER['PHP_SELF']." pushed\n";
 
 
 

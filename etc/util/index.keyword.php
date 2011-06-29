@@ -115,6 +115,8 @@ echo $insert . ' -   ' . $isDuplicate."<br>";
 echo "<pre>";
 print_r($arrFeeds);
 echo "</pre>";
+//echo $_SERVER['PHP_SELF']." pushed\n";
+
 disconnectFromDb($smeetvdb);
 
 ?>

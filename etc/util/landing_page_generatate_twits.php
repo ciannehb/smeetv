@@ -20,5 +20,5 @@ $f = fopen("_landing_content.txt", "w");
 fwrite($f, $output);
 fclose($f);
 disconnectFromDb($smeetvdb);
-
+//echo $_SERVER['PHP_SELF']." pushed\n";
 ?>

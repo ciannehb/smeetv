@@ -57,6 +57,8 @@ echo "<pre>";
 //print_r($arrFeeds);
 echo $result;
 echo "</pre>";
+//echo $_SERVER['PHP_SELF']." pushed\n";
+
 disconnectFromDb($smeetvdb);
 ?>
 </body></html>
