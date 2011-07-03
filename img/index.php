@@ -102,12 +102,14 @@
 
 
 
-
+<section class="grid_24">
     <h2>Picture &sect;<?=$id?></h2>
 
 <?
 echo displayTwit($get['id'],$get['content'],$get['link'],$get['date'],$get['timestamp'],1,0);
 ?>
+
+</section>
 
 <?disconnectFromDb($smeetvdb);?>
 <?require_once($_SERVER['DOCUMENT_ROOT'].'/smeetv/footer.php');?>

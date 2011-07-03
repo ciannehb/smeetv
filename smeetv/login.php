@@ -70,16 +70,15 @@ $(document).ready(function() {
 });
 </script> 
 
-<form id="login" method="post" action="/smeetv/auth.php">
+<form id="login" method="post" action="/smeetv/auth.php" class="grid_24">
     <input type="hidden" name="process" value="1">
-    <p><label class="fleft w100" for="username">username:</label> <input type="text" name="username" value="" id="username"></p>
-    <p><label class="fleft w100" for="password">password:</label> <input type="password" name="password" value="" id="password"></p>
-    <p><label class="fleft w100">&nbsp;</label><input type="submit" value="Login">
+    <p class="grid_24"><label class="fleft w100" for="username">username:</label> <input type="text" name="username" value="" id="username"></p>
+    <p class="grid_24"><label class="fleft w100" for="password">password:</label> <input type="password" name="password" value="" id="password"></p>
+    <p class="grid_24"><label class="fleft w100">&nbsp;</label><input type="submit" value="Login">
 </form>
 
-<hr class="clearfix">
-<h2 style="margin-left:100px;margin-top:2em;">Recent photographs:</h2>
-<section id="recent" style="width:730px; margin-left:100px; clear:both display:inline-block;">
+<h2 class="grid_24" style="margin-left:100px;">Recent photographs:</h2>
+<section id="recent" class="grid_24">
 <?require_once($_SERVER['DOCUMENT_ROOT'].'/etc/util/_landing_content.txt');?>
 </section>
 <div id="featuredhashtags_content" style="display:none">

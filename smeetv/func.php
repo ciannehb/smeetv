@@ -53,8 +53,8 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
 
 
     $output.='
-		<article id="'.alphaID($id).'" class="twit lo'.$link_override.'">
-			<div class="t">';
+		<article id="'.alphaID($id).'"grid_24 class="twit lo'.$link_override.'">
+			<div class="t grid_24">';
     $output.='<p>';
     if($link_override==1) $output.='<a rel="smeetv" href="http://smeetv.com/img/'.alphaID($id).'">';
     if($link_override==0) $output.=f1init_makeClickableLinks($content);
@@ -111,11 +111,11 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
 
     if($squares==1){
     $output.='
-			<aside>
-				<section id="mainimg" class="squares mainimg" >
+			<aside class="grid_24">
+				<section id="mainimg" class="squares mainimg grid_12" >
                                    <article id="sub-'.alphaID($id).'" rel="'.$link.'" class="hide"><span class="thumbnail"> '.$content.' </span></article>
 				</section>
-				<section class="squares share">
+				<section class="squares share grid_12">
 					<div style="clear:both">
 <!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_default_style ">
@@ -147,7 +147,7 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
 					</script>		
 				</section>
 				<br class="clear">
-				<section class="squares ymlw">
+				<section class="squares ymlw grid_12">
 					<h3>You may also like:</h3>';
 
 preg_match_all('/(\w+)/',$content,$matches);
@@ -179,7 +179,7 @@ if(count($matches_hash[0])>0){ /*hashes found*/
 */
     $output.='
 				</section>
-				<section class="squares">		
+				<section class="squares grid_12">
 				</section>
 			</aside>
                         ';
