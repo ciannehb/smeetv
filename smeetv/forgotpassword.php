@@ -21,7 +21,7 @@ $_GET['q']=advancedClean(3,$_GET['q']);
 
 require_once('header.php');
 
-
+echo "<section class='grid_24' id='content'>";
 
 if($_GET['q']){
 
@@ -66,7 +66,7 @@ $headers .= 'From: smeetvcom@gmail.com <smeetvcom@gmail.com>' . "\r\n";
 </form>
 <?}?>
 
-
+</section>
 
 
 <?require_once('footer.php');?>

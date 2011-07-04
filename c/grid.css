@@ -4,7 +4,7 @@
 
 .grid_1{width:3.95833333%;}.grid_2{width:8.11666666%;}.grid_3{width:12.27500%;}.grid_4{width:16.4333333%;}.grid_5{width:20.5916666%;}.grid_6{width:24.7499999%;}.grid_7{width:28.9083332%;}.grid_8{width:33.0666665%;}.grid_9{width:37.2249998%;}.grid_10{width:41.3833331%;}.grid_11{width:45.5416664%;}.grid_12{width:49.6999997%;}.grid_13{width:53.858333%;}.grid_14{width:58.0166663%;}.grid_15{width:62.1749996%;}.grid_16{width:66.3333329%;}.grid_17{width:70.4916662%;}.grid_18{width:74.6499995%;}.grid_19{width:78.8083328%;}.grid_20{width:82.9666661%;}.grid_21{width:87.1249994%;}.grid_22{width:91.2833327%;}.grid_23{width:95.441666%;}.grid_24{width:99.8%;}.grid_1,.grid_2,.grid_3,.grid_4,.grid_5,.grid_6,.grid_7,.grid_8,.grid_9,.grid_10,.grid_11,.grid_12,.grid_13,.grid_14,.grid_15,.grid_16,.grid_17,.grid_18,.grid_19,.grid_20,.grid_21,.grid_22,.grid_23,.grid_24{margin-left:.1%;margin-right:.1%;float:left;display:block;}.alpha{margin-left:0px;}.omega{margin-right:0px;}
 /* @ * tinyfluidgrid.com & girlfriendnyc.com */.clear{clear:both;display:block;overflow:hidden;visibility:hidden;width:0;height:0}.clearfix:after{clear:both;content:' ' ;display:block;font-size:0;line-height:0;visibility:hidden;width:0;height:0}* html .clearfix,*:first-child+html .clearfix{zoom:1}
-/* reset - silon */* { outline: none;vertical-align: baseline;font-family: inherit;font-style: inherit;font-size: 100%;padding: 0;  margin: 0;  }h1, h2, h3, h4, h5, h6, p, pre, blockquote, ul, ol, dl {  margin: 10px 0;font-weight:normal;} ul, ol, li, blockquote {  margin-left: 10px;  }  dd {  margin-left: 20px;  }dt {   border-color: #cccccc;   border-style: solid;border-width: 0 0 1px;}table { width: 100%; margin-bottom: 1.4em; border-collapse: separate; border-spacing: 0; }td, th { text-align: left; }body { font:13px/1.5 Helvetica, Verdana;margin: 0; background: rgb(255,255,255);}p {margin:0 0 1.5em;}
+/* reset - silon */* { outline: none;vertical-align: baseline;font-family: inherit;font-style: inherit;font-size: 100%;padding: 0;  margin: 0;  }h1, h2, h3, h4, h5, h6, p, pre, blockquote, ul, ol, dl {  margin: 10px 0;font-weight:normal;} ul, ol, li, blockquote {  margin-left: 10px;  }  dd {  margin-left: 20px;  }dt {   border-color: #cccccc;   border-style: solid;border-width: 0 0 1px;}table { width: 100%; margin-bottom: 1.4em; border-collapse: separate; border-spacing: 0; }td, th { text-align: left; }body { font:16px/1.5 Helvetica, Verdana;margin: 0; background: rgb(255,255,255);}p {margin:0 0 1.5em;}
 
 .fright {
 float:right;
@@ -27,6 +27,7 @@ background:#111;color:#FFF;
 
 h1,h2,h3,h4,h5 {
     margin:1em 0 .25em;
+    text-transform: uppercase;
 
     color: #444444;
     letter-spacing: -2px;
@@ -61,6 +62,13 @@ display:none;
             right:2em;
 }
 
+#content > form,
+#content > content.wrap
+{
+margin:0 1em 1em;
+display:block;
+}
+
 
 
 
@@ -79,7 +87,7 @@ left:.5em;
 font-size:.5em;
 }
 
-#content .description {
+#tv #content .description {
 left:0px;
 top:-.25em;
 width:98% !important;
@@ -121,7 +129,13 @@ z-index:0;
 
 
 #ft {
-text-align:right;
+    bottom: 0.25em;
+    color: rgba(0, 0, 0, 0.15);
+    display: inline;
+    position: fixed;
+    right: 0.25em;
+    text-align: right;
+    width: auto;
 }
 
 #ft > * {
@@ -131,6 +145,11 @@ display:inline-block;
 
 #ft aside {
 display:none;
+}
+
+#ft:hover {
+color:rgba(0,0,0,1);
+background: rgba(255, 255, 255, 0.75);
 }
 
 #ft:hover aside {
@@ -416,7 +435,7 @@ border-right:3px solid #ccc;
     padding:1em;
         }
 
-#content {
+#tv #content {
 width:100%;
 z-index:9;
 }
@@ -458,7 +477,8 @@ overflow:hidden;
         div#content.notext article span.description {
             display:none;
         }
-        form label {display:block;}
+        form label {display:block;line-height:2em;
+}
 
         #controller form textarea {
             width:200px;height:20px;
@@ -609,25 +629,48 @@ font-size:.75em;
 
 #topnav {
     color: #ccc;
+    padding-top:1px;
     font-size: 0.75em;
     text-transform: uppercase;
     position:relative;
-    font-size: 140%;
+    font-size: 120%;
     background:rgb(0,0,0);
+    margin-bottom:1em;
+    height:1.6em;
+    overflow:hidden;
+
+box-shadow:0px 0px 3px rgba(0, 0, 0, 1);
+-moz-box-shadow:0px 0px 3px rgba(0, 0, 0, 1);
+-webkit-box-shadow:0px 0px 3px rgba(0, 0, 0, 1);
+
+
+background: rgb(0,0,0);
+background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(85,85,85)), to(rgb(0,0,0)));
+background-image: -moz-linear-gradient(100% 100% 90deg,rgb(0,0,0), rgb(85,85,85) 100%);
+background-image: -o-linear-gradient(top, rgb(85,85,85), rgb(0,0,0)  100%);
+
 }
 
 #topnav nav {
 display: inline-block;
-height: 18px;
+position:relative;
+height:26px;
 }
 
 #topnav nav a {
+margin-top:0px;
 -moz-border-radius: 6px;
 -webkit-border-radius: 6px;
 border-radius: 6px;
 background:#555;
 color:#fff;
-padding:.25em .5em;
+-moz-box-shadow: inset 0 0 2px #333;
+-webkit-box-shadow: inset 0 0 2px #33;
+box-shadow: inset 0 0 2px #333;
+
+display:inline-block;
+padding:0 0.5em 0;
+height:100%;
 }
 
 #topnav nav a:hover {
@@ -636,16 +679,17 @@ color:#555;
 }
 
 #topnav a,
-#topnav h1 {
+#topnav h1,
+h2.recent_photographs {
     display:inline-block;
-
+    text-transform: uppercase;
     letter-spacing: -3px;
-    line-height: 0.75em;
     margin: 0;
     text-align: left;
     text-decoration: none;
     white-space: nowrap;
     padding: 0 0 0 .25em;
+    word-spacing: 0.25em;
 }
 
 #topnav h1 a {
@@ -657,7 +701,7 @@ text-indent:-99999px;
 
 
 
-background:url('http://smeetv.com/i/logo_w_b.png') no-repeat;
+background:url('http://smeetv.com/i/logo_w_b.png') no-repeat scroll 0 0 transparent;
 
 }
 
@@ -750,8 +794,8 @@ color:#111;
 .ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
 .ui-tabs .ui-tabs-panel { display: block; border-width: 0; padding: 1em 1.4em; background: none; }
 .ui-tabs .ui-tabs-hide { display: none !important; }
-.btn, button, input[type=submit], input[type=reset], input[type=button] {box-shadow:  rgba(255,255,255,.6) 0 1px 0;-webkit-box-shadow: rgba(255,255,255,.6) 0 1px 0;-moz-box-shadow: rgba(255,255,255,.6) 0 1px 0;font: 1em/1.5 Arial;font-weight: bold !important;text-shadow: #fff 0 1px;text-decoration: none;margin: 0 10px 7px 0;display: inline;float: left;padding: 4px 10px 2px;border: 1px solid #aaa;min-width: .7em;overflow: hidden;color: #555 !important;text-align: center;position: relative;height: auto;min-height: 19px;border-radius: 4px;-moz-border-radius: 4px;-webkit-border-radius: 4px;-o-border-radius: 4px;background: #e5e5e5;background: -moz-linear-gradient(center top, #fff 0%,rgb(204,204,204) 100%);background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff),color-stop(1, rgb(204,204,204)));border: 1px solid #aaa;}
-button, input[type=submit], input[type=reset], input[type=button] {padding: 4px 10px 3.5px;}
+.btn, button, input[type=submit], input[type=reset], input[type=button] {box-shadow:  rgba(255,255,255,.6) 0 1px 0;-webkit-box-shadow: rgba(255,255,255,.6) 0 1px 0;-moz-box-shadow: rgba(255,255,255,.6) 0 1px 0;font: 1em/1.5 Arial;font-weight: bold !important;text-shadow: #fff 0 1px;text-decoration: none;margin: 0 10px 7px 0;display: inline;float: left;padding: 4px 10px 2px;border: 1px solid #aaa;min-width: .7em;overflow: hidden;color: #555 !important;text-align: center;position: relative;height: auto;min-height: 19px;border-radius: 4px;-moz-border-radius: 4px;-webkit-border-radius: 4px;-o-border-radius: 4px;background: #e5e5e5;background: -moz-linear-gradient(center top, #fff 0%,rgb(204,204,204) 100%);background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff),color-stop(1, rgb(204,204,204)));border: 1px solid #aaa;} input[type=text],input[type=password] {height:1.75em;}
+button, input[type=submit], input[type=reset], input[type=button] {padding: 5px 10px;}
 .btn:hover, button:hover, .btn-set .btn.ico:hover, input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover {cursor: pointer !important;text-decoration: none;border: 1px solid #aaa !important;background: #eee !important;background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#eee)) !important;background-image: -moz-linear-gradient(100% 100% 90deg,#eee, #fff 100%) !important;}
 
 .btn.active, .btn:active:hover, button:active:hover, .btn-set .btn.ico:active:hover, input[type=submit]:active:hover, input[type=reset]:active:hover, input[type=button]:active:hover {
@@ -775,17 +819,9 @@ box-shadow: inset rgba(0, 0, 0, .1) 0 -2px 5px, inset rgba(0, 0, 0, .2) 0 1px 3p
 #forgotpassword input,
 #signup input,
 #login input {
-font-size:1.75em;
 width:40% !important;
 }
 
-
-#signup label,
-#login label {
-line-height:2.75em;
-}
-
-#signup span.aside,
 #login span.aside {
 display:inline !important;
 }

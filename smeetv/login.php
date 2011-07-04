@@ -69,17 +69,18 @@ $(document).ready(function() {
 
 });
 </script> 
-
-<form id="login" method="post" action="/smeetv/auth.php" class="grid_24">
+<section id="content" class="grid_24">
+<form id="login" method="post" action="/smeetv/auth.php" class="">
     <input type="hidden" name="process" value="1">
     <p class="grid_24"><label class="fleft w100" for="username">username:</label> <input type="text" name="username" value="" id="username"></p>
     <p class="grid_24"><label class="fleft w100" for="password">password:</label> <input type="password" name="password" value="" id="password"></p>
     <p class="grid_24"><label class="fleft w100">&nbsp;</label><input type="submit" value="Login">
 </form>
 
-<h2 class="grid_24" style="margin-left:100px;">Recent photographs:</h2>
+<h2 class="grid_24 recent_photographs" style="margin-left:100px;">Recent photographs:</h2>
 <section id="recent" class="grid_24">
 <?require_once($_SERVER['DOCUMENT_ROOT'].'/etc/util/_landing_content.txt');?>
+</section>
 </section>
 <div id="featuredhashtags_content" style="display:none">
 

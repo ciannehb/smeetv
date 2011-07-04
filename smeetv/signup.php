@@ -87,7 +87,7 @@ if(!validate_username($_POST['username'])==TRUE) {
         drawHeader('remote control',$u,'1');
 ?>
 
-
+<section id="content" class="grid_24">
 <form method="post" id="signup" action="<?=$_SERVER['PHP_SELF']?>">
     <input type="hidden" name="process" value="1">
 
@@ -95,8 +95,8 @@ if(!validate_username($_POST['username'])==TRUE) {
 <?
 if(!$_SESSION['invite']){?>
 
-<p style="color:red">New registrations are accepted with personalized invite code only at the moment.</p>
-<p>To request invite code please reply to <a href="http://twitter.com/smeetv">@smeetv</a> on twitter and ask for the invite code. We'll direct message or reply back with your invite code.</p>
+<p><span style="color:red">New registrations are accepted with personalized invite code only at the moment.</span>
+To request invite code please reply to <a href="http://twitter.com/smeetv">@smeetv</a> on twitter and ask for the invite code. We'll direct message or reply back with your invite code.</p>
 
 
     <p><label for="username" class="fleft w100">invite code:</label> <input type="text" name="i" id="invite_value" value=""> <span class="aside"><button class="fno" id="invite">Next</button></span></p>
@@ -112,7 +112,7 @@ if(!$_SESSION['invite']){?>
 
 <?}?>
 </form>
-
+</section>
 
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>

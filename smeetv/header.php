@@ -36,7 +36,7 @@
 <a href="/smeetv/logout.php">logout</a>
 
 
-<a id="featuredhashtags" href="">Featured hashtags</a>
+<a id="featuredhashtags" href="">featured hashtags</a>
 
 
 <?
@@ -49,9 +49,9 @@
 <a href="/smeetv/login.php">login</a> 
 
 
-<a href="/smeetv/forgotpassword.php">FORGOT PASSWORD</a>
+<a href="/smeetv/forgotpassword.php">forgot password</a>
 
-<a id="featuredhashtags" href="">Featured hashtags</a>
+<a id="featuredhashtags" href="">featured hashtags</a>
 
 
 

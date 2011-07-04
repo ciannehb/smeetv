@@ -7,7 +7,8 @@
 
 ?>
 
-    <h2>Privacy Policy</h2>
+<section id="content" class="grid_24"><content class="wrap">
+<h2>Privacy Policy</h2>
 
 <h3>Information that is gathered from visitors</h3>
 
@@ -48,6 +49,7 @@ Google's use of the DART cookie enables it to serve ads to visitors based on the
 Website visitors may opt out of the use of the DART cookie by visiting the Google ad and content network privacy policy.
 
 </p>
-
+</section>
+</section>
 
 <?require_once($_SERVER['DOCUMENT_ROOT'].'/smeetv/footer.php');?>
