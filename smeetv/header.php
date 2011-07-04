@@ -27,13 +27,12 @@
 </head>
 <body>
 <header id="topnav">
-<h1 title="smeetv -- tv window into twitter universe"><a href="/">smee<span>tv</span></a></h1><a href="http://smeetv.com/img/5Gui" title="Now you see Hillary Clinton"><sup title="alpha version -- unpredictable behavior expected">&alpha;</sup></a>
-&mdash;
+<h1 title="smeetv -- tv window into twitter universe"><a href="/">smee<span>tv</span></a></h1>
 <nav>
 <?if($user_loggedin && $show_menu==1){?>
-<a href="/" class="gotoremotecontrol gototrigger" rel="gotoremotecontrol">tv</a> |
-<a href="/smeetv/profile.php" class="gotosettings gototrigger" rel="gotosettings">settings</a> |
-<a href="" class="gotohelp gototrigger" rel="gotohelp">help</a> |
+<a href="/" class="gotoremotecontrol gototrigger" rel="gotoremotecontrol">tv</a>
+<a href="/smeetv/profile.php" class="gotosettings gototrigger" rel="gotosettings">settings</a>
+<a href="" class="gotohelp gototrigger" rel="gotohelp">help</a>
 <a href="/smeetv/logout.php">logout</a>
 
 
@@ -44,17 +43,17 @@
 }elseif($user_loggedin==0 && $show_menu==1){
 ?>
 
-<a href="/smeetv/signup.php">register</a> |
+<a href="/smeetv/signup.php">register</a>
 
 
-<a href="/smeetv/login.php">login</a> <span class="o50">|
+<a href="/smeetv/login.php">login</a> 
 
-<a href="/smeetv/forgotpassword.php">FORGOT PASSWORD</a> |
+
+<a href="/smeetv/forgotpassword.php">FORGOT PASSWORD</a>
 
 <a id="featuredhashtags" href="">Featured hashtags</a>
 
 
-</span>
 
 <?}?>
 </nav>
