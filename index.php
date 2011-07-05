@@ -618,16 +618,19 @@ function togglePlayPause(){
 
 $('#topnav .settings').click(function(){
     $('.gotosettings').trigger('click');
+    $('body').removeClass().addClass('settings');
     return false;
 });
 
 $('#topnav .help').click(function(){
     $('.gotohelp').trigger('click');
+    $('body').removeClass().addClass('help');
     return false;
 });
 
 $('#topnav .tv').click(function(){
     $('.gotoremotecontrol').trigger('click');
+    $('body').removeClass().addClass('tv');
     return false;
 });
 
