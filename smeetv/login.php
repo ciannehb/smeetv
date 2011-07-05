@@ -8,7 +8,7 @@ if(isUserLoggedIn()==1){
 }
 
 require_once($_SERVER['DOCUMENT_ROOT'].'/smeetv/header.php');
-drawHeader('remote control',$u,'1');
+drawHeader('remote control',$u,'1','login');
 
 
 

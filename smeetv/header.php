@@ -1,4 +1,4 @@
-<?function drawHeader($title,$user_loggedin=0,$show_menu=0){?>
+<?function drawHeader($title,$user_loggedin=0,$show_menu=0,$which_page=""){?>
 <!DOCTYPE html> 
 <html lang="en"> 
 <html> 
@@ -25,33 +25,33 @@
 
 </script>
 </head>
-<body>
+<body class="<?=$which_page?>">
 <header id="topnav">
-<h1 title="smeetv -- tv window into twitter universe"><a href="/">smee<span>tv</span></a></h1>
-<nav>
+<h1 class="fleft" title="smeetv -- tv window into twitter universe"><a href="/">smee<span>tv</span></a></h1>
+<nav class="fleft">
 <?if($user_loggedin && $show_menu==1){?>
-<a href="/" class="gotoremotecontrol gototrigger" rel="gotoremotecontrol">tv</a>
-<a href="/smeetv/profile.php" class="gotosettings gototrigger" rel="gotosettings">settings</a>
-<a href="" class="gotohelp gototrigger" rel="gotohelp">help</a>
-<a href="/smeetv/logout.php">logout</a>
+<a class="tv" href="/" class="gotoremotecontrol gototrigger" rel="gotoremotecontrol">tv</a>
+<a class="settings" href="/smeetv/profile.php" class="gotosettings gototrigger" rel="gotosettings">settings</a>
+<a class="help"  href="" class="gotohelp gototrigger" rel="gotohelp">help</a>
+<a class="logout" href="/smeetv/logout.php">logout</a>
 
 
-<a id="featuredhashtags" href="">featured hashtags</a>
+<a class="featuredhashtags" id="featuredhashtags" href="">featured hashtags</a>
 
 
 <?
 }elseif($user_loggedin==0 && $show_menu==1){
 ?>
 
-<a href="/smeetv/signup.php">register</a>
+<a class="register" href="/smeetv/signup.php">register</a>
 
 
-<a href="/smeetv/login.php">login</a> 
+<a class="login" href="/smeetv/login.php">login</a> 
 
 
-<a href="/smeetv/forgotpassword.php">forgot password</a>
+<a class="forgotpassword" href="/smeetv/forgotpassword.php">forgot password</a>
 
-<a id="featuredhashtags" href="">featured hashtags</a>
+<a class="featuredhashtags" id="featuredhashtags" href="">featured hashtags</a>
 
 
 

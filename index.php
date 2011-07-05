@@ -10,7 +10,7 @@
     }
 
     require_once('smeetv/header.php');
-    drawHeader('remote control',$u,'1');
+    drawHeader('remote control',$u,'1','tv');
     $smeetvdb=connect2db();
 
 
@@ -615,6 +615,16 @@ function togglePlayPause(){
            });
 
            //fetch();
+
+$('#topnav .settings').click(function(){
+    $('.gotoremotecontrol').trigger('click');
+    return false;
+});
+
+$('#topnav .help').click(function(){
+    $('.gotohelp').trigger('click');
+    return false;
+});
 
 
 

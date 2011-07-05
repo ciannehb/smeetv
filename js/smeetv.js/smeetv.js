@@ -250,9 +250,11 @@ token
         prepend='http://';
     }
 
+
     if(token.search('http://')===-1) {
         prepend='http://';
     }
+
 
 /*
     if(a.search('.jpg')>0) {

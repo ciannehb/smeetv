@@ -84,7 +84,7 @@ if(!validate_username($_POST['username'])==TRUE) {
    }
 }
 
-        drawHeader('remote control',$u,'1');
+        drawHeader('remote control',$u,'1','register');
 ?>
 
 <section id="content" class="grid_24">
