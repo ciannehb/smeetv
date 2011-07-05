@@ -54,14 +54,6 @@ a[type=twitteruser]:hover {background:#ccc;color:#111!important;}
 display:none;
 }
 
-.busy {
-            position:absolute;
-            font-size:.75em;
-            color:#000;
-            top:1em;
-            right:2em;
-}
-
 #content > form,
 #content > content.wrap
 {
@@ -984,6 +976,12 @@ top:0;
    border-radius:0 0 0.25em 0.25em;
    -moz-border-radius:0 0 0.25em 0.25em;
    -webkit-border-radius:0 0 0.25em 0.25em;
+}
+
+
+.notification.busy {
+z-index:20;
+
 }
 
 .notification.confirm {

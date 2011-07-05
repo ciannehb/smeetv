@@ -690,7 +690,7 @@ function exif_lookup(id){
 
 
 
-    <div class="busy"><img src="/i/loading.gif"></div>
+    <div class="busy notification">Working...</div>
     <div id="helparrow"><img src="/i/arrow.png"></div>
     <div id="featuredhashtags_content" style="display:none">
 <?/*
