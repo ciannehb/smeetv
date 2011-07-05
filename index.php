@@ -617,7 +617,7 @@ function togglePlayPause(){
            //fetch();
 
 $('#topnav .settings').click(function(){
-    $('.gotoremotecontrol').trigger('click');
+    $('.gotosettings').trigger('click');
     return false;
 });
 
@@ -625,6 +625,12 @@ $('#topnav .help').click(function(){
     $('.gotohelp').trigger('click');
     return false;
 });
+
+$('#topnav .tv').click(function(){
+    $('.gotoremotecontrol').trigger('click');
+    return false;
+});
+
 
 
 
