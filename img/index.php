@@ -47,6 +47,7 @@
 
     //drawHeader(trim(substr($get['content'],stripos($get['content']," "),75)),$u);
     drawHeader(trim($title),$u,0);
+    echo "<section id='content' class='grid_24'><section class='wrap'>";
     if($get['flagged']==1) 
         echo '<div class="notification error ontop"><span class="ui-icon exclamation">&nbsp;</span>Beware, this photograph was flagged by our users. For your safety, we have delayed displaying it by 30 seconds.<a href="" class="destroy_notification"><span class="ui-icon close_small">&nbsp;</span></a></div>';
 
@@ -102,13 +103,13 @@
 
 
 
-<section class="grid_24">
     <h2>Picture &sect;<?=$id?></h2>
 
 <?
 echo displayTwit($get['id'],$get['content'],$get['link'],$get['date'],$get['timestamp'],1,0);
 ?>
 
+</section>
 </section>
 
 <?disconnectFromDb($smeetvdb);?>

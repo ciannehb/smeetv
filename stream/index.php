@@ -13,7 +13,7 @@
     $id=advancedClean(3,$arr[count($arr)-1]);
 
     drawHeader('Streaming search combination "'.$id.'"',$u);
-
+    echo "<section id='content' class='grid_24'><section class='wrap'>";
 
     $id=eregi_replace('_hh_','#',$id);
 
@@ -99,7 +99,7 @@ echo "</section>";
 
     });
 </script>
-
+</section></section>
 <?
 disconnectFromDb($smeetvdb);
 require_once($_SERVER['DOCUMENT_ROOT'].'/smeetv/footer.php');?>

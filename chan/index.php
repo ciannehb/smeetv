@@ -23,7 +23,7 @@
 
 
 
-
+echo "<section id='content' class='grid_24'><section class='wrap'>";
 
 
 
@@ -67,7 +67,8 @@ echo "</section>";
 
     });
 </script>
-
+</section>
+</section>
 <?
 disconnectFromDb($smeetvdb);
 ?>

@@ -55,7 +55,7 @@ display:none;
 }
 
 #content > form,
-#content > content.wrap
+#content > .wrap
 {
 margin:0 1em 1em;
 display:block;
@@ -642,6 +642,11 @@ background-image: -o-linear-gradient(top, rgb(0,0,0), rgb(85,85,85)  100%);
 }
 
 #topnav nav a {
+
+text-shadow: 1px 1px 1px #000000;
+-webkit-text-shadow: 1px 1px 1px #000000;
+-moz-text-shadow: 1px 1px 1px #000000;
+
 margin-top:0px;
 -moz-border-radius: 6px 6px 0 0;
 -webkit-border-radius: 6px 6px 0 0;
@@ -668,6 +673,11 @@ body.forgotpassword a.forgotpassword
 background:#fff;
 color:#111 !important;
 height:33px;
+text-shadow: none !important;
+-webkit-text-shadow: none !important;
+-moz-text-shadow: none !important;
+
+
 }
 
 #topnav a,
