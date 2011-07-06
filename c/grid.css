@@ -1255,6 +1255,7 @@ width:auto;
 margin:1em;
 }
 
+#recent article footer .s,
 #recent time.posted {
 display:none;
 }

@@ -64,12 +64,16 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
     $output.='</p>';
     $output.='
 				<footer>';
+
     if($link_override==1) $output.='<a rel="smeetv" href="http://smeetv.com/img/'.alphaID($id).'">';
+
     if($link_override==0) $output.='<a href="'.$link.'">posted by '.$twusr[3].'</a>';
     else $output.='posted by '.$twusr[3];
-    $output.=' <time class="posted" id="posted-'.$id.'" datetime="'. date('Y-m-d, H:i', $orig_date).'">'.
-                                            nicetime($orig_date)
+
+    $output.='<span class="s"> </span><time class="posted" id="posted-'.$id.'" datetime="'. date('Y-m-d, H:i', $orig_date).'">'.
+                                            nicetime($timestamp)
                                         .'</time>';
+
 
     $output.=',
 					discovered
