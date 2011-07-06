@@ -17,7 +17,8 @@
     $query="select * from twits where uid='".$get[0]."' order by id desc limit 0,30";
     $go=mysql_query($query);
 
-    drawHeader('channel '.$id,$u);
+    drawHeader('channel '.$id,$u,'','','Anonymous stream &sect;'.$id);
+
 
 
 
@@ -27,7 +28,6 @@ echo "<section id='content' class='grid_24'><section class='wrap'>";
 
 
 
-echo "<h2>&sect;$id</h2>";
 
 
 

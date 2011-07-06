@@ -67,14 +67,14 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
     if($link_override==1) $output.='<a rel="smeetv" href="http://smeetv.com/img/'.alphaID($id).'">';
     if($link_override==0) $output.='<a href="'.$link.'">posted by '.$twusr[3].'</a>';
     else $output.='posted by '.$twusr[3];
+    $output.=' <time class="posted" id="posted-'.$id.'" datetime="'. date('Y-m-d, H:i', $orig_date).'">'.
+                                            nicetime($orig_date)
+                                        .'</time>';
+
     $output.=',
 					discovered
                                         <time class="discovered" id="discovered-'.$id.'" datetime="'. date('Y-m-d, H:i', $timestamp).'">'.
                                             nicetime($timestamp)
-                                        .'</time>, ';
-    $output.='posted
-                                        <time class="posted" id="posted-'.$id.'" datetime="'. date('Y-m-d, H:i', $orig_date).'">'.
-                                            nicetime($orig_date)
                                         .'</time>';
     if($link_override==0) $output.=', <a onclick="return confirm(\'Are you sure you want to flag this photo? It will remove it from your TV and mark it as unsafe for others.\')" href="/img/report/'.alphaID($id).'">report this image</a>';
     if($link_override==1) $output.='</a>';

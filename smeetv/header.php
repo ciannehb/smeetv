@@ -1,4 +1,4 @@
-<?function drawHeader($title,$user_loggedin=0,$show_menu=0,$which_page=""){?>
+<?function drawHeader($title,$user_loggedin=0,$show_menu=0,$which_page="",$title_in_header=0){?>
 <!DOCTYPE html> 
 <html lang="en"> 
 <html> 
@@ -28,6 +28,9 @@
 <body class="<?=$which_page?>">
 <header id="topnav">
 <h1 class="fleft" title="smeetv -- tv window into twitter universe"><a href="/">smee<span>tv</span></a></h1>
+<?if(!$title_in_header==0){?>
+<h2 class='title_in_header'><?=$title_in_header?></h2>
+<?}?>
 <nav class="fleft">
 <?if($user_loggedin && $show_menu==1){?>
 <a class="tv" href="/" class="gotoremotecontrol gototrigger" rel="gotoremotecontrol">tv</a>

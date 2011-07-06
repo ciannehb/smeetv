@@ -641,6 +641,7 @@ background-image: -o-linear-gradient(top, rgb(0,0,0), rgb(85,85,85)  100%);
 #topnav nav {
 }
 
+h2.title_in_header,
 #topnav nav a {
 
 text-shadow: 1px 1px 1px #000000;
@@ -654,7 +655,9 @@ border-radius: 6px 6px 0 0;
 color:#fff;
 
 display:inline-block;
-padding:0 0.5em 0;
+padding:0 0.5em 0 !important;
+
+line-height:1.5em;
 }
 
 #topnav nav a:hover {
@@ -666,11 +669,21 @@ body.tv a.tv,
 body.settings a.settings,
 body.help a.help,
 body.register a.register,
-body.forgotpassword a.forgotpassword
+body.forgotpassword a.forgotpassword,
+h2.title_in_header
 
 
 {
-background:#fff;
+
+
+
+background: rgb(255,255,255);
+background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(238,238,238)), to(rgb(255,255,255)));
+background-image: -moz-linear-gradient(100% 100% 90deg,rgb(255,255,255), rgb(238,238,238) 100%);
+background-image: -o-linear-gradient(top, rgb(238,238,238), rgb(255,255,255)  100%);
+
+
+
 color:#111 !important;
 height:33px;
 text-shadow: none !important;
@@ -682,6 +695,7 @@ text-shadow: none !important;
 
 #topnav a,
 #topnav h1,
+#topnav h2,
 h2.recent_photographs {
     display:inline-block;
     text-transform: uppercase;
@@ -719,6 +733,7 @@ font-size:100%!important;
 color:#aaa;
 text-shadow: 1px 1px 1px #111;
 */
+margin:0 .5em;
 }
 
 #topnav h1 span {
@@ -1082,6 +1097,10 @@ font-size:.1.5em;
 display:none;
 }
 
+.twit footer, .twit footer a {
+color:#999;
+}
+
 .squares.mainimg #fullsize {
 max-width:640px;
 }
@@ -1098,19 +1117,24 @@ display:inline-block;
 	cursor: pointer;
 	position: relative;
 	text-decoration:none;
-	padding: .5em 0;
+	padding: .75em 0;
 	color:#111111;
 	border-radius: 10px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	-o-border-radius: 10px;
-	background-color: rgb(229,229,229);
+
+background: rgb(229,229,229);
+background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(247,247,247)), to(rgb(229,229,229)));
+background-image: -moz-linear-gradient(100% 100% 90deg,rgb(229,229,229), rgb(247,247,247) 100%);
+background-image: -o-linear-gradient(top, rgb(247,247,247), rgb(229,229,229)  100%);
 
 
-    box-shadow: rgb(185,185,185) 0 0px 5px;
-    -moz-box-shadow: rgb(185,185,185) 0 0px 5px;
-    -webkit-box-shadow: rgb(185,185,185) 0 0px 5px;
-width:100%;
+
+    box-shadow: rgb(185,185,185) 0 0px 10px;
+    -moz-box-shadow: rgb(185,185,185) 0 0px 10px;
+    -webkit-box-shadow: rgb(185,185,185) 0 0px 10px;
+width:49.75%;
 
 }
 .twit .t > p,

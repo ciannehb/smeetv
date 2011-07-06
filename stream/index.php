@@ -12,7 +12,9 @@
     $arr=explode("/",$_SERVER['REQUEST_URI']);
     $id=advancedClean(3,$arr[count($arr)-1]);
 
-    drawHeader('Streaming search combination "'.$id.'"',$u);
+    drawHeader('Streaming search combination "'.$id.'"',$u,'','','Streaming search combination '.$id);
+
+
     echo "<section id='content' class='grid_24'><section class='wrap'>";
 
     $id=eregi_replace('_hh_','#',$id);
@@ -55,7 +57,6 @@ return;
     $go=mysql_query($query);
 
 
-    echo "<h2>Streaming search combination \"".$id."\"</h2>";
 
 
 
