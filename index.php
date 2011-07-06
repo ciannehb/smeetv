@@ -54,30 +54,21 @@ $userinfo.='
                 <li><a href="#tabs-3" class="gotohelp" title="Help">?</a></li>
         </ul>
 
-
     <div id="tabs-1">
         <form method="post" id="remotecontrol432" action="/etc/save/">
         <input type="hidden" name="section" id="removecontrolcb" value="remotecontrol">
 
-        <div class="fleft smeetv_hashtags">
         <abbr title="Enter hashtags, phrases or twitter usernames separated by comma to start fetching pictures from twitter.">Keywords</abbr>
-        <div style="float:left;"><textarea id="smeetv_hashtags_2343675" name="smeetv_hashtags"><?=$get['smeetv_hashtags']?></textarea><input type="hidden" id="smeetv_hashtags_prev_2343675" name="smeetv_hashtags_prev" value="<?=$get['smeetv_hashtags']?>"></div>
-        </div>
-        <div class="fleft">
+        <textarea id="smeetv_hashtags_2343675" name="smeetv_hashtags"><?=$get['smeetv_hashtags']?></textarea><input type="hidden" id="smeetv_hashtags_prev_2343675" name="smeetv_hashtags_prev" value="<?=$get['smeetv_hashtags']?>">
         <abbr title="How fast do you want these pictures and videos to flip?">Speed</abbr>
         <label class="s <?if($get['smeetv_speed']=='60000'){?>selected<?}?>">slow<input type="radio" name="smeetv_speed" value="60000" <?if($get['smeetv_speed']=='60000'){?>checked<?}?>></label>
         <label class="s <?if($get['smeetv_speed']=='20000'){?>selected<?}?>"> medium<input type="radio" name="smeetv_speed" value="20000" <?if($get['smeetv_speed']=='20000'){?>checked<?}?>></label>
         <label class="s <?if($get['smeetv_speed']=='5000'){?>selected<?}?>">fast<input type="radio" name="smeetv_speed" value="5000" <?if($get['smeetv_speed']=='5000'){?>checked<?}?>></label>
-        </div>
-        <div class="fleft">
         <abbr title="Show descriptions for these pictures and videos?">Descriptions</abbr>
         <label class="s 
         <?if($get['smeetv_text']=='1'){?>selected<?}?>">on<input type="radio" name="smeetv_text" value="1" <?if($get['smeetv_text']=='1'){?>checked<?}?>></label> <label class="s 
         <?if($get['smeetv_text']=='0'){?>selected<?}?>">off<input type="radio" name="smeetv_text" value="0" <?if($get['smeetv_text']=='0'){?>checked<?}?>></label>
-        </div>
-        <div class="fright">
         <input type="submit" value="&crarr;">
-        </div>
         </form>
     </div>
 

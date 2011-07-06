@@ -791,29 +791,6 @@ border-radius:4px 0 0 4px;
 padding:0 !important;
 }
 
-#controller form div.fleft {
-margin-right:2em;
-}
-
-#controller div strong {
-margin-right:2em !important;
-}
-#controller div .text,
-#controller div strong,
-#controller abbr {
-    float: left;
-    margin-top: 0.75em;
-    margin-right:.25em;
-    display:inline;
-}
-
-#controller .fright input[type=submit] {
-    height: 28px;
-    margin-right: 3em;
-    position: absolute;
-    right: 0.25em;
-    top: 0;
-}
 
 .littlenav.ui-tabs-nav li.ui-state-default {
 background:#999;
