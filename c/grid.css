@@ -395,6 +395,17 @@ margin:0 .25em;
 opacity:.75;
 }
 
+.ui-icon.dim {
+background-position:-128px -130px;
+background-color:#fff;
+position:absolute;
+top:20px;
+left:7px;
+-webkit-border-radius:7px;
+-moz-border-radius:7px;
+border-radius:7px;
+}
+
 .ui-icon.original-source,
 .ui-icon.report-image,
 .ui-icon.play,
@@ -506,7 +517,10 @@ background-image: -o-linear-gradient(top, rgb(0,0,0), rgb(85,85,85)  100%);
 }
 
 #topnav nav {
+position:relative;
 }
+
+
 
 h2.title_in_header,
 #topnav nav a {

@@ -33,6 +33,7 @@
 <?}?>
 <nav class="fleft">
 <?if($user_loggedin && $show_menu==1){?>
+<span class="dim ui-icon" id="dim_bg"></span>
 <a class="tv" href="/" class="gotoremotecontrol gototrigger" rel="gotoremotecontrol">tv</a>
 <a class="settings" href="/smeetv/profile.php" class="gotosettings gototrigger" rel="gotosettings">settings</a>
 <a class="help"  href="" class="gotohelp gototrigger" rel="gotohelp">help</a>
