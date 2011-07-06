@@ -175,72 +175,7 @@ font-size:.75em;
 }
 
 
-#controller h1 {
-    margin: -0.75em -0.75em -.5em;
-    padding: 0.5em;
-    cursor:move;
-}
 
-#controller.default {
-position:fixed;
-bottom:0px;
-left:0px;
-}
-
-#controller {
-    color: #444444;
-    letter-spacing: -1px;
-    line-height: 0.75em;
-    margin: 0 0 0 20px;
-    text-align: left;
-    text-decoration: none;
-    white-space: nowrap;
-    text-transform: uppercase;
-
-    border:1px solid #777;
-    box-shadow: rgb(185,185,185) 0 1px 15px;
-    -moz-box-shadow: rgb(185,185,185) 0 1px 15px;
-    -webkit-box-shadow: rgb(185,185,185) 0 1px 15px;
-            color:#000;
-            font-size:0.8em;
-    width:100%;
-    height:30px;
-    min-height:30px;
-
-}
-
-        #controller a,
-        #controller a:visited {
-            color:#000;
-            text-decoration:none;
-        }
-        #controller .twuid,
-        #controller .twitstofetch,
-        #controller option,
-        #controller select {
-            background:#000;
-            color:#000;
-            width:40px;
-        }
-
-        #controller span {
-            border-right:1px solid #ccc;
-            margin-right:10px;
-            padding-right:10px;
-        }
-
-        #controller span:last-child {
-            border-right:none !important;
-            margin-right:none;
-        }
-
-        #transport .tvslides img {
-            width:80px;
-        }
-        #transport .tvslides img:hover {
-            width:auto;
-            position:absolute;
-        }
 
         #log {
 display:none;
@@ -299,72 +234,6 @@ background:#000;
 background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#444), to(#222));
 background-image: -moz-linear-gradient(100% 100% 90deg,#222, #444 100%);
 z-index:10000;
-}
-
-#controller {
-            padding:.25em;
-            -moz-border-radius:.15em;
-            -webkit-border-radius:.15em;
-            border-radius:.15em;
-background:#444;
-background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#888), to(#444));
-background-image: -moz-linear-gradient(100% 100% 90deg,#444, #888 100%);
-color:#fff;
-padding:0 .75em;
-opacity:.95
-        }
-
-
-#controller label.s.selected {
-background:#aaa;
-}
-
-#controller label.s {
-display:inline-block;
-border:2px solid #555;
--moz-border-radius:.5em;
--webkit-border-radius:.5em;
-border-radius:.5em;
-font-size:.75em;
-}
-
-#controller form {
-display:inline;
-}
-
-#controller form label {
-display:inline;
-}
-
-
-#controller form label label {
-margin-right:0;
-}
-
-.disabled,
-#controller input[disabled=disabled] {
-opacity:.4;
-}
-
-#controller input[type=checkbox],
-#controller input[type=password],
-#controller input[type=text],
-#controller textarea {
-
--moz-border-radius:.5em;
--webkit-border-radius:.5em;
-border-radius:.5em;
-
-background:#111;
-
-background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#333), to(#444));
-background-image: -moz-linear-gradient(100% 100% 90deg,#333, #444 100%);
-
-border-top:1px solid #333;
-border-left:1px solid #333;
-border-bottom:1px solid #ccc;
-border-right:1px solid #ccc;
-color:#fff;
 }
 
 
@@ -688,6 +557,10 @@ text-shadow: none !important;
 -webkit-text-shadow: none !important;
 -moz-text-shadow: none !important;
 
+
+box-shadow: 0px -6px 5px #000;
+webkit-box-shadow: 0px -6px 5px #000;
+moz-box-shadow: 0px -6px 5px #000;
 
 }
 

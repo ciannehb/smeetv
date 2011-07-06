@@ -169,14 +169,12 @@ if(count($matches_hash[0])>0){ /*hashes found*/
     $output.='
 
 					<p id="yml1" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
-
+					<p id="yml2" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
+					<p id="yml3" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
 
              ';
 /*
     $output.='
-					<p id="yml1" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
-					<p id="yml2" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
-					<p id="yml3" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
 					<p id="yml4" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
 					<p id="yml5" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
              ';

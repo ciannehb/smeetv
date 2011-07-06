@@ -103,7 +103,6 @@
 
 
 
-
 <?
 echo displayTwit($get['id'],$get['content'],$get['link'],$get['date'],$get['timestamp'],1,0);
 ?>
