@@ -1249,6 +1249,12 @@ position: relative;
 height: 160px;
 margin-bottom: 1em;
 overflow: hidden;
+clear:both;
+}
+
+#recent > article {
+width:auto;
+margin:1em;
 }
 
 #recent time.posted {

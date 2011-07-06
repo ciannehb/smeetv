@@ -77,16 +77,12 @@ $(document).ready(function() {
     <p class="grid_24"><label class="fleft w100">&nbsp;</label><input type="submit" value="Login">
 </form>
 
-<h2 class="grid_24 recent_photographs" style="margin-left:100px;">Recent photographs:</h2>
+<h2 class="grid_24 recent_photographs" style="margin-left:100px;width:auto;">Recent photographs:</h2>
 <section id="recent" class="grid_24">
 <?require_once($_SERVER['DOCUMENT_ROOT'].'/etc/util/_landing_content.txt');?>
 </section>
 </section>
-<div id="featuredhashtags_content" style="display:none">
-
-
-
-
+<div id="featuredhashtags_content" style="display:none;"></div>
 
 
 

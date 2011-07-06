@@ -856,6 +856,12 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
     <div id="transport"><!--transport--></div>
      <div id="log"></div>
 
-<style>#ft {position:fixed;right:1em;}</style>
+<style>
+
+#topnav {height:3em;}
+body.login a.login, body.tv a.tv, body.settings a.settings, body.help a.help, body.register a.register, body.forgotpassword a.forgotpassword, h2.title_in_header {height:60px;}
+#ft {position:fixed;right:1em;}
+
+</style>
 <?disconnectFromDb($smeetvdb);?>
 <?require_once('smeetv/footer.php');?>
