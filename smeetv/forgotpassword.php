@@ -10,7 +10,7 @@ if(isUserLoggedIn()==1){
 */
 require_once($_SERVER['DOCUMENT_ROOT'].'/smeetv/header.php');
 drawHeader('remote control',$u,'1','forgotpassword');
-
+echo "<section id='content' class='grid_24'><section class='wrap'>";
 
 
 $_POST['username']=advancedClean(3,$_POST['username']);
@@ -51,9 +51,9 @@ $headers .= 'From: smeetvcom@gmail.com <smeetvcom@gmail.com>' . "\r\n";
 
     $gomail=mail($get[0],'Password reset for your smeetv.com account',$message,$headers);
 
-
+    echo "<p>We sent you an email with further instructions.</p>";
 } else {
-    echo "<p class='error'>We could not locate username '{$_POST['username']}'</p>";
+    echo "<p class='error'>We could not locate username '{$_POST['username']}'.</p>";
 }
 
 
@@ -66,6 +66,8 @@ $headers .= 'From: smeetvcom@gmail.com <smeetvcom@gmail.com>' . "\r\n";
 </form>
 <?}?>
 
+</section>
+</section>
 </section>
 
 
