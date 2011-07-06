@@ -1,4 +1,4 @@
-<?function drawHeader($title,$user_loggedin=0,$show_menu=0,$which_page="",$title_in_header=0){?>
+<?function drawHeader($title,$user_loggedin=0,$show_menu=0,$which_page="",$title_in_header=0,$user_info=0){?>
 <!DOCTYPE html> 
 <html lang="en"> 
 <html> 
@@ -60,6 +60,16 @@
 
 <?}?>
 </nav>
+
+
+<?
+if($user_info) {
+echo $user_info;
+}
+?>
+
+
+
 
 </header>
 <?}?>

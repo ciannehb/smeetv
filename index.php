@@ -10,7 +10,6 @@
     }
 
     require_once('smeetv/header.php');
-    drawHeader('remote control',$u,'1','tv');
     $smeetvdb=connect2db();
 
 
@@ -20,17 +19,32 @@ if(strpos($_SESSION['idhash'],'nverified-')==1){
     $unverified=TRUE;
 }
 
-?>
-<nav role="usermenu">
-<a id="rss1231" href="/u/<?=$_SESSION['username']?>"><?=$_SESSION['username']?></a>
-<?if($unverified) {?>
-    <span title="Please verify your email to unlock these features." class="strike">(<abbr>anonpub</abbr>: <a href="#">channel</a>, <a href="#">rss</a>)</span>
-<?}else{?>
-    (<abbr title="anonpub: anonymous public channel and rss feed is your images stream, you can share publicly, it does not display your userid or username.">anonpub</abbr>: <a href="/chan/<?=$_SESSION['idhash']?>">channel</a>, <a href="/rss/<?=$_SESSION['idhash']?>">rss</a>)
-<?}?>
-<span id="fni"></span>
 
+$userinfo='';
+$userinfo.='
+<nav role="usermenu"><a id="rss1231" href="/u/'.$_SESSION["username"].'">'.$_SESSION["username"].'</a>
+';
+
+if($unverified) {
+$userinfo.='
+    <span title="Please verify your email to unlock these features." class="strike">(<abbr>anonpub</abbr>: <a href="#">channel</a>, <a href="#">rss</a>)</span>
+';
+}else{
+$userinfo.='
+    (<abbr title="anonpub: anonymous public channel and rss feed is your images stream, you can share publicly, it does not display your userid or username.">anonpub</abbr>: <a href="/chan/'.$_SESSION['idhash'].'">channel</a>, <a href="/rss/'.$_SESSION['idhash'].'">rss</a>)
+';
+}
+$userinfo.='
 </nav>
+';
+
+
+    drawHeader('remote control',$u,'1','tv','',$userinfo);
+
+?>
+
+
+
 <?
     $query="select aid,id,content,timestamp,link,date from twits where uid={$_SESSION['id']} order by id desc limit 0,30";
 
@@ -856,10 +870,9 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
     <div id="transport"><!--transport--></div>
      <div id="log"></div>
 
+<span id="fni"></span>
 <style>
 
-#topnav {height:3em;}
-body.login a.login, body.tv a.tv, body.settings a.settings, body.help a.help, body.register a.register, body.forgotpassword a.forgotpassword, h2.title_in_header {height:60px;}
 #ft {position:fixed;right:1em;}
 
 </style>

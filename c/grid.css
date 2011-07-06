@@ -612,10 +612,8 @@ background-position: -64px -224px;
 }
 
 nav[role=usermenu] {
-position:absolute;
-top:3em;
-left:14.25em;
-font-size:.75em;
+float:right;
+font-size: .75em;
 }
 
 
