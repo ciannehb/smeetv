@@ -1200,7 +1200,8 @@ overflow:hidden;
 }
 
 #mainimg > article > span > img {
-width:100%;
+width:100% !important;
+height:auto;
 }
 
 .yml iframe {

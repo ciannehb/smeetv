@@ -18,6 +18,9 @@ noxpath
 );
 */
 
+
+//alert(token);
+//alert(shorturl);
 //alert(noxpath);
 
 
@@ -36,15 +39,14 @@ if(noxpath===null) {
                        //$(this).append('<span class="description"><a href="'+shorturl+'">'+a+'</a></span>');
 
 
+
                        if(noxpath===false) { // added this for handling t.co links
+                          crawled_img_path=$(response).find(imagify_crawlurl(response)).attr('src');
 
-                           crawled_img_path=$(response).find(imagify_crawlurl(response)).attr('src');
 
-
-//alert(imagify_crawlurl(response));
-
-//alert(crawled_img_path);
-
+                           if(!crawled_img_path) { /// most likely it's just direct link to the image
+                               crawled_img_path=shorturl;
+                           }
 
                            $(this).append('<img />');
                            $(this).find('img').attr({'src':crawled_img_path,'alt':a});
@@ -68,6 +70,7 @@ if(noxpath===null) {
 
 function imagify_crawlurl(e){
 
+
     if(e.search('id="photo-display') > 0 && e.search('twitpic') > 0){
         var noxpath = '#content #view-photo-main #photo img#photo-display';
     } else if(e.search('main_image') > 0 && e.search('yfrog') > 0) {
@@ -80,8 +83,6 @@ function imagify_crawlurl(e){
         var noxpath = '#picktwitPhotoContainer > a > img';
     } else if(e.search('photo-div') > 0 && e.search('flickr') > 0) {
         var noxpath = '#photo .photo-div > img';
-    } else if(e.search('photo') > 0 && e.search('plixi') > 0) { // plixi
-        var noxpath = '#photo';
     } else if(e.search('picdetail') > 0 && e.search('movapic') > 0) {
         var noxpath = '.picdetail img.image';
     } else if(e.search('the-image') > 0 && e.search('img.ly') > 0) {
@@ -90,8 +91,10 @@ function imagify_crawlurl(e){
         var noxpath = '#image';
     } else if(e.search('foto') > 0 && e.search('fotki.yandex.ru') > 0) {
         var noxpath = '#foto img';
-    } else if(e.search('') > 0 && e.search('lockerz.com') > 0) {
-        var noxpath = '#mainImage';
+    } else if(e.search('lockerz.com') > 0) {
+        var noxpath = '#main > section > article > figure > a > img';
+    } else if(e.search('photo') > 0 && e.search('plixi') > 0) { // plixi
+	var noxpath = '#main > section > article > figure > a > img';
     } else if(e.search('#mainImage') > 0 && e.search('picplz.com') > 0) {
         var noxpath = '#main > section > article > figure > a > img';
     } else if(e.search('pbckt.com') > 0) {
@@ -110,7 +113,7 @@ function imagify_crawlurl(e){
         var noxpath = 'img';
     }
 
-
+//alert(noxpath);
 
 
    return noxpath;
@@ -119,6 +122,7 @@ function imagify_crawlurl(e){
 
 
 function imagify_get_noxpath(shorturl){
+
 
 
                if(shorturl.search('twitpic') > 0){
@@ -232,6 +236,7 @@ function imagify_get_noxpath(shorturl){
 }
 
 function imagify_get_shorturl(a,token) {
+
 /*
 alert(
 a
@@ -281,41 +286,40 @@ alert(newshorturl);
 }
 
 function imagify_detect_pic(a) {
-               if(a.search('twitpic') > 0){
+
+
+               if(a.search('/twitpic') > 0){
                        var token = 'http://twitpic.c';
                }
-               else if(a.search('yfrog') > 0){
+               else if(a.search('/yfrog') > 0){
                        var token = 'http://yfrog.c';
                }
-               else if(a.search('tweetphoto') > 0){
+               else if(a.search('/tweetphoto') > 0){
                        var token = 'http://tweetphoto.c';
                }
-               else if(a.search('twitgoo') > 0){
+               else if(a.search('/twitgoo') > 0){
                        var token = 'http://twitgoo.c';
                }
 
 
-               else if(a.search('dailybooth') > 0){
+               else if(a.search('/dailybooth') > 0){
                        var token = 'http://dailybooth.c';
                }
 
-               else if(a.search('picktor') > 0){
+               else if(a.search('/picktor') > 0){
                        var token = 'http://picktor.c';
                }
                else if(a.search('flic.kr') > 0){
                        var token = 'http://flic.kr';
                }
-               else if(a.search('twitvid.com') > 0){
-                       var token = 'http://twitvid.com';
-               }
-               else if(a.search('plixi.com') > 0){
+               else if(a.search('/plixi.com') > 0){
                        var token = 'http://plixi.com';
                }
 
-               else if(a.search('lockerz.com') > 0){
+               else if(a.search('/lockerz.com') > 0){
                    var token = 'http://lockerz.com';
                }
-               else if(a.search('movapic.com') > 0){
+               else if(a.search('/movapic.com') > 0){
                        var token = 'http://movapic.com';
                }
                else if(a.search('img.ly') > 0){
