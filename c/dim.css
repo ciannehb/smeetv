@@ -27,6 +27,19 @@ background:#eee;color:#111;
     -moz-box-shadow: rgb(0,0,0) 0 1px 15px;
     -webkit-box-shadow: rgb(0,0,0) 0 1px 15px;
 
+
+
+border-bottom: 1px solid #222;
+
+background: rgb(0,0,0);
+background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(24,24,24)), to(rgb(0,0,0)));
+background-image: -moz-linear-gradient(100% 100% 90deg,rgb(0,0,0), rgb(24,24,24) 100%);
+background-image: -o-linear-gradient(top, rgb(24,24,24), rgb(0,0,0)  100%);
+
+
+
+
+
         }
 
         #controller:hover,
@@ -70,5 +83,82 @@ background:url('http://smeetv.com/i/logo_w_b.png') no-repeat scroll 0 0 transpar
 
 
 }
+
+
+
+
+
+body.login a.login,
+body.tv a.tv,
+body.settings a.settings,
+body.help a.help,
+body.register a.register,
+body.forgotpassword a.forgotpassword,
+h2.title_in_header
+
+
+{
+
+
+
+background: rgb(24,24,24);
+background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(24,24,24)), to(rgb(0,0,0)));
+background-image: -moz-linear-gradient(100% 100% 90deg,rgb(0,0,0), rgb(24,24,24) 100%);
+background-image: -o-linear-gradient(top, rgb(24,24,24), rgb(0,0,0)  100%);
+
+
+
+color:#eee !important;
+height:33px;
+text-shadow: none !important;
+-webkit-text-shadow: none !important;
+-moz-text-shadow: none !important;
+
+
+box-shadow: 0px -6px 5px #222;
+webkit-box-shadow: 0px -6px 5px #222;
+moz-box-shadow: 0px -6px 5px #222;
+border-top:1px solid #444;
+}
+
+
+
+
+#controller #tabs-1 label.s {
+border: 1px solid #222;
+padding: 0 .25em;
+-moz-border-radius:3px;
+-webkit-border-radius:3px;
+border-radius:3px;
+
+background:none;
+
+}
+
+#content > article {
+color:#111;
+}
+
+
+
+#ft {
+    color: rgba(255,255,255, 0.35);
+}
+
+
+#ft:hover {
+color:rgba(255,255,255,1);
+background: rgba(0,0,0, 0.75);
+}
+
+#ft:hover aside {
+display:inline-block;
+}
+
+
+
+
+
+
 
 

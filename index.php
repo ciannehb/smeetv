@@ -35,11 +35,23 @@ $userinfo.='
 ';
 }
 $userinfo.='
+<a class="logout" href="/smeetv/logout.php">logout</a>
 </nav>
 ';
 
 
     drawHeader('remote control',$u,'1','tv','',$userinfo);
+
+
+
+    $query="
+        select smeetv_img_num,smeetv_channels,smeetv_hashtags,smeetv_speed,smeetv_text,ad,smeetv_size,email,username
+        from accounts where id='".$_SESSION['id']." limit 0,1'
+    ";
+    $go=mysql_query($query);
+    $get=mysql_fetch_array($go);
+
+    $cycle_speed=$get['smeetv_speed'];
 
 ?>
 
@@ -47,7 +59,7 @@ $userinfo.='
 
 
 <!--controller starts-->
-<div id="controller" class="default draggable-handle ">
+<div id="controller" class="default">
         <ul class="littlenav">
                 <li><a href="#tabs-1" class="gotoremotecontrol" title="Remote control">tv</a></li>
                 <li><a href="#tabs-2" class="gotosettings" title="Settings">&#9679;</a></li>
@@ -57,7 +69,6 @@ $userinfo.='
     <div id="tabs-1">
         <form method="post" id="remotecontrol432" action="/etc/save/">
         <input type="hidden" name="section" id="removecontrolcb" value="remotecontrol">
-
         <abbr style="margin-left:0;" title="Enter hashtags, phrases or twitter usernames separated by comma to start fetching pictures from twitter.">Keywords:</abbr>
         <input type="text" id="smeetv_hashtags_2343675" name="smeetv_hashtags" value="<?=$get['smeetv_hashtags']?>"><input type="hidden" id="smeetv_hashtags_prev_2343675" name="smeetv_hashtags_prev" value="<?=$get['smeetv_hashtags']?>">
         <abbr title="How fast do you want these pictures and videos to flip?">Speed:</abbr>
@@ -65,8 +76,7 @@ $userinfo.='
         <label class="s <?if($get['smeetv_speed']=='20000'){?>selected<?}?>"> medium <input type="radio" name="smeetv_speed" value="20000" <?if($get['smeetv_speed']=='20000'){?>checked<?}?>></label>
         <label class="s <?if($get['smeetv_speed']=='5000'){?>selected<?}?>">fast <input type="radio" name="smeetv_speed" value="5000" <?if($get['smeetv_speed']=='5000'){?>checked<?}?>></label>
         <abbr title="Show descriptions for these pictures and videos?">Descriptions:</abbr>
-        <label class="s 
-        <?if($get['smeetv_text']=='1'){?>selected<?}?>">on <input type="radio" name="smeetv_text" value="1" <?if($get['smeetv_text']=='1'){?>checked<?}?>></label> <label class="s 
+        <label class="s ">on <input type="radio" name="smeetv_text" value="1" <?if($get['smeetv_text']=='1'){?>checked<?}?>></label> <label class="s 
         <?if($get['smeetv_text']=='0'){?>selected<?}?>">off <input type="radio" name="smeetv_text" value="0" <?if($get['smeetv_text']=='0'){?>checked<?}?>></label>
         <input class='fno' type="submit" value="&crarr;">
         </form>
@@ -83,7 +93,7 @@ $userinfo.='
     </div>
 
     <div id="tabs-3">
-        <p>Use <span class="attn" rel="prev2">&#8592;</span> and <span rel="next2" class="attn">&#8594;</span> to navigate back and forth, <span class="btn" style="font-size:.75em;float:none;line-height:1em;margin-right:0">SPACEBAR</span> to pause/resume the presentation, <span class="attn" rel="yakor">resize</span> and <span rel="draggable-handle" class="attn">move</span> the tv around. Check out <span class="attn" rel="gotosettings">Settings</span>.</p>
+        <p>Use <span class="attn" rel="prev2">&#8592;</span> and <span rel="next2" class="attn">&#8594;</span> to navigate back and forth, <span class="btn" style="font-size:.75em;float:none;line-height:1em;margin-right:0">SPACEBAR</span> to pause/resume the presentation, <span class="attn" rel="yakor">resize</span> and <span rel="draggable-handle" class="attn">move</span> the tv around. Check out <span class="attn" rel="settings">Settings</span>.</p>
     </div>
 </div>
 
@@ -138,12 +148,6 @@ src=\"http://pagead2.googlesyndication.com/pagead/show_ads.js\">
 </script>
     ";
 
-    $query="
-        select smeetv_img_num,smeetv_channels,smeetv_hashtags,smeetv_speed,smeetv_text,ad,smeetv_size,email,username
-        from accounts where id='".$_SESSION['id']." limit 0,1'
-    ";
-    $go=mysql_query($query);
-    $get=mysql_fetch_array($go);
 
 
     if(!$get['smeetv_img_num']) {
@@ -160,21 +164,6 @@ src=\"http://pagead2.googlesyndication.com/pagead/show_ads.js\">
     }
 
 
-
-
-    /* advertising */
-/*
-    $hash_split=split(',',$get['smeetv_hashtags']);
-    foreach ($hash_split as &$h_s) {
-        $q2="select * from ads where keyword like '%$h_s%'";
-        $g2=mysql_query($q2);
-        if(mysql_num_rows($g2)>0) {
-            $ad=mysql_fetch_array($g2);
-            $context_ad=1;
-            break;
-        }
-    }
-*/
      $show_ads = $get['ad'];
 
 
@@ -294,7 +283,7 @@ var success=0;
             logger('initialising slider');
             $('#content').cycle({
                 fx: 'fade',
-timeout: <?=$get['smeetv_speed']?>,
+timeout: <?=$cycle_speed?>,
                 speed: 300,
                 pause: 1,
                 next:   '#next2, #altnext', 
