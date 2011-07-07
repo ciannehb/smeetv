@@ -207,7 +207,7 @@ display:none;
         .wraptv {
             margin: 2em 0 0 1em;
             position:relative;
-            z-index:2;
+            z-index:10;
             width:1px;
         }
 
@@ -225,22 +225,24 @@ z-index:10;
 
 #controller {
 display:inline-block;
-padding:.5em 1em 0;
+padding:.5em 0;
 font-size:.8em;
 
-border-bottom: 1px solid #DDD;
+border-bottom: 1px solid #ddd;
 
-background: rgb(0,0,0);
+background: rgb(239,239,239);
 background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(255,255,255)), to(rgb(239,239,239)));
-background-image: -moz-linear-gradient(100% 100% 90deg,rgb(255,255,255), rgb(239,239,239) 100%);
-background-image: -o-linear-gradient(top, rgb(239,239,239), rgb(255,255,255)  100%);
+background-image: -moz-linear-gradient(100% 100% 90deg,rgb(239,239,239), rgb(255,255,255) 100%);
+background-image: -o-linear-gradient(top, rgb(255,255,255), rgb(239,239,239)  100%);
 
 top:-19px;
 
 width:100%;
 }
 
-
+#controller input[type=submit] {
+top:2px;
+}
 
 
 #controller .littlenav {
@@ -251,6 +253,7 @@ display:none;
 #controller #tabs-2,
 #controller #tabs-3 {
 line-height:2.2em;
+margin-bottom:-.5em;
 }
 
 #controller #tabs-1 > form > abbr {
@@ -269,11 +272,18 @@ display: inline-block;
 }
 
 #controller #tabs-1 label.s {
-border: 1px solid #EEE;
+border: 1px solid #e2e2e2;
 padding: 0 .25em;
 -moz-border-radius:3px;
 -webkit-border-radius:3px;
 border-radius:3px;
+
+background: rgb(239,239,239);
+background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(255,255,255)), to(rgb(227,227,227)));
+background-image: -moz-linear-gradient(100% 100% 90deg,rgb(227,227,227), rgb(255,255,255) 100%);
+background-image: -o-linear-gradient(top, rgb(255,255,255), rgb(227,227,227)  100%);
+
+
 }
 
 
@@ -530,7 +540,7 @@ font-size: .75em;
 
 #topnav {
     color: #ccc;
-    padding-top:1px;
+    padding-top:.35em;
     font-size: 0.75em;
     text-transform: uppercase;
     position:relative;
@@ -649,7 +659,7 @@ font-size:100%!important;
 color:#aaa;
 text-shadow: 1px 1px 1px #111;
 */
-margin:0 .5em;
+margin: -1px .5em 0;
 }
 
 #topnav h1 span {
@@ -816,7 +826,7 @@ border-radius:4px 0 0 4px;
 #controller #tabs-2,
 #controller #tabs-3
 {
-padding:0 !important;
+padding:0 0 0 1.15em !important;
 }
 
 
