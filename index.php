@@ -58,38 +58,32 @@ $userinfo.='
         <form method="post" id="remotecontrol432" action="/etc/save/">
         <input type="hidden" name="section" id="removecontrolcb" value="remotecontrol">
 
-        <abbr title="Enter hashtags, phrases or twitter usernames separated by comma to start fetching pictures from twitter.">Keywords</abbr>
-        <textarea id="smeetv_hashtags_2343675" name="smeetv_hashtags"><?=$get['smeetv_hashtags']?></textarea><input type="hidden" id="smeetv_hashtags_prev_2343675" name="smeetv_hashtags_prev" value="<?=$get['smeetv_hashtags']?>">
-        <abbr title="How fast do you want these pictures and videos to flip?">Speed</abbr>
-        <label class="s <?if($get['smeetv_speed']=='60000'){?>selected<?}?>">slow<input type="radio" name="smeetv_speed" value="60000" <?if($get['smeetv_speed']=='60000'){?>checked<?}?>></label>
-        <label class="s <?if($get['smeetv_speed']=='20000'){?>selected<?}?>"> medium<input type="radio" name="smeetv_speed" value="20000" <?if($get['smeetv_speed']=='20000'){?>checked<?}?>></label>
-        <label class="s <?if($get['smeetv_speed']=='5000'){?>selected<?}?>">fast<input type="radio" name="smeetv_speed" value="5000" <?if($get['smeetv_speed']=='5000'){?>checked<?}?>></label>
-        <abbr title="Show descriptions for these pictures and videos?">Descriptions</abbr>
+        <abbr style="margin-left:0;" title="Enter hashtags, phrases or twitter usernames separated by comma to start fetching pictures from twitter.">Keywords:</abbr>
+        <input type="text" id="smeetv_hashtags_2343675" name="smeetv_hashtags" value="<?=$get['smeetv_hashtags']?>"><input type="hidden" id="smeetv_hashtags_prev_2343675" name="smeetv_hashtags_prev" value="<?=$get['smeetv_hashtags']?>">
+        <abbr title="How fast do you want these pictures and videos to flip?">Speed:</abbr>
+        <label class="s <?if($get['smeetv_speed']=='60000'){?>selected<?}?>">slow <input type="radio" name="smeetv_speed" value="60000" <?if($get['smeetv_speed']=='60000'){?>checked<?}?>></label>
+        <label class="s <?if($get['smeetv_speed']=='20000'){?>selected<?}?>"> medium <input type="radio" name="smeetv_speed" value="20000" <?if($get['smeetv_speed']=='20000'){?>checked<?}?>></label>
+        <label class="s <?if($get['smeetv_speed']=='5000'){?>selected<?}?>">fast <input type="radio" name="smeetv_speed" value="5000" <?if($get['smeetv_speed']=='5000'){?>checked<?}?>></label>
+        <abbr title="Show descriptions for these pictures and videos?">Descriptions:</abbr>
         <label class="s 
-        <?if($get['smeetv_text']=='1'){?>selected<?}?>">on<input type="radio" name="smeetv_text" value="1" <?if($get['smeetv_text']=='1'){?>checked<?}?>></label> <label class="s 
-        <?if($get['smeetv_text']=='0'){?>selected<?}?>">off<input type="radio" name="smeetv_text" value="0" <?if($get['smeetv_text']=='0'){?>checked<?}?>></label>
-        <input type="submit" value="&crarr;">
+        <?if($get['smeetv_text']=='1'){?>selected<?}?>">on <input type="radio" name="smeetv_text" value="1" <?if($get['smeetv_text']=='1'){?>checked<?}?>></label> <label class="s 
+        <?if($get['smeetv_text']=='0'){?>selected<?}?>">off <input type="radio" name="smeetv_text" value="0" <?if($get['smeetv_text']=='0'){?>checked<?}?>></label>
+        <input class='fno' type="submit" value="&crarr;">
         </form>
     </div>
 
     <div id="tabs-2">
         <form id="settings34s5" method="post" action="../settings.php"><input type="hidden" name="section" id="sectioncb" value="settings">
-        <div class="fleft"><label><input type="text" value="<?=$get['username']?>" disabled="disabled"></label><label><input type="text" value="<?=$get['email']?>" disabled="disabled"></label></div>
-        <div class="fleft"><label class="static text" for="passwordcb">Password:</label> <input id="passwordcb" type="password" name="password" value="" ></div>
-         <div class="fleft"><label class="static text" for="adcb" title="Leave check mark in place if you do not mind seeing contextual ads.">Ads?</label>
+        <!--<label><input type="text" value="<?=$get['username']?>" disabled="disabled"></label><label><input type="text" value="<?=$get['email']?>" disabled="disabled"></label>-->
+        <label class="s static text" for="passwordcb">Password:</label> <input id="passwordcb" type="password" name="password" value="" >
+        <label class="s static text" for="adcb" title="Leave check mark in place if you do not mind seeing contextual ads.">Ads?</label>
         <input type="checkbox" name="ad" value="1" id="adcb" <?if($get['ad']==1) echo " checked "; ?>>
-        </div>
-
-        <div class="fright">
-        <input type="submit" value="&crarr;">
-        </div>
+        <input class='fno' type="submit" value="&crarr;">
         </form>
     </div>
 
     <div id="tabs-3">
-        <div class=""><div style="width:1%" class="fleft text"><span class="line">
-        Use <span class="attn" rel="prev2">&#8592;</span> and <span rel="next2" class="attn">&#8594;</span> to navigate back and forth, <span class="btn" style="font-size:.75em;float:none;line-height:1em;margin-right:0">SPACEBAR</span> to pause/resume the presentation, <span class="attn" rel="yakor">resize</span> and <span rel="draggable-handle" class="attn">move</span> the tv around. Check out <span class="attn" rel="gotosettings">Settings</span>.
-        </div></div>
+        <p>Use <span class="attn" rel="prev2">&#8592;</span> and <span rel="next2" class="attn">&#8594;</span> to navigate back and forth, <span class="btn" style="font-size:.75em;float:none;line-height:1em;margin-right:0">SPACEBAR</span> to pause/resume the presentation, <span class="attn" rel="yakor">resize</span> and <span rel="draggable-handle" class="attn">move</span> the tv around. Check out <span class="attn" rel="gotosettings">Settings</span>.</p>
     </div>
 </div>
 

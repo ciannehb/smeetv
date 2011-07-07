@@ -15,9 +15,8 @@ float:left;
 }
 
 .fno {
-float:none;
+float:none!important;
 }
-
 
 
 ::selection {
@@ -224,28 +223,57 @@ z-index:10;
 
 
 
-#controller:hover,
-#controller:hover .littlenav li.ui-state-active {
-background:#000;
-    box-shadow: rgb(105,105,105) 0 1px 15px;
-    -moz-box-shadow: rgb(105,105,105) 0 1px 15px;
-    -webkit-box-shadow: rgb(105,105,105) 0 1px 15px;
+#controller {
+display:inline-block;
+padding:.5em 1em 0;
+font-size:.8em;
 
-background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#444), to(#222));
-background-image: -moz-linear-gradient(100% 100% 90deg,#222, #444 100%);
-z-index:10000;
+border-bottom: 1px solid #DDD;
+
+background: rgb(0,0,0);
+background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(255,255,255)), to(rgb(239,239,239)));
+background-image: -moz-linear-gradient(100% 100% 90deg,rgb(255,255,255), rgb(239,239,239) 100%);
+background-image: -o-linear-gradient(top, rgb(239,239,239), rgb(255,255,255)  100%);
+
+top:-19px;
+
+width:100%;
 }
 
 
-#controller textarea {
-position:relative !important;
+
+
+#controller .littlenav {
+display:none;
 }
-#controller textarea:hover {
-    height: 26px;
-    margin-top: 2px;
-    position: absolute;
-    width: 400px;
-    z-index:100000;
+
+#controller #tabs-1,
+#controller #tabs-2,
+#controller #tabs-3 {
+line-height:2.2em;
+}
+
+#controller #tabs-1 > form > abbr {
+margin-left:1em;
+}
+
+#controller > div > p {
+margin-bottom:2px !important
+}
+
+#controller > div > p,
+#controller > div > form
+ {
+line-height: 2.45em !important;
+display: inline-block;
+}
+
+#controller #tabs-1 label.s {
+border: 1px solid #EEE;
+padding: 0 .25em;
+-moz-border-radius:3px;
+-webkit-border-radius:3px;
+border-radius:3px;
 }
 
 
@@ -279,10 +307,11 @@ min-height:260px;
 -moz-border-radius: .25em;
 -webkit-border-radius: .25em;
 border-radius: .25em;
-
-background: rgb(207,207,207);
-background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(245,245,245)), to(rgb(199,199,199)));
-background-image: -moz-linear-gradient(100% 100% 90deg,rgb(199,199,199), rgb(245,245,245) 100%);
+/*
+background: rgba(207,207,207,.9);
+*/
+background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(245,245,245,.9)), to(rgba(199,199,199,.9)));
+background-image: -moz-linear-gradient(100% 100% 90deg,rgba(199,199,199,.9), rgba(245,245,245,.9) 100%);
 
 border-top:3px solid #eee;
 border-left:3px solid #eee;
@@ -341,14 +370,10 @@ overflow:hidden;
         form label {display:block;line-height:2em;
 }
 
+form label.s {display:inline-block;}
+
         #controller form textarea {
             width:200px;height:20px;
-        }
-
-
-
-        #controller form input {
-            height:20px;
         }
 
 
@@ -395,6 +420,10 @@ margin:0 .25em;
 opacity:.75;
 }
 
+body:not(.tv) #topnav nav .dim {
+display:none;
+}
+
 .ui-icon.dim {
 background-position:-128px -130px;
 background-color:#fff;
@@ -404,6 +433,8 @@ left:7px;
 -webkit-border-radius:7px;
 -moz-border-radius:7px;
 border-radius:7px;
+z-index:4;
+cursor:pointer;
 }
 
 .ui-icon.original-source,
@@ -697,7 +728,7 @@ color:#111;
 .ui-tabs .ui-tabs-panel { display: block; border-width: 0; padding: 1em 1.4em; background: none; }
 .ui-tabs .ui-tabs-hide { display: none !important; }
 .btn, button, input[type=submit], input[type=reset], input[type=button] {box-shadow:  rgba(255,255,255,.6) 0 1px 0;-webkit-box-shadow: rgba(255,255,255,.6) 0 1px 0;-moz-box-shadow: rgba(255,255,255,.6) 0 1px 0;font: 1em/1.5 Arial;font-weight: bold !important;text-shadow: #fff 0 1px;text-decoration: none;margin: 0 10px 7px 0;display: inline;float: left;padding: 4px 10px 2px;border: 1px solid #aaa;min-width: .7em;overflow: hidden;color: #555 !important;text-align: center;position: relative;height: auto;min-height: 19px;border-radius: 4px;-moz-border-radius: 4px;-webkit-border-radius: 4px;-o-border-radius: 4px;background: #e5e5e5;background: -moz-linear-gradient(center top, #fff 0%,rgb(204,204,204) 100%);background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff),color-stop(1, rgb(204,204,204)));border: 1px solid #aaa;} input[type=text],input[type=password] {height:1.75em;}
-button, input[type=submit], input[type=reset], input[type=button] {padding: 5px 10px;}
+button, input[type=submit], input[type=reset], input[type=button] {padding: 5px 10px 0 !important;}
 .btn:hover, button:hover, .btn-set .btn.ico:hover, input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover {cursor: pointer !important;text-decoration: none;border: 1px solid #aaa !important;background: #eee !important;background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#eee)) !important;background-image: -moz-linear-gradient(100% 100% 90deg,#eee, #fff 100%) !important;}
 
 .btn.active, .btn:active:hover, button:active:hover, .btn-set .btn.ico:active:hover, input[type=submit]:active:hover, input[type=reset]:active:hover, input[type=button]:active:hover {
@@ -727,7 +758,7 @@ width:40% !important;
 #login span.aside {
 display:inline !important;
 }
-
+/*
 #controller .littlenav {
     display: block;
     font-size: 0.5em;
@@ -736,11 +767,8 @@ display:inline !important;
     padding:0;
 margin:-2px 0 0 -24px;
     float:left;
-
-
-
-
 }
+*/
 
 #controller .littlenav li:hover {
 background:#000;
