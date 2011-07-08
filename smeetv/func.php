@@ -51,9 +51,11 @@ return $string;
 function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_override=0,$hash_override=0,$thumbnail=0) {
 
 
+
     $twusr=explode("/",$link);
     $orig_date=strtotime($date);
     $output='';
+
 
 
     $output.='
@@ -75,7 +77,7 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
     else $output.='posted by '.$twusr[3];
 
     $output.='<span class="s"> </span><time class="posted" id="posted-'.$id.'" datetime="'. date('Y-m-d, H:i', $orig_date).'">'.
-                                            nicetime($timestamp)
+                                            nicetime($orig_date)
                                         .'</time>';
 
 

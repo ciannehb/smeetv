@@ -63,6 +63,12 @@ echo "<section class='channel'>";
 for($i=0;$i<mysql_num_rows($go);$i++){
     $get=mysql_fetch_array($go);
     $twusr=explode("/",$get['link']);
+
+echo "
+
+
+";
+
     echo displayTwit($get['aid'],$get['content'],$get['link'],$get['date'],$get['timestamp'],0,1,0,1);
 }
 echo "</section>";
