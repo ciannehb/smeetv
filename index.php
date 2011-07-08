@@ -81,6 +81,7 @@ $userinfo.= '</ul></nav><section>';
         <?if($get['smeetv_text']=='0'){?>selected<?}?>">off <input type="radio" name="smeetv_text" value="0" <?if($get['smeetv_text']=='0'){?>checked<?}?>></label>
         <input class='fno' type="submit" value="&crarr;">
         </form>
+
     </div>
 
     <div id="tabs-2">
@@ -97,6 +98,9 @@ $userinfo.= '</ul></nav><section>';
         <p>Use <span class="attn" rel="prev2">&#8592;</span> and <span rel="next2" class="attn">&#8594;</span> to navigate back and forth, <span class="btn" style="font-size:.75em;float:none;line-height:1em;margin-right:0">SPACEBAR</span> to pause/resume the presentation, <span class="attn" rel="yakor">resize</span> and <span rel="draggable-handle" class="attn">move</span> the tv around. Check out <span class="attn" rel="settings">Settings</span>.</p>
     </div>
 </div>
+
+<span id="fni"></span>
+
 
 <!--controller ends-->
 
@@ -837,7 +841,6 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
     <div id="transport"><!--transport--></div>
      <div id="log"></div>
 
-<span id="fni"></span>
 <style>
 
 #ft {position:fixed;right:1em;}

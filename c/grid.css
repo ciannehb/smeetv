@@ -1214,7 +1214,10 @@ overflow: hidden;
 }
 
 #fni {
-color:#bbb;
+color: #CCC;
+font-size: .75em;
+position: absolute;
+right: 1.5em;
 }
 
 #fni .fni .details {

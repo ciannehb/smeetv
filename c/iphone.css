@@ -1,1 +1,9 @@
-*{border:1px solid red}
+
+.t,
+.squares {
+width:100%!important;
+font-size:2em;
+}
+.squares.share {
+clear:both;
+}
