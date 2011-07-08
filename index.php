@@ -21,23 +21,24 @@ if(strpos($_SESSION['idhash'],'nverified-')==1){
 
 
 $userinfo='';
-$userinfo.='
-<nav role="usermenu"><a class="username" href="/u/'.$_SESSION["username"].'"><span class="ui-icon"></span> '.$_SESSION["username"].'</a>
-';
-
+$userinfo.='<section class="um"><nav role="usermenu"><a class="username" href="/u/'.$_SESSION["username"].'"><span class="ui-icon"></span> '.$_SESSION["username"].'</a></nav>';
+$userinfo.='<nav role="usersecondarymenu">';
 if($unverified) {
 $userinfo.='
     <span title="Please verify your email to unlock these features." class="strike">(<abbr>anonpub</abbr>: <a href="#">channel</a>, <a href="#">rss</a>)</span>
 ';
 }else{
 $userinfo.='
-    (<abbr title="anonpub: anonymous public channel and rss feed is your images stream, you can share publicly, it does not display your userid or username.">anonpub</abbr>: <a href="/chan/'.$_SESSION['idhash'].'">channel</a>, <a href="/rss/'.$_SESSION['idhash'].'">rss</a>)
+<ul>
+    <li><abbr title="anonpub: anonymous public channel and rss feed is your images stream, you can share publicly, it does not display your userid or username.">anonpub</abbr>:</li>
+        <ul>
+            <li><a href="/chan/'.$_SESSION['idhash'].'">channel</a></li>
+            <li><a href="/rss/'.$_SESSION['idhash'].'">rss</a></li>
+        </ul>
 ';
 }
-$userinfo.='
-<a class="logout" href="/smeetv/logout.php">logout</a>
-</nav>
-';
+$userinfo.='<li><a class="logout" href="/smeetv/logout.php">logout</a></li>';
+$userinfo.= '</ul></nav><section>';
 
 
     drawHeader('remote control',$u,'1','tv','',$userinfo);

@@ -546,8 +546,78 @@ background-image: url(http://smeetv.com/i/ui-icons_222222_256x240.png)/*{iconsCo
 background-position: -64px -224px;
 }
 
+#topnav section.um {
+height: 140px;
+position: absolute;
+right: .5em;
+top:0;
+margin-top:.35em;
+z-index:1;
+padding:.15em 17px .15em 0;
+width:110px;
+}
+
+#topnav section.um:hover {
+box-shadow: 0 0 10px #ccc;
+-webkit-box-shadow: 0 0 10px #ccc;
+-moz-box-shadow: 0 0 10px #ccc;
+
+
+
+-moz-border-radius:6px;
+-webkit-border-radius:6px;
+border-radius:6px;
+
+}
+
+#topnav section.um ul {
+margin-top:.25em;
+margin-bottom:.25em;
+}
+
+
+#topnav section.um:hover .ui-icon,
+#topnav section.um:hover {
+background-color:rgba(255,255,255,.9);
+}
+
+section.um nav[role=usersecondarymenu] {
+display:none;
+
+padding:0 1.25em 0 .4em;
+position: absolute !important;
+width: auto;
+height: auto;
+top: 36px;
+right: 0;
+z-index: 10;
+overflow:hidden;
+font-size: .75em;
+color:#111;
+}
+
+section.um:hover nav[role=usermenu] a,
+section.um nav[role=usersecondarymenu] a {
+color:#111 !important;
+text-shadow: 1px 1px 1px #CCC !important;
+-webkit-text-shadow: 1px 1px 1px #ccc !important;
+-moz-text-shadow: 1px 1px 1px #ccc !important;
+}
+
+
+section.um:hover nav[role=usermenu] a:hover,
+section.um nav[role=usersecondarymenu] a:hover {
+color:#555 !important;
+text-decoration:underline;
+}
+
+section.um:hover nav[role=usersecondarymenu] {
+display:block;
+}
+
 nav[role=usermenu] {
-float:right;
+position:absolute !important;
+right:.25em;
 font-size: .75em;
 }
 
