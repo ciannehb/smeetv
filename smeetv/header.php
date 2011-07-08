@@ -3,7 +3,7 @@
 <html lang="en"> 
 <html> 
 <head>
-<title><?=$title?> | @smeetv</title>
+<title><?=trim(removeUrlFromString($title))?> | @smeetv</title>
 <link type="text/css" rel="stylesheet" media="all" href="//fsdn1.somewhe.com/smeetv/c/grid.css" >
 <link type="text/css" rel="stylesheet" id="light" media="all" href="//fsdn1.somewhe.com/smeetv/c/light.css" >
 <link media="only screen and (max-device-width: 480px)" href="//fsdn1.somewhe.com/smeetv/c/iphone.css" type="text/css" rel="stylesheet">

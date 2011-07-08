@@ -1087,9 +1087,10 @@ color:#999;
 }
 
 
-.squares.mainimg {
-
+.mainimg.squares {
+background-color:#ddd;
 }
+
 
 .squares.mainimg #fullsize {
 max-width:640px;

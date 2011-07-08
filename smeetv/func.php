@@ -39,6 +39,10 @@ function validate_email($v_email) {
    }
 }
 
+function removeUrlFromString($string){
+$string = preg_replace('/\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|$!:,.;]*[A-Z0-9+&@#\/%=~_|$]/i', '', $string);
+return $string;
+}
 
 
 
@@ -130,7 +134,9 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
 <a class="addthis_button_compact"></a>
 <a class="addthis_counter addthis_bubble_style"></a>
 </div>
-<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+<script type="text/javascript">var addthis_config = {"data_track_clickback":true};
+var addthis_share = {templates: { twitter: "{{title}} {{url}}"}};
+</script>
 <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4dbc63166fcdf6f9"></script>
 <!-- AddThis Button END -->
 <iframe src="https://www.facebook.com/plugins/like.php?&href=http://smeetv.com'.$_SERVER['REQUEST_URI'].'"
