@@ -46,7 +46,39 @@
     $title=$get['content'];
 
     //drawHeader(trim(substr($get['content'],stripos($get['content']," "),75)),$u);
-    drawHeader(trim($title),$u,0,'','Picture &sect;'.$id);
+
+
+
+
+if($u==true) {
+
+$userinfo='';
+$userinfo.='<section class="um"><nav role="usermenu"><a class="username" href="/u/'.$_SESSION["username"].'"><span class="ui-icon"></span> '.$_SESSION["username"].'</a></nav>';
+$userinfo.='<nav role="usersecondarymenu">';
+if($unverified) {
+$userinfo.='
+    <span title="Please verify your email to unlock these features." class="strike">(<abbr>anonpub</abbr>: <a href="#">channel</a>, <a href="#">rss</a>)</span>
+';
+}else{
+$userinfo.='
+<ul>
+    <li><abbr title="anonpub: anonymous public channel and rss feed is your images stream, you can share publicly, it does not display your userid or username.">anonpub</abbr>:</li>
+        <ul>
+            <li><a href="/chan/'.$_SESSION['idhash'].'">channel</a></li>
+            <li><a href="/rss/'.$_SESSION['idhash'].'">rss</a></li>
+        </ul>
+';
+}
+$userinfo.='<li><a class="logout" href="/smeetv/logout.php">logout</a></li>';
+$userinfo.= '</ul></nav><section>';
+
+
+
+}
+
+
+
+    drawHeader(trim($title),$u,0,'','Picture &sect;'.$id,$userinfo);
     echo "<section id='content' class='grid_24'><section class='wrap'>";
     if($get['flagged']==1) 
         echo '<div class="notification error ontop"><span class="ui-icon exclamation">&nbsp;</span>Beware, this photograph was flagged by our users. For your safety, we have delayed displaying it by 30 seconds.<a href="" class="destroy_notification"><span class="ui-icon close_small">&nbsp;</span></a></div>';
