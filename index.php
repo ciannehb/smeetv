@@ -434,7 +434,7 @@ e.preventDefault();
                         type: 'POST',
                         url: $form.attr('action'),
 
-                        data: {'smeetv_hashtags': $('textarea[name=smeetv_hashtags]',$form).val(),
+                        data: {'smeetv_hashtags': $('input[name=smeetv_hashtags]',$form).val(),
                                'smeetv_hashtags_prev': $('input[name=smeetv_hashtags_prev]',$form).val(),
                                'smeetv_speed': $('input[name=smeetv_speed]:checked',$form).val(),
                                'smeetv_text': $('input[name=smeetv_text]:checked',$form).val(),
