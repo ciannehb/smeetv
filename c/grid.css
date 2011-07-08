@@ -547,12 +547,12 @@ background-position: -64px -224px;
 }
 
 #topnav section.um {
-height: 140px;
+height:30px;
 position: absolute;
 right: .5em;
 top:0;
 margin-top:.35em;
-z-index:1;
+z-index:0;
 padding:.15em 17px .15em 0;
 width:110px;
 }
@@ -561,8 +561,8 @@ width:110px;
 box-shadow: 0 0 10px #ccc;
 -webkit-box-shadow: 0 0 10px #ccc;
 -moz-box-shadow: 0 0 10px #ccc;
-
-
+z-index:10;
+height:140px;
 
 -moz-border-radius:6px;
 -webkit-border-radius:6px;

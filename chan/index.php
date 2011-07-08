@@ -17,7 +17,34 @@
     $query="select * from twits where uid='".$get[0]."' order by id desc limit 0,30";
     $go=mysql_query($query);
 
-    drawHeader('channel '.$id,$u,'','','Anonymous stream &sect;'.$id);
+    if($u==true){
+
+$userinfo='';
+$userinfo.='<section class="um"><nav role="usermenu"><a class="username" href="/u/'.$_SESSION["username"].'"><span class="ui-icon"></span> '.$_SESSION["username"].'</a></nav>';
+$userinfo.='<nav role="usersecondarymenu">';
+if($unverified) {
+$userinfo.='
+    <span title="Please verify your email to unlock these features." class="strike">(<abbr>anonpub</abbr>: <a href="#">channel</a>, <a href="#">rss</a>)</span>
+';
+}else{
+$userinfo.='
+<ul>
+    <li><abbr title="anonpub: anonymous public channel and rss feed is your images stream, you can share publicly, it does not display your userid or username.">anonpub</abbr>:</li>
+        <ul>
+            <li><a href="/chan/'.$_SESSION['idhash'].'">channel</a></li>
+            <li><a href="/rss/'.$_SESSION['idhash'].'">rss</a></li>
+        </ul>
+';
+}
+$userinfo.='<li><a class="logout" href="/smeetv/logout.php">logout</a></li>';
+$userinfo.= '</ul></nav><section>';
+
+
+
+    }
+
+
+    drawHeader('channel '.$id,$u,'','','Anonymous stream &sect;'.$id,$userinfo);
 
 
 
