@@ -151,7 +151,7 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
 					</script>		
 				</section>
 				<br class="clear">
-				<section class="squares ymlw grid_12">
+				<section class="squares ymlw grid_24">
 					<h3>You may also like:</h3>';
 
 preg_match_all('/(\w+)/',$content,$matches);
@@ -182,8 +182,6 @@ if(count($matches_hash[0])>0){ /*hashes found*/
              ';
 */
     $output.='
-				</section>
-				<section class="squares grid_12">
 				</section>
 			</aside>
                         ';
