@@ -87,14 +87,26 @@ $userinfo.= '</ul></nav><section>';
 ?>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-<script src="http://fsdn1.somewhe.com/smeetv/js/smeetv.js/jquery.rotate.js"></script>
-<script src="/js/smeetv.js/smeetv.js"></script>
+<script src="//fsdn1.somewhe.com/smeetv/js/smeetv.js/jquery.rotate.js"></script>
+<script src="//fsdn3.somewhe.com/smeetv/js/jquery.ui.core.js"></script>
+<script src="//fsdn3.somewhe.com/smeetv/js/jquery.ui.widget.js"></script>
+<script src="//fsdn3.somewhe.com/smeetv/js/jquery.ui.mouse.js"></script>
+<script src="//fsdn3.somewhe.com/smeetv/js/jquery.ui.draggable.js"></script>
+<script src="//fsdn3.somewhe.com/smeetv/js/jquery.ui.resizable.js"></script> 
+<script src="//smeetv.com/js/smeetv.js/smeetv.js"></script>
+
+
+
 <script>
     $(document).ready(function(){
         $('.destroy_notification').live('click',function(e){
             $(this).closest('.notification').filter(':first').remove();
             e.preventDefault();
         });
+
+        $( "#mainimg" ).resizable();
+
+
 
 /*
         $('#mainimg.squares.mainimg > article').each(function(){

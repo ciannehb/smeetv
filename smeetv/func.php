@@ -116,7 +116,7 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
     if($squares==1){
     $output.='
 			<aside class="grid_24">
-				<section id="mainimg" class="squares mainimg grid_12" >
+				<section id="mainimg" class=" resizable squares mainimg grid_12" >
                                    <article id="sub-'.alphaID($id).'" rel="'.$link.'" class="hide"><span class="thumbnail"> '.$content.' </span></article>
 				</section>
 				<section class="squares share grid_12">

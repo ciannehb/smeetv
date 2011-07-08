@@ -2,8 +2,12 @@
 .t,
 .squares {
 width:100%!important;
-font-size:2em;
+font-size:2.25em;
 }
 .squares.share {
 clear:both;
+}
+
+.mainimg.squares {
+background-color:#ddd;
 }

@@ -1086,6 +1086,11 @@ display:none;
 color:#999;
 }
 
+
+.squares.mainimg {
+
+}
+
 .squares.mainimg #fullsize {
 max-width:640px;
 }
