@@ -426,12 +426,26 @@ height:12px;
 margin:0 .25em;
 }
 
+
 .ui-icon:hover {
 opacity:.75;
 }
 
 body:not(.tv) #topnav nav .dim {
 display:none;
+}
+
+
+
+.username:hover .ui-icon {
+opacity:.75;
+}
+.username .ui-icon {
+background-color:#fff;
+border-radius:2px;
+-webkit-border-radius:2px;
+-moz-border-radius:2px;
+background-position: -146px -99px;
 }
 
 .ui-icon.dim {

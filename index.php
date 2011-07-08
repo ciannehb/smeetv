@@ -22,7 +22,7 @@ if(strpos($_SESSION['idhash'],'nverified-')==1){
 
 $userinfo='';
 $userinfo.='
-<nav role="usermenu"><a id="rss1231" href="/u/'.$_SESSION["username"].'">'.$_SESSION["username"].'</a>
+<nav role="usermenu"><a class="username" href="/u/'.$_SESSION["username"].'"><span class="ui-icon"></span> '.$_SESSION["username"].'</a>
 ';
 
 if($unverified) {
