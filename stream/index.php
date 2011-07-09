@@ -40,7 +40,7 @@ $userinfo.= '</ul></nav><section>';
     }
 
 
-    drawHeader('Streaming search combination "'.$id.'"',$u,'','','Streaming search combination '.$id,$userinfo);
+    drawHeader('Streaming search combination '.$id.'"',$u,'','','Streaming search combination "'.$id.'"',$userinfo);
 
 
     echo "<section id='content' class='grid_24'><section class='wrap'>";
