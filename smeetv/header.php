@@ -53,10 +53,6 @@
 <a class="login" href="/smeetv/login.php">login</a> 
 
 
-<a class="forgotpassword" href="/smeetv/forgotpassword.php">forgot password</a>
-
-<a class="featuredhashtags" id="featuredhashtags" href="">featured hashtags</a>
-
 
 
 <?}?>

@@ -843,11 +843,14 @@ box-shadow: inset rgba(0, 0, 0, .1) 0 -2px 5px, inset rgba(0, 0, 0, .2) 0 1px 3p
 .o50 {opacity:.5; }
 .o75 {opacity:.75; }
 
-
 #forgotpassword input,
 #signup input,
 #login input {
-width:40% !important;
+width:75% !important;
+}
+
+#login p > label.fleft {
+margin-left:.25em;
 }
 
 #login span.aside {
@@ -1238,14 +1241,14 @@ text-decoration: line-through;
 }
 
 #recent {
-width: 730px;
-margin-left: 100px;
 position: relative;
 height: 160px;
 margin-bottom: 1em;
 overflow: hidden;
 clear:both;
 }
+
+#recent .t {width:75%;}
 
 #recent > article {
 width:auto;
@@ -1263,3 +1266,18 @@ display:none;
     top: 0;
     z-index: 1000;
 }
+
+.passwordstuff {
+margin-left:3em;
+}
+
+.synd.ht h2 {
+margin-left:2.75em;
+}
+
+.synd #featuredhashtags_content {
+position:relative;width:auto;display:block;border:0;top:.25em;margin-left:2em;
+}
+
+
+

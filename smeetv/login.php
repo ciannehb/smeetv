@@ -70,19 +70,36 @@ $(document).ready(function() {
 });
 </script> 
 <section id="content" class="grid_24">
+<section class="l grid_12">
 <form id="login" method="post" action="/smeetv/auth.php" class="">
     <input type="hidden" name="process" value="1">
     <p class="grid_24"><label class="fleft w100" for="username">username:</label> <input type="text" name="username" value="" id="username"></p>
     <p class="grid_24"><label class="fleft w100" for="password">password:</label> <input type="password" name="password" value="" id="password"></p>
-    <p class="grid_24"><label class="fleft w100">&nbsp;</label><input type="submit" value="Login">
+    <p class="grid_24"><label class="fleft w100">&nbsp;</label><input type="submit" value="Login"></p>
 </form>
+</section>
+<section class="grid_12">
+<ul class="passwordstuff">
+<li>Don't have an account yet? <a href="http://smeetv.com/smeetv/signup.php">Proceed to register</a>, it only takes few seconds!</li>
+<li>Cannot remember your password? <a href="http://smeetv.com/smeetv/forgotpassword.php">You can reset it</a>.</li>
+<li><a href="#">What is this?</a></li>
+</ul>
 
-<h2 class="grid_24 recent_photographs" style="margin-left:100px;width:auto;">Recent photographs:</h2>
-<section id="recent" class="grid_24">
+</section>
+<hr class="clear clearfix">
+<section class="synd grid_12">
+<h2 class="grid_24 recent_photographs" >Recent photographs:</h2>
+<section id="recent">
 <?require_once($_SERVER['DOCUMENT_ROOT'].'/etc/util/_landing_content.txt');?>
 </section>
 </section>
-<div id="featuredhashtags_content" style="display:none;"></div>
+
+<section class="synd ht grid_12">
+<h2>Featured keywords:</h2>
+<div id="featuredhashtags_content" style="position:relative;width:auto;display:block;border:0;top:.25em;margin-left:2em;"></div>
+</section>
+
+</section>
 
 
 

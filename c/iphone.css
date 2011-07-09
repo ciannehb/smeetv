@@ -1,3 +1,6 @@
+body {
+font-size:1.25em;
+}
 
 .t,
 .squares {
@@ -7,3 +10,17 @@ font-size:2.25em;
 .squares.share {
 clear:both;
 }
+
+body.login .grid_12 {
+width:100% !important;
+clear:both !important;
+}
+
+.passwordstuff,
+.synd h2,
+.synd #featuredhashtags_content {
+margin-left:0 !important;
+}
+
+
+body.login a.login, body.tv a.tv, body.settings a.settings, body.help a.help, body.register a.register, body.forgotpassword a.forgotpassword, h2.title_in_header{height:42px;}
