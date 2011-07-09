@@ -1,8 +1,10 @@
 <?
     require_once($_SERVER['DOCUMENT_ROOT'].'/smeetv/header.php');
+    require_once($_SERVER['DOCUMENT_ROOT'].'/smeetv/func.php');
     session_start();
 
-    drawHeader('privacy policy',$u);
+    drawHeader('privacy policy',$u,'1','privacypolicy');
+
 
 
 ?>
