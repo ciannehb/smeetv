@@ -22,7 +22,7 @@ echo "<section id='content' class='grid_24'><section class='wrap'>";
 <p><a href="/smeetv/signup.php">Sign up</a> for a smeetv account and you will be able to input your own <a href="http://en.wikipedia.org/wiki/Tag_(metadata)#Hashtags">hashtags</a>, <a href="http://en.wikipedia.org/wiki/Keyword_(linguistics)">keywords</a>, or complex phrases. Then, sit back and wait. Sometimes, within seconds, our crawler will be delivering photographs to you.</p>
 
 <h3>What else?</h3>
-<p>With smeetv account, even after you log off, our crawler monitors your search criteria 24/7. You can even graab <a href="http://en.wikipedia.org/wiki/RSS">rss feed</a> and monitor these photographs in your favorite rss reader. Through your "remote control" interface you'll be able to find more ways to explore.</p>
+<p>With smeetv account, even after you log off, our crawler monitors your search criteria 24/7. You can even grab <a href="http://en.wikipedia.org/wiki/RSS">rss feed</a> and monitor these photographs in your favorite rss reader. Through your "remote control" interface you'll be able to find more ways to explore.</p>
 
 
 

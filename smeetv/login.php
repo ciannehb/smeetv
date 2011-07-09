@@ -15,6 +15,19 @@ drawHeader('remote control',$u,'1','login');
 $_POST['username']=advancedClean(3,$_POST['username']);
 $_POST['password']=advancedClean(3,$_POST['password']);
 $_POST['process']=advancedClean(3,$_POST['process']);
+$_GET['login']=advancedClean(3,$_GET['login']);
+
+if($_GET['login']==0) {
+echo '
+
+<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>
+We could not log you in. You can <a href="/smeetv/signup.php">sign up</a> or <a href="/smeetv/forgotpassword.php">reset your password</a>.
+<a href="" class="destroy_notification"><span class="ui-icon close_small">&nbsp;</span></a></div>
+
+';
+}
+
+
 
 
 /*
