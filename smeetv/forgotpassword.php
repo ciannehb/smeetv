@@ -19,7 +19,6 @@ $_POST['process']=advancedClean(3,$_POST['process']);
 $_GET['q']=advancedClean(3,$_GET['q']);
 
 
-require_once('header.php');
 
 echo "<section class='grid_24' id='content'>";
 

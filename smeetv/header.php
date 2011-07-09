@@ -48,10 +48,9 @@
 ?>
 
 <a class="register" href="/smeetv/signup.php">register</a>
-
-
 <a class="login" href="/smeetv/login.php">login</a> 
 
+<a class="whatisthis" href="/smeetv/whatisthis.php">what is this?</a> 
 
 
 
