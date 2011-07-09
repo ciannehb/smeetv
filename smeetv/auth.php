@@ -36,7 +36,7 @@ if(isUserLoggedIn()==1){
     header("Location:/");
     return;
 } else {
-    header("Location:/smeetv/login.php?login=0");
+    header("Location:/smeetv/login.php?loggedin=false");
 }
 
 

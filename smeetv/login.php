@@ -17,7 +17,7 @@ $_POST['password']=advancedClean(3,$_POST['password']);
 $_POST['process']=advancedClean(3,$_POST['process']);
 $_GET['login']=advancedClean(3,$_GET['login']);
 
-if($_GET['login']==0) {
+if($_GET['loggedin']) {
 echo '
 
 <div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>
