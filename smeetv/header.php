@@ -6,8 +6,8 @@
 
 <?
 $title=removeUrlFromString($title);
-if(strlen($title)>100){
-$title=smartsubstr($title,100,'...');
+if(strlen($title)>90){
+$title=smartsubstr($title,90,'...');
 }
 ?>
 
