@@ -39,6 +39,14 @@ function validate_email($v_email) {
    }
 }
 
+
+function smartsubstr($string, $length, $replacer = '...') { 
+  if(strlen($string) > $length) 
+  return (preg_match('/^(.*)\W.*$/', substr($string, 0, $length+1), $matches) ? $matches[1] : substr($string, 0, $length)) . $replacer; 
+  
+  return $string; 
+} 
+
 function removeUrlFromString($string){
 $string = preg_replace('/\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|$!:,.;]*[A-Z0-9+&@#\/%=~_|$]/i', '', $string);
 return $string;
