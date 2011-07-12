@@ -86,8 +86,6 @@ return;
 
 
 
-
-
   
 echo "<section class='stream'>";
 for($i=0;$i<mysql_num_rows($go);$i++){
