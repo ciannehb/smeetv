@@ -54,13 +54,15 @@ return $string;
 
 
 
-
+function extractUserFromTweetLink($link) {
+$twusr=explode("/",$link);
+return $twusr[3];
+}
 
 function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_override=0,$hash_override=0,$thumbnail=0) {
 
 
-
-    $twusr=explode("/",$link);
+    $twusr=extractUserFromTweetLink($link);
     $orig_date=strtotime($date);
     $output='';
 
@@ -81,8 +83,8 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
 
     if($link_override==1) $output.='<a rel="smeetv" href="http://smeetv.com/img/'.alphaID($id).'">';
 
-    if($link_override==0) $output.='<a href="'.$link.'">posted by '.$twusr[3].'</a>';
-    else $output.='posted by '.$twusr[3];
+    if($link_override==0) $output.='<a href="'.$link.'">posted by '.$twusr.'</a>';
+    else $output.='posted by '.$twusr;
 
     $output.='<span class="s"> </span><time class="posted" id="posted-'.$id.'" datetime="'. date('Y-m-d, H:i', $orig_date).'">'.
                                             nicetime($orig_date)
@@ -145,7 +147,7 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
 <a class="addthis_counter addthis_bubble_style"></a>
 </div>
 <script type="text/javascript">var addthis_config = {"data_track_clickback":true};
-var addthis_share = {templates: { twitter: "{{title}} {{url}}"}};
+var addthis_share = {templates: { twitter: "{{title}} {{url}} /via @'.$twusr.'"}};
 </script>
 <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4dbc63166fcdf6f9"></script>
 <!-- AddThis Button END -->

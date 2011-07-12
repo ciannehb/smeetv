@@ -76,8 +76,6 @@ $userinfo.= '</ul></nav><section>';
 
 }
 
-
-
     drawHeader(trim($title),$u,0,'','Picture &sect;'.$id,$userinfo);
     echo "<section id='content' class='grid_24'><section class='wrap'>";
     if($get['flagged']==1) 
