@@ -44,7 +44,7 @@ $userinfo.= '</ul></nav><section>';
     }
 
 
-    drawHeader('channel '.$id,$u,'','','Anonymous stream &sect;'.$id,$userinfo);
+    drawHeader('channel '.$id,$u,'','','Anonymous stream &sect;'.$id.' <a href="http://smeetv.com/rss/'.$id.'" class="ui-icon rss">rss</a>',$userinfo);
 
 
 

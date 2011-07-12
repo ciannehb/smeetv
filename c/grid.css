@@ -424,6 +424,8 @@ display:inline-block;
 width:12px;
 height:12px;
 margin:0 .25em;
+text-indent:-9999px;
+overflow:hidden;
 }
 
 
@@ -435,7 +437,9 @@ body:not(.tv) #topnav nav .dim {
 display:none;
 }
 
-
+.ui-icon.rss{
+background-position:-18px -178px;
+}
 
 .username:hover .ui-icon {
 opacity:.75;
