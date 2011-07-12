@@ -1,6 +1,5 @@
 <?
 
-
 function connect2db() {
     $connection_smeetv=mysql_connect("localhost","root","");
     mysql_select_db("smeetv");

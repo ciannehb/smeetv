@@ -126,6 +126,33 @@ echo "</section>";
 
     });
 </script>
+
+
+
+<section class="share">
+                                        <div style="clear:both">
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<a class="addthis_button_twitter"></a>
+<!--<a class="addthis_button_facebook"></a>-->
+<a class="addthis_button_email"></a>
+
+<a class="addthis_button_compact"></a>
+<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_clickback":true};
+//var addthis_share = {templates: { twitter: "{{title}} {{url}} /via @'.$twusr.'"}};
+</script>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4dbc63166fcdf6f9"></script>
+<!-- AddThis Button END -->
+<iframe src="https://www.facebook.com/plugins/like.php?&href=http://smeetv.com'.$_SERVER['REQUEST_URI'].'"
+        scrolling="no" frameborder="0"
+        style="border:none; width:450px; height:80px"></iframe>
+
+                                        </div>
+</section>
+
+
 </section></section>
 <?
 disconnectFromDb($smeetvdb);
