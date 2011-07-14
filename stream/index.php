@@ -50,7 +50,7 @@ $userinfo.= '</ul></nav><section>';
     $query="select id from keywords where keyword=LOWER('".$id."')";
     $go=mysql_query($query);
     if(mysql_num_rows($go)==0 && !$u==true) {
-        echo "<i>Due to server load, \"".$id."\" is restricted at the moment, <a href=\"https://twitter.com/#!/search/%23".$id."\">please check it directly on twitter for now</a></i>";
+        echo "<i>Due to server load, \"".$id."\" is restricted at the moment, <a href=\"https://twitter.com/#!/search/%23".$id."\">please check it directly on twitter for now</a>.</i>";
         return;
     }
 
