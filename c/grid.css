@@ -1104,6 +1104,21 @@ background-color:#ddd;
 max-width:640px;
 }
 
+.squares .thumbnail .avatar {
+height:auto !important;
+width:auto !important;
+position:absolute;
+top: 1.5em;
+left: 1.5em;
+opacity:.75;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+-webkit-box-shadow: 1px 1px 7px #777;
+-moz-box-shadow: 1px 1px 7px #777;
+box-shadow: 1px 1px 7px #777;
+}
+
 .squares {
 position:relative;
 }
@@ -1200,7 +1215,7 @@ overflow:hidden;
 
 }
 
-#mainimg > article > span > img {
+#mainimg > article > span > img:not(.avatar) {
 width:100% !important;
 height:auto;
 }
