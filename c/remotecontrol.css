@@ -11,7 +11,6 @@ position:relative;
 position:absolute;
 top:.5em;
 left:.5em;
-font-size:.5em;
 }
 
 #tv #content .description {
@@ -22,8 +21,6 @@ position:absolute;
 z-index:12;
 color:#000;
 font-weight:bold;
-font-size:1em;
-
 padding:0.75em 0.5em 0.5em 0.5em;
 background:rgba(255,255,255,.35);
 
@@ -51,8 +48,8 @@ z-index:0;
 }
 
 #tv #content .description a{
-            color:#000;
-            text-decoration:none;
+color:#000;
+text-decoration:none;
 }
 
 #tv #content article{
@@ -73,22 +70,18 @@ text-decoration:none;
 display:inline-block;
 text-align:center;
 line-height:1.75em;
-font-size:.75em;
 }
 
-
-
-
-        .fadein { position:relative; height:332px; width:500px; }
-        .fadein img { position:absolute; left:0; top:0; }
-        .slideshow { height: 232px; width: 232px; margin: auto }
-        .slideshow img { padding: 15px; border: 1px solid #ccc; background-color: #eee; }
-        .wraptv {
-            margin: 2em 0 0 1em;
-            position:relative;
-            z-index:10;
-            width:1px;
-        }
+.fadein { position:relative; height:332px; width:500px; }
+.fadein img { position:absolute; left:0; top:0; }
+.slideshow { height: 232px; width: 232px; margin: auto }
+.slideshow img { padding: 15px; border: 1px solid #ccc; background-color: #eee; }
+.wraptv {
+margin: 2em 0 0 1em;
+position:relative;
+z-index:10;
+width:1px;
+}
 
 #tv .gradientt {
 position:absolute;
@@ -99,23 +92,16 @@ background-image: -moz-linear-gradient(100% 100% 90deg,rgba(0,0,0,.05), rgba(255
 z-index:10;
 }
 
-
-
-
 #controller {
 display:inline-block;
 padding:.5em 0;
 font-size:.8em;
-
 border-bottom: 1px solid #ddd;
-
 background: rgb(239,239,239);
 background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(255,255,255)), to(rgb(239,239,239)));
 background-image: -moz-linear-gradient(100% 100% 90deg,rgb(239,239,239), rgb(255,255,255) 100%);
 background-image: -o-linear-gradient(top, rgb(255,255,255), rgb(239,239,239)  100%);
-
 top:-19px;
-
 width:100%;
 }
 
@@ -123,13 +109,9 @@ width:100%;
 top:2px;
 }
 
-
 #controller .littlenav {
 display:none;
 }
-
-
-
 
 #controller #tabs-1,
 #controller #tabs-2,
@@ -159,153 +141,93 @@ padding: 0 .25em;
 -moz-border-radius:3px;
 -webkit-border-radius:3px;
 border-radius:3px;
-
 background: rgb(239,239,239);
 background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(255,255,255)), to(rgb(227,227,227)));
 background-image: -moz-linear-gradient(100% 100% 90deg,rgb(227,227,227), rgb(255,255,255) 100%);
 background-image: -o-linear-gradient(top, rgb(255,255,255), rgb(227,227,227)  100%);
-
-
 }
 
-
-
-
-
-.tv_frame.l {
-    height: 550px;
-    width: 700px;
-}
-
-
-
-.tv_frame.m {
-    height: 450px;
-    width: 600px;
-}
-
-
-.tv_frame.s {
-    height: 370px;
-    width: 480px;
-}
-
-
-        .tv_frame {
-    height: 450px;
-    width: 600px;
-
+.tv_frame {
+height: 450px;
+width: 600px;
 min-width:340px;
 min-height:260px;
-    overflow:hidden;
+overflow:hidden;
 -moz-border-radius: .25em;
 -webkit-border-radius: .25em;
 border-radius: .25em;
-/*
- * background: rgba(207,207,207,.9);
- * */
 background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(245,245,245,.9)), to(rgba(199,199,199,.9)));
 background-image: -moz-linear-gradient(100% 100% 90deg,rgba(199,199,199,.9), rgba(245,245,245,.9) 100%);
-
 border-top:3px solid #eee;
 border-left:3px solid #eee;
 border-bottom:3px solid #bbb;
 border-right:3px solid #ccc;
-
-    box-shadow: rgb(185,185,185) 0 1px 15px;
-    -moz-box-shadow: rgb(185,185,185) 0 1px 15px;
-    -webkit-box-shadow: rgb(185,185,185) 0 1px 15px;
-
-    padding:1em;
-        }
+box-shadow: rgb(185,185,185) 0 1px 15px;
+-moz-box-shadow: rgb(185,185,185) 0 1px 15px;
+-webkit-box-shadow: rgb(185,185,185) 0 1px 15px;
+padding:1em;
+}
 
 #tv #content {
 width:100%;
 z-index:9;
 }
 
-        #tv {
-
-
+#tv {
 background: #222;
 background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(225,225,225)), to(rgb(215,215,215)));
 background-image: -moz-linear-gradient(100% 100% 90deg,rgb(215,215,215), rgb(225,225,225) 100%);
-
-
-
 -moz-border-radius: .25em;
 -webkit-border-radius: .25em;
 border-radius: .25em;
-
-
 width:auto;
 height:96%;
-
-
-
 border-bottom:3px solid #ddd;
 border-right:3px solid #eee;
 border-top:3px solid #bbb;
 border-left:3px solid #ccc;
-
 overflow:hidden;
-
-
-        }
-
-
+}
 
 #tv #content article img {width:100%;height:auto;}
 
-
-        div#content.notext article span.description {
-            display:none;
-        }
-        form label {display:block;line-height:2em;
+div#content.notext article span.description {
+display:none;
 }
 
-
+form label {display:block;line-height:2em;
+}
 
 #controller .littlenav li:hover {
 background:#000;
-    box-shadow: rgb(105,105,105) 0 1px 15px;
-    -moz-box-shadow: rgb(105,105,105) 0 1px 15px;
-    -webkit-box-shadow: rgb(105,105,105) 0 1px 15px;
-
+box-shadow: rgb(105,105,105) 0 1px 15px;
+-moz-box-shadow: rgb(105,105,105) 0 1px 15px;
+-webkit-box-shadow: rgb(105,105,105) 0 1px 15px;
 background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#222), to(#000));
 background-image: -moz-linear-gradient(100% 100% 90deg,#000, #222 100%);
 z-index:10000;
-
 }
 
 #controller .littlenav li {
-    clear: both;
-    display: block;
-    height: 10px;
-    line-height: 3px;
-    margin: 0 0 1px 0;
-    padding: 0;
-    width: 14px;
-
+clear: both;
+display: block;
+height: 10px;
+line-height: 3px;
+margin: 0 0 1px 0;
+padding: 0;
+width: 14px;
 -moz-border-radius:4px 0 0 4px;
 -webkit-border-radius:4px 0 0 4px;
 border-radius:4px 0 0 4px;
-
-
-
-
-
-
-
 }
 
 #controller .littlenav li a {
-   height: 10px;
-    line-height: 10px;
-    margin: 0;
-    padding: 0;
-    text-indent: 6px;
-    width: 12px;
+height: 10px;
+line-height: 10px;
+margin: 0;
+padding: 0;
+text-indent: 6px;
+width: 12px;
 }
 
 #controller #tabs-1,
@@ -315,7 +237,6 @@ border-radius:4px 0 0 4px;
 padding:0 0 0 1.15em !important;
 }
 
-
 .littlenav.ui-tabs-nav li.ui-state-default {
 background:#999;
 color:#fff;
@@ -323,14 +244,11 @@ color:#fff;
 
 
 .littlenav.ui-tabs-nav li.ui-state-active {
-    left: -4px;
-    padding-right: 4px !important;
-bacgground:#222;
-
+left: -4px;
+padding-right: 4px !important;
 background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#888), to(#444));
 background-image: -moz-linear-gradient(100% 100% 90deg,#444, #888 100%);
 color:#fff;
-
 }
 
 #controller .attn{
@@ -355,9 +273,9 @@ margin-top:10px;
 }
 
 .yakor {
-    bottom: 1px;
-    position: absolute;
-    right: 1px;
-    z-index: 11111;
+bottom: 1px;
+position: absolute;
+right: 1px;
+z-index: 11111;
 }
 
