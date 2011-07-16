@@ -111,6 +111,8 @@ function imagify_crawlurl(e){
         var noxpath = '#laimagen';
     } else if(e.search('min.us') > 0) {
         var noxpath = 'img';
+    } else if(e.search('tinypic.com') > 0) {
+        var noxpath = '#imgElement';
     }
 
 //alert(noxpath);
@@ -220,6 +222,11 @@ function imagify_get_noxpath(shorturl){
 
                if(shorturl.search('iimmgg.com') > 0){
                        var noxpath = '#laimagen';
+               }
+
+
+               if(shorturl.search('tinypic.com') > 0){
+                       var noxpath = '#imgElement';
                }
 
                if(shorturl.search('i.min.us') > 0){
@@ -372,6 +379,9 @@ function imagify_detect_pic(a) {
                        var token = 'http://i.min.us';
                }
 
+               else if(a.search('tinypic.com') > 0){
+                       var token = 'http://tinypic.com';
+               }
 
 
 
