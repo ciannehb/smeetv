@@ -18,6 +18,7 @@
 $userinfo='';
 $userinfo.='<section class="um"><nav role="usermenu"><a class="username" href="/u/'.$_SESSION["username"].'"><span class="ui-icon"></span> '.$_SESSION["username"].'</a></nav>';
 $userinfo.='<nav role="usersecondarymenu">';
+
 if($unverified) {
 $userinfo.='
     <span title="Please verify your email to unlock these features." class="strike">(<abbr>anonpub</abbr>: <a href="#">channel</a>, <a href="#">rss</a>)</span>
@@ -55,8 +56,20 @@ $userinfo.= '</ul></nav><section>';
     }
 
 
+#example requests 
+/*
+http://smeetv.com/stream/_hh_shuttle
+http://smeetv.com/stream/@zeldman
+http://smeetv.com/stream/shuttle
+
+
+*/
+
 $atkey=strpos('~'.$id,"@")+1;
 $hashkey=strpos('-'.$id,"#")+1;
+
+
+
 if($atkey==2){
     $strict=1;
 } elseif($hashkey==2) {
@@ -64,18 +77,25 @@ if($atkey==2){
 }
 
 
+if($strict==1) {
+    $query="select * from twits_dump where content regexp '$id' order by id limit 0,30";
+} else {
+    $query="select * from twits_dump where content regexp '[[:<:]]".$id."[[:>:]]' order by id limit 0,30";
+}
+//echo $query;
 
 
+
+/*
     $query="select * from twits_dump where content REGEXP '";
         $query.="$".$id."$";
-/*
         $query.="|";
         $query.="$".$id;
         $query.="|";
         $query.=$id;
         $query.=" ";
-*/
     $query.="' order by id desc limit 0,30";
+*/
 
 /*
 echo $query;
