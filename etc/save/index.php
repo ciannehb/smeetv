@@ -12,8 +12,8 @@ $_POST['password']=advancedClean(3,$_POST['password']);
 $_POST['ad']=advancedClean(3,$_POST['ad']);
 $_POST['op']=advancedClean(3,$_POST['op']);
 
-$_POST['smeetv_hashtags']=advancedClean(3,$_POST['smeetv_hashtags']);
-$_POST['smeetv_hashtags_prev']=advancedClean(3,$_POST['smeetv_hashtags_prev']);
+$_POST['smeetv_hashtags']=strtolower(advancedClean(3,$_POST['smeetv_hashtags']));
+$_POST['smeetv_hashtags_prev']=strtolower(advancedClean(3,$_POST['smeetv_hashtags_prev']));
 $_POST['smeetv_speed']=advancedClean(3,$_POST['smeetv_speed']);
 $_POST['smeetv_size']=advancedClean(3,$_POST['smeetv_size']);
 $_POST['smeetv_text']=advancedClean(3,$_POST['smeetv_text']);
@@ -93,11 +93,14 @@ if($_POST['section']=="settings"){
         $split_keywords=explode(',',$_POST['smeetv_hashtags']);
         for($i=0;$i<count($split_keywords);$i++){
 
+
             $subquery="select uids from keywords where keyword='".trim($split_keywords[$i])."' limit 0,1";
             $subgo=mysql_query($subquery);
             $subget=mysql_fetch_array($subgo);
 
             $splitsubget=split(',',$subget[0]);
+
+
             if(!array_search($_SESSION['id'],$splitsubget)){
                 if(mysql_num_rows(mysql_query("select id from keywords where keyword='".trim($split_keywords[$i])."'"))==0){  // no suck keyword found, add it
                     mysql_query("insert into keywords (keyword,uids,counter) values ('".$split_keywords[$i]."','".$subget[0].", ".$_SESSION['id']."',1)");
