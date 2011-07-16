@@ -754,6 +754,8 @@ function exif_lookup(id){
 
 
     </script>
+    <link type="text/css" rel="stylesheet" id="light" media="all" href="//fsdn1.somewhe.com/smeetv/c/remotecontrol.css" >
+
 
 
 
@@ -838,7 +840,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </div>
 
     <div id="transport"><!--transport--></div>
-     <div id="log"></div>
+     <div id="log" class="hide"></div>
 
 <style>
 
