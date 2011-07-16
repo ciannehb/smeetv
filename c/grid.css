@@ -21,14 +21,14 @@
 ::selection {background:#111;color:#FFF;}
 
 h1,h2,h3,h4,h5 {
-    margin:1em 0 .25em;
-    text-transform: uppercase;
-    color: #444444;
-    letter-spacing: -2px;
-    line-height: 0.75em;
-    text-align: left;
-    text-decoration: none;
-    white-space: nowrap;
+margin:1em 0 .25em;
+text-transform: uppercase;
+color: #444444;
+letter-spacing: -2px;
+line-height: 0.75em;
+text-align: left;
+text-decoration: none;
+white-space: nowrap;
 }
 
 cite,abbr{
@@ -267,7 +267,6 @@ background-color:rgba(255,255,255,.9);
 
 section.um nav[role=usersecondarymenu] {
 display:none;
-
 padding:0 1.25em 0 .4em;
 position: absolute !important;
 width: auto;
@@ -308,7 +307,6 @@ font-size: .75em;
 #topnav {
 color: #ccc;
 padding-top:.35em;
-font-size: 0.75em;
 text-transform: uppercase;
 position:relative;
 font-size: 120%;
@@ -504,7 +502,6 @@ position:absolute;
 right:.5em;
 top:40px;
 width:190px;
-font-size:150%;
 letter-spacing: -2px;
 line-height: 0.75em;
 text-transform: uppercase;
