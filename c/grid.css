@@ -1104,7 +1104,14 @@ background-color:#ddd;
 max-width:640px;
 }
 
-.squares .thumbnail .avatar {
+.channel .thumbnail,
+.stream .thumbnail,
+.squares .thumbnail {
+display:block;
+position:relative;
+}
+
+.thumbnail .avatar {
 height:auto !important;
 width:auto !important;
 position:absolute;
