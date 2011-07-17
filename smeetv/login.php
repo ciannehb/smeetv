@@ -56,6 +56,11 @@ if($_POST['process']==1 && $_POST['username'] && $_POST['password']){
 <script type="text/javascript" src="http://fsdn2.somewhe.com/smeetv/js/jquery.cycle.all.2.72.js"></script>
 <script type="text/javascript"> 
 $(document).ready(function() {
+
+    $('#recent article .t').click(function(){
+        window.open($(this).find('a').attr('href'));
+        return false;
+    });
     $('#featuredhashtags_content').load('/etc/featuredhashtags/');
     $('#featuredhashtags').live('click',function(e){
             $('#featuredhashtags_content').toggle();

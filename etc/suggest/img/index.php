@@ -20,10 +20,19 @@ $gh=mysql_fetch_array($qh);
 
 
 echo "
-<html><head><style>body {margin:0;padding:0;}html{overflow:hidden;}article {position:relative;overflow:hidden;height:110px;}img {width:100%;cursor:pointer;-moz-border-radius: 10px;-webkit-border-radius: 10px;-o-border-radius: 10px;background-color: rgb(229,229,229);}.description a{display:inline-block;position:absolute;top:.25em;left:.25em;text-decoration:none;color:rgba(255,255,255,.1);letter-spacing: -1px;line-height: 0.75em;margin: 0;text-align: left;text-decoration: none;text-transform: uppercase;font-family:Helvetica, Verdana;}article:hover .description a {color:rgba(0,0,0,.9);}article:hover img {opacity:.45;}</style></head><body>
+<html><head><style>
+body {margin:0;padding:0;}
+html{overflow:hidden;}
+article {position:relative;overflow:hidden;height:110px;}
+img {width:100%;cursor:pointer;-moz-border-radius: 10px;-webkit-border-radius: 10px;-o-border-radius: 10px;background-color: rgb(229,229,229);}
+.description a{display:inline-block;position:absolute;top:.25em;left:.25em;text-decoration:none;color:rgba(255,255,255,.1);letter-spacing: -1px;line-height: 0.75em;margin: 0;text-align: left;text-decoration: none;text-transform: uppercase;font-family:Helvetica, Verdana;}
+article:hover .description a {color:rgba(0,0,0,.9);}
+article:hover img {opacity:.45;}
+</style></head><body>
 <section>
 <article onclick=\"top.window.location.href='/img/".alphaID($gh['id'])."'\" id=\"".alphaID($gh['id'])."\" rel=\"".$gh['link']."\">
 <span class='thumbnail'> ".$gh['content']." </span></article>
+<span class=\"description\"><a href=\"http://smeetv.com/img/".alphaID($gh['id'])."\">".$gh['content']."</a></span>
 </section>
 ";
 
