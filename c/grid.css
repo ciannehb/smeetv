@@ -20,6 +20,7 @@
 
 ::selection {background:#111;color:#FFF;}
 
+.thumbnail cite,
 h1,h2,h3,h4,h5 {
 margin:1em 0 .25em;
 text-transform: uppercase;
@@ -570,6 +571,24 @@ max-width:640px;
 display:block;
 position:relative;
 overflow:hidden;
+}
+
+#recent .thumbnail cite,
+.channel .thumbnail cite,
+.stream .thumbnail cite,
+{
+display:none;
+}
+
+
+.thumbnail cite {
+bottom: 0.5em;
+cursor: auto;
+position: absolute;
+right: 0.5em;
+z-index: 2;
+border:0;
+color:rgba(255,255,255,.25);
 }
 
 .thumbnail .avatar {

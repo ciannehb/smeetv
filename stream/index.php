@@ -124,8 +124,8 @@ echo "</section>";
     $(document).ready(function(){
 
         $('article.twit').live('click',function(){
-            var goto=$(this).find('a[rel=smeetv]').attr('href');
-            window.location = goto;
+            window.location = $(this).find('a[rel=smeetv]').attr('href');
+            return false;
         });
 
 

@@ -36,6 +36,7 @@ if(noxpath===null) {
 
                    $('#'+id+ ' .thumbnail').load('/etc/util/xdom?' + shorturl + ' ' + noxpath,function(response,status,xhr){
 
+
                        //$(this).append('<span class="description"><a href="'+shorturl+'">'+a+'</a></span>');
 
 
@@ -43,6 +44,9 @@ if(noxpath===null) {
                        if(noxpath===false) { // added this for handling t.co links
                           crawled_img_path=$(response).find(imagify_crawlurl(response)).attr('src');
 
+                           var cite = crawled_img_path.replace('http://',' ');
+                           var cite = cite.slice(0,cite.indexOf('/'));
+                           $(this).append('<cite>hosted on: ' + cite + '</cite>');
 
                            if(!crawled_img_path) { /// most likely it's just direct link to the image
                                crawled_img_path=shorturl;
@@ -52,6 +56,10 @@ if(noxpath===null) {
                            $(this).find('img').attr({'src':crawled_img_path,'alt':a});
                            $('.picctrl').show();
                        } else {
+                           var cite = shorturl.replace('http://',' ');
+                           var cite = cite.slice(0,cite.indexOf('/'));
+                           $(this).append('<cite>hosted on: ' + cite + '</cite>');
+
                            var timg=$(this).find('img');
                            $(timg).attr('alt',a);
                            if(!$(this).find('img').attr('src')){
