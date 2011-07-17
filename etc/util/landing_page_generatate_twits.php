@@ -11,7 +11,8 @@ for($i=0;$i<mysql_num_rows($go);$i++){
     //echo $get[0]."<br><hr>";
 
 
-    $output.=displayTwit($get['id'],$get['content'],$get['link'],$get['date'],$get['timestamp'],0,1);
+
+    $output.=displayTwit($get['id'],$get['content'],$get['link'],$get['date'],$get['timestamp'],0,1,0,1);
 
 }
 
