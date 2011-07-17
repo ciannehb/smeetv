@@ -715,13 +715,13 @@ text-decoration: line-through;
 
 #recent {
 position: relative;
-height: 160px;
+height: 200px;
 margin-bottom: 1em;
 overflow: hidden;
 clear:both;
 }
 
-#recent .t {width:75%;}
+#recent .t {width:100%;}
 
 #recent > article {
 width:auto;
@@ -731,6 +731,37 @@ margin:1em;
 #recent article footer .s,
 #recent time.posted {
 display:none;
+}
+
+#recent .thumbnail img {
+height:100px;
+width:auto;
+}
+
+#recent article footer a[rel=smeetv],
+#recent .thumbnail .avatar {
+display:none;
+}
+
+#recent .twit footer {
+color:transparent;
+}
+
+#recent article {
+width:auto !important;
+}
+
+#recent article p {
+position:absolute;
+bottom: 1.25em;
+left: .25em;
+font-size:.75em;
+z-index:1;
+
+}
+
+#recent article footer {
+float:left;
 }
 
 .picctrl {

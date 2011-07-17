@@ -62,7 +62,7 @@ $(document).ready(function() {
             e.preventDefault();
     });
     $('#recent').cycle({
-		fx: 'fadeZoom',
+		fx: 'uncover',
                 timeout: 7500,
 	});
 
