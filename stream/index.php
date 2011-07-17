@@ -123,8 +123,8 @@ echo "</section>";
 <script>
     $(document).ready(function(){
 
-        $('article.twit').live('click',function(){
-            window.location = $(this).find('a[rel=smeetv]').attr('href');
+        $('article.twit .thumbnail img').live('click',function(){
+            window.location = $(this).closest('.thumbnail').prev('a[rel=smeetv]').attr('href');
             return false;
         });
 

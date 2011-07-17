@@ -80,10 +80,12 @@ echo "</section>";
 <script>
     $(document).ready(function(){
 
-        $('article.twit').live('click',function(){
-            var goto=$(this).find('a[rel=smeetv]').attr('href');
-            window.location = goto;
+        $('article.twit .thumbnail img').live('click',function(){
+            window.location = $(this).closest('.thumbnail').prev('a[rel=smeetv]').attr('href');
+            return false;
         });
+
+
 
         $('.destroy_notification').live('click',function(e){
             $(this).closest('.notification').filter(':first').remove();
