@@ -106,15 +106,6 @@ $userinfo.= '</ul></nav><section>';
 
 
 
-/*
-        $('#mainimg.squares.mainimg > article').each(function(){
-           var content=$(this).html();
-           <?if($get['flagged']==1){?>setTimeout(function(){<?}?>
-           e=imagify(content,'#mainimg.squares.mainimg > article');
-           <?if($get['flagged']==1){?>},30000);<?}?>
-        });
-*/
-
 
 
            // imagify
@@ -123,7 +114,15 @@ $userinfo.= '</ul></nav><section>';
                    thisid=$(this).attr('id');
 
 
-               imagify(content,thisid);
+
+    //if($get['flagged']==1) 
+
+           <?if($get['flagged']==1){?>setTimeout(function(){<?}?>
+           e=imagify(content,thisid);
+           <?if($get['flagged']==1){?>},30000);<?}?>
+
+
+               //imagify(content,thisid);
            });
 
 
