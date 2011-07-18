@@ -8,6 +8,7 @@ $feed[]='http://search.twitter.com/search.rss?lang=en&q=photobucket.com%20OR%20i
 $feed[]='http://search.twitter.com/search.rss?lang=en&q=deviantart.com%20OR%20photozou.jp%20OR%20min.us%20OR%20iimmgg.com/image';
 $feed[]='http://search.twitter.com/search.rss?lang=en&q=min.us%20OR%20iimmgg.com/image';
 
+$feed[]='http://search.twitter.com/search.rss?lang=en&q=.png%20OR%20.gif%20OR%20.jpg%20OR%20.jpeg';
 
 $doc->load($feed[$_GET['priority']]);
 
