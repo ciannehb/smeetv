@@ -4,8 +4,14 @@
 function imagify(a,id){
 
 
-               var token = imagify_detect_pic(a),
-                   shorturl = imagify_get_shorturl(a,token),
+               var token = imagify_detect_pic(a);
+
+               // if image is not imagify'able, do not proceed
+               if(token===undefined){
+                   return false;
+               }
+  
+               var shorturl = imagify_get_shorturl(a,token),
                    noxpath = imagify_get_noxpath(shorturl);
 
 /*
