@@ -48,7 +48,10 @@ if(noxpath===null) {
 
 
                        if(noxpath===false) { // added this for handling t.co links
-                          crawled_img_path=$(response).find(imagify_crawlurl(response)).attr('src');
+                           crawled_img_path=$(response).find(imagify_crawlurl(response)).attr('src');
+                           if(crawled_img_path===undefined) {
+                               return false;
+                           }
 
                            var cite = crawled_img_path.replace('http://',' ');
                            var cite = cite.slice(0,cite.indexOf('/'));
