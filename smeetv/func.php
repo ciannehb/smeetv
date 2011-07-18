@@ -63,6 +63,10 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
 
     $twusr=extractUserFromTweetLink($link);
     $orig_date=strtotime($date);
+
+    $timediff=$timestamp-$orig_date;
+
+
     $output='';
 
 
@@ -89,12 +93,14 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
                                             nicetime($orig_date)
                                         .'</time>';
 
-
-    $output.=',
+    if($timediff>900){
+        $output.=',
 					discovered
                                         <time class="discovered" id="discovered-'.$id.'" datetime="'. date('Y-m-d, H:i', $timestamp).'">'.
                                             nicetime($timestamp)
                                         .'</time>';
+    }
+
     if($link_override==0) $output.=', <a onclick="return confirm(\'Are you sure you want to flag this photo? It will remove it from your TV and mark it as unsafe for others.\')" href="/img/report/'.alphaID($id).'">report this image</a>';
     if($link_override==1) $output.='</a>';
 
