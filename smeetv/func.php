@@ -284,7 +284,7 @@ function f1init_makeClickableLinks($text)
         '<a type="convertedemail" href="mailto:\\1">\\1</a>', $text);
         $text = eregi_replace(' #([0-9a-z][0-9a-z-]+)',
         '<a type="hashtag" href="http://twitter.com/#search?q=\\1"> <em>#</em>\\1</a>', $text);
-        $text = eregi_replace('@([0-9a-z][0-9a-z-]+)',
+        $text = eregi_replace('@([0-9a-z][0-9a-z_]+)',
         '<a type="twitteruser" href="http://twitter.com/\\1"><em>@</em>\\1</a>', $text);
 
         return $text;
