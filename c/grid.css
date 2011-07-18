@@ -752,6 +752,11 @@ margin:1em;
 display:none;
 }
 
+.stream .thumbnail img,
+.channel .thumbnail img {
+width:100%;
+}
+
 #recent .thumbnail img {
 height:100px;
 width:auto;

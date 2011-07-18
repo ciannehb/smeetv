@@ -83,6 +83,7 @@ if(noxpath===null) {
                                        $('.imgloadfailure span.alt.opt .counter').html(numfailed);
                                }
 
+                               $(this).append('<img src="http://smeetv.com/i/blankimg.png" />');
                            } else {
                                $('.picctrl').show();
                                if($(this).find('img').attr('src').search('http://') < 0) { // added this for handling relative urls done this for img.ly initially
