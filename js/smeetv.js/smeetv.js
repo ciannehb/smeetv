@@ -72,7 +72,17 @@ if(noxpath===null) {
                            var timg=$(this).find('img');
                            $(timg).attr('alt',a);
                            if(!$(this).find('img').attr('src')){
-                               $('body').append('<div class="notification error"><span class="ui-icon exclamation">&nbsp;</span>Failed to load image ' + id + '. <a href="" class="destroy_notification"><span class="ui-icon close_small ">&nbsp;</span></a></div>');
+                               if($('.imgloadfailure').length==0){
+                                   $('body').append('<div class="notification error imgloadfailure" rel="1"><span class="ui-icon exclamation">&nbsp;</span>Failed to load <span class="alt opt">image ' + id + '</span>. <a href="" class="destroy_notification"><span class="ui-icon close_small ">&nbsp;</span></a></div>');
+                               }else{
+                                       var numfailed=parseInt($('.imgloadfailure').attr('rel'))+1;
+                                       if(numfailed===2){
+                                           $('.imgloadfailure span.alt.opt').html('<span class="counter"></span> images');
+                                       }
+                                       $('.imgloadfailure').attr('rel',numfailed);
+                                       $('.imgloadfailure span.alt.opt .counter').html(numfailed);
+                               }
+
                            } else {
                                $('.picctrl').show();
                                if($(this).find('img').attr('src').search('http://') < 0) { // added this for handling relative urls done this for img.ly initially
