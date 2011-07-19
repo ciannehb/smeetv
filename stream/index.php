@@ -78,10 +78,10 @@ if($atkey==2){
 
 
 if($strict==1) {
-    $query="select * from twits_dump where content regexp '$id' order by id limit 0,30";
-    $query=" select * from twits_dump where content regexp '$id$|$id ' order by id limit 0,30 ";
+    //$query="select * from twits_dump where content regexp '$id' order by id limit 0,30";
+    $query=" select * from twits_dump where content regexp '$id$|$id ' order by id desc limit 0,30 ";
 } else {
-    $query="select * from twits_dump where content regexp '[[:<:]]".$id."[[:>:]]' order by id limit 0,30";
+    $query="select * from twits_dump where content regexp '[[:<:]]".$id."[[:>:]]' order by id desc limit 0,30";
 }
 //echo $query;
 
