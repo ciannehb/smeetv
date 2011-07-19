@@ -29,12 +29,28 @@ if(!$_POST['op']=='ajax'){
 
 
 
-
-    $query="select link from twits where aid=".$id;
-
-
+    $tbl='twits_dump';
+    $query="select link from ".$tbl." where aid=".$id;
     $go=mysql_query($query);
-    $get=mysql_fetch_array($go);
+
+echo mysql_num_rows($go);return;
+
+    if(mysql_num_rows($go)==0) {
+        $tbl='twits_dump_1';
+        $query="select link from ".$tbl." where aid=".$id;
+        $go=mysql_query($query);
+    }
+
+    if(mysql_num_rows($go)==0) {
+        $tbl='twits_dump_2';
+        $query="select link from ".$tbl." where aid=".$id;
+        $go=mysql_query($query);
+    }
+
+
+
+
+    //$get=mysql_fetch_array($go);
 
     if($u==true){
         $uquery="delete from twits where aid=".$id;
@@ -45,13 +61,14 @@ if(!$_POST['op']=='ajax'){
     }
 
     //$gquery="update twits_dump set flagged='1' where link='".$get[0]."'";
-    $gquery="update twits_dump set flagged='1' where id=".$id;
+    $gquery="update ".$tbl." set flagged='1' where id=".$id;
     $go=mysql_query($gquery);
     if(!$go) {
         $error=1;
     }
 
-//echo $go;return;
+
+echo $gquery;return;
 
 if($error) {
     echo "Internal erorr";return;
