@@ -18,11 +18,11 @@ if($_GET['priority']) {
     $go=mysql_query($query);
     $get=mysql_fetch_array($go);
     $opt=$get[0];
-    $feed[]="http://search.twitter.com/search.rss?lang=all&q=".$opt."%20twitpic.%20OR%20".$opt."%20plixi.com%20OR%20".$opt."%20yfrog.com%20OR%20".$opt."%20instagr.am";
+    $feed[]="http://search.twitter.com/search.rss?lang=all&q=filter:links%20".$opt."%20twitpic.%20OR%20filter:links%20".$opt."%20plixi.com%20OR%20filter:links%20".$opt."%20yfrog.com%20OR%20filter:links%20".$opt."%20instagr.am";
 
 } else {
     $opt=$_GET['opt'];
-    $feed[]="http://search.twitter.com/search.rss?lang=all&q=".$opt."%20twitpic.%20OR%20".$opt."%20plixi.com%20OR%20".$opt."%20yfrog.com%20OR%20".$opt."%20instagr.am";
+    $feed[]="http://search.twitter.com/search.rss?lang=all&q=filter:links%20".$opt."%20twitpic.%20OR%20filter:links%20".$opt."%20plixi.com%20OR%20filter:links%20".$opt."%20yfrog.com%20OR%20filter:links%20".$opt."%20instagr.am";
 }
 
 
