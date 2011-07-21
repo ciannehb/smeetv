@@ -12,41 +12,28 @@
 
 
 
-if(!$_POST['op']=='ajax'){
-    $arr=explode("/",advancedClean(3,$_SERVER['REQUEST_URI']));
-    if(strpos($arr[count($arr)-1],"?")) { /* addme widget leaves some garbage at the end of query string eg. http://fs.f1vlad.com/smeetv/smeetv/tv/img/2628?sms_ss=twitter&at_xt=4dc6c8054cd5144b,0 */
-        $transport=explode("?",$arr[count($arr)-1]);
-        $transport=$transport[0];
-    } else {
-        $transport=$arr[count($arr)-1];
-    }
-    //$id=advancedClean(3,$arr[count($arr)-1]);
-    $id=alphaID($transport,true);
-}else{
-    $id=$_POST['id'];
+$arr=explode("/",advancedClean(3,$_SERVER['REQUEST_URI']));
+if(strpos($arr[count($arr)-1],"?")) { /* addme widget leaves some garbage at the end of query string eg. http://fs.f1vlad.com/smeetv/smeetv/tv/img/2628?sms_ss=twitter&at_xt=4dc6c8054cd5144b,0 */
+    $transport=explode("?",$arr[count($arr)-1]);
+    $transport=$transport[0];
+} else {
+    $transport=$arr[count($arr)-1];
 }
 
 
 
+$aid=alphaID($transport);
+$id=$transport;
 
-    $tbl='twits_dump';
-    $query="select link from ".$tbl." where aid=".$id;
+
+
+    // add image to shared flagged table
+    $query="insert into flagged (id) values ('".$aid."')";
+echo $query;
     $go=mysql_query($query);
-
-echo mysql_num_rows($go);return;
-
-    if(mysql_num_rows($go)==0) {
-        $tbl='twits_dump_1';
-        $query="select link from ".$tbl." where aid=".$id;
-        $go=mysql_query($query);
+    if(!$go) {
+        $error=1;
     }
-
-    if(mysql_num_rows($go)==0) {
-        $tbl='twits_dump_2';
-        $query="select link from ".$tbl." where aid=".$id;
-        $go=mysql_query($query);
-    }
-
 
 
 
@@ -54,21 +41,12 @@ echo mysql_num_rows($go);return;
 
     if($u==true){
         $uquery="delete from twits where aid=".$id;
+//echo $uquery;return;
         $go=mysql_query($uquery);
         if(!$go) {
             $error=1;
         }
     }
-
-    //$gquery="update twits_dump set flagged='1' where link='".$get[0]."'";
-    $gquery="update ".$tbl." set flagged='1' where id=".$id;
-    $go=mysql_query($gquery);
-    if(!$go) {
-        $error=1;
-    }
-
-
-echo $gquery;return;
 
 if($error) {
     echo "Internal erorr";return;
