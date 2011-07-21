@@ -341,7 +341,7 @@ var repeater = function(func, times, interval,success) {
 
 repeater(function(left){
     if(left>0 && $('body').hasClass('newstuffsfound')==false) {
-       //check_new_twits('<?=$most_recent_hash?>','<?=$_SESSION['id']?>');
+       check_new_twits('<?=$most_recent_hash?>','<?=$_SESSION['id']?>');
     }
     setTimeout(function(){check_num_twits_fetched()},10000);
 }, 100000, 60000, success);
