@@ -109,7 +109,7 @@ SELECT * FROM twits_dump          WHERE MATCH(content) AGAINST ('new hampshire')
             if($do_force!=1){
                 $q2_opt="  AND timestamp > '$tbopts'  ";
             }
-            $q2.=") $q2_opt AND flagged = '0' order by id desc limit ";
+            $q2.=") $q2_opt order by id desc limit ";
             if(!$query_quick==true) $q2.=" 0,30 ";
             else $q2.="0,4";
             echo $q2."<br>";
