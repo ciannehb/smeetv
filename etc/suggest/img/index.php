@@ -13,7 +13,7 @@ $table[]='twits_dump';
 $table[]='twits_dump_1';
 $table[]='twits_dump_2';
 
-$qh="select * from ".$table[rand(0,1)]." where (MATCH(content) AGAINST('LOWER($transport)')) and flagged=0 $narrowdown limit ".rand(0,100).",1";
+$qh="select * from ".$table[rand(0,1)]." where (MATCH(content) AGAINST('LOWER($transport)')) $narrowdown limit ".rand(0,100).",1";
 
 $qh=mysql_query($qh);
 $gh=mysql_fetch_array($qh);
