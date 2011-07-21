@@ -24,13 +24,14 @@ function validate_username($v_username) {
 }
 
 function validate_email($v_email) {
-   connect2db();
+   $db=connect2db();
    $query="select id from accounts where email='$v_email'";
    $go=mysql_query($query);
    $num=mysql_num_rows($go);
    if(mysql_num_rows($go)) {
        return FALSE;
    }
+   disconnectFromDb($db);
    if(filter_var($v_email, FILTER_VALIDATE_EMAIL)){
        return TRUE;
    }else{
@@ -38,6 +39,11 @@ function validate_email($v_email) {
    }
 }
 
+function is_flagged($alphaid) {
+    $query="select id from flagged where id='".$alphaid."'";
+    $go=mysql_query($query);
+    return mysql_num_rows($go);
+}
 
 function smartsubstr($string, $length, $replacer = '...') { 
   if(strlen($string) > $length) 

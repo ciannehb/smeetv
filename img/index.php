@@ -25,16 +25,16 @@
     }
 
     $smeetvdb=connect2db();
-    $query="select id,content,timestamp,link,date,flagged from twits_dump where id=".alphaID($id,true);
+    $query="select id,content,timestamp,link,date from twits_dump where id=".alphaID($id,true);
     $go=mysql_query($query);
 
     if(mysql_num_rows($go)==0){
-        $query="select id,content,timestamp,link,date,flagged from twits_dump_1 where id=".alphaID($id,true);
+        $query="select id,content,timestamp,link,date from twits_dump_1 where id=".alphaID($id,true);
         $go=mysql_query($query);
     }
     
     if(mysql_num_rows($go)==0){
-        $query="select id,content,timestamp,link,date,flagged from twits_dump_2 where id=".alphaID($id,true);
+        $query="select id,content,timestamp,link,date from twits_dump_2 where id=".alphaID($id,true);
         $go=mysql_query($query);
     }
     
@@ -76,9 +76,11 @@ $userinfo.= '</ul></nav><section>';
 
 }
 
+$is_flagged=is_flagged($id);
+
     drawHeader(trim($title),$u,0,'','Picture &sect;'.$id,$userinfo);
     echo "<section id='content' class='grid_24'><section class='wrap'>";
-    if($get['flagged']==1) 
+    if($is_flagged==1) 
         echo '<div class="notification error ontop"><span class="ui-icon exclamation">&nbsp;</span>Beware, this photograph was flagged by our users. For your safety, we have delayed displaying it by 30 seconds.<a href="" class="destroy_notification"><span class="ui-icon close_small">&nbsp;</span></a></div>';
 
 
@@ -117,9 +119,9 @@ $userinfo.= '</ul></nav><section>';
 
     //if($get['flagged']==1) 
 
-           <?if($get['flagged']==1){?>setTimeout(function(){<?}?>
+           <?if($is_flagged==1){?>setTimeout(function(){<?}?>
            e=imagify(content,thisid);
-           <?if($get['flagged']==1){?>},30000);<?}?>
+           <?if($is_flagged==1){?>},30000);<?}?>
 
 
                //imagify(content,thisid);
