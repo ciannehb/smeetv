@@ -8,9 +8,12 @@
     }
 
     if($_SESSION['idhash']!="d820d0aa0b02f932465b1e84b98afbdd673bbdb7"){
+        session_destroy();
         header("Location:/");
         return false;
     }
+
+
     connect2db();
 
 $arr=explode("/",advancedClean(3,$_SERVER['REQUEST_URI']));
