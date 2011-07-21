@@ -15,7 +15,7 @@
 
 $arr=explode("/",advancedClean(3,$_SERVER['REQUEST_URI']));
 $transport=explode("?",$arr[count($arr)-1]);
-$query="update twits_dump set flagged='0' where id='{$transport[0]}'";
+$query="delete from flagged where id='".$transport[0]."'";
 $go=mysql_query($query);
 
 if($go) {

@@ -71,7 +71,7 @@ $hlo=((f1init_ago($get['last_time']))/60);
 <th>actions</th>
 </thead>
 <?
-$query="select id,aid,content,link from twits_dump where flagged='1' order by id desc limit 0,15";
+$query="select id from flagged";
 $go=mysql_query($query);
 for($i=0;$i<mysql_num_rows($go);$i++){
 $get=mysql_fetch_array($go);
@@ -79,7 +79,7 @@ echo "
 
 <tr>
 <td>{$get['id']}</td>
-<td><a href=\"{$get['link']}\">{$get['content']}</a></td>
+<td><a href=\"/img/{$get['id']}\">{$get['id']}</a></td>
 <td><a href=\"/admin/image/delete/{$get['id']}\" class=\"btn\">delete</a> <a href=\"/admin/image/unflag/{$get['id']}\" class=\"btn\">unflag</a></td>
 </tr>
 
