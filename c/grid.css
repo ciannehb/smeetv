@@ -514,6 +514,10 @@ padding:.15em;
 -webkit-border-radius:0 0 4px 4px;
 }
 
+#featuredhashtags_content > span {
+/*float:left;*/
+}
+
 #featuredhashtags_content .ui-icon.close_small {
 bottom:4px;
 right:1px;

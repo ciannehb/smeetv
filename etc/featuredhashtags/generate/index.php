@@ -5,7 +5,7 @@ require_once($_SERVER['DOCUMENT_ROOT']."/smeetv/aquarium/aquarium/filter.php");
 $smeetvdb=connect2db();
 
 
-$qh="select keyword,counter from keywords order by counter desc limit 0,50";
+$qh="select keyword,counter,color from keywords order by counter desc limit 0,50";
 $qh=mysql_query($qh);
 $output="";
 for($i=0;$i<mysql_num_rows($qh);$i++){
@@ -17,7 +17,7 @@ for($i=0;$i<mysql_num_rows($qh);$i++){
 
 
     $output.= "
-         <span><a href=\"/stream/".eregi_replace("#","_hh_",$gh['keyword'])."\" style=\"opacity: ".(($gh['counter']/10)+0.25).";font-size:".(($gh['counter']*2)+10)."px\" title=\"{$gh['keyword']}\" id=\"{$gh['keyword']}\">$wd[0]</a></span>
+         <span style=\"line-height:".(($gh['counter'])/15)."em\"><a href=\"/stream/".eregi_replace("#","_hh_",$gh['keyword'])."\" style=\"color:".$gh['color'].";opacity: ".(($gh['counter']/10)+0.25).";font-size:".(($gh['counter']*2)+10)."px\" title=\"{$gh['keyword']}\" id=\"{$gh['keyword']}\">$wd[0]</a></span>
     ";
 }
 
