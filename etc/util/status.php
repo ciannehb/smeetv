@@ -1,24 +1,6 @@
 <?
 require_once($_SERVER["DOCUMENT_ROOT"].'/smeetv/func.php');
-
     connect2db();
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
    
     $query="select count(*) from twits_dump";
     $go=mysql_query($query);

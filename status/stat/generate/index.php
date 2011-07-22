@@ -10,6 +10,28 @@
     }
 
 
+    $back_24=time()-100800; // 86400 == 24 hrs ; 14400 + 4 hrs more back
+    $back_24p=$back_24+100;
+
+    $back_48=time()-187200; // + 4 hrs more back
+    $back_48p=$back_48+100;
+
+
+    $query="select num from stat where timestamp < $back_24 and timestamp < $back_24p order by id desc limit 0,9";
+    $go=mysql_query($query);
+    for($i=0;$i<mysql_num_rows($go);$i++) {
+        $get=mysql_fetch_array($go);
+        $arr2[]=$get[0];
+    }
+
+    $query="select num from stat where timestamp < $back_48 and timestamp < $back_48p order by id desc limit 0,9";
+    $go=mysql_query($query);
+    for($i=0;$i<mysql_num_rows($go);$i++) {
+        $get=mysql_fetch_array($go);
+        $arr3[]=$get[0];
+    }
+
+
 
     $n1=$arr[0]-$arr[1];
     $n2=$arr[1]-$arr[2];
@@ -20,14 +42,24 @@
     $n7=$arr[6]-$arr[7];
     $n8=$arr[7]-$arr[8];
 
-    $f1=0;
-    $f2=0;
-    $f3=0;
-    $f4=0;
-    $f5=0;
-    $f6=0;
-    $f7=0;
-    $f8=0;
+    $f1=$arr2[0]-$arr2[1];
+    $f2=$arr2[1]-$arr2[2];
+    $f3=$arr2[2]-$arr2[3];
+    $f4=$arr2[3]-$arr2[4];
+    $f5=$arr2[4]-$arr2[5];
+    $f6=$arr2[5]-$arr2[6];
+    $f7=$arr2[6]-$arr2[7];
+    $f8=$arr2[7]-$arr2[8];
+
+    $e1=$arr3[0]-$arr3[1];
+    $e2=$arr3[1]-$arr3[2];
+    $e3=$arr3[2]-$arr3[3];
+    $e4=$arr3[3]-$arr3[4];
+    $e5=$arr3[4]-$arr3[5];
+    $e6=$arr3[5]-$arr3[6];
+    $e7=$arr3[6]-$arr3[7];
+    $e8=$arr3[7]-$arr3[8];
+
 
 
 
@@ -48,17 +80,18 @@ $output="
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'x');
         data.addColumn('number', 'Pics');
-        data.addColumn('number', 'Flagged');
+        data.addColumn('number', '-24hr');
+        data.addColumn('number', '-48hr');
       
 
-        data.addRow([\"4 hr\", $n8, $f1]);
-        data.addRow([\"3.5 hr\", $n7, $f2]);
-        data.addRow([\"3 hr\", $n6, $f3]);
-        data.addRow([\"2.5 hr\", $n5, $f4]);
-        data.addRow([\"2 hr\", $n4, $f5]);
-        data.addRow([\"1.5 hr\", $n3, $f6]);
-        data.addRow([\"1 hr\", $n2, $f7]);
-        data.addRow([\"30 min\", $n1, $f8]);
+        data.addRow([\"4 hr\", $n8, $f8, $e8]);
+        data.addRow([\"3.5 hr\", $n7, $f7, $e7]);
+        data.addRow([\"3 hr\", $n6, $f6, $e6]);
+        data.addRow([\"2.5 hr\", $n5, $f5, $e5]);
+        data.addRow([\"2 hr\", $n4, $f4, $e4]);
+        data.addRow([\"1.5 hr\", $n3, $f3, $e3]);
+        data.addRow([\"1 hr\", $n2, $f2, $e2]);
+        data.addRow([\"30 min\", $n1, $f1, $e1]);
       
         // Create and draw the visualization.
         new google.visualization.LineChart(document.getElementById('visualization')).
