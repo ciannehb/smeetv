@@ -17,6 +17,9 @@
     $back_48p=$back_48+100;
 
 
+    $back_1week=time()-590400;
+    $back_1weekp=$back_1week+100;
+
     $query="select num from stat where timestamp < $back_24 and timestamp < $back_24p order by id desc limit 0,9";
     $go=mysql_query($query);
     for($i=0;$i<mysql_num_rows($go);$i++) {
@@ -29,6 +32,14 @@
     for($i=0;$i<mysql_num_rows($go);$i++) {
         $get=mysql_fetch_array($go);
         $arr3[]=$get[0];
+    }
+
+
+    $query="select num from stat where timestamp < $back_1week and timestamp < $back_1weekp order by id desc limit 0,9";
+    $go=mysql_query($query);
+    for($i=0;$i<mysql_num_rows($go);$i++) {
+        $get=mysql_fetch_array($go);
+        $arr4[]=$get[0];
     }
 
 
@@ -61,6 +72,16 @@
     $e8=$arr3[7]-$arr3[8];
 
 
+    $g1=$arr4[0]-$arr4[1];
+    $g2=$arr4[1]-$arr4[2];
+    $g3=$arr4[2]-$arr4[3];
+    $g4=$arr4[3]-$arr4[4];
+    $g5=$arr4[4]-$arr4[5];
+    $g6=$arr4[5]-$arr4[6];
+    $g7=$arr4[6]-$arr4[7];
+    $g8=$arr4[7]-$arr4[8];
+
+
 
 
 $output="
@@ -82,16 +103,17 @@ $output="
         data.addColumn('number', 'Pics');
         data.addColumn('number', '-24hr');
         data.addColumn('number', '-48hr');
+        data.addColumn('number', '-1wk');
       
 
-        data.addRow([\"4 hr\", $n8, $f8, $e8]);
-        data.addRow([\"3.5 hr\", $n7, $f7, $e7]);
-        data.addRow([\"3 hr\", $n6, $f6, $e6]);
-        data.addRow([\"2.5 hr\", $n5, $f5, $e5]);
-        data.addRow([\"2 hr\", $n4, $f4, $e4]);
-        data.addRow([\"1.5 hr\", $n3, $f3, $e3]);
-        data.addRow([\"1 hr\", $n2, $f2, $e2]);
-        data.addRow([\"30 min\", $n1, $f1, $e1]);
+        data.addRow([\"4 hr\", $n8, $f8, $e8, $g8]);
+        data.addRow([\"3.5 hr\", $n7, $f7, $e7, $g7]);
+        data.addRow([\"3 hr\", $n6, $f6, $e6, $g6]);
+        data.addRow([\"2.5 hr\", $n5, $f5, $e5, $g5]);
+        data.addRow([\"2 hr\", $n4, $f4, $e4, $g4]);
+        data.addRow([\"1.5 hr\", $n3, $f3, $e3, $g3]);
+        data.addRow([\"1 hr\", $n2, $f2, $e2, $g2]);
+        data.addRow([\"30 min\", $n1, $f1, $e1, $g1]);
       
         // Create and draw the visualization.
         new google.visualization.LineChart(document.getElementById('visualization')).
