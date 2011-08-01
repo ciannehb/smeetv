@@ -1,8 +1,13 @@
-#*/5 * * * * curl http://smeetv.com/etc/util/crontab/landing_page_generatate.sh  
-#daily curl http://smeetv.com/etc/util/crontab/clean_twits.sh
-#@hourly curl http://smeetv.com/etc/util/crontab/generate_featurehashtags.sh
-#*/30 * * * * curl http://smeetv.com/etc/util/crontab/generate_stats.sh
-#* * * * * curl http://smeetv.com/etc/util/crontab/push_index_dump_normal.sh
-#* * * * * curl http://smeetv.com/etc/util/crontab/push_index_dump_priority.sh
-#*/15 * * * * curl http://smeetv.com/etc/util/crontab/fetch_twits.sh
+
+
+*/10 * * * * /var/www/smeetv.com/etc/util/crontab/landing_page_generate.sh > /dev/null
+@daily /var/www/smeetv.com/etc/util/crontab/clean_twits.sh > /dev/null
+@hourly /var/www/smeetv.com/etc/util/crontab/generate_featurehashtags.sh > /dev/null
+*/30 * * * * /var/www/smeetv.com/etc/util/crontab/generate_stats.sh > /dev/null
+*/30 * * * * /var/www/smeetv.com/etc/util/crontab/generate_stats_30_min_index.sh > /dev/null
+* * * * * /var/www/smeetv.com/etc/util/crontab/push_index_dump_normal.sh > /dev/null
+*/10 * * * * /var/www/smeetv.com/etc/util/crontab/push_index_dump_priority.sh  > /dev/null
+*/15 * * * * /var/www/smeetv.com/etc/util/crontab/fetch_twits.sh > /dev/null
+
+
 
