@@ -11,19 +11,19 @@ require_once('../../smeetv/func.php');
 
 
 
-
 if($_GET['priority']) {
     $opt=$_GET['priority'];
     $query="select keyword,counter from keywords order by counter desc limit ".($_GET['priority']-1).",1";
     $go=mysql_query($query);
     $get=mysql_fetch_array($go);
     $opt=$get[0];
-    $feed[]="http://search.twitter.com/search.rss?lang=all&q=filter:links%20".$opt."%20twitpic.%20OR%20filter:links%20".$opt."%20plixi.com%20OR%20filter:links%20".$opt."%20yfrog.com%20OR%20filter:links%20".$opt."%20instagr.am";
+    $feed[]="http://search.twitter.com/search.rss?lang=all&q=%20".$opt."%20twitpic.%20OR%20%20".$opt."%20plixi.com%20OR%20%20".$opt."%20yfrog.com%20OR%20%20".$opt."%20instagr.am";
 
 } else {
     $opt=$_GET['opt'];
-    $feed[]="http://search.twitter.com/search.rss?lang=all&q=filter:links%20".$opt."%20twitpic.%20OR%20filter:links%20".$opt."%20plixi.com%20OR%20filter:links%20".$opt."%20yfrog.com%20OR%20filter:links%20".$opt."%20instagr.am";
+    $feed[]="http://search.twitter.com/search.rss?lang=all&q=%20".$opt."%20twitpic.%20OR%20%20".$opt."%20plixi.com%20OR%20%20".$opt."%20yfrog.com%20OR%20%20".$opt."%20instagr.am";
 }
+
 
 
 //$feed[]='http://search.twitter.com/search.rss?lang=en&q='.$opt.' twitpic.com%20OR%20'.$opt.' plixi.com%20OR%20'.$opt.' yfrog.com';

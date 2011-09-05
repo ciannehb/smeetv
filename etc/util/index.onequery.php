@@ -1,6 +1,7 @@
 <?php
 $doc = new DOMDocument();
 
+/*
 $feed[]='http://search.twitter.com/search.rss?lang=all&q=filter%3Alinks%20twitpic.%20OR%20filter%3Alinks%20plixi.%20OR%20filter%3Alinks%20flic.kr%20OR%20filter%3Alinks%20yfrog.%20OR%20filter%3Alinks%20tweetphoto.%20OR%20filter%3Alinks%20twitgoo.%20OR%20filter%3Alinks%20picktor.%20OR%20filter%3Alinks%20movapic.%20OR%20filter%3Alinks%20img.ly%20OR%20filter%3Alinks%20dailybooth.com';
 $feed[]='http://search.twitter.com/search.rss?lang=all&q=filter%3Alinks%20upic.me%20OR%20filter%3Alinks%20fotki.yandex.ru%20OR%20filter%3Alinks%20imgur.com%20OR%20filter%3Alinks%20lockerz.com%20OR%20filter%3Alinks%20picplz.com%20OR%20filter%3Alinks%20instagr.am%20OR%20filter%3Alinks%20tinypic.com%20OR%20filter%3Alinks%20lulzimg.com%20OR%20filter%3Alinks%20pbckt.com';
 $feed[]='http://search.twitter.com/search.rss?lang=all&q=filter%3Alinks%20photobucket.com%20OR%20filter%3Alinks%20imageshack.us%20OR%20filter%3Alinks%20fbcdn.net/hphotos%20OR%20filter%3Alinks%20imagehost.org';
@@ -8,6 +9,16 @@ $feed[]='http://search.twitter.com/search.rss?lang=all&q=filter%3Alinks%20photob
 $feed[]='http://search.twitter.com/search.rss?lang=all&q=filter%3Alinks%20deviantart.com%20OR%20filter%3Alinks%20photozou.jp%20OR%20filter%3Alinks%20min.us%20OR%20filter%3Alinks%20iimmgg.com/image';
 
 $feed[]='http://search.twitter.com/search.rss?lang=all&q=filter%3Alinks%20.png%20OR%20filter%3Alinks%20.gif%20OR%20filter%3Alinks%20.jpg%20OR%20filter%3Alinks%20.jpeg';
+*/
+
+$feed[]='http://search.twitter.com/search.rss?lang=all&q=%20twitpic.%20OR%20%20plixi.%20OR%20%20flic.kr%20OR%20%20yfrog.%20OR%20%20tweetphoto.%20OR%20%20twitgoo.%20OR%20%20picktor.%20OR%20%20movapic.%20OR%20%20img.ly%20OR%20%20dailybooth.com';
+$feed[]='http://search.twitter.com/search.rss?lang=all&q=%20upic.me%20OR%20%20fotki.yandex.ru%20OR%20%20imgur.com%20OR%20%20lockerz.com%20OR%20%20picplz.com%20OR%20%20instagr.am%20OR%20%20tinypic.com%20OR%20%20lulzimg.com%20OR%20%20pbckt.com';
+$feed[]='http://search.twitter.com/search.rss?lang=all&q=%20photobucket.com%20OR%20%20imageshack.us%20OR%20%20fbcdn.net/hphotos%20OR%20%20imagehost.org';
+
+$feed[]='http://search.twitter.com/search.rss?lang=all&q=%20deviantart.com%20OR%20%20photozou.jp%20OR%20%20min.us%20OR%20%20iimmgg.com/image';
+
+$feed[]='http://search.twitter.com/search.rss?lang=all&q=%20.png%20OR%20%20.gif%20OR%20%20.jpg%20OR%20%20.jpeg';
+
 
 
 $doc->load($feed[$_GET['priority']]);
