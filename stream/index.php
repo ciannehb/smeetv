@@ -40,8 +40,9 @@ $userinfo.= '</ul></nav><section>';
 
     }
 
-
-    drawHeader('Streaming search combination "'.$id.'"',$u,'','','Streaming search combination "'.$id.'"',$userinfo);
+    $id_for_title=str_replace("_hh_","#",$id);
+    //$id_for_title=$id;
+    drawHeader('Streaming search combination "'.$id_for_title.'"',$u,'','','Streaming search combination "'.$id_for_title.'"',$userinfo);
 
 
     echo "<section id='content' class='grid_24'><section class='wrap'>";
