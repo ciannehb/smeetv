@@ -9,6 +9,7 @@ $feed[]='http://search.twitter.com/search.rss?lang=all&q=filter%3Alinks%20devian
 
 $feed[]='http://search.twitter.com/search.rss?lang=all&q=filter%3Alinks%20.png%20OR%20filter%3Alinks%20.gif%20OR%20filter%3Alinks%20.jpg%20OR%20filter%3Alinks%20.jpeg';
 
+
 $doc->load($feed[$_GET['priority']]);
 
 

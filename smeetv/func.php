@@ -53,8 +53,11 @@ function smartsubstr($string, $length, $replacer = '...') {
 } 
 
 function removeUrlFromString($string){
-$string = preg_replace('/\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|$!:,.;]*[A-Z0-9+&@#\/%=~_|$]/i', '', $string);
-return $string;
+$nstring = preg_replace('/\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|$!:,.;]*[A-Z0-9+&@#\/%=~_|$]/i', '', $string);
+if(!$nstring)
+    return $string;
+else
+    return $nstring;
 }
 
 
