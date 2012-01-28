@@ -628,6 +628,7 @@ border-radius: 10px;
 -moz-border-radius: 10px;
 -webkit-border-radius: 10px;
 -o-border-radius: 10px;
+/*
 background: rgb(229,229,229);
 background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(247,247,247)), to(rgb(229,229,229)));
 background-image: -moz-linear-gradient(100% 100% 90deg,rgb(229,229,229), rgb(247,247,247) 100%);
@@ -635,6 +636,10 @@ background-image: -o-linear-gradient(top, rgb(247,247,247), rgb(229,229,229)  10
 box-shadow: rgb(185,185,185) 0 0px 10px;
 -moz-box-shadow: rgb(185,185,185) 0 0px 10px;
 -webkit-box-shadow: rgb(185,185,185) 0 0px 10px;
+*/
+
+border:3px solid black;
+
 width:49.75%;
 }
 .twit .t > p,
