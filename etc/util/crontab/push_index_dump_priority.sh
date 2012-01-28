@@ -1,8 +1,8 @@
 #!/bin/bash
 
 sleep 2;  curl http://smeetv.com/etc/util/index.keyword.php?priority=1 > /dev/null
-sleep 10;  curl http://smeetv.com/etc/util/index.keyword.php?priority=2 > /dev/null
-sleep 20;  curl http://smeetv.com/etc/util/index.keyword.php?priority=3 > /dev/null
+#sleep 10;  curl http://smeetv.com/etc/util/index.keyword.php?priority=2 > /dev/null
+#sleep 20;  curl http://smeetv.com/etc/util/index.keyword.php?priority=3 > /dev/null
 #sleep 30;  curl http://smeetv.com/etc/util/index.keyword.php?priority=4 > /dev/null
 #sleep 40;  curl http://smeetv.com/etc/util/index.keyword.php?priority=5 > /dev/null
 #sleep 50;  curl http://smeetv.com/etc/util/index.keyword.php?priority=6 > /dev/null
