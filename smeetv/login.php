@@ -53,7 +53,7 @@ if($_POST['process']==1 && $_POST['username'] && $_POST['password']){
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 
 <script src="http://smeetv.com/js/smeetv.js/smeetv.js"></script>
-<script type="text/javascript" src="http://fsdn2.somewhe.com/smeetv/js/jquery.cycle.all.2.72.js"></script>
+<script type="text/javascript" src="//smeetv.com/js/jquery.cycle.all.2.72.js"></script>
 <script type="text/javascript"> 
 $(document).ready(function() {
 

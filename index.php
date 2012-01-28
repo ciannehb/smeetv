@@ -175,14 +175,17 @@ src=\"http://pagead2.googlesyndication.com/pagead/show_ads.js\">
 ?>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 
-<script src="//fsdn3.somewhe.com/smeetv/js/jquery.ui.core.js"></script>
-<script src="//fsdn3.somewhe.com/smeetv/js/jquery.ui.widget.js"></script>
-<script src="//fsdn3.somewhe.com/smeetv/js/jquery.ui.mouse.js"></script>
-<script src="//fsdn3.somewhe.com/smeetv/js/jquery.ui.draggable.js"></script>
-<script src="//fsdn3.somewhe.com/smeetv/js/jquery.ui.resizable.js"></script>
-<script src="//fsdn3.somewhe.com/smeetv/js/jquery.ui.tabs.js"></script>
+<script src="//smeetv.com/js/jquery.ui.core.js"></script>
+<script src="//smeetv.com/js/jquery.ui.widget.js"></script>
+<script src="//smeetv.com/js/jquery.ui.mouse.js"></script>
+<script src="//smeetv.com/js/jquery.ui.draggable.js"></script>
+<script src="//smeetv.com/js/jquery.ui.resizable.js"></script>
+<script src="//smeetv.com/js/jquery.ui.tabs.js"></script>
 <script src="//smeetv.com/js/smeetv.js/smeetv.js"></script>
-<script type="text/javascript" src="//fsdn3.somewhe.com/smeetv/js/jquery.cycle.all.2.72.js"></script>
+<script type="text/javascript" src="//smeetv.com/js/jquery.cycle.all.2.72.js"></script>
+
+
+
 
     <script>
 
@@ -754,7 +757,7 @@ function exif_lookup(id){
 
 
     </script>
-    <link type="text/css" rel="stylesheet" id="light" media="all" href="//fsdn1.somewhe.com/smeetv/c/remotecontrol.css" >
+    <link type="text/css" rel="stylesheet" id="light" media="all" href="//smeetv.com/c/remotecontrol.css" >
 
 
 

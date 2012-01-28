@@ -12,9 +12,9 @@ $title=smartsubstr($title,90,'...');
 ?>
 
 <title><?=trim($title)?> | @smeetv</title>
-<link type="text/css" rel="stylesheet" media="all" href="//fsdn1.somewhe.com/smeetv/c/grid.css" >
-<link type="text/css" rel="stylesheet" id="light" media="all" href="//fsdn1.somewhe.com/smeetv/c/light.css" >
-<link media="only screen and (max-device-width: 480px)" href="//fsdn1.somewhe.com/smeetv/c/iphone.css" type="text/css" rel="stylesheet">
+<link type="text/css" rel="stylesheet" media="all" href="//smeetv.com/c/grid.css" >
+<link type="text/css" rel="stylesheet" id="light" media="all" href="//smeetv.com/c/light.css" >
+<link media="only screen and (max-device-width: 480px)" href="//smeetv.com/c/iphone.css" type="text/css" rel="stylesheet">
 <?if($_SESSION['idhash']){?>
 <link rel="stylesheet" type="text/css" href="/rss/<?=$_SESSION['idhash']?>"> 
 <?}?>

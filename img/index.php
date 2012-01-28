@@ -86,14 +86,21 @@ $is_flagged=is_flagged($id);
 
 ?>
 
+
+
+
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-<script src="//fsdn1.somewhe.com/smeetv/js/smeetv.js/jquery.rotate.js"></script>
-<script src="//fsdn3.somewhe.com/smeetv/js/jquery.ui.core.js"></script>
-<script src="//fsdn3.somewhe.com/smeetv/js/jquery.ui.widget.js"></script>
-<script src="//fsdn3.somewhe.com/smeetv/js/jquery.ui.mouse.js"></script>
-<script src="//fsdn3.somewhe.com/smeetv/js/jquery.ui.draggable.js"></script>
-<script src="//fsdn3.somewhe.com/smeetv/js/jquery.ui.resizable.js"></script> 
+<script src="//smeetv.com/js/smeetv.js/jquery.rotate.js"></script>
+<script src="//smeetv.com/js/jquery.ui.core.js"></script>
+<script src="//smeetv.com/js/jquery.ui.widget.js"></script>
+<script src="//smeetv.com/js/jquery.ui.mouse.js"></script>
+<script src="//smeetv.com/js/jquery.ui.draggable.js"></script>
+<script src="//smeetv.com/js/jquery.ui.resizable.js"></script>
 <script src="//smeetv.com/js/smeetv.js/smeetv.js"></script>
+
+
+
+
 
 
 
