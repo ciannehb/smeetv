@@ -81,7 +81,7 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
 
 
     $output.='
-		<article id="'.alphaID($id).'"grid_24 class="twit lo'.$link_override.'">
+		<article id="'.alphaID($id).'" class="grid_'.($squares==1?"12":"24").' twit lo'.$link_override.'">
 			<div class="t grid_24">';
     $output.='<p>';
     if($link_override==1) $output.='<a rel="smeetv" href="http://smeetv.com/img/'.alphaID($id).'">';
@@ -186,8 +186,27 @@ var addthis_share = {templates: { twitter: "{{title}} {{url}} /via @'.$twusr.'"}
 					</script>		
 				</section>
 				<br class="clear">
-				<section class="squares ymlw grid_24">
-					<h3>You may also like:</h3>';
+			</aside>
+                        ';
+    }
+
+
+
+    $output.='
+		</article>
+
+    ';
+
+
+
+if($squares==1){
+
+    $output.="
+ <section class=\"grid_2\">&nbsp;</section>
+
+
+                                <section class=\"squares ymlw grid_10\">
+                                        <h3>You may also like:</h3>";
 
 preg_match_all('/(\w+)/',$content,$matches);
 preg_match_all('/#(\w+)/',$content,$matches_hash);
@@ -203,31 +222,29 @@ if(count($matches_hash[0])>0){ /*hashes found*/
 
     $output.='
 
-					<p id="yml1" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
-					<p id="yml2" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
-					<p id="yml3" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
+                                        <p id="yml1" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
+                                        <p id="yml2" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
+                                        <p id="yml3" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
 
-					<p id="yml4" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
-					<p id="yml5" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
+                                        <p id="yml4" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
+                                        <p id="yml5" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
              ';
 /*
     $output.='
-					<p id="yml4" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
-					<p id="yml5" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
+                                        <p id="yml4" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
+                                        <p id="yml5" class="yml"><iframe src="/etc/suggest/img/'.getWordSuggestion($matches[0][rand(0,$force_size)]).'"></iframe></p>
              ';
 */
-    $output.='
-				</section>
-			</aside>
-                        ';
-    }
+    $output.="
+                                </section>
+
+
+    ";
+
+}
 
 
 
-    $output.='
-		</article>
-
-    ';
 
 
     return $output;
