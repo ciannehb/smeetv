@@ -90,8 +90,18 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
     if($link_override==1) $output.='</a>';
 
     $output.='</p>';
+
+
+
+
     $output.='
-				<footer>';
+                                <span class="slant"></span>
+			</div>
+                        ';
+
+
+    $output.='
+                                <footer>';
 
     if($link_override==1) $output.='<a rel="smeetv" href="http://smeetv.com/img/'.alphaID($id).'">';
 
@@ -104,7 +114,7 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
 
     if($timediff>900){
         $output.=',
-					discovered
+                                        discovered
                                         <time class="discovered" id="discovered-'.$id.'" datetime="'. date('Y-m-d, H:i', $timestamp).'">'.
                                             nicetime($timestamp)
                                         .'</time>';
@@ -131,14 +141,7 @@ function displayTwit($id,$content,$link,$date,$timestamp,$squares=0,$link_overri
 
 
     $output.='
-				</footer>';
-
-
-
-    $output.='
-                                <span class="slant"></span>
-			</div>
-                        ';
+                                </footer>';
 
 
 
