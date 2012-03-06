@@ -600,6 +600,8 @@ function crawlurl(e){
         var noxpath = '#mainImage';
     } else if(e.search('#mainImage') > 0 && e.search('picplz.com') > 0) {
         var noxpath = '#main > section > article > figure > a > img';
+    } else if(e.search('.big.photo > a > img') > 0 && e.search('photobzz.com') > 0) {
+        var noxpath = '.big.photo > a > img';
     }
    return noxpath;
 }
@@ -664,6 +666,9 @@ function crawlurl(e){
                else if(a.search('picplz.com') > 0){
                        var token = 'http://picplz.com';
                }
+
+               else if(a.search('photobzz.com') > 0){
+                       var token = 'http://photobzz.com/';
 
 
 
@@ -757,6 +762,11 @@ bug, below (a.indexOf(' ',tmpPosStart);) if there's no space following URL, sear
                if(shorturl.search('picplz.com') > 0){
                        var noxpath = '#mainImage';
                }
+
+               if(shorturl.search('photobzz.com') > 0){
+                       var noxpath = '.big.photo > a > img"';
+               }
+
 
 
 
