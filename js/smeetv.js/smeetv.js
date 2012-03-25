@@ -13,7 +13,6 @@ function imagify(a,id){
   
                var shorturl = imagify_get_shorturl(a,token),
                    noxpath = imagify_get_noxpath(shorturl);
-
 /*
 alert(
 token
@@ -23,7 +22,6 @@ shorturl
 noxpath
 );
 */
-
 
 //alert(token);
 //alert(shorturl);
@@ -46,10 +44,10 @@ if(noxpath===null) {
                        //$(this).append('<span class="description"><a href="'+shorturl+'">'+a+'</a></span>');
 
 
-
                        if(noxpath===false) { // added this for handling t.co links
-                           crawled_img_path=$(response).find(imagify_crawlurl(response)).attr('src');
+                           //crawled_img_path=$(response).find(imagify_crawlurl(response)).attr('src');
                            if(crawled_img_path===undefined) {
+
                                return false;
                            }
 
@@ -97,8 +95,7 @@ if(noxpath===null) {
 }
 
 function imagify_crawlurl(e){
-
-
+//xxx
     if(e.search('id="photo-display') > 0 && e.search('twitpic') > 0){
         var noxpath = '#content #view-photo-main #photo img#photo-display';
     } else if(e.search('main_image') > 0 && e.search('yfrog') > 0) {
