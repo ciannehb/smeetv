@@ -1,3 +1,13 @@
+function crawl(e) {
+
+}
+
+function look(e) {
+
+}
+
+
+
 function imagify(a,id){
 
 
@@ -17,6 +27,11 @@ function imagify(a,id){
 	    $('#mainimg > article').removeClass('hide');
 	    return;
 	}
+
+
+
+
+
 
     $('#'+id+ ' .thumbnail').load('/etc/util/xdom?' + shorturl + ' ' + noxpath,function(response,status,xhr){
         if(noxpath===false) { // added this for handling t.co links

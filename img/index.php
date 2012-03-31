@@ -127,7 +127,60 @@ $is_flagged=is_flagged($id);
     //if($get['flagged']==1) 
 
            <?if($is_flagged==1){?>setTimeout(function(){<?}?>
-           e=imagify(content,thisid);
+
+
+//extractURIs('x http://t.co/asd');
+
+
+function extractUris(content) { // extract urls from twit
+    var rlregex = /(https?:\/\/[^\s]+)/g,rar = [],ii=0;
+    content=content.split(" ");
+    for(i = 0; i < content.length; i++){
+        if(rlregex.test(content[i])===true){
+            rar[ii]=content[i];
+            ii++;
+        }
+    }
+    return rar; // return array of urls
+}
+
+
+function spiderUris(uris) { // inspect each url, if shorturl, dig to get to the end
+    for(i = 0; i < uris.length; i++){
+        //alert(uris[i]);
+
+
+
+// check if URI is known image hosting
+
+// ELSE assume it's a short uri and use dig, use whlie loop probably to digg deep few attempts
+
+
+
+        dig(uris[i]);
+
+
+
+    }
+}
+
+function dig(uri) {
+
+
+alert(uri);
+
+}
+
+
+
+
+var altcontent="testing http://t.co/doSdVNJT various urls http://t.co/doSdVNJT";
+var a2=extractUris(altcontent);
+
+spiderUris(a2);
+
+
+           //e=imagify(content,thisid);
            <?if($is_flagged==1){?>},30000);<?}?>
 
 
