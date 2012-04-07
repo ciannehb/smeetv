@@ -1,4 +1,6 @@
 <? // in this script we check for new updates
+echo "HALTED TEMPORARILY";
+return false;
 session_start();
 require_once($_SERVER["DOCUMENT_ROOT"].'/smeetv/func.php');
 

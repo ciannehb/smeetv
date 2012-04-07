@@ -97,13 +97,6 @@ $is_flagged=is_flagged($id);
 <script src="//smeetv.com/js/jquery.ui.draggable.js"></script>
 <script src="//smeetv.com/js/jquery.ui.resizable.js"></script>
 <script src="//smeetv.com/js/smeetv.js/smeetv.js"></script>
-
-
-
-
-
-
-
 <script>
     $(document).ready(function(){
         $('.destroy_notification').live('click',function(e){
@@ -113,23 +106,13 @@ $is_flagged=is_flagged($id);
 
         $( "#mainimg" ).resizable();
 
-
-
-
-
            // imagify
            $('#mainimg.squares.mainimg > article').each(function(){
                var content=$(this).html(),
                    thisid=$(this).attr('id');
 
-
-
-    //if($get['flagged']==1) 
-
            <?if($is_flagged==1){?>setTimeout(function(){<?}?>
 
-
-//extractURIs('x http://t.co/asd');
 
 
 function extractUris(content) { // extract urls from twit
@@ -147,36 +130,53 @@ function extractUris(content) { // extract urls from twit
 
 function spiderUris(uris) { // inspect each url, if shorturl, dig to get to the end
     for(i = 0; i < uris.length; i++){
-        //alert(uris[i]);
-
-
-
-// check if URI is known image hosting
-
-// ELSE assume it's a short uri and use dig, use whlie loop probably to digg deep few attempts
-
-
-
-        dig(uris[i]);
-
-
-
+        // check if URI is known image hosting
+        // ELSE assume it's a short uri and use dig, use whlie loop probably to digg deep few attempts
+        var rr=dig(uris[i]);
+        // console.log(rr);
+        if(rr === false) {
+            console.log('Need to dig deeper');
+            var rrr = digdeeper(uris[i]);
+        } else {
+            console.log('Xpath found, proceed');
+        }
     }
 }
 
 function dig(uri) {
+    return testhi=imagify_get_noxpath(uri); // using old function to get true or false on NOXPATH, false meaning it's not direct URL
+}
+
+function digdeeper(uri) {
+    console.log('digging deeper ' + uri);
+    //$('#'+id+ ' .thumbnail').load('/etc/util/xdom?' + shorturl + ' ' + noxpath,function(response,status,xhr){
+ 
 
 
-alert(uri);
+    var xxx = $.get("/etc/util/xdom?"+uri, function(data){
+        //console.log("Data Loaded: " + data);
+        //alert(data);
+    });
+    //alert('xxx is ' + $(xxx));
+    console.log(xxx);
+
+
+ 
+ 
+
+
+
+
+
+
 
 }
 
 
 
 
-var altcontent="testing http://t.co/doSdVNJT various urls http://t.co/doSdVNJT";
+var altcontent="testing http://t.co/doSdVNJT various urls http://twitpic.com/doSdVNJT yeah";
 var a2=extractUris(altcontent);
-
 spiderUris(a2);
 
 
