@@ -106,6 +106,42 @@ $(document).ready(function(){
         var content=$(this).find(".t > p").html(),
             thisid=$(this).attr('id');
 
+
+    var content="testing http://t.co/doSdVNJT  http://t.co/rDZRqakz various urls http://twitpic.com/doSdVNJT yeah";
+    var eu=extractUrls(content);
+    var iu=iterateUrls(eu);
+
+
+
+    function extractUrls(content){
+            var pattern = /(https?:\/\/[^\s]+)/g,out = [],ii=0; // url regexp
+            content=content.split(" ");
+            for(i = 0; i < content.length; i++){
+                if(pattern.test(content[i])===true){
+                    out[ii]=content[i];
+                    ii++;
+                }
+            }
+            return out; // return array of urls
+    }
+
+    function iterateUrls(url){
+        for(i = 0; i < url.length; i++){
+            var currentattr = $("#"+thisid).attr("data");
+            if(!currentattr===false){ // if data attr already exists, do not overwrite it, append it.
+                var newattr = currentattr + " " + url[i];
+                $("#"+thisid).attr("data", newattr);
+            } else {
+                $("#"+thisid).attr("data", url[i]);
+            }
+        }
+    }
+
+
+/////////  URLs now included in data="". Now need to kick of the process of going through them and imagifying.
+
+
+/*
         function extractUris(content) { // extract urls from twit
             var rlregex = /(https?:\/\/[^\s]+)/g,rar = [],ii=0;
             content=content.split(" ");
@@ -159,6 +195,14 @@ $(document).ready(function(){
         //var altcontent='[Womens] "All-Star TTC" (Green) Sweatshirt on Sale Now at TruType Clothing Online Store (http://t.co/1zc0cXdq) ... http://t.co/rDZRqakz';
         var a2=extractUris(altcontent);
         spiderUris(a2);
+*/
+
+
+
+
+
+
+
 
         // if $is_flagged==1 -- delay imagification
     });
