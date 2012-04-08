@@ -148,27 +148,12 @@ function dig(uri) {
 }
 
 function digdeeper(uri) {
-    console.log('digging deeper ' + uri);
-    //$('#'+id+ ' .thumbnail').load('/etc/util/xdom?' + shorturl + ' ' + noxpath,function(response,status,xhr){
- 
 
-
-    var xxx = $.get("/etc/util/xdom?"+uri, function(data){
-        //console.log("Data Loaded: " + data);
-        //alert(data);
-    });
-    //alert('xxx is ' + $(xxx));
-    console.log(xxx);
-
-
- 
- 
-
-
-
-
-
-
+    $.get("/etc/util/xdom?"+uri, doSomethingWithData);
+    function doSomethingWithData(data) {
+        console.log('this is : ' + data);
+        $variable = data;
+    }
 
 }
 
