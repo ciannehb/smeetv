@@ -90,103 +90,79 @@ $is_flagged=is_flagged($id);
 
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-<script src="//smeetv.com/js/smeetv.js/jquery.rotate.js"></script>
 <script src="//smeetv.com/js/jquery.ui.core.js"></script>
 <script src="//smeetv.com/js/jquery.ui.widget.js"></script>
 <script src="//smeetv.com/js/jquery.ui.mouse.js"></script>
 <script src="//smeetv.com/js/jquery.ui.draggable.js"></script>
-<script src="//smeetv.com/js/jquery.ui.resizable.js"></script>
 <script src="//smeetv.com/js/smeetv.js/smeetv.js"></script>
 <script>
-    $(document).ready(function(){
-        $('.destroy_notification').live('click',function(e){
-            $(this).closest('.notification').filter(':first').remove();
-            e.preventDefault();
-        });
+$(document).ready(function(){
+    $('.destroy_notification').live('click',function(e){
+        $(this).closest('.notification').filter(':first').remove();
+        e.preventDefault();
+    });
 
-        $( "#mainimg" ).resizable();
+    $('article.twit').each(function(){
+        var content=$(this).find(".t > p").html(),
+            thisid=$(this).attr('id');
 
-           // imagify
-           $('#mainimg.squares.mainimg > article').each(function(){
-               var content=$(this).html(),
-                   thisid=$(this).attr('id');
-
-           <?if($is_flagged==1){?>setTimeout(function(){<?}?>
-
-
-
-function extractUris(content) { // extract urls from twit
-    var rlregex = /(https?:\/\/[^\s]+)/g,rar = [],ii=0;
-    content=content.split(" ");
-    for(i = 0; i < content.length; i++){
-        if(rlregex.test(content[i])===true){
-            rar[ii]=content[i];
-            ii++;
+        function extractUris(content) { // extract urls from twit
+            var rlregex = /(https?:\/\/[^\s]+)/g,rar = [],ii=0;
+            content=content.split(" ");
+            for(i = 0; i < content.length; i++){
+                if(rlregex.test(content[i])===true){
+                    rar[ii]=content[i];
+                    ii++;
+                }
+            }
+            return rar; // return array of urls
         }
-    }
-    return rar; // return array of urls
-}
 
-
-function spiderUris(uris) { // inspect each url, if shorturl, dig to get to the end
-    for(i = 0; i < uris.length; i++){
-        // check if URI is known image hosting
-        // ELSE assume it's a short uri and use dig, use whlie loop probably to digg deep few attempts
-        var rr=dig(uris[i]);
-        // console.log(rr);
-        if(rr === false) {
-            console.log('Need to dig deeper');
-            var rrr = digdeeper(uris[i]);
-        } else {
-            console.log('Xpath found, proceed');
+        function spiderUris(uris) { // inspect each url, if shorturl, dig to get to the end
+            for(i = 0; i < uris.length; i++){
+                    var rrr = digdeep(uris[i]);
+            }
         }
-    }
-}
 
-function dig(uri) {
-    return testhi=imagify_get_noxpath(uri); // using old function to get true or false on NOXPATH, false meaning it's not direct URL
-}
+        function digdeep(uri) {
 
-function digdeeper(uri) {
+            if(!imagify_get_noxpath(uri)===false) {
+                doSomethingWithData(uri,0);
+            } else {
+                $.get("/etc/util/xdom?"+uri, doSomethingWithData);
+            }
 
-    $.get("/etc/util/xdom?"+uri, doSomethingWithData);
-    function doSomethingWithData(data) {
-        console.log('this is : ' + data);
-        $variable = data;
-    }
+            function doSomethingWithData(data,preprocess) {
+                if(preprocess===0) { // we know the NOXPATH found, so this is direct hosting url, no need to dig
+                    var thisprocess = data;
+                }else{
+                    var a = data.indexOf("URL=")+4,
+                        b = data.indexOf('">'),
+                        thisprocess = data.slice(a,b);
+                }
 
-}
-
-
-
-
-var altcontent="testing http://t.co/doSdVNJT various urls http://twitpic.com/doSdVNJT yeah";
-var a2=extractUris(altcontent);
-spiderUris(a2);
-
-
-           //e=imagify(content,thisid);
-           <?if($is_flagged==1){?>},30000);<?}?>
-
-
-               //imagify(content,thisid);
-           });
+                var currentattr = $("#"+thisid).attr("data");
+                if(!currentattr===false){ // if data attr already exists, do not overwrite it, append it.
+                    var newattr = currentattr + " " + thisprocess;
+                    $("#"+thisid).attr("data", newattr);
+                } else {
+                    $("#"+thisid).attr("data", thisprocess);
+                }
+            }
 
 
 
 
+        }
 
+        var altcontent="testing http://t.co/doSdVNJT  http://t.co/rDZRqakz various urls http://twitpic.com/doSdVNJT yeah";
+        //var altcontent='[Womens] "All-Star TTC" (Green) Sweatshirt on Sale Now at TruType Clothing Online Store (http://t.co/1zc0cXdq) ... http://t.co/rDZRqakz';
+        var a2=extractUris(altcontent);
+        spiderUris(a2);
 
-
-        $('.rotate_left').click(function(){
-            $('#mainimg img').rotate(-90);
-            return false;
-        });
-        $('.rotate_right').click(function(){
-            $('#mainimg img').rotate(90);
-            return false;
-        });
-    }); 
+        // if $is_flagged==1 -- delay imagification
+    });
+});
 </script>
 
 
