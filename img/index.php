@@ -108,10 +108,62 @@ $(document).ready(function(){
 
 
     var content="testing http://t.co/doSdVNJT  http://t.co/rDZRqakz various urls http://twitpic.com/doSdVNJT yeah";
-    var eu=extractUrls(content);
-    var iu=iterateUrls(eu);
+    var extract=extractUrls(content);
+    var iterate=populateUrls(extract);
+    var kd=kickDig(thisid);
 
 
+    function kickDig(id){
+        for(i = 0; i < 4; i++){
+            setTimeout(function(){
+                var p = processUrls(id);
+            },50);
+        }
+    }
+
+    function processUrls(id){
+        var content = $("#"+id).attr("data");
+        //console.log(content.split(" "));
+        content = content.split(" ");
+        for(i = 0; i < content.length; i++){
+            //console.log("attempt to process url: " + content[i]);
+//            $.get("/etc/util/xdom?"+content[i], doCallback);
+            $.get("/etc/util/xdom?"+content[i], function(data) {
+
+            // we see THISID and CONTENT here, that means we have to perform all operations here inside while these variables are accessible.
+            // based on results of ajax loads, keep rebuilding content and replace it in data="..."
+            
+            console.log(thisid + ": " + content);
+
+
+
+            });
+        }
+        
+    }
+
+    function doCallback(data) {
+        console.log(data);
+    }
+
+    function populateUrls(url){
+        var currentstate = $("#"+thisid).attr('data'); // currentstate is `undefined` when there is no data, means initial iteration
+        if(currentstate === undefined){
+            console.log('initial iteration'); // here we just popular urls
+        }else{
+            console.log('repeated iteration'); // here we attempt to delegate tasks to dig/reload url's with proper non shorturls etc
+        }
+
+        for(i = 0; i < url.length; i++){
+            if(i === 0){
+                var currentattr = "", separator = "";
+            }else{
+                var currentattr = $("#"+thisid).attr("data"), separator = " ";
+            }
+            var newattr = currentattr + separator + url[i];
+            $("#"+thisid).attr("data", newattr);
+        }
+    }
 
     function extractUrls(content){
             var pattern = /(https?:\/\/[^\s]+)/g,out = [],ii=0; // url regexp
@@ -124,19 +176,7 @@ $(document).ready(function(){
             }
             return out; // return array of urls
     }
-
-    function iterateUrls(url){
-        for(i = 0; i < url.length; i++){
-            var currentattr = $("#"+thisid).attr("data");
-            if(!currentattr===false){ // if data attr already exists, do not overwrite it, append it.
-                var newattr = currentattr + " " + url[i];
-                $("#"+thisid).attr("data", newattr);
-            } else {
-                $("#"+thisid).attr("data", url[i]);
-            }
-        }
-    }
-
+    
 
 /////////  URLs now included in data="". Now need to kick of the process of going through them and imagifying.
 
