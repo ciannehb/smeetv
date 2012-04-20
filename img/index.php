@@ -89,7 +89,7 @@ $is_flagged=is_flagged($id);
 
 
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script src="//smeetv.com/js/jquery-1.7.2.js"></script>
 <script src="//smeetv.com/js/jquery.ui.core.js"></script>
 <script src="//smeetv.com/js/jquery.ui.widget.js"></script>
 <script src="//smeetv.com/js/jquery.ui.mouse.js"></script>
@@ -108,9 +108,15 @@ $(document).ready(function(){
 
 
     var content="testing http://t.co/doSdVNJT  http://t.co/rDZRqakz various urls http://twitpic.com/doSdVNJT yeah";
-    var extract=extractUrls(content);
-    var iterate=populateUrls(extract);
+    var extr=extractUrls(content);
+    var iterate=populateUrls(extr);
     var kd=kickDig(thisid);
+
+
+
+
+console.log("-test--");
+
 
 
     function kickDig(id){
@@ -150,19 +156,18 @@ $(document).ready(function(){
         var currentstate = $("#"+thisid).attr('data'); // currentstate is `undefined` when there is no data, means initial iteration
         if(currentstate === undefined){
             console.log('initial iteration'); // here we just popular urls
+            for(i = 0; i < url.length; i++){ 
+                var newattr = ((newattr === undefined)?(""):(newattr + " ")) + url[i];
+            }
         }else{
             console.log('repeated iteration'); // here we attempt to delegate tasks to dig/reload url's with proper non shorturls etc
+            /*
+             
+             TODO
+             
+            */
         }
-
-        for(i = 0; i < url.length; i++){
-            if(i === 0){
-                var currentattr = "", separator = "";
-            }else{
-                var currentattr = $("#"+thisid).attr("data"), separator = " ";
-            }
-            var newattr = currentattr + separator + url[i];
-            $("#"+thisid).attr("data", newattr);
-        }
+        $("#"+thisid).attr("data", newattr);
     }
 
     function extractUrls(content){
