@@ -107,45 +107,52 @@ $(document).ready(function(){
             thisid=$(this).attr('id');
 
 
-    var content="testing http://t.co/doSdVNJT  http://t.co/rDZRqakz various urls http://twitpic.com/doSdVNJT yeah";
-    var extr=extractUrls(content);
-    var iterate=populateUrls(extr);
+    var content="testing http://t.co/doSdVNJT  http://t.co/rDZRqakz various urls http://twitpic.com/9ds0du yeah";
+    var extract_urls=extractUrls(content);
+    var populate_urls=populateUrls(extract_urls);
     var kd=kickDig(thisid);
 
-
-
-
-console.log("-test--");
-
-
-
-    function kickDig(id){
-        for(i = 0; i < 4; i++){
+    function kickDig(id){ // Change i here to specify amount of attempts to make to crawl
+        for(i = 0; i < 1; i++){
             setTimeout(function(){
                 var p = processUrls(id);
-            },50);
+            },350);
         }
     }
+    
+    function constructImagePath(data,dompath) { // get image full absolute path
+        return $(data).find(dompath).attr('src');
+    }
 
-    function processUrls(id){
+    function updateCurrentDataStorage(id,newContent) {
+        var current_state = $('#'+id).attr('data');
+        $('#'+id).attr('data',current_state + " " + newContent )
+    }
+    
+    function processUrls(id){ // Go through each URL trying to convert it until process is the end, that is absolute URL to image.
         var content = $("#"+id).attr("data");
-        //console.log(content.split(" "));
         content = content.split(" ");
+        updateCurrentDataStorage(id,"|");
         for(i = 0; i < content.length; i++){
-            //console.log("attempt to process url: " + content[i]);
-//            $.get("/etc/util/xdom?"+content[i], doCallback);
+            console.log("attempt to process url: " + content[i]);
             $.get("/etc/util/xdom?"+content[i], function(data) {
-
-            // we see THISID and CONTENT here, that means we have to perform all operations here inside while these variables are accessible.
-            // based on results of ajax loads, keep rebuilding content and replace it in data="..."
-            
-            console.log(thisid + ": " + content);
-
-
-
+                var dompath = imagify_crawlurl(data);
+                if(dompath) {      // found qualifying image hosting
+                    $(data).find(dompath).attr('src')
+                    var ci=constructImagePath(data,dompath);                    
+                    updateCurrentDataStorage(id,ci);
+                } else {       // image hosting unknown, qualify URL's of image hosting
+                                // attempting to find "http-equiv="refresh"" that's how twitter redirects from short http://t.co/* urls 
+                    var searchres = data.indexOf(";URL=");
+                    if(searchres > -1) {//found URL
+                        var newpath=data;
+                        newpath=newpath.slice(data.indexOf('location.replace')+18,data.indexOf('")')); // filter our url
+                        newpath=newpath.replace(/\\/g,''); // find and replace all escaping backslashes
+                        updateCurrentDataStorage(id,"x"+newpath);
+                    }
+                }
             });
         }
-        
     }
 
     function doCallback(data) {
@@ -171,17 +178,17 @@ console.log("-test--");
     }
 
     function extractUrls(content){
-            var pattern = /(https?:\/\/[^\s]+)/g,out = [],ii=0; // url regexp
-            content=content.split(" ");
-            for(i = 0; i < content.length; i++){
-                if(pattern.test(content[i])===true){
-                    out[ii]=content[i];
-                    ii++;
-                }
+        var pattern = /(https?:\/\/[^\s]+)/g,out = [],ii=0; // url regexp
+        content=content.split(" ");
+        for(i = 0; i < content.length; i++){
+            if(pattern.test(content[i])===true){
+                out[ii]=content[i];
+                ii++;
             }
-            return out; // return array of urls
+        }
+        return out; // return array of urls
     }
-    
+
 
 /////////  URLs now included in data="". Now need to kick of the process of going through them and imagifying.
 
