@@ -90,10 +90,6 @@ $is_flagged=is_flagged($id);
 
 
 <script src="//smeetv.com/js/jquery-1.7.2.js"></script>
-<script src="//smeetv.com/js/jquery.ui.core.js"></script>
-<script src="//smeetv.com/js/jquery.ui.widget.js"></script>
-<script src="//smeetv.com/js/jquery.ui.mouse.js"></script>
-<script src="//smeetv.com/js/jquery.ui.draggable.js"></script>
 <script src="//smeetv.com/js/smeetv.js/smeetv.js"></script>
 <script>
 $(document).ready(function(){
