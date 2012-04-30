@@ -103,10 +103,113 @@ $(document).ready(function(){
             thisid=$(this).attr('id');
 
 
+    // Sample content
     var content="testing http://t.co/doSdVNJT  http://t.co/rDZRqakz various urls http://twitpic.com/9ds0du yeah";
+
+    // Process twit and set up blank image tags to be processed further
+    var setupImgTags = extractUrls2(content); // extracting urls and adding their path into new <img src="...">
+    $("#"+thisid).append(setupImgTags);
+
+    function gogo(){
+        (function myLoop (i) {
+           setTimeout(function () {
+              $('article.twit').find('img.pending').addClass('test'+i);
+              UnknownFunction();
+              if (--i) myLoop(i);      //  decrement i and call myLoop again if i > 0
+           }, 1000)
+        })(3);                        //  pass the number of iterations as an argument
+    }
+
+    // push iterator
+    gogo();
+
+    // Iterate through images imagifying them
+    //iterateImagify();
+
+    
+
+    
+    function updateElStorage(rel,src) {
+        //console.log('rel is ' + rel + ', and new src is ' + src);
+        $('article.twit').find("img[rel='" + rel + "']").attr('src',src);
+    }
+    
+    function UnknownFunction(){ // Go through each URL trying to convert it until process is the end, that is absolute URL to image.
+
+        $('article.twit img.pending').each(function(){
+            var thisel = $(this);
+            $.get("/etc/util/xdom?"+$(this).attr('rel'), function(data) {
+
+                
+
+                var dompath = imagify_crawlurl(data);
+                if(dompath) {      // found qualifying image hosting
+                    $(data).find(dompath).attr('src');
+                    var ci=constructImagePath(data,dompath);                    
+                    //updateCurrentDataStorage(id,ci);
+                    // update current data storage
+                    updateElStorage(thisel.attr('rel'),ci);
+                    console.log('here' + ci);
+
+                } else {       // image hosting unknown, qualify URL's of image hosting
+                                // attempting to find "http-equiv="refresh"" that's how twitter redirects from short http://t.co/* urls 
+                    var searchres = data.indexOf(";URL=");
+                    if(searchres > -1) {//found URL
+                        var newpath=data;
+                        newpath=newpath.slice(data.indexOf('location.replace')+18,data.indexOf('")')); // filter our url
+                        newpath=newpath.replace(/\\/g,''); // find and replace all escaping backslashes
+                        //updateCurrentDataStorage(id,"x"+newpath);
+                    }
+
+                    console.log('here 2' + newpath);
+
+                }
+            });
+        });
+    /*
+        for(i = 0; i < content.length; i++){
+            console.log("attempt to process url: " + content[i]);
+            $.get("/etc/util/xdom?"+content[i], function(data) {
+                var dompath = imagify_crawlurl(data);
+                if(dompath) {      // found qualifying image hosting
+                    $(data).find(dompath).attr('src')
+                    var ci=constructImagePath(data,dompath);                    
+                    updateCurrentDataStorage(id,ci);
+                } else {       // image hosting unknown, qualify URL's of image hosting
+                                // attempting to find "http-equiv="refresh"" that's how twitter redirects from short http://t.co/* urls 
+                    var searchres = data.indexOf(";URL=");
+                    if(searchres > -1) {//found URL
+                        var newpath=data;
+                        newpath=newpath.slice(data.indexOf('location.replace')+18,data.indexOf('")')); // filter our url
+                        newpath=newpath.replace(/\\/g,''); // find and replace all escaping backslashes
+                        updateCurrentDataStorage(id,"x"+newpath);
+                    }
+                }
+            });
+        }
+    */
+
+
+    }
+    
+
+/*!!!*/
+// from http://stackoverflow.com/questions/3583724/how-do-i-add-a-delay-in-a-javascript-loop
+    
+    // Iterage through each image checking URLs in rel=""
+    // if short url, figure new URL and update src=""
+    // if actual image found, update src="" and mark class="final" or whatever so that image can be ready to be displayed
+    
+    // Figure out some kind of loop so it can check and re-kick process
+
+    /*
     var extract_urls=extractUrls(content);
     var populate_urls=populateUrls(extract_urls);
     var kd=kickDig(thisid);
+    */
+
+
+    
 
     function kickDig(id){ // Change i here to specify amount of attempts to make to crawl
         for(i = 0; i < 1; i++){
@@ -184,6 +287,22 @@ $(document).ready(function(){
         }
         return out; // return array of urls
     }
+
+
+    function extractUrls2(content){
+        var pattern = /(https?:\/\/[^\s]+)/g,out = [],ii=0; // url regexp
+        content=content.split(" ");
+        var bld = "";
+        for(i = 0; i < content.length; i++){
+            if(pattern.test(content[i])===true){
+                ii++;
+                bld = bld + "<img src='"+content[i]+"' rel='"+content[i]+"' class='pending'>";
+            }
+        }
+        return bld; // return array of urls
+    }
+
+
 
 
 /////////  URLs now included in data="". Now need to kick of the process of going through them and imagifying.
