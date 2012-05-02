@@ -98,7 +98,7 @@ function imagify(a,id){
     $('#mainimg > article').removeClass('hide');
 }
 
-function imagify_crawlurl(e){
+function imagify_crawlurl(e){	
     if(e.search('id="media') > 0 && e.search('twitpic') > 0){
         var noxpath = '#media > img';
     } else if(e.search('main_image') > 0 && e.search('yfrog') > 0) {
@@ -119,8 +119,8 @@ function imagify_crawlurl(e){
         var noxpath = '#image';
     } else if(e.search('foto') > 0 && e.search('fotki.yandex.ru') > 0) {
         var noxpath = '#foto img';
-    } else if(e.search('lockerz.com') > 0) {
-        var noxpath = '#main > section > article > figure > a > img';
+    } else if(e.search('photo') > 0 && e.search('lockerz.com') > 0) {
+        var noxpath = '#photo';
     } else if(e.search('photo') > 0 && e.search('plixi') > 0) { // plixi
 	var noxpath = '#main > section > article > figure > a > img';
     } else if(e.search('#mainImage') > 0 && e.search('picplz.com') > 0) {
@@ -187,7 +187,7 @@ function imagify_get_noxpath(shorturl){
 	}
 
 	if(shorturl.search('lockerz.com') > 0){
-	        var noxpath = '#main section article figure a img';
+	        var noxpath = '#photo';
 	}
 
 	if(shorturl.search('movapic.com') > 0){

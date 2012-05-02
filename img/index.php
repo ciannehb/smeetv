@@ -99,25 +99,28 @@ $(document).ready(function(){
     });
 
     $('article.twit').each(function(){
-        var content=$(this).find(".t > p").html(),
+        var content = "<?php echo $title ?>",
             thisid=$(this).attr('id');
 
 
     // Sample content
-    var content="testing http://t.co/doSdVNJT  http://t.co/rDZRqakz various urls http://twitpic.com/9ds0du yeah";
+    //var content="testing http://t.co/doSdVNJT  http://t.co/rDZRqakz various urls http://twitpic.com/9ds0du yeah";
+    var content = "<?php echo $title ?>";
+    //console.log(content);
 
     // Process twit and set up blank image tags to be processed further
     var setupImgTags = extractUrls2(content); // extracting urls and adding their path into new <img src="...">
     $("#"+thisid).append(setupImgTags);
-
+    
     function gogo(){
         (function myLoop (i) {
+           console.log(i);
            setTimeout(function () {
               $('article.twit').find('img.pending').addClass('test'+i);
               UnknownFunction();
               if (--i) myLoop(i);      //  decrement i and call myLoop again if i > 0
            }, 1000)
-        })(3);                        //  pass the number of iterations as an argument
+        })(5);                        //  pass the number of iterations as an argument
     }
 
     // push iterator
@@ -140,10 +143,10 @@ $(document).ready(function(){
     function UnknownFunction(){ // Go through each URL trying to convert it until process is the end, that is absolute URL to image.
 
         $('article.twit img.pending').each(function(){
-            var thisel = $(this);
-            $.get("/etc/util/xdom?"+$(this).attr('src'), function(data) {
+            var thisel = $(this),
+                sel = $('img[rel="'+thisel.attr('rel')+'"]').attr('src');
+            $.get("/etc/util/xdom?"+sel, function(data) {
                 var dompath = imagify_crawlurl(data);
-console.log(thisel.attr('rel'));
                 if(dompath) {      // found qualifying image hosting
                     $(data).find(dompath).attr('src');
                     var ci=constructImagePath(data,dompath);
