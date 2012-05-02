@@ -129,40 +129,34 @@ $(document).ready(function(){
     
 
     
-    function updateElStorage(rel,src) {
+    function updateElStorage(rel,src,rmel) {
         //console.log('rel is ' + rel + ', and new src is ' + src);
         $('article.twit').find("img[rel='" + rel + "']").attr('src',src);
+        if(rmel===1){ // element imagified, remove it from queue
+            $('article.twit').find("img[rel='" + rel + "']").removeClass('pending');
+        }
     }
     
     function UnknownFunction(){ // Go through each URL trying to convert it until process is the end, that is absolute URL to image.
 
         $('article.twit img.pending').each(function(){
             var thisel = $(this);
-            $.get("/etc/util/xdom?"+$(this).attr('rel'), function(data) {
-
-                
-
+            $.get("/etc/util/xdom?"+$(this).attr('src'), function(data) {
                 var dompath = imagify_crawlurl(data);
+console.log(thisel.attr('rel'));
                 if(dompath) {      // found qualifying image hosting
                     $(data).find(dompath).attr('src');
-                    var ci=constructImagePath(data,dompath);                    
-                    //updateCurrentDataStorage(id,ci);
-                    // update current data storage
-                    updateElStorage(thisel.attr('rel'),ci);
-                    console.log('here' + ci);
-
+                    var ci=constructImagePath(data,dompath);
+                    updateElStorage(thisel.attr('rel'),ci,1);
                 } else {       // image hosting unknown, qualify URL's of image hosting
                                 // attempting to find "http-equiv="refresh"" that's how twitter redirects from short http://t.co/* urls 
-                    var searchres = data.indexOf(";URL=");
+                    var searchres = data.indexOf(";URL="); // <---- proprietary, need better logic, assumes t.co short url
                     if(searchres > -1) {//found URL
                         var newpath=data;
                         newpath=newpath.slice(data.indexOf('location.replace')+18,data.indexOf('")')); // filter our url
                         newpath=newpath.replace(/\\/g,''); // find and replace all escaping backslashes
-                        //updateCurrentDataStorage(id,"x"+newpath);
+                        updateElStorage(thisel.attr('rel'),newpath);
                     }
-
-                    console.log('here 2' + newpath);
-
                 }
             });
         });
