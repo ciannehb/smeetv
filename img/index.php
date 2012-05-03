@@ -106,7 +106,6 @@ $(document).ready(function(){
     // Sample content
     //var content="testing http://t.co/doSdVNJT  http://t.co/rDZRqakz various urls http://twitpic.com/9ds0du yeah";
     var content = "<?php echo $title ?>";
-    //console.log(content);
 
     // Process twit and set up blank image tags to be processed further
     var setupImgTags = extractUrls2(content); // extracting urls and adding their path into new <img src="...">
@@ -125,12 +124,6 @@ $(document).ready(function(){
 
     // push iterator
     gogo();
-
-    // Iterate through images imagifying them
-    //iterateImagify();
-
-    
-
     
     function updateElStorage(rel,src,rmel) {
         //console.log('rel is ' + rel + ', and new src is ' + src);
@@ -141,15 +134,25 @@ $(document).ready(function(){
     }
     
     function UnknownFunction(){ // Go through each URL trying to convert it until process is the end, that is absolute URL to image.
-
         $('article.twit img.pending').each(function(){
             var thisel = $(this),
                 sel = $('img[rel="'+thisel.attr('rel')+'"]').attr('src');
             $.get("/etc/util/xdom?"+sel, function(data) {
                 var dompath = imagify_crawlurl(data);
                 if(dompath) {      // found qualifying image hosting
-                    $(data).find(dompath).attr('src');
                     var ci=constructImagePath(data,dompath);
+
+                    
+                    if(ci && ci.indexOf("http://") === -1){
+                        var thiselsrc = thisel.attr('src'),
+                            tprefix = thiselsrc.slice(0,thiselsrc.indexOf('//')+2),
+                            tsliced = thiselsrc.replace(tprefix,""),
+                            thost = tsliced.slice(0,tsliced.indexOf("/"));
+                        ci = tprefix + thost + ci;
+                    }
+
+
+
                     updateElStorage(thisel.attr('rel'),ci,1);
                 } else {       // image hosting unknown, qualify URL's of image hosting
                                 // attempting to find "http-equiv="refresh"" that's how twitter redirects from short http://t.co/* urls 
@@ -163,49 +166,7 @@ $(document).ready(function(){
                 }
             });
         });
-    /*
-        for(i = 0; i < content.length; i++){
-            console.log("attempt to process url: " + content[i]);
-            $.get("/etc/util/xdom?"+content[i], function(data) {
-                var dompath = imagify_crawlurl(data);
-                if(dompath) {      // found qualifying image hosting
-                    $(data).find(dompath).attr('src')
-                    var ci=constructImagePath(data,dompath);                    
-                    updateCurrentDataStorage(id,ci);
-                } else {       // image hosting unknown, qualify URL's of image hosting
-                                // attempting to find "http-equiv="refresh"" that's how twitter redirects from short http://t.co/* urls 
-                    var searchres = data.indexOf(";URL=");
-                    if(searchres > -1) {//found URL
-                        var newpath=data;
-                        newpath=newpath.slice(data.indexOf('location.replace')+18,data.indexOf('")')); // filter our url
-                        newpath=newpath.replace(/\\/g,''); // find and replace all escaping backslashes
-                        updateCurrentDataStorage(id,"x"+newpath);
-                    }
-                }
-            });
-        }
-    */
-
-
     }
-    
-
-/*!!!*/
-// from http://stackoverflow.com/questions/3583724/how-do-i-add-a-delay-in-a-javascript-loop
-    
-    // Iterage through each image checking URLs in rel=""
-    // if short url, figure new URL and update src=""
-    // if actual image found, update src="" and mark class="final" or whatever so that image can be ready to be displayed
-    
-    // Figure out some kind of loop so it can check and re-kick process
-
-    /*
-    var extract_urls=extractUrls(content);
-    var populate_urls=populateUrls(extract_urls);
-    var kd=kickDig(thisid);
-    */
-
-
     
 
     function kickDig(id){ // Change i here to specify amount of attempts to make to crawl
@@ -217,7 +178,8 @@ $(document).ready(function(){
     }
     
     function constructImagePath(data,dompath) { // get image full absolute path
-        return $(data).find(dompath).attr('src');
+        var imgpath=$(data).find(dompath).attr('src');
+        return imgpath;
     }
 
     function updateCurrentDataStorage(id,newContent) {
@@ -235,7 +197,7 @@ $(document).ready(function(){
                 var dompath = imagify_crawlurl(data);
                 if(dompath) {      // found qualifying image hosting
                     $(data).find(dompath).attr('src')
-                    var ci=constructImagePath(data,dompath);                    
+                    var ci=constructImagePath(data,dompath);
                     updateCurrentDataStorage(id,ci);
                 } else {       // image hosting unknown, qualify URL's of image hosting
                                 // attempting to find "http-equiv="refresh"" that's how twitter redirects from short http://t.co/* urls 

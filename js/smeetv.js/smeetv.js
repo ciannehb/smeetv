@@ -103,7 +103,11 @@ function imagify_crawlurl(e){
         var noxpath = '#media > img';
     } else if(e.search('main_image') > 0 && e.search('yfrog') > 0) {
         var noxpath = '#main_image';
-    } else if(e.search('medium_photo') > 0) {  // tweet photo
+    }
+    else if(e.search('.container') > 0 && e.search('cinemagr.am') > 0) {
+        var noxpath = '.row > img';
+    }
+    else if(e.search('medium_photo') > 0) {  // tweet photo
         var noxpath = '#medium_photo';
     } else if(e.search('fullsize') > 0 && e.search('twitgoo') > 0) {
         var noxpath = '#fullsize';
@@ -147,7 +151,11 @@ function imagify_crawlurl(e){
 
 function imagify_get_noxpath(shorturl){
 	if(shorturl.search('twitpic') > 0){
-	        var noxpath = '#media > img';
+	        var noxpath = '.container .row > img';
+	}
+
+	if(shorturl.search('cinemagr') > 0){
+	        var noxpath = 'row > img';
 	}
 
 	if(shorturl.search('yfrog') > 0){
@@ -269,7 +277,6 @@ function imagify_get_shorturl(a,token) {
     } else {
         var shorturl = a.slice(tmpPosStart,tmpPosEnd);
     }
-
     return prepend+shorturl;
 }
 
@@ -277,6 +284,9 @@ function imagify_detect_pic(a) {
 
 	if(a.search('/twitpic') > 0){
 	        var token = 'http://twitpic.c';
+	}
+	else if(a.search('/cinemagr') > 0){
+	        var token = 'http://cinemagr.a';
 	}
 	else if(a.search('/yfrog') > 0){
 	        var token = 'http://yfrog.c';
