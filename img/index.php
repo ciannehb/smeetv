@@ -103,8 +103,8 @@ $(document).ready(function(){
             thisid=$(this).attr('id');
 
 
-    // Sample content
-    //var content="testing http://t.co/doSdVNJT  http://t.co/rDZRqakz various urls http://twitpic.com/9ds0du yeah";
+    // Sample content FOR TESTING
+    // var content="testing http://t.co/doSdVNJT  http://t.co/rDZRqakz various urls http://twitpic.com/9ds0du yeah";
     var content = "<?php echo $title ?>";
 
     // Process twit and set up blank image tags to be processed further

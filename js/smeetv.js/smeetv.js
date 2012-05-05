@@ -98,7 +98,7 @@ function imagify(a,id){
     $('#mainimg > article').removeClass('hide');
 }
 
-function imagify_crawlurl(e){	
+function imagify_crawlurl(e){
     if(e.search('id="media') > 0 && e.search('twitpic') > 0){
         var noxpath = '#media > img';
     } else if(e.search('main_image') > 0 && e.search('yfrog') > 0) {
@@ -108,6 +108,9 @@ function imagify_crawlurl(e){
     }
     else if(e.search('.container') > 0 && e.search('cinemagr.am') > 0) {
         var noxpath = '.row > img';
+    }
+    else if(e.search('.gifHolder') > 0 && e.search('gifpal.com') > 0) {
+        var noxpath = '.gifHolder img.gifImage';
     }
     else if(e.search('medium_photo') > 0) {  // tweet photo
         var noxpath = '#medium_photo';
@@ -158,6 +161,10 @@ function imagify_get_noxpath(shorturl){
 
 	if(shorturl.search('cinemagr') > 0){
 	        var noxpath = 'row > img';
+	}
+
+	if(shorturl.search('gifpal.com') > 0){
+	        var noxpath = '.gifHolder img.gifImage';
 	}
 
 	if(shorturl.search('yfrog') > 0){
@@ -306,7 +313,10 @@ function imagify_detect_pic(a) {
 	else if(a.search('/dailybooth') > 0){
 	        var token = 'http://dailybooth.c';
 	}
-
+	else if(a.search('/gifpal') > 0){
+	        var token = 'http://gifpal.c';
+	}
+	
 	else if(a.search('/picktor') > 0){
 	        var token = 'http://picktor.c';
 	}
