@@ -265,6 +265,7 @@ return str
             if(pattern.test(content[i])===true){
                 ii++;
                 //alert(content[i].replace(/([^A-Za-z0-9\:\/\.\#\-\_\?\@\=])/g,"x")); ////! !!
+                content[i]=content[i].replace('&quot;','');
                 content[i]=content[i].replace(forbidden_url_chars,""); // <-- this should be handled better in pattern above
                 bld = bld + "<img src='"+content[i]+"' rel='"+content[i]+"' class='pending'>";
             }
