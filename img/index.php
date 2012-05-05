@@ -105,6 +105,7 @@ $(document).ready(function(){
 
     // Sample content FOR TESTING
     // var content="testing http://t.co/doSdVNJT  http://t.co/rDZRqakz various urls http://twitpic.com/9ds0du yeah";
+    //var content="d Ñ Photobzz http://photobzz.com/photo/2478";
     var content = "<?php echo $title ?>";
 
     // Process twit and set up blank image tags to be processed further

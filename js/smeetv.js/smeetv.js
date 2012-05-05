@@ -112,6 +112,9 @@ function imagify_crawlurl(e){
     else if(e.search('.gifHolder') > 0 && e.search('gifpal.com') > 0) {
         var noxpath = '.gifHolder img.gifImage';
     }
+    else if(e.search('.fancy') > 0 && e.search('http://photobzz.com') > 0) {
+        var noxpath = '.fancy img';
+    }
     else if(e.search('medium_photo') > 0) {  // tweet photo
         var noxpath = '#medium_photo';
     } else if(e.search('fullsize') > 0 && e.search('twitgoo') > 0) {
@@ -165,6 +168,9 @@ function imagify_get_noxpath(shorturl){
 
 	if(shorturl.search('gifpal.com') > 0){
 	        var noxpath = '.gifHolder img.gifImage';
+	}
+	if(shorturl.search('photobzz.com') > 0){
+	        var noxpath = '.fancy img';
 	}
 
 	if(shorturl.search('yfrog') > 0){
@@ -316,7 +322,9 @@ function imagify_detect_pic(a) {
 	else if(a.search('/gifpal') > 0){
 	        var token = 'http://gifpal.c';
 	}
-	
+	else if(a.search('/photobzz.c') > 0){
+	        var token = 'http://photobzz.c';
+	}
 	else if(a.search('/picktor') > 0){
 	        var token = 'http://picktor.c';
 	}
