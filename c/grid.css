@@ -390,6 +390,10 @@ padding: 0 0 0 .25em;
 word-spacing: 0.25em;
 }
 
+#topnav h2 span.id {
+text-transform:none;
+}
+
 #topnav h1 a {
 line-height:1.5em;
 display:inline-block;
