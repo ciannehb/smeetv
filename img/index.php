@@ -99,14 +99,14 @@ $(document).ready(function(){
     });
 
     $('article.twit').each(function(){
-        var content = "<?php echo $title ?>",
-            thisid=$(this).attr('id');
+        var thisid=$(this).attr('id');
 
+        
 
     // Sample content FOR TESTING
     // var content="testing http://t.co/doSdVNJT  http://t.co/rDZRqakz various urls http://twitpic.com/9ds0du yeah";
     //var content="d Ñ Photobzz http://photobzz.com/photo/2478";
-    var content = "<?php echo $title ?>";
+    var content = "<?php echo eregi_replace("\n","",$title) ?>";
 
     // Process twit and set up blank image tags to be processed further
     var setupImgTags = extractUrls2(content); // extracting urls and adding their path into new <img src="...">
