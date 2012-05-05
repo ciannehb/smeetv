@@ -140,7 +140,6 @@ $(document).ready(function(){
                 sel = $('img[rel="'+thisel.attr('rel')+'"]').attr('src');
             $.get("/etc/util/xdom?"+sel, function(data) {
                 var dompath = imagify_crawlurl(data);
-                alert(dompath);
                 if(dompath) {      // found qualifying image hosting
                     var ci=constructImagePath(data,dompath);
                     if(ci && ci.indexOf("http://") === -1){
