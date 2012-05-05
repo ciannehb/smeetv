@@ -106,7 +106,7 @@ $(document).ready(function(){
     // Sample content FOR TESTING
     // var content="testing http://t.co/doSdVNJT  http://t.co/rDZRqakz various urls http://twitpic.com/9ds0du yeah";
     //var content="d Ñ Photobzz http://photobzz.com/photo/2478";
-    var content = "<?php echo eregi_replace("\n","",$title) ?>";
+    var content = "<?php echo eregi_replace("\n"," ",$title) ?>";
 
     // Process twit and set up blank image tags to be processed further
     var setupImgTags = extractUrls2(content); // extracting urls and adding their path into new <img src="...">
@@ -254,6 +254,7 @@ return str
 
 
     function extractUrls2(content){
+        console.log(content);
         var pattern = /(https?:\/\/[^\s]+)/g,out = [],ii=0; // older pattern, YET TO check with multiple urls in one twit
         //var pattern = /^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/; // newer pattern
         var forbidden_url_chars = /([^A-Za-z0-9\:\/\.\#\-\_\?\@\=])/g;
