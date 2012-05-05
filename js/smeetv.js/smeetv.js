@@ -99,7 +99,7 @@ function imagify(a,id){
 }
 
 function imagify_crawlurl(e){
-    if(e.search('id="media') > 0 && e.search('twitpic') > 0){
+    if(e.search('media') > 0 && e.search('twitpic') > 0){
         var noxpath = '#media > img';
     } else if(e.search('main_image') > 0 && e.search('yfrog') > 0) {
         var noxpath = '#main_image';
@@ -159,7 +159,7 @@ function imagify_crawlurl(e){
 
 function imagify_get_noxpath(shorturl){
 	if(shorturl.search('twitpic') > 0){
-	        var noxpath = '.container .row > img';
+	        var noxpath = '#media > img';
 	}
 
 	if(shorturl.search('cinemagr') > 0){
