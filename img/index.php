@@ -141,8 +141,6 @@ $(document).ready(function(){
                 var dompath = imagify_crawlurl(data);
                 if(dompath) {      // found qualifying image hosting
                     var ci=constructImagePath(data,dompath);
-
-                    
                     if(ci && ci.indexOf("http://") === -1){
                         var thiselsrc = thisel.attr('src'),
                             tprefix = thiselsrc.slice(0,thiselsrc.indexOf('//')+2),
@@ -150,9 +148,6 @@ $(document).ready(function(){
                             thost = tsliced.slice(0,tsliced.indexOf("/"));
                         ci = tprefix + thost + ci;
                     }
-
-
-
                     updateElStorage(thisel.attr('rel'),ci,1);
                 } else {       // image hosting unknown, qualify URL's of image hosting
                                 // attempting to find "http-equiv="refresh"" that's how twitter redirects from short http://t.co/* urls 
@@ -234,27 +229,42 @@ $(document).ready(function(){
         }
         $("#"+thisid).attr("data", newattr);
     }
-
+/*
     function extractUrls(content){
         var pattern = /(https?:\/\/[^\s]+)/g,out = [],ii=0; // url regexp
         content=content.split(" ");
         for(i = 0; i < content.length; i++){
             if(pattern.test(content[i])===true){
+                console.log(content[i]);
                 out[ii]=content[i];
                 ii++;
             }
         }
         return out; // return array of urls
     }
+*/
+
+function removeSpecialChars(str)
+{
+str = str.replace(/[^a-zA-Z 0-9]+/g,"");
+return str
+}
 
 
     function extractUrls2(content){
-        var pattern = /(https?:\/\/[^\s]+)/g,out = [],ii=0; // url regexp
+        var pattern = /(https?:\/\/[^\s]+)/g,out = [],ii=0; // older pattern, YET TO check with multiple urls in one twit
+        //var pattern = /^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/; // newer pattern
+        var forbidden_url_chars = /([^A-Za-z0-9\:\/\.\#\-\_\?\@\=])/g;
+        //alert(content[i].replace(/([^A-Za-z0-9\:\/\.\#\-\_\?\@\=])/g,"x")); ////! !!
+        console.log(content);
         content=content.split(" ");
+//alert(removeSpecialChars(content));
         var bld = "";
         for(i = 0; i < content.length; i++){
             if(pattern.test(content[i])===true){
                 ii++;
+                //alert(content[i].replace(/([^A-Za-z0-9\:\/\.\#\-\_\?\@\=])/g,"x")); ////! !!
+                content[i]=content[i].replace(forbidden_url_chars,""); // <-- this should be handled better in pattern above
                 bld = bld + "<img src='"+content[i]+"' rel='"+content[i]+"' class='pending'>";
             }
         }

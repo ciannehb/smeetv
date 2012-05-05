@@ -103,6 +103,8 @@ function imagify_crawlurl(e){
         var noxpath = '#media > img';
     } else if(e.search('main_image') > 0 && e.search('yfrog') > 0) {
         var noxpath = '#main_image';
+    } else if(e.search('wrap') > 0 && e.search('instagr') > 0) {
+        var noxpath = '.stage .stage-inner img.photo';
     }
     else if(e.search('.container') > 0 && e.search('cinemagr.am') > 0) {
         var noxpath = '.row > img';
@@ -231,7 +233,7 @@ function imagify_get_noxpath(shorturl){
 	}
 
 	if(shorturl.search('instagr.am') > 0){
-	        var noxpath = '#wrap img.photo';
+	        var noxpath = '.stage .stage-inner img.photo';
 	}
 
 	if(shorturl.search('photozou.jp') > 0){
@@ -287,6 +289,9 @@ function imagify_detect_pic(a) {
 	}
 	else if(a.search('/cinemagr') > 0){
 	        var token = 'http://cinemagr.a';
+	}
+	else if(a.search('/instagr') > 0){
+	        var token = 'http://instagr.a';
 	}
 	else if(a.search('/yfrog') > 0){
 	        var token = 'http://yfrog.c';
