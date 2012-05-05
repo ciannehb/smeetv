@@ -116,7 +116,7 @@ $(document).ready(function(){
         (function myLoop (i) {
            console.log(i);
            setTimeout(function () {
-              $('article.twit').find('img.pending').addClass('test'+i);
+              $('article#'+thisid).find('img.pending').addClass('test'+i);
               UnknownFunction();
               if (--i) myLoop(i);      //  decrement i and call myLoop again if i > 0
            }, 1000)
@@ -141,6 +141,7 @@ $(document).ready(function(){
             $.get("/etc/util/xdom?"+sel, function(data) {
                 var dompath = imagify_crawlurl(data);
                 if(dompath) {      // found qualifying image hosting
+
                     var ci=constructImagePath(data,dompath);
                     if(ci && ci.indexOf("http://") === -1){
                         var thiselsrc = thisel.attr('src'),
