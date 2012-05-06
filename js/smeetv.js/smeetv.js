@@ -1,3 +1,92 @@
+function gogo(thisid){
+    (function myLoop (i) {
+       console.log(i);
+       setTimeout(function () {
+	  $('article#'+thisid).find('img.pending').addClass('test'+i);
+	  UnknownFunction();
+	  if (--i) myLoop(i);      //  decrement i and call myLoop again if i > 0
+       }, 1000)
+    })(5);                        //  pass the number of iterations as an argument
+}
+
+function kickDig(id){ // Change i here to specify amount of attempts to make to crawl
+    for(i = 0; i < 1; i++){
+	setTimeout(function(){
+	    var p = processUrls(id);
+	},350);
+    }
+}
+
+function extractUrls2(content){
+    console.log(content);
+    var pattern = /(https?:\/\/[^\s]+)/g,out = [],ii=0; // older pattern, YET TO check with multiple urls in one twit
+    //var pattern = /^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/; // newer pattern
+    var forbidden_url_chars = /([^A-Za-z0-9\:\/\.\#\-\_\?\@\=])/g;
+    content = content.replace("http://"," http://"); // deal with pushed content to touch http and incorrecting injecting into containers
+    //alert(content[i].replace(/([^A-Za-z0-9\:\/\.\#\-\_\?\@\=])/g,"x")); ////! !
+    content=content.split(" ");
+    var bld = "";
+    for(i = 0; i < content.length; i++){
+	if(pattern.test(content[i])===true){
+	    ii++;
+	    //alert(content[i].replace(/([^A-Za-z0-9\:\/\.\#\-\_\?\@\=])/g,"x")); ////! !!
+	    content[i]=content[i].replace('&quot;','');
+	    content[i]=content[i].replace(forbidden_url_chars,""); // <-- this should be handled better in pattern above
+	    bld = bld + "<img src='"+content[i]+"' rel='"+content[i]+"' class='pending'>";
+	}
+    }
+    return bld; // return array of urls
+}
+    
+function constructImagePath(data,dompath) { // get image full absolute path
+    var imgpath=$(data).find(dompath).attr('src');
+    return imgpath;
+}
+
+function updateElStorage(rel,src,rmel) {
+    //console.log('rel is ' + rel + ', and new src is ' + src);
+    $('article.twit').find("img[rel='" + rel + "']").attr('src',src);
+    if(rmel===1){ // element imagified, remove it from queue
+	$('article.twit').find("img[rel='" + rel + "']").removeClass('pending');
+    }
+}
+
+function updateCurrentDataStorage(id,newContent) {
+    var current_state = $('#'+id).attr('data');
+    $('#'+id).attr('data',current_state + " " + newContent )
+}
+
+function UnknownFunction(){ // Go through each URL trying to convert it until process is the end, that is absolute URL to image.
+    $('article.twit img.pending').each(function(){
+	var thisel = $(this),
+	    sel = $('img[rel="'+thisel.attr('rel')+'"]').attr('src');
+	$.get("/etc/util/xdom?"+sel, function(data) {
+	    var dompath = imagify_crawlurl(data);
+	    if(dompath) {      // found qualifying image hosting
+		var ci=constructImagePath(data,dompath);
+		if(ci && ci.indexOf("http://") === -1){
+		    var thiselsrc = thisel.attr('src'),
+			tprefix = thiselsrc.slice(0,thiselsrc.indexOf('//')+2),
+			tsliced = thiselsrc.replace(tprefix,""),
+			thost = tsliced.slice(0,tsliced.indexOf("/"));
+		    ci = tprefix + thost + ci;
+		}
+		updateElStorage(thisel.attr('rel'),ci,1);
+	    } else {       // image hosting unknown, qualify URL's of image hosting
+			    // attempting to find "http-equiv="refresh"" that's how twitter redirects from short http://t.co/* urls 
+		var searchres = data.indexOf(";URL="); // <---- proprietary, need better logic, assumes t.co short url
+		if(searchres > -1) {//found URL
+		    var newpath=data;
+		    newpath=newpath.slice(data.indexOf('location.replace')+18,data.indexOf('")')); // filter our url
+		    newpath=newpath.replace(/\\/g,''); // find and replace all escaping backslashes
+		    updateElStorage(thisel.attr('rel'),newpath);
+		}
+	    }
+	});
+    });
+}
+
+
 function imagify_crawlurl(e){
     if(e.search('media') > 0 && e.search('twitpic') > 0){
         var noxpath = '#media > img';
@@ -5,17 +94,13 @@ function imagify_crawlurl(e){
         var noxpath = '#main_image';
     } else if(e.search('wrap') > 0 && e.search('instagr') > 0) {
         var noxpath = '.stage .stage-inner img.photo';
-    }
-    else if(e.search('.container') > 0 && e.search('cinemagr.am') > 0) {
+    } else if(e.search('.container') > 0 && e.search('cinemagr.am') > 0) {
         var noxpath = '.row > img';
-    }
-    else if(e.search('.gifHolder') > 0 && e.search('gifpal.com') > 0) {
+    } else if(e.search('.gifHolder') > 0 && e.search('gifpal.com') > 0) {
         var noxpath = '.gifHolder img.gifImage';
-    }
-    else if(e.search('.fancy') > 0 && e.search('http://photobzz.com') > 0) {
+    } else if(e.search('.fancy') > 0 && e.search('http://photobzz.com') > 0) {
         var noxpath = '.fancy img';
-    }
-    else if(e.search('medium_photo') > 0) {  // tweet photo
+    } else if(e.search('medium_photo') > 0) {  // tweet photo
         var noxpath = '#medium_photo';
     } else if(e.search('fullsize') > 0 && e.search('twitgoo') > 0) {
         var noxpath = '#fullsize';

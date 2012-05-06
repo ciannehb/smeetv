@@ -1,4 +1,117 @@
 /*
+    function populateUrls(url){
+        var currentstate = $("#"+thisid).attr('data'); // currentstate is `undefined` when there is no data, means initial iteration
+        if(currentstate === undefined){
+            console.log('initial iteration'); // here we just popular urls
+            for(i = 0; i < url.length; i++){ 
+                var newattr = ((newattr === undefined)?(""):(newattr + " ")) + url[i];
+            }
+        }else{
+            console.log('repeated iteration'); // here we attempt to delegate tasks to dig/reload url's with proper non shorturls etc
+          
+        }
+        $("#"+thisid).attr("data", newattr);
+    }
+     
+    function processUrls(id){ // Go through each URL trying to convert it until process is the end, that is absolute URL to image.
+        var content = $("#"+id).attr("data");
+        content = content.split(" ");
+        updateCurrentDataStorage(id,"|");
+        for(i = 0; i < content.length; i++){
+            console.log("attempt to process url: " + content[i]);
+            $.get("/etc/util/xdom?"+content[i], function(data) {
+                var dompath = imagify_crawlurl(data);
+                if(dompath) {      // found qualifying image hosting
+                    $(data).find(dompath).attr('src')
+                    var ci=constructImagePath(data,dompath);
+                    updateCurrentDataStorage(id,ci);
+                } else {       // image hosting unknown, qualify URL's of image hosting
+                                // attempting to find "http-equiv="refresh"" that's how twitter redirects from short http://t.co/* urls 
+                    var searchres = data.indexOf(";URL=");
+                    if(searchres > -1) {//found URL
+                        var newpath=data;
+                        newpath=newpath.slice(data.indexOf('location.replace')+18,data.indexOf('")')); // filter our url
+                        newpath=newpath.replace(/\\/g,''); // find and replace all escaping backslashes
+                        updateCurrentDataStorage(id,"x"+newpath);
+                    }
+                }
+            });
+        }
+    }
+
+    function doCallback(data) {
+        console.log(data);
+    }
+
+    function extractUrls(content){
+        var pattern = /(https?:\/\/[^\s]+)/g,out = [],ii=0; // url regexp
+        content=content.split(" ");
+        for(i = 0; i < content.length; i++){
+            if(pattern.test(content[i])===true){
+                console.log(content[i]);
+                out[ii]=content[i];
+                ii++;
+            }
+        }
+        return out; // return array of urls
+    }
+
+        function extractUris(content) { // extract urls from twit
+            var rlregex = /(https?:\/\/[^\s]+)/g,rar = [],ii=0;
+            content=content.split(" ");
+            for(i = 0; i < content.length; i++){
+                if(rlregex.test(content[i])===true){
+                    rar[ii]=content[i];
+                    ii++;
+                }
+            }
+            return rar; // return array of urls
+        }
+
+        function spiderUris(uris) { // inspect each url, if shorturl, dig to get to the end
+            for(i = 0; i < uris.length; i++){
+                    var rrr = digdeep(uris[i]);
+            }
+        }
+
+        function digdeep(uri) {
+
+            if(!imagify_get_noxpath(uri)===false) {
+                doSomethingWithData(uri,0);
+            } else {
+                $.get("/etc/util/xdom?"+uri, doSomethingWithData);
+            }
+
+            function doSomethingWithData(data,preprocess) {
+                if(preprocess===0) { // we know the NOXPATH found, so this is direct hosting url, no need to dig
+                    var thisprocess = data;
+                }else{
+                    var a = data.indexOf("URL=")+4,
+                        b = data.indexOf('">'),
+                        thisprocess = data.slice(a,b);
+                }
+
+                var currentattr = $("#"+thisid).attr("data");
+                if(!currentattr===false){ // if data attr already exists, do not overwrite it, append it.
+                    var newattr = currentattr + " " + thisprocess;
+                    $("#"+thisid).attr("data", newattr);
+                } else {
+                    $("#"+thisid).attr("data", thisprocess);
+                }
+            }
+
+
+
+
+        }
+
+        var altcontent="testing http://t.co/doSdVNJT  http://t.co/rDZRqakz various urls http://twitpic.com/doSdVNJT yeah";
+        //var altcontent='[Womens] "All-Star TTC" (Green) Sweatshirt on Sale Now at TruType Clothing Online Store (http://t.co/1zc0cXdq) ... http://t.co/rDZRqakz';
+        var a2=extractUris(altcontent);
+        spiderUris(a2);
+
+
+
 function imagify(a,id){
     var token = imagify_detect_pic(a),
         shorturl = imagify_get_shorturl(a,token),
