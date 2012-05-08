@@ -97,6 +97,8 @@ function imagify_crawlurl(e){
         var noxpath = '.stage .stage-inner img.photo';
     } else if(e.search('panel') > 0 && e.search('imgur') > 0) {
         var noxpath = '.image > img';
+    } else if(e.search('gifContainer') > 0 && e.search('gifboom') > 0) {
+        var noxpath = '#gif';
     } else if(e.search('.container') > 0 && e.search('cinemagr.am') > 0) {
         var noxpath = '.row > img';
     } else if(e.search('.gifHolder') > 0 && e.search('gifpal.com') > 0) {
