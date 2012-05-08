@@ -63,6 +63,7 @@ function UnknownFunction(){ // Go through each URL trying to convert it until pr
 	$.get("/etc/util/xdom?"+sel, function(data) {
 	    var dompath = imagify_crawlurl(data);
 	    if(dompath) {      // found qualifying image hosting
+console.log(dompath);
 		var ci=constructImagePath(data,dompath);
 		if(ci && ci.indexOf("http://") === -1){
 		    var thiselsrc = thisel.attr('src'),
@@ -88,7 +89,7 @@ function UnknownFunction(){ // Go through each URL trying to convert it until pr
 
 
 function imagify_crawlurl(e){
-    if(e.search('media') > 0 && e.search('twitpic') > 0){
+    if(e.search('media-overlay') > 0 && e.search('twitpic') > 0){
         var noxpath = '#media > img';
     } else if(e.search('main_image') > 0 && e.search('yfrog') > 0) {
         var noxpath = '#main_image';
@@ -104,7 +105,7 @@ function imagify_crawlurl(e){
         var noxpath = '.fancy img';
     } else if(e.search('medium_photo') > 0) {  // tweet photo
         var noxpath = '#medium_photo';
-    } else if(e.search('fullsize') > 0 && e.search('twitgoo') > 0) {
+    } else if(e.search('twimage') > 0 && e.search('twitgoo') > 0) {
         var noxpath = '#fullsize';
     } else if(e.search('picktwitPhotoContainer') > 0) {  // picktor
         var noxpath = '#picktwitPhotoContainer > a > img';
