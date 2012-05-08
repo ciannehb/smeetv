@@ -135,6 +135,8 @@ function imagify_crawlurl(e){
         var noxpath = '#main > section > article > figure > a > img';
     } else if(e.search('photozou.jp') > 0) {
         var noxpath = '#indivi_media > a > img';
+    } else if(e.search('imgclean.com') > 0 && e.search('imgclear-entry') > 0) {
+        var noxpath = 'attachment-original';
     } else if(e.search('deviantart.com') > 0 && e.search('zoomed-in') > 0 ) {
         var noxpath = '#zoomed-in > img';
     } else if(e.search('iimmgg.com') > 0) {
