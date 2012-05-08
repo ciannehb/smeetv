@@ -143,6 +143,8 @@ function imagify_crawlurl(e){
         var noxpath = '#laimagen';
     } else if(e.search('min.us') > 0) {
         var noxpath = 'img';
+    } else if(e.search('quickmeme.com') > 0 && e.search('meme_title')) {
+        var noxpath = 'img';
     } else if(e.search('tinypic.com') > 0) {
         var noxpath = '#imgElement';
     }

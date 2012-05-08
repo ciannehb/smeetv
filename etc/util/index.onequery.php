@@ -17,7 +17,7 @@ $feed[]='http://search.twitter.com/search.rss?lang=all&q=%20photobucket.com%20OR
 
 $feed[]='http://search.twitter.com/search.rss?lang=all&q=%20deviantart.com%20OR%20%20photozou.jp%20OR%20%20min.us%20OR%20%20iimmgg.com/image%20OR%20%20cinemagr.am%20OR%20%20gifpal.com';
 
-$feed[]='http://search.twitter.com/search.rss?lang=all&q=%20.png%20OR%20%20.gif%20OR%20%20.jpg%20OR%20%20.jpeg%20OR%20%20gifboom.com%20OR%20%20imgclean.com';
+$feed[]='http://search.twitter.com/search.rss?lang=all&q=%20.png%20OR%20%20.gif%20OR%20%20.jpg%20OR%20%20.jpeg%20OR%20%20gifboom.com%20OR%20%20imgclean.com%20OR%20%20quickmeme.com%20OR%20%20qkme.me';
 
 
 
