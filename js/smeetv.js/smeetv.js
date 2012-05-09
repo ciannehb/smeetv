@@ -101,6 +101,8 @@ function imagify_crawlurl(e){
         var noxpath = '#gif';
     } else if(e.search('.container') > 0 && e.search('cinemagr.am') > 0) {
         var noxpath = '.row > img';
+    } else if(e.search('PinImageHolder') > 0 && e.search('pinterest.com') > 0) {
+        var noxpath = '#pinCloseupImage';
     } else if(e.search('.gifHolder') > 0 && e.search('gifpal.com') > 0) {
         var noxpath = '.gifHolder img.gifImage';
     } else if(e.search('.fancy') > 0 && e.search('http://photobzz.com') > 0) {
