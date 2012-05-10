@@ -140,7 +140,7 @@ echo "</section>";
                var content=$(this).find('.thumbnail').html(),
                    thisid=$(this).attr('id');
                 $("#"+thisid).append(extractUrls2(content));
-                //gogo(thisid);
+                gogo(thisid);
                 
                 
                 

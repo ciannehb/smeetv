@@ -3,7 +3,7 @@ function gogo(thisid){
        console.log(i);
        setTimeout(function () {
 	  $('article#'+thisid).find('img.pending').addClass('test'+i);
-	  UnknownFunction();
+	  UnknownFunction(thisid);
 	  if (--i) myLoop(i);      //  decrement i and call myLoop again if i > 0
        }, 1000)
     })(5);                        //  pass the number of iterations as an argument
@@ -56,8 +56,8 @@ function updateCurrentDataStorage(id,newContent) {
     $('#'+id).attr('data',current_state + " " + newContent )
 }
 
-function UnknownFunction(){ // Go through each URL trying to convert it until process is the end, that is absolute URL to image.
-    $('article.twit img.pending').each(function(){
+function UnknownFunction(thisid){ // Go through each URL trying to convert it until process is the end, that is absolute URL to image.
+    $('article#'+thisid+'.twit img.pending').each(function(){
 	var thisel = $(this),
 	    sel = $('img[rel="'+thisel.attr('rel')+'"]').attr('src');
 	$.get("/etc/util/xdom?"+sel, function(data) {
