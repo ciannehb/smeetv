@@ -608,6 +608,9 @@ overflow:hidden;
 display:none;
 }
 
+.stream img {
+width:100px;
+}
 
 .thumbnail cite {
 bottom: 0.5em;
