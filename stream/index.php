@@ -139,10 +139,15 @@ echo "</section>";
            $('.stream > article').each(function(){
                var content=$(this).find('.thumbnail').html(),
                    thisid=$(this).attr('id');
-
-
-               imagify(content,thisid);
-
+                $("#"+thisid).append(extractUrls2(content));
+                //gogo(thisid);
+                
+                
+                
+                // need to get GOGO out of the EACH. as it each run it multiple times, or need to enhance GOGO itself
+                
+                
+                
            });
 
 
