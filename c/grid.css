@@ -608,7 +608,7 @@ overflow:hidden;
 display:none;
 }
 
-.stream img {
+.stream img:not(.pending) {
 width:100px;
 }
 

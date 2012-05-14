@@ -5,7 +5,7 @@ function gogo(thisid){
 	  $('article#'+thisid).find('img.pending').addClass('test'+i);
 	  UnknownFunction(thisid);
 	  if (--i) myLoop(i);      //  decrement i and call myLoop again if i > 0
-       }, 1000)
+       }, 2000)
     })(5);                        //  pass the number of iterations as an argument
 }
 
@@ -20,10 +20,8 @@ function kickDig(id){ // Change i here to specify amount of attempts to make to 
 function extractUrls2(content){
     console.log(content);
     var pattern = /(https?:\/\/[^\s]+)/g,out = [],ii=0; // older pattern, YET TO check with multiple urls in one twit
-    //var pattern = /^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/; // newer pattern
     var forbidden_url_chars = /([^A-Za-z0-9\:\/\.\#\-\_\?\@\=])/g;
     content = content.replace("http://"," http://"); // deal with pushed content to touch http and incorrecting injecting into containers
-    //alert(content[i].replace(/([^A-Za-z0-9\:\/\.\#\-\_\?\@\=])/g,"x")); ////! !
     content=content.split(" ");
     var bld = "";
     for(i = 0; i < content.length; i++){
@@ -58,12 +56,20 @@ function updateCurrentDataStorage(id,newContent) {
 
 function UnknownFunction(thisid){ // Go through each URL trying to convert it until process is the end, that is absolute URL to image.
     $('article#'+thisid+'.twit img.pending').each(function(){
+
+        // Sometimes even short urls will translate directly into displayable image
+	// in img src="", in this case we don't need to run through gogo iterator
+	// !!!!!!! This logic may need to adjusted once we add default image for failed to load imgs/background etc.
+
+        if($(this).height()>50){ // broken link src="" is 20px on macs chrome, giving it some extra pixels just in case.
+	    $(this).removeClass('pending');
+	}
+
 	var thisel = $(this),
 	    sel = $('img[rel="'+thisel.attr('rel')+'"]').attr('src');
 	$.get("/etc/util/xdom?"+sel, function(data) {
 	    var dompath = imagify_crawlurl(data);
 	    if(dompath) {      // found qualifying image hosting
-console.log(dompath);
 		var ci=constructImagePath(data,dompath);
 		if(ci && ci.indexOf("http://") === -1){
 		    var thiselsrc = thisel.attr('src'),
