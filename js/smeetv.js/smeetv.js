@@ -6,7 +6,7 @@ function gogo(thisid){
 	  UnknownFunction(thisid);
 	  if (--i) myLoop(i);      //  decrement i and call myLoop again if i > 0
        }, 2000)
-    })(5);                        //  pass the number of iterations as an argument
+    })(6);                        //  pass the number of iterations as an argument
 }
 
 function kickDig(id){ // Change i here to specify amount of attempts to make to crawl
