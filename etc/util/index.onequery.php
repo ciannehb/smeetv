@@ -15,7 +15,7 @@ $feed[]='http://search.twitter.com/search.rss?lang=all&q=%20twitpic.%20OR%20%20p
 $feed[]='http://search.twitter.com/search.rss?lang=all&q=%20upic.me%20OR%20%20fotki.yandex.ru%20OR%20%20imgur.com%20OR%20%20lockerz.com%20OR%20%20picplz.com%20OR%20%20instagr.am%20OR%20%20tinypic.com%20OR%20%20lulzimg.com%20OR%20%20pbckt.com';
 $feed[]='http://search.twitter.com/search.rss?lang=all&q=%20photobucket.com%20OR%20%20imageshack.us%20OR%20%20fbcdn.net/hphotos%20OR%20%20imagehost.org%20OR%20%20photobzz.com/photo%20OR%20%20pinterest.com%2Fpin';
 
-$feed[]='http://search.twitter.com/search.rss?lang=all&q=%20deviantart.com%20OR%20%20photozou.jp%20OR%20%20min.us%20OR%20%20iimmgg.com/image%20OR%20%20cinemagr.am%2Fshow%20OR%20%20gifpal.com';
+$feed[]='http://search.twitter.com/search.rss?lang=all&q=%20deviantart.com%20OR%20%20photozou.jp%20OR%20%20min.us%20OR%20%20iimmgg.com/image%20OR%20%20cinemagr.am%2Fshow%20OR%20%20gifpal.com%20OR%20%20say.ly';
 
 $feed[]='http://search.twitter.com/search.rss?lang=all&q=%20.png%20OR%20%20.gif%20OR%20%20.jpg%20OR%20%20.jpeg%20OR%20%20gifboom.com%20OR%20%20imgclean.com%20OR%20%20quickmeme.com%20OR%20%20qkme.me';
 

@@ -94,7 +94,7 @@ function UnknownFunction(thisid){ // Go through each URL trying to convert it un
 }
 
 
-function imagify_crawlurl(e){
+function imagify_crawlurl(e){ // this operation would be quicker if most popular image hosting was on top so it'd break out of the if
     if(e.search('media-overlay') > 0 && e.search('twitpic') > 0){
         var noxpath = '#media > img';
     } else if(e.search('main_image') > 0 && e.search('yfrog') > 0) {
@@ -128,6 +128,8 @@ function imagify_crawlurl(e){
     } else if(e.search('image') > 0 && e.search('upic.me') > 0) {
         var noxpath = '#image';
     } else if(e.search('foto') > 0 && e.search('fotki.yandex.ru') > 0) {
+        var noxpath = '#foto img';
+    } else if(e.search('contentImageContainer') > 0 && e.search('whosay.com') > 0) {
         var noxpath = '#foto img';
     } else if(e.search('photo') > 0 && e.search('lockerz.com') > 0) {
         var noxpath = '#photo';
