@@ -135,6 +135,8 @@ function imagify_crawlurl(e){ // this operation would be quicker if most popular
         var noxpath = '#photo';
     } else if(e.search('photo') > 0 && e.search('plixi') > 0) { // plixi
 	var noxpath = '#main > section > article > figure > a > img';
+    } else if(e.search('commentPhoto') > 0 && e.search('foursquare.com') > 0) {
+	var noxpath = '.commentPhoto > img';
     } else if(e.search('#mainImage') > 0 && e.search('picplz.com') > 0) {
         var noxpath = '#main > section > article > figure > a > img';
     } else if(e.search('pbckt.com') > 0) {
