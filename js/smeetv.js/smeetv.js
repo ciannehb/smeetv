@@ -71,7 +71,12 @@ function UnknownFunction(thisid){ // Go through each URL trying to convert it un
 	    var dompath = imagify_crawlurl(data);
 	    if(dompath) {      // found qualifying image hosting
 		var ci=constructImagePath(data,dompath);
-		if(ci && ci.indexOf("http://") === -1){
+
+
+
+
+                var http_s_pattern = /http:\/\/|https:\/\/\b/;
+                if(http_s_pattern.test(ci)===false){
 		    var thiselsrc = thisel.attr('src'),
 			tprefix = thiselsrc.slice(0,thiselsrc.indexOf('//')+2),
 			tsliced = thiselsrc.replace(tprefix,""),
